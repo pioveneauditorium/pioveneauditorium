@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditorium Piovene Rocchette</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo Auditorium">
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="cinema.html">Cinema</a></li>
+        <li><a href="musica.html">Musica</a></li>
+        <li><a href="teatro.html">Teatro</a></li>
+        <li><a href="incontri.html">Incontri</a></li>
+        <li><a href="ragazzi.html">Ragazzi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Carosello eventi dinamico -->
+    <section class="events-carousel">
+      <h2>Prossimi Eventi</h2>
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-track">
+          <!-- Slide generate dinamicamente dal CSV -->
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="footer.png" alt="Footer" class="footer-img">
+    <p>&copy; 2025 Auditorium Piovene Rocchette</p>
+  </footer>
+
+  <!-- Solo script esterno -->
+  <script src="script.js"></script>
+</body>
+</html>
