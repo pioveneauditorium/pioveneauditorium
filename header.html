@@ -1,0 +1,66 @@
+/* ---------------------------
+   Cartello verde dietro hamburger
+--------------------------- */
+.exit-sign {
+  position: absolute;
+  top: 50%;
+  right: 20px; /* stessa distanza originale dall’header */
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
+  padding: 10px 16px;
+  border-radius: 8px;
+  min-width: 80px; /* larghezza minima */
+  z-index: 1000; /* dietro l’hamburger */
+}
+
+.exit-left, .exit-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Omino */
+.exit-left .exit-icon {
+  height: 24px;   /* altezza consigliata */
+  width: auto;    /* mantiene proporzioni */
+  display: block;
+  margin-right: 10px; /* distanza dall’hamburger */
+}
+
+/* Mantieni l’hamburger assoluto originale */
+.hamburger {
+  position: absolute; /* posizione originale */
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  z-index: 1001; /* sopra il cartello verde */
+}
+
+/* Righe dell'hamburger */
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: 5% 5%;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 5% 95%;
+}
