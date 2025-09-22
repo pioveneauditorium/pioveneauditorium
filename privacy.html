@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy – Piovene Auditorium | Eventi a Piovene Rocchette</title>
+  <meta name="description" content="Leggi la Privacy Policy di Piovene Auditorium per sapere come trattiamo i tuoi dati personali nel rispetto della normativa vigente." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_centered_16x16.png" />
+  <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_centered_180x180.png" />
+
+  <!-- Font e stili -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  
+  <script src="script.js" defer></script>
+  <script src="footer.js" defer></script>
+  <script src="header.js" defer></script>
+
+  <style>
+    .grid-item { box-shadow: none; border: none; padding: 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr minmax(auto, 700px) 1fr; gap: 2rem; padding: 2rem 1rem; }
+    .content-grid > .grid-item { grid-column: 2; }
+
+    /* Testo bianco */
+    main, main * { color: white !important; }
+
+    h3, h4 { font-family: 'Playfair Display', serif; color: inherit; margin-top: 1.5rem; }
+    p { font-family: 'Roboto', sans-serif; line-height: 1.6; color: inherit; margin-bottom: 1rem; }
+    a { color: #00bbff; text-decoration: none; }
+    main a:hover { text-decoration: underline; }
+    header a:hover, footer a:hover { text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; padding: 1rem; }
+      .content-grid > .grid-item { grid-column: 1; }
+    }
+
+    #lang-switch { margin-bottom: 1.5rem; font-family: 'Roboto', sans-serif; text-align: center; }
+    #lang-switch button {
+      background: none; border: 1px solid #0077cc; color: #0077cc;
+      padding: 0.4rem 1rem; margin: 0 0.5rem; cursor: pointer; font-weight: 700;
+      border-radius: 4px; transition: background-color 0.3s, color 0.3s;
+    }
+    #lang-switch button.active, #lang-switch button:hover { background-color: #0077cc; color: white; }
+    .hidden { display: none; }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnIt = document.getElementById('btn-it');
+      const btnEn = document.getElementById('btn-en');
+      const privacyIt = document.getElementById('privacy-it');
+      const privacyEn = document.getElementById('privacy-en');
+
+      function showItalian() {
+        privacyIt.classList.remove('hidden');
+        privacyEn.classList.add('hidden');
+        btnIt.classList.add('active');
+        btnEn.classList.remove('active');
+      }
+
+      function showEnglish() {
+        privacyIt.classList.add('hidden');
+        privacyEn.classList.remove('hidden');
+        btnEn.classList.add('active');
+        btnIt.classList.remove('active');
+      }
+
+      btnIt.addEventListener('click', showItalian);
+      btnEn.addEventListener('click', showEnglish);
+
+      showItalian();
+    });
+  </script>
+</head>
+<body>
+  <!-- Header dinamico -->
+  <header id="header"></header>
+
+  <main>
+    <section class="content-grid">
+      <div class="grid-item">
+
+        <!-- Selettore lingua -->
+        <div id="lang-switch">
+          <button id="btn-it" aria-label="Mostra Privacy in Italiano">IT</button>
+          <button id="btn-en" aria-label="Show Privacy in English">EN</button>
+        </div>
+
+        <!-- Privacy IT -->
+        <div id="privacy-it">
+          <h3>Privacy Policy</h3>
+
+          <p>La presente Privacy Policy descrive come <strong>pioveneauditorium.it</strong> raccoglie, utilizza e protegge i dati personali degli utenti che visitano il sito web <a href="https://pioveneauditorium.it">pioveneauditorium.it</a> e utilizzano i suoi servizi.</p>
+
+          <p><strong>Dati raccolti</strong></p>
+          <p>Non raccogliamo dati personali se non quelli forniti volontariamente tramite il form di contatto o altre modalità di comunicazione diretta.</p>
+
+          <p><strong>Uso dei dati</strong></p>
+          <p>I dati forniti sono utilizzati esclusivamente per rispondere alle richieste, fornire servizi o informazioni richieste e migliorare l’esperienza utente. Non cediamo dati a terzi.</p>
+
+          <p><strong>Cookie</strong></p>
+          <p>Questo sito utilizza cookie tecnici necessari per il funzionamento del sito. Non utilizziamo cookie di profilazione o di terze parti per scopi pubblicitari.</p>
+
+          <p><strong>Diritti degli utenti</strong></p>
+          <p>Gli utenti possono in qualsiasi momento richiedere l’accesso, la modifica o la cancellazione dei propri dati personali scrivendo a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+
+          <p><strong>Responsabile del trattamento</strong></p>
+          <p>Il titolare del trattamento dei dati è <strong>pioveneauditorium.it</strong>, email: <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+
+          <p><strong>Modifiche alla Privacy Policy</strong></p>
+          <p>Ci riserviamo il diritto di aggiornare questa privacy policy in qualsiasi momento. Si consiglia di consultarla periodicamente.</p>
+
+          <p><strong>Ultimo aggiornamento:</strong> 22 settembre 2025</p>
+        </div>
+
+        <!-- Privacy EN -->
+        <div id="privacy-en" class="hidden">
+          <h3>Privacy Policy</h3>
+
+          <p>This Privacy Policy describes how <strong>pioveneauditorium.it</strong> collects, uses, and protects personal data of users visiting the website <a href="https://pioveneauditorium.it">pioveneauditorium.it</a> and using its services.</p>
+
+          <p><strong>Data Collected</strong></p>
+          <p>We do not collect personal data except those voluntarily provided via contact forms or other direct communication methods.</p>
+
+          <p><strong>Use of Data</strong></p>
+          <p>The provided data are used solely to respond to requests, provide services or requested information, and improve user experience. We do not share data with third parties.</p>
+
+          <p><strong>Cookies</strong></p>
+          <p>This website uses technical cookies necessary for the website’s operation. We do not use profiling or third-party advertising cookies.</p>
+
+          <p><strong>User Rights</strong></p>
+          <p>Users may request access, modification, or deletion of their personal data at any time by writing to <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+
+          <p><strong>Data Controller</strong></p>
+          <p>The data controller is <strong>pioveneauditorium.it</strong>, email: <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+
+          <p><strong>Changes to Privacy Policy</strong></p>
+          <p>We reserve the right to update this privacy policy at any time. Please review it periodically.</p>
+
+          <p><strong>Last update:</strong> September 22, 2025</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer dinamico -->
+  <footer></footer>
+</body>
+</html>
