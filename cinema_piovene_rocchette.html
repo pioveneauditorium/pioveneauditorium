@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette</title>
+
+  <!-- SEO base -->
+  <meta name="description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <link rel="canonical" href="https://pioveneauditorium.it/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_centered_16x16.png">
+  <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_centered_180x180.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pioveneauditorium.it/">
+  <meta property="og:title" content="Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette">
+  <meta property="og:description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette">
+  <meta name="twitter:description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Header dinamico -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="work-in-progress" style="text-align:center; padding:100px 20px;">
+      <h1 style="font-size:3em; margin-bottom:20px;"><i class="fas fa-film"></i> Cinema</h1>
+      <p style="font-size:1.2em;">Work in progress</p>
+    </section>
+  </main>
+
+  <!-- Footer dinamico -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Script principali -->
+  <script src="script.js" defer></script>
+
+  <script>
+    function loadHTML(id, url, callback) {
+      fetch(url)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if(callback) callback();
+        })
+        .catch(err => console.error(`Errore caricamento ${url}:`, err));
+    }
+
+    // Carica header e inizializza hamburger menu
+    loadHTML("header-placeholder", "header.html", () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      const closeMenu = document.querySelector('.close-menu');
+
+      if(hamburger && navMenu){
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+
+        if (closeMenu) {
+          closeMenu.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+          });
+        }
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+    });
+
+    // Carica footer normalmente
+    loadHTML("footer-placeholder", "footer.html");
+  </script>
+</body>
+</html>
