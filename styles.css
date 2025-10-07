@@ -11,13 +11,6 @@ html, body {
   height: 100%;
 }
 
-/* ---------------------------
-   Forza modalità chiara (light mode)
---------------------------- */
-:root {
-  color-scheme: light;
-}
-
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
@@ -673,23 +666,31 @@ nav ul li a:hover .fas.fa-phone-alt {
   box-shadow: 0 5px 10px rgba(0,0,0,0.4);
 }
 
-/* Bottone X chiudi */
+/* Bottone X chiudi — cerchio nero */
 .event-modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fdd835;
+  background-color: #000;   /* cerchio nero */
+  border: 2px solid #fdd835;/* bordo giallo sottile */
+  color: #fdd835;          /* X gialla */
+  font-size: 1.5rem;       /* dimensione X */
+  width: 40px;             /* diametro cerchio */
+  height: 40px;
+  border-radius: 50%;      /* cerchio perfetto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: color 0.3s ease;
-  z-index: 10; /* assicura che sia sopra il contenuto scrollabile */
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .event-modal-close:hover {
-  color: #ffffff;
+  background-color: #fdd835; /* cerchio giallo */
+  color: #000;              /* X nera */
 }
+
 
 /* Mobile */
 @media (max-width: 768px) {
