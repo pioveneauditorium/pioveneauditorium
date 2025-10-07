@@ -53,6 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
   modalClose.addEventListener("click", closeEventModal);
   modal.addEventListener("click", (e) => { if (e.target === modal) closeEventModal(); });
 
+  // Inizializza array JSON-LD
+  window.eventiCinemaJSONLD = [];
+
   // Carica CSV con PapaParse
   fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
     .then(res => res.text())
@@ -71,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
 
+            // --- Genera eventi visibili agli utenti ---
             const div = document.createElement("div");
             div.className = "event-item";
 
@@ -101,7 +105,50 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             container.appendChild(div);
+
+            // --- Genera JSON-LD per SEO ---
+            const eventJSONLD = {
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": titolo,
+              "startDate": `${dataEvento}T${orario}`,
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": {
+                "@type": "Place",
+                "name": "Auditorium Comunale di Piovene Rocchette",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "P.za degli Alpini, 1",
+                  "addressLocality": "Piovene Rocchette",
+                  "postalCode": "36013",
+                  "addressRegion": "VI",
+                  "addressCountry": "IT"
+                }
+              },
+              "image": immagine || "https://pioveneauditorium.it/img/logo2.png",
+              "description": descrizione,
+              "offers": {
+                "@type": "Offer",
+                "url": linkBiglietti || window.location.href,
+                "price": "0",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              "performer": {
+                "@type": "PerformingGroup",
+                "name": "Piovene Auditorium"
+              }
+            };
+
+            window.eventiCinemaJSONLD.push(eventJSONLD);
           });
+
+          // Aggiorna lo script JSON-LD nella pagina
+          const jsonLdScript = document.getElementById('json-ld-events');
+          if (jsonLdScript) {
+            jsonLdScript.textContent = JSON.stringify(window.eventiCinemaJSONLD);
+          }
         },
         error: function(err) {
           console.error("Errore parsing CSV cinema:", err);
