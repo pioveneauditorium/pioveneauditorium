@@ -45,76 +45,78 @@
     <h2>Calendario Eventi</h2>
     <p>
       Scopri gli eventi in programma all'Auditorium di Piovene Rocchette. <br>
-      <strong><span style="background-color: yellow; color: black; padding: 2px 6px; border-radius: 4px;">Cinema</span>,
-      <span style="background-color: purple; color: white; padding: 2px 6px; border-radius: 4px;">Teatro</span>,
-      <span style="background-color: orange; color: white; padding: 2px 6px; border-radius: 4px;">Musica</span></strong>
+      <strong>
+        <span style="background-color: yellow; color: black; padding: 2px 6px; border-radius: 4px;">Cinema</span>,
+        <span style="background-color: purple; color: white; padding: 2px 6px; border-radius: 4px;">Teatro</span>,
+        <span style="background-color: orange; color: white; padding: 2px 6px; border-radius: 4px;">Musica</span>
+      </strong>
       e molto altro.
     </p>
   </section>
 </main>
 
-  <!-- Calendario fuori dal main per tutta larghezza -->
-  <section id="calendar-container">
-    <button id="prev-month" class="prev-next" disabled>Mese Precedente</button>
-    <button id="next-month" class="prev-next">Mese Successivo</button>
+<!-- Calendario fuori dal main per tutta larghezza -->
+<section id="calendar-container">
+  <button id="prev-month" class="prev-next" disabled>Mese Precedente</button>
+  <button id="next-month" class="prev-next">Mese Successivo</button>
 
-    <h2 id="calendar-title">Caricamento...</h2>
+  <h2 id="calendar-title">Caricamento...</h2>
 
-    <div id="calendar"></div>
-    <div id="event-box" class="event-box"></div>
-  </section>
+  <div id="calendar"></div>
+  <div id="event-box" class="event-box"></div>
+</section>
 
-  <!-- Footer dinamico -->
-  <div id="footer-placeholder"></div>
+<!-- Footer dinamico -->
+<div id="footer-placeholder"></div>
 
-  <!-- Script per caricare header e footer dinamici -->
-  <script>
-    function loadHTML(id, url, callback) {
-      fetch(url)
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-          if(callback) callback();
-        })
-        .catch(err => console.error(`Errore caricamento ${url}:`, err));
-    }
+<!-- Script per caricare header e footer dinamici -->
+<script>
+  function loadHTML(id, url, callback) {
+    fetch(url)
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if(callback) callback();
+      })
+      .catch(err => console.error(`Errore caricamento ${url}:`, err));
+  }
 
-    // Carica header e inizializza hamburger menu
-    loadHTML("header-placeholder", "header.html", () => {
-      const hamburger = document.querySelector('.hamburger');
-      const navMenu = document.getElementById('nav-menu');
-      const closeMenu = document.querySelector('.close-menu');
+  // Carica header e inizializza hamburger menu
+  loadHTML("header-placeholder", "header.html", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.querySelector('.close-menu');
 
-      if(hamburger && navMenu){
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
+    if(hamburger && navMenu){
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
 
-        if (closeMenu) {
-          closeMenu.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        }
-
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
+      if (closeMenu) {
+        closeMenu.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
         });
       }
-    });
 
-    // Carica footer normalmente
-    loadHTML("footer-placeholder", "footer.html");
-  </script>
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+  });
 
-  <!-- Include PapaParse PRIMA del JS del calendario -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  // Carica footer normalmente
+  loadHTML("footer-placeholder", "footer.html");
+</script>
 
-  <!-- Script calendario -->
-  <script src="calendario/calendario.js"></script>
+<!-- Include PapaParse PRIMA del JS del calendario -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<!-- Script calendario con JSON-LD dinamico -->
+<script src="calendario/calendario.js"></script>
 </body>
 </html>
