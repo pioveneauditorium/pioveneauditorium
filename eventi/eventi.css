@@ -128,18 +128,3 @@
     padding: 6px 12px;
   }
 }
-
-/* ---------------------------
-   "Scopri di più"
---------------------------- */
-.more-text {
-  color: #fdd835;
-  cursor: pointer;
-  font-weight: 600;
-  text-decoration: underline;
-  margin-left: 5px;
-}
-
-.more-text:hover {
-  color: #ffeb3b;
-}
