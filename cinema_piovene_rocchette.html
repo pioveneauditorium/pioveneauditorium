@@ -25,7 +25,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette">
-  <meta name="twitter:description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta name="twitter:description" content="Cinema, musica, teatro, eventi all'Auditorium di Piovene Rocchette.">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- CSS -->
@@ -58,6 +58,11 @@
   <!-- Script principali -->
   <script src="script.js" defer></script>
   <script src="eventi/cinema.js" defer></script>
+
+  <!-- JSON-LD dinamico per SEO -->
+  <script id="json-ld-events" type="application/ld+json">
+    []
+  </script>
 
   <script>
     function loadHTML(id, url, callback) {
@@ -98,8 +103,15 @@
       }
     });
 
-    // Carica footer normalmente
+    // Carica footer
     loadHTML("footer-placeholder", "footer.html");
+
+    // --- Aggiornamento JSON-LD dinamico da cinema.js ---
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.eventiCinemaJSONLD) {
+        document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiCinemaJSONLD);
+      }
+    });
   </script>
 </body>
 </html>

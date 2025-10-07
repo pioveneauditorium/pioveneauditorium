@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendario Eventi – Piovene Auditorium</title>
 
-  <!-- SEO e font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Titolo e meta description SEO -->
+  <title>Calendario Eventi – Auditorium Piovene Rocchette | Cinema, Teatro, Musica</title>
+  <meta name="description" content="Consulta il calendario aggiornato degli eventi all'Auditorium Comunale di Piovene Rocchette: cinema, teatro, musica e attività culturali.">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css"> <!-- Layout base del sito -->
-  <link rel="stylesheet" href="calendario/calendario.css"> <!-- Stili specifici calendario -->
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="canonical" href="https://pioveneauditorium.it/calendario.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
@@ -23,16 +18,59 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/">
-  <meta property="og:title" content="Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette">
-  <meta property="og:description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta property="og:url" content="https://pioveneauditorium.it/calendario.html">
+  <meta property="og:title" content="Calendario Eventi – Auditorium Piovene Rocchette | Cinema, Teatro, Musica">
+  <meta property="og:description" content="Consulta il calendario aggiornato degli eventi all'Auditorium Comunale di Piovene Rocchette: cinema, teatro, musica e attività culturali.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Piovene Auditorium – Cinema, musica, teatro, eventi e attività a Piovene Rocchette">
-  <meta name="twitter:description" content="Cinema, musica, teatro, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta name="twitter:title" content="Calendario Eventi – Auditorium Piovene Rocchette | Cinema, Teatro, Musica">
+  <meta name="twitter:description" content="Consulta il calendario aggiornato degli eventi all'Auditorium Comunale di Piovene Rocchette: cinema, teatro, musica e attività culturali.">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <!-- Font e CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="calendario/calendario.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Schema markup JSON-LD per eventi -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Eventi Auditorium Piovene Rocchette",
+    "startDate": "2025-10-10T20:30",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Auditorium Comunale di Piovene Rocchette",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.za degli Alpini, 1",
+        "addressLocality": "Piovene Rocchette",
+        "postalCode": "36013",
+        "addressRegion": "VI",
+        "addressCountry": "IT"
+      }
+    },
+    "image": "https://pioveneauditorium.it/img/logo2.png",
+    "description": "Cinema, teatro, musica e attività culturali all'Auditorium di Piovene Rocchette. Consulta il calendario aggiornato per non perdere gli eventi.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://pioveneauditorium.it/calendario.html",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "performer": {
+      "@type": "PerformingGroup",
+      "name": "Piovene Auditorium"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -45,8 +83,8 @@
     <p>
       Scopri gli eventi in programma all'Auditorium di Piovene Rocchette. <br>
       <strong><span style="background-color: yellow; color: black; padding: 2px 6px; border-radius: 4px;">Cinema</span>,
-      <span style="background-color: purple; color: white; padding: 2px 6px; border-radius: 4px;">teatro</span>,
-      <span style="background-color: orange; color: white; padding: 2px 6px; border-radius: 4px;">musica</span></strong>
+      <span style="background-color: purple; color: white; padding: 2px 6px; border-radius: 4px;">Teatro</span>,
+      <span style="background-color: orange; color: white; padding: 2px 6px; border-radius: 4px;">Musica</span></strong>
       e molto altro.
     </p>
   </section>
