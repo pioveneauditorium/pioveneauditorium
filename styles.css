@@ -666,17 +666,17 @@ nav ul li a:hover .fas.fa-phone-alt {
   box-shadow: 0 5px 10px rgba(0,0,0,0.4);
 }
 
-/* Bottone X chiudi — quadrato nero compatto */
+/* Bottone X chiudi — quadrato nero minimal */
 .event-modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   background-color: #000;   /* quadrato nero */
-  border: none;             /* niente contorno */
+  border: none;
   color: #fdd835;          /* X gialla */
-  font-size: 1.4rem;       /* X un po' più piccola */
-  width: 32px;             /* quadrato compatto */
-  height: 32px;
+  font-size: 1.2rem;       /* X un po' più piccola */
+  width: 26px;             /* quadrato piccolo */
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -686,8 +686,8 @@ nav ul li a:hover .fas.fa-phone-alt {
 }
 
 .event-modal-close:hover {
-  background-color: #fdd835; /* quadrato giallo */
-  color: #000;              /* X nera */
+  background-color: #fdd835;
+  color: #000;
 }
 
 /* Mobile */
