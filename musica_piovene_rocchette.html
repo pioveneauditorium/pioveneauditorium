@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piovene Auditorium – Musica, teatro, cinema, eventi e attività a Piovene Rocchette</title>
+  <title>Piovene Auditorium – Musica a Piovene Rocchette</title>
 
   <!-- SEO base -->
-  <meta name="description" content="Musica, teatro, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <link rel="canonical" href="https://pioveneauditorium.it/">
+  <meta name="description" content="Eventi di musica all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli musicali.">
+  <link rel="canonical" href="https://pioveneauditorium.it/musica_piovene_rocchette.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
@@ -17,15 +17,15 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/">
-  <meta property="og:title" content="Piovene Auditorium – Musica, teatro, cinema, eventi e attività a Piovene Rocchette">
-  <meta property="og:description" content="Musica, teatro, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta property="og:url" content="https://pioveneauditorium.it/musica_piovene_rocchette.html">
+  <meta property="og:title" content="Piovene Auditorium – Musica a Piovene Rocchette">
+  <meta property="og:description" content="Eventi di musica all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli musicali.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Piovene Auditorium – Musica, teatro, cinema, eventi e attività a Piovene Rocchette">
-  <meta name="twitter:description" content="Musica, teatro, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta name="twitter:title" content="Piovene Auditorium – Musica a Piovene Rocchette">
+  <meta name="twitter:description" content="Eventi di musica all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli musicali.">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- CSS -->
@@ -37,6 +37,11 @@
 
   <!-- PapaParse -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+
+  <!-- JSON-LD dinamico per SEO -->
+  <script id="json-ld-events" type="application/ld+json">
+    []
+  </script>
 </head>
 
 <body>
@@ -98,8 +103,15 @@
       }
     });
 
-    // Carica footer normalmente
+    // Carica footer
     loadHTML("footer-placeholder", "footer.html");
+
+    // --- Aggiornamento JSON-LD dinamico da musica.js ---
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.eventiMusicaJSONLD) {
+        document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiMusicaJSONLD);
+      }
+    });
   </script>
 </body>
 </html>

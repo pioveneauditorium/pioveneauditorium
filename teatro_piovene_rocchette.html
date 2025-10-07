@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piovene Auditorium – Teatro, musica, cinema, eventi e attività a Piovene Rocchette</title>
+  <title>Piovene Auditorium – Teatro a Piovene Rocchette</title>
 
   <!-- SEO base -->
-  <meta name="description" content="Teatro, musica, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <link rel="canonical" href="https://pioveneauditorium.it/">
+  <meta name="description" content="Eventi di teatro all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli teatrali.">
+  <link rel="canonical" href="https://pioveneauditorium.it/teatro_piovene_rocchette.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
@@ -17,15 +17,15 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/">
-  <meta property="og:title" content="Piovene Auditorium – Teatro, musica, cinema, eventi e attività a Piovene Rocchette">
-  <meta property="og:description" content="Teatro, musica, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta property="og:url" content="https://pioveneauditorium.it/teatro_piovene_rocchette.html">
+  <meta property="og:title" content="Piovene Auditorium – Teatro a Piovene Rocchette">
+  <meta property="og:description" content="Eventi di teatro all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli teatrali.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Piovene Auditorium – Teatro, musica, cinema, eventi e attività a Piovene Rocchette">
-  <meta name="twitter:description" content="Teatro, musica, cinema, eventi e attività all'Auditorium di Piovene Rocchette. Scopri il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta name="twitter:title" content="Piovene Auditorium – Teatro a Piovene Rocchette">
+  <meta name="twitter:description" content="Eventi di teatro all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli teatrali.">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- CSS -->
@@ -34,6 +34,14 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+
+  <!-- JSON-LD dinamico per SEO -->
+  <script id="json-ld-events" type="application/ld+json">
+    []
+  </script>
 </head>
 
 <body>
@@ -41,12 +49,10 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="event-section" style="text-align:center; padding:50px 20px;">
+    <section style="text-align:center; padding:50px 20px;">
       <h1 style="font-size:3em; margin-bottom:20px;"><i class="fas fa-theater-masks"></i> Teatro</h1>
-      
-      <!-- Contenitore ufficiale per eventi -->
-      <div id="eventi-teatro" class="event-list">
-        <!-- Eventi teatro caricati dinamicamente da JS -->
+      <div id="eventi-teatro" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
+        <!-- Eventi teatro caricati dinamicamente qui -->
       </div>
     </section>
   </main>
@@ -56,10 +62,6 @@
 
   <!-- Script principali -->
   <script src="script.js" defer></script>
-
-  <!-- Includi PapaParse PRIMA del JS specifico della pagina -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
   <script src="eventi/teatro.js" defer></script>
 
   <script>
@@ -103,6 +105,13 @@
 
     // Carica footer
     loadHTML("footer-placeholder", "footer.html");
+
+    // --- Aggiornamento JSON-LD dinamico da teatro.js ---
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.eventiTeatroJSONLD) {
+        document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiTeatroJSONLD);
+      }
+    });
   </script>
 </body>
 </html>
