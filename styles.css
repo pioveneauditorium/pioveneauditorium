@@ -666,31 +666,29 @@ nav ul li a:hover .fas.fa-phone-alt {
   box-shadow: 0 5px 10px rgba(0,0,0,0.4);
 }
 
-/* Bottone X chiudi — cerchio nero */
+/* Bottone X chiudi — quadrato nero compatto */
 .event-modal-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #000;   /* cerchio nero */
-  border: 2px solid #fdd835;/* bordo giallo sottile */
+  top: 10px;
+  right: 10px;
+  background-color: #000;   /* quadrato nero */
+  border: none;             /* niente contorno */
   color: #fdd835;          /* X gialla */
-  font-size: 1.5rem;       /* dimensione X */
-  width: 40px;             /* diametro cerchio */
-  height: 40px;
-  border-radius: 50%;      /* cerchio perfetto */
+  font-size: 1.4rem;       /* X un po' più piccola */
+  width: 32px;             /* quadrato compatto */
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   z-index: 10;
 }
 
 .event-modal-close:hover {
-  background-color: #fdd835; /* cerchio giallo */
+  background-color: #fdd835; /* quadrato giallo */
   color: #000;              /* X nera */
 }
-
 
 /* Mobile */
 @media (max-width: 768px) {
