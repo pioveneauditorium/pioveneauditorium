@@ -711,18 +711,24 @@ nav ul li a:hover .fas.fa-phone-alt {
 }
 
 /* ---------------------------
-   Stile testo "Scopri di più" inline
+   Pulsante "Scopri di più" stile CTA
 --------------------------- */
 .more-text {
-  color: #fdd835;
-  cursor: pointer;
+  display: inline-block;
+  background-color: #fdd835;   /* giallo brillante */
+  color: #000;                /* testo nero per contrasto */
   font-weight: 600;
-  background: transparent; /* nessun sfondo */
-  text-decoration: underline;
-  margin-left: 3px;
-  transition: color 0.3s ease;
+  padding: 6px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;            /* leggero distacco dal testo */
 }
 
 .more-text:hover {
-  color: #ffeb3b;
+  background-color: #ffeb3b;  /* giallo un po' più chiaro al passaggio */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
 }
