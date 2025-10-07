@@ -20,23 +20,13 @@
     <a href="termini.html">Termini&condizioni</a>
   </p>
 
-  <!-- R7: loghi social con SVG inline -->
+  <!-- R7: loghi social con Font Awesome -->
   <div class="social-links">
-    <!-- Facebook -->
     <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank" aria-label="Facebook">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1877F2" viewBox="0 0 320 512">
-        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 
-        12.42-50.06 52.24-50.06h40.42V6.26S293.3 0 
-        268.1 0c-73.41 0-121.25 44.38-121.25 
-        124.72v70.62H86.41V288h60.44v224h92.66V288z"/>
-      </svg>
+      <i class="fab fa-facebook-f"></i>
     </a>
-
-    <!-- Instagram -->
     <a href="https://instagram.com/pioveneauditorium" target="_blank" aria-label="Instagram">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#E1306C" viewBox="0 0 448 512">
-        <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54.11,54.11,0,0,0-30.49-30.49C284.29,124,224,124,224,124s-60.29,0-94.22,7.18a54.11,54.11,0,0,0-30.49,30.49C92,158.71,92,224,92,224s0,65.29,7.18,94.22a54.11,54.11,0,0,0,30.49,30.49C163.71,324,224,324,224,324s60.29,0,94.22-7.18a54.11,54.11,0,0,0,30.49-30.49C356,289.29,356,224,356,224S356,158.71,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82.09,82.09,0,0,1,224,338Zm85.34-148.66a19.2,19.2,0,1,1-19.2-19.2A19.21,19.21,0,0,1,309.34,189.34Z"/>
-      </svg>
+      <i class="fab fa-instagram"></i>
     </a>
   </div>
 
@@ -67,17 +57,19 @@
       margin: 0.5rem 0;
     }
 
-    /* Loghi social */
+    /* Loghi social con Font Awesome */
     .social-links {
       display: flex;
       justify-content: center;
       gap: 0.75rem;
       margin-top: 0.5rem;
+      font-size: 1.3rem; /* dimensione icone */
     }
-    .social-links a svg {
+    .social-links a {
+      color: inherit;
       transition: transform 0.3s ease;
     }
-    .social-links a:hover svg {
+    .social-links a:hover {
       transform: scale(1.2);
     }
 
@@ -113,11 +105,7 @@
 
       .social-links {
         gap: 0.5rem;
-      }
-
-      .social-links a svg {
-        width: 28px;
-        height: 28px;
+        font-size: 1.1rem;
       }
 
       .footer-stemma {
