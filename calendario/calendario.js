@@ -20,6 +20,10 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
             tipo
           };
         });
+
+        // Dopo aver caricato gli eventi, crea JSON-LD dinamico
+        generateJSONLD();
+
         renderCalendar();
       }
     });
@@ -89,11 +93,9 @@ function renderCalendar() {
   const nextButton = document.getElementById('next-month');
   const today = new Date();
 
-  // Disabilita il pulsante "mese precedente" se siamo a oggi o oltre
   prevButton.disabled = currentYear < today.getFullYear() || 
                         (currentYear === today.getFullYear() && currentMonth <= today.getMonth());
 
-  // Disabilita il pulsante "mese successivo" se siamo oltre l'ultimo evento
   nextButton.disabled = currentYear > lastEventDate.getFullYear() ||
                         (currentYear === lastEventDate.getFullYear() && currentMonth >= lastEventDate.getMonth());
 }
@@ -103,7 +105,6 @@ function showEvent(eventDate) {
   const eventBox = document.getElementById('event-box');
 
   if (event) {
-    // Contenitore testo
     let textHtml = `
       <div class="event-text">
         <strong>Orario:</strong> Ore ${event.time}<br>
@@ -119,21 +120,62 @@ function showEvent(eventDate) {
       `;
     }
 
-    textHtml += `</div>`; // chiude event-text
+    textHtml += `</div>`;
 
-    // Contenitore immagine
     let imageHtml = '';
     if (event.image) {
       imageHtml = `<img src="${event.image}" alt="${event.title}">`;
     }
 
-    // Combina testo + immagine
     eventBox.innerHTML = textHtml + imageHtml;
   } else {
     eventBox.innerHTML = 'Non ci sono eventi questo giorno.';
   }
 
-  eventBox.style.display = 'flex'; // compatibile con CSS flex
+  eventBox.style.display = 'flex';
+}
+
+function generateJSONLD() {
+  const eventsArray = Object.keys(events).map(dateStr => {
+    const e = events[dateStr];
+    return {
+      "@type": "Event",
+      "name": e.title,
+      "startDate": `${dateStr}T${e.time || "20:30"}`,
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Auditorium Comunale di Piovene Rocchette",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "P.za degli Alpini, 1",
+          "addressLocality": "Piovene Rocchette",
+          "postalCode": "36013",
+          "addressRegion": "VI",
+          "addressCountry": "IT"
+        }
+      },
+      "image": e.image || "https://pioveneauditorium.it/img/logo2.png",
+      "description": e.description,
+      "offers": {
+        "@type": "Offer",
+        "url": e.linkBiglietti || "https://pioveneauditorium.it/calendario.html",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Piovene Auditorium"
+      }
+    };
+  });
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(eventsArray, null, 2);
+  document.head.appendChild(script);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
