@@ -82,12 +82,12 @@
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 20px;
       align-items: start;
     }
 
     .grid-item {
-      background-color: #000; /* sfondo nero */
+      background-color: #111;
       padding: 20px;
       border-radius: 15px;
       display: flex;
@@ -101,21 +101,12 @@
       margin-bottom: 15px;
     }
 
-    /* Contenitore per le immagini in colonna o riga */
-    .images-row {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
     .img-cerchio-container {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       overflow: hidden;
       border-radius: 50%;
-      flex-shrink: 0;
+      margin: 0 auto 20px;
     }
 
     .img-cerchio {
@@ -129,10 +120,6 @@
       .content-grid {
         grid-template-columns: 1fr;
         gap: 30px;
-      }
-      .images-row {
-        justify-content: center;
-        margin-top: 20px;
       }
       .hero h1 {
         font-size: 2rem;
@@ -160,16 +147,14 @@
         <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
       </div>
       <div class="grid-item">
-        <div class="images-row">
-          <div class="img-cerchio-container">
-            <img src="img/2.jpg" alt="Caffè Auditorium, interno" class="img-cerchio">
-          </div>
-          <div class="img-cerchio-container">
-            <img src="img/3.jpg" alt="Palco dell’Auditorium" class="img-cerchio">
-          </div>
-          <div class="img-cerchio-container">
-            <img src="img/4.jpg" alt="Altra vista dell’Auditorium" class="img-cerchio">
-          </div>
+        <div class="img-cerchio-container">
+          <img src="img/2.jpg" alt="Caffè Auditorium, interno" class="img-cerchio">
+        </div>
+        <div class="img-cerchio-container">
+          <img src="img/3.jpg" alt="Palco dell’Auditorium" class="img-cerchio">
+        </div>
+        <div class="img-cerchio-container">
+          <img src="img/4.jpg" alt="Altra vista dell’Auditorium" class="img-cerchio">
         </div>
       </div>
     </section>
