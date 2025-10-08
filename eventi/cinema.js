@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
       "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"
     ];
     const parts = dateString.split('-');
-    if(parts.length !== 3) return dateString;
+    if (parts.length !== 3) return dateString;
     const year = parts[0];
     const month = months[parseInt(parts[1], 10) - 1];
     const day = parseInt(parts[2], 10);
     return `${day} ${month} ${year}`;
   }
 
+  // --- Modale evento ---
   const modal = document.createElement("div");
   modal.id = "event-modal";
   modal.className = "event-modal";
@@ -36,12 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = modal.querySelector(".event-modal-close");
 
   function openEventModal(eventData) {
+    // Crea link WhatsApp con messaggio precompilato
+    const siteURL = window.location.origin;
+    const whatsappText = `Guarda questo evento: ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${siteURL}`;
+    const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
+
     modalBody.innerHTML = `
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+      <a href="${whatsappLink}" target="_blank" class="whatsapp-share">
+        <i class="fab fa-whatsapp"></i> Condividi evento
+      </a>
     `;
     modal.classList.add("active");
   }
@@ -54,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modal.addEventListener("click", (e) => { if (e.target === modal) closeEventModal(); });
 
   // Inizializza array JSON-LD
-  window.eventiCinemaJSONLD = [];
+    window.eventiCinemaJSONLD = [];
 
   // Carica CSV con PapaParse
   fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
@@ -74,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
 
-            // --- Genera eventi visibili agli utenti ---
+            // --- Genera evento visibile ---
             const div = document.createElement("div");
             div.className = "event-item";
 
@@ -106,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             container.appendChild(div);
 
-            // --- Genera JSON-LD per SEO ---
+            // --- JSON-LD per SEO ---
             const eventJSONLD = {
               "@context": "https://schema.org",
               "@type": "Event",
@@ -144,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.eventiCinemaJSONLD.push(eventJSONLD);
           });
 
-          // Aggiorna lo script JSON-LD nella pagina
+          // Aggiorna JSON-LD nello script della pagina
           const jsonLdScript = document.getElementById('json-ld-events');
           if (jsonLdScript) {
             jsonLdScript.textContent = JSON.stringify(window.eventiCinemaJSONLD);
@@ -158,11 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Errore caricamento CSV cinema:", err));
 });
 
-// Rimuove il loader dopo 1,5 secondi
+// --- Loader: rimuovi dopo 1.5s ---
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     const loader = document.getElementById("loader");
-    if(loader) loader.remove();
+    if (loader) loader.remove();
   }, 1500);
 });
-
