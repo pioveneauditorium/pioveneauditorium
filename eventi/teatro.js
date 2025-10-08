@@ -2,31 +2,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("eventi-teatro");
   if (!container) return;
 
-  // Array per JSON-LD
+  // Array JSON-LD dinamico
   window.eventiTeatroJSONLD = [];
 
-  // Funzione per troncare il testo a un certo numero di parole
+  // Funzioni utili
   function truncateText(text, wordLimit = 15) {
     const words = text.split(/\s+/);
-    if (words.length <= wordLimit) return text;
-    return words.slice(0, wordLimit).join(' ') + '…';
+    return words.length <= wordLimit ? text : words.slice(0, wordLimit).join(' ') + '…';
   }
 
-  // Funzione per formattare la data in "giorno mese anno"
   function formatDate(dateString) {
-    const months = [
-      "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
-      "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"
-    ];
+    const months = ["gennaio","febbraio","marzo","aprile","maggio","giugno",
+      "luglio","agosto","settembre","ottobre","novembre","dicembre"];
     const parts = dateString.split('-');
     if(parts.length !== 3) return dateString;
-    const year = parts[0];
-    const month = months[parseInt(parts[1], 10) - 1];
-    const day = parseInt(parts[2], 10);
-    return `${day} ${month} ${year}`;
+    return `${parseInt(parts[2],10)} ${months[parseInt(parts[1],10)-1]} ${parts[0]}`;
   }
 
-  // Crea popup evento
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  }
+
+  // Modale eventi
   const modal = document.createElement("div");
   modal.id = "event-modal";
   modal.className = "event-modal";
@@ -34,32 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="event-modal-content">
       <button class="event-modal-close">&times;</button>
       <div id="event-modal-body"></div>
-    </div>
-  `;
+    </div>`;
   document.body.appendChild(modal);
 
   const modalBody = modal.querySelector("#event-modal-body");
   const modalClose = modal.querySelector(".event-modal-close");
 
   function openEventModal(eventData) {
+    const eventSlug = slugify(eventData.titolo);
+    const shareURL = `${window.location.origin}${window.location.pathname}?evento=${eventSlug}`;
+    const whatsappText = `🎭 ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${shareURL}`;
+    const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
+
     modalBody.innerHTML = `
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
-    `;
+      <a href="${whatsappLink}" target="_blank" class="whatsapp-share">
+        <i class="fab fa-whatsapp"></i> Condividi evento
+      </a>`;
     modal.classList.add("active");
   }
 
-  function closeEventModal() {
-    modal.classList.remove("active");
-  }
-
+  function closeEventModal() { modal.classList.remove("active"); }
   modalClose.addEventListener("click", closeEventModal);
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeEventModal(); });
+  modal.addEventListener("click", e => { if(e.target === modal) closeEventModal(); });
 
-  // Carica CSV degli eventi usando PapaParse
+  // Carica CSV
   fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
     .then(res => res.text())
     .then(csvText => {
@@ -71,42 +77,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!row.Tipo || row.Tipo.toUpperCase() !== "TEATRO") return;
 
             const dataEvento = row.Data?.trim();
-            const orario = row.Orario?.trim();
+            const orario = row.Orario?.trim() || "20:00";
             const titolo = row.Titolo?.trim();
             const descrizione = row.Descrizione?.trim();
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
 
-            // Aggiorna JSON-LD
-            window.eventiTeatroJSONLD.push({
-              "@context": "https://schema.org",
-              "@type": "Event",
-              "name": titolo,
-              "startDate": dataEvento + 'T' + (orario || '00:00'),
-              "image": immagine || undefined,
-              "description": descrizione,
-              "url": linkBiglietti || undefined,
-              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-              "eventStatus": "https://schema.org/EventScheduled",
-              "location": {
-                "@type": "Place",
-                "name": "Auditorium Comunale Piovene Rocchette",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Via [indirizzo]",
-                  "addressLocality": "Piovene Rocchette",
-                  "addressRegion": "VI",
-                  "postalCode": "[CAP]",
-                  "addressCountry": "IT"
-                }
-              }
-            });
-
-            // Crea elemento evento HTML
+            // Crea div evento
             const div = document.createElement("div");
             div.className = "event-item";
 
-            if (immagine) {
+            if(immagine){
               const imgEl = document.createElement("img");
               imgEl.src = immagine;
               imgEl.alt = titolo;
@@ -123,8 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.appendChild(p1);
 
             const p2 = document.createElement("p");
-            const truncated = truncateText(descrizione);
-            p2.innerHTML = `${truncated} <span class="more-text">Scopri di più</span>`;
+            p2.innerHTML = `${truncateText(descrizione)} <span class="more-text">Scopri di più</span>`;
             div.appendChild(p2);
 
             const moreText = p2.querySelector(".more-text");
@@ -133,17 +113,74 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             container.appendChild(div);
+
+            // JSON-LD
+            window.eventiTeatroJSONLD.push({
+              "@context": "https://schema.org",
+              "@type": "TheaterEvent",
+              "name": titolo,
+              "startDate": `${dataEvento}T${orario}`,
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": {
+                "@type": "Place",
+                "name": "Auditorium Comunale di Piovene Rocchette",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "P.za degli Alpini, 1",
+                  "addressLocality": "Piovene Rocchette",
+                  "postalCode": "36013",
+                  "addressRegion": "VI",
+                  "addressCountry": "IT"
+                }
+              },
+              "image": immagine || "https://pioveneauditorium.it/img/logo2.png",
+              "description": descrizione,
+              "offers": linkBiglietti ? {
+                "@type": "Offer",
+                "url": linkBiglietti,
+                "price": "0",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              } : undefined,
+              "performer": {
+                "@type": "PerformingGroup",
+                "name": "Piovene Auditorium"
+              }
+            });
           });
 
-          // Aggiorna JSON-LD nella pagina
-          const jsonLdScript = document.getElementById('json-ld-events');
-          if (jsonLdScript) {
-            jsonLdScript.textContent = JSON.stringify(window.eventiTeatroJSONLD);
+          // Aggiorna JSON-LD nel DOM
+          let jsonLdScript = document.getElementById("json-ld-events");
+          if(!jsonLdScript){
+            jsonLdScript = document.createElement("script");
+            jsonLdScript.type = "application/ld+json";
+            jsonLdScript.id = "json-ld-events";
+            document.head.appendChild(jsonLdScript);
+          }
+          jsonLdScript.textContent = JSON.stringify(window.eventiTeatroJSONLD);
+
+          // Apri popup se c'è parametro ?evento=slug
+          const urlParams = new URLSearchParams(window.location.search);
+          const eventoSlug = urlParams.get('evento');
+          if(eventoSlug){
+            const eventoDaAprire = results.data.find(row =>
+              row.Tipo && row.Tipo.toUpperCase() === "TEATRO" &&
+              slugify(row.Titolo?.trim()) === eventoSlug
+            );
+            if(eventoDaAprire){
+              openEventModal({
+                titolo: eventoDaAprire.Titolo?.trim(),
+                dataEvento: eventoDaAprire.Data?.trim(),
+                orario: eventoDaAprire.Orario?.trim() || "20:00",
+                descrizione: eventoDaAprire.Descrizione?.trim(),
+                immagine: eventoDaAprire.Immagine?.trim(),
+                linkBiglietti: eventoDaAprire.linkBiglietti?.trim()
+              });
+            }
           }
         },
-        error: function(err) {
-          console.error("Errore parsing CSV teatro:", err);
-        }
+        error: err => console.error("Errore parsing CSV teatro:", err)
       });
     })
     .catch(err => console.error("Errore caricamento CSV teatro:", err));

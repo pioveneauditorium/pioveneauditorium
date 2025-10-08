@@ -15,6 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${parseInt(parts[2],10)} ${months[parseInt(parts[1],10)-1]} ${parts[0]}`;
   }
 
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  }
+
   // Modale eventi
   const modal = document.createElement("div");
   modal.id = "event-modal";
@@ -30,12 +40,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = modal.querySelector(".event-modal-close");
 
   function openEventModal(eventData) {
+    const eventSlug = slugify(eventData.titolo);
+    const shareURL = `${window.location.origin}${window.location.pathname}?evento=${eventSlug}`;
+    const whatsappText = `🎵 ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${shareURL}`;
+    const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
+
     modalBody.innerHTML = `
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
-      ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}`;
+      ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+      <a href="${whatsappLink}" target="_blank" class="whatsapp-share">
+        <i class="fab fa-whatsapp"></i> Condividi evento
+      </a>`;
     modal.classList.add("active");
   }
 
@@ -58,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!row.Tipo || row.Tipo.toUpperCase() !== "MUSICA") return;
 
             const dataEvento = row.Data?.trim();
-            const orario = row.Orario?.trim();
+            const orario = row.Orario?.trim() || "20:00";
             const titolo = row.Titolo?.trim();
             const descrizione = row.Descrizione?.trim();
             const immagine = row.Immagine?.trim();
@@ -100,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
               "@context": "https://schema.org",
               "@type": "MusicEvent",
               "name": titolo,
-              "startDate": `${dataEvento}T${orario || "20:00"}`,
+              "startDate": `${dataEvento}T${orario}`,
               "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
               "eventStatus": "https://schema.org/EventScheduled",
               "location": {
@@ -140,6 +158,26 @@ document.addEventListener("DOMContentLoaded", () => {
             document.head.appendChild(jsonLdScript);
           }
           jsonLdScript.textContent = JSON.stringify(window.eventiMusicaJSONLD);
+
+          // --- Apri popup automatico se c'è parametro evento nell'URL ---
+          const urlParams = new URLSearchParams(window.location.search);
+          const eventoSlug = urlParams.get('evento');
+          if(eventoSlug){
+            const eventoDaAprire = results.data.find(row =>
+              row.Tipo && row.Tipo.toUpperCase() === "MUSICA" &&
+              slugify(row.Titolo?.trim()) === eventoSlug
+            );
+            if(eventoDaAprire){
+              openEventModal({
+                titolo: eventoDaAprire.Titolo?.trim(),
+                dataEvento: eventoDaAprire.Data?.trim(),
+                orario: eventoDaAprire.Orario?.trim() || "20:00",
+                descrizione: eventoDaAprire.Descrizione?.trim(),
+                immagine: eventoDaAprire.Immagine?.trim(),
+                linkBiglietti: eventoDaAprire.linkBiglietti?.trim()
+              });
+            }
+          }
         },
         error: err => console.error("Errore parsing CSV musica:", err)
       });
