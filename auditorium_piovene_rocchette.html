@@ -22,7 +22,6 @@
 
 <!-- Font e CSS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Schema markup JSON-LD -->
@@ -50,6 +49,13 @@
 </script>
 
 <style>
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -57,56 +63,74 @@ main {
   padding: 60px 20px 50px;
   max-width: 1200px;
   margin: 0 auto;
-  color: #fff;
 }
+
 .hero {
   text-align: center;
   margin-bottom: 50px;
 }
+
 .hero img {
   width: 100%;
   max-height: 500px;
   object-fit: cover;
   border-radius: 10px;
 }
+
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   margin-top: 20px;
   color: #fdd835;
 }
+
 .description-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 60px;
 }
+
+/* Griglia: testo a sinistra, immagini a destra */
 .description-section .text {
-  flex: 1 1 400px;
+  flex: 1 1 50%;
   min-width: 300px;
   line-height: 1.6;
-  font-family: 'Roboto', sans-serif;
 }
-.description-section .circle-image {
-  flex: 0 0 200px;
+
+.description-section .images {
+  flex: 1 1 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.description-section .images .circle-image {
+  flex: 1 1 calc(50% - 10px);
   border-radius: 50%;
   overflow: hidden;
-  margin-top: 10px;
 }
-.description-section .circle-image img {
+
+.description-section .images .circle-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
 @media(max-width: 768px) {
   .description-section {
     flex-direction: column;
-    align-items: center;
   }
-  .description-section .circle-image {
-    margin-top: 20px;
+
+  .description-section .images {
+    flex-direction: column;
   }
+
+  .description-section .images .circle-image {
+    flex: 1 1 100%;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
@@ -124,21 +148,24 @@ main {
     <h1>Auditorium Comunale di Piovene Rocchette</h1>
   </section>
 
-  <!-- Descrizione con immagini circolari -->
+  <!-- Descrizione con griglia -->
   <section class="description-section">
     <div class="text">
       <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
       <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
       <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
     </div>
-    <div class="circle-image">
-      <img src="img/2.jpg" alt="Caffè Auditorium, interno">
-    </div>
-    <div class="circle-image">
-      <img src="img/3.jpg" alt="Palco dell’Auditorium">
-    </div>
-    <div class="circle-image">
-      <img src="img/4.jpg" alt="Altra vista dell’Auditorium">
+
+    <div class="images">
+      <div class="circle-image">
+        <img src="img/2.jpg" alt="Caffè Auditorium, interno">
+      </div>
+      <div class="circle-image">
+        <img src="img/3.jpg" alt="Palco dell’Auditorium">
+      </div>
+      <div class="circle-image">
+        <img src="img/4.jpg" alt="Altra vista dell’Auditorium">
+      </div>
     </div>
   </section>
 </main>
