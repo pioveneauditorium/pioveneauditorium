@@ -146,3 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Errore caricamento CSV musica:", err));
 });
+
+// Rimuove il loader dopo 1,5 secondi
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    const loader = document.getElementById("loader");
+    if(loader) loader.remove();
+  }, 1500);
+});
