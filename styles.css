@@ -738,7 +738,7 @@ nav ul li a:hover .fas.fa-phone-alt {
 @media (max-width: 768px) {
   /* Prima immagine: margine minimo per avvicinarla al testo */
   .description-section .circle-image:first-of-type {
-    margin-top: 3px; /* ridotto ulteriormente rispetto a prima */
+    margin-top: -50px; /* ridotto ulteriormente rispetto a prima */
   }
 
   /* Le altre immagini: mantieni un margine confortevole */
