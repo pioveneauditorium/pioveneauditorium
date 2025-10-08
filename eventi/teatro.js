@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.eventiTeatroJSONLD = [];
 
   // Funzione per troncare il testo a un certo numero di parole
-  function truncateText(text, wordLimit = 25) {
+  function truncateText(text, wordLimit = 15) {
     const words = text.split(/\s+/);
     if (words.length <= wordLimit) return text;
     return words.slice(0, wordLimit).join(' ') + '…';

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("eventi-cinema");
   if (!container) return;
 
-  function truncateText(text, wordLimit = 25) {
+  function truncateText(text, wordLimit = 15) {
     const words = text.split(/\s+/);
     if (words.length <= wordLimit) return text;
     return words.slice(0, wordLimit).join(' ') + '…';

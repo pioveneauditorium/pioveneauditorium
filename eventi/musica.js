@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!container) return;
 
   // Funzioni utili
-  function truncateText(text, wordLimit = 25) {
+  function truncateText(text, wordLimit = 15) {
     const words = text.split(/\s+/);
     return words.length <= wordLimit ? text : words.slice(0, wordLimit).join(' ') + '…';
   }
