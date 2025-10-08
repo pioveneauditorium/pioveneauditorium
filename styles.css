@@ -737,6 +737,6 @@ nav ul li a:hover .fas.fa-phone-alt {
 --------------------------- */
 @media(max-width: 768px) {
   .description-section .circle-image:first-of-type {
-    margin-top: 10px;
+    margin-top: 3px;
   }
 }
