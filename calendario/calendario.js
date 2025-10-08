@@ -109,7 +109,7 @@ function showEvent(eventDate) {
       <div class="event-text">
         <strong>Orario:</strong> Ore ${event.time}<br>
         <strong>Titolo:</strong> ${event.title}<br>
-        <strong>Descrizione:</strong><br>${event.description}<br>
+        <strong>Descrizione:</strong><br>${(event.description || '').replace(/\n/g, '<br>')}<br>
     `;
 
     if (event.linkBiglietti) {
