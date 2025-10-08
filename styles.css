@@ -732,14 +732,17 @@ nav ul li a:hover .fas.fa-phone-alt {
   box-shadow: 0 4px 6px rgba(0,0,0,0.25);
 }
 
-@media(max-width: 768px) {
-  /* Riduce solo lo spazio tra il testo e la prima immagine */
+/* ---------------------------
+   Smartphone: riduzione spazio tra testo e immagini
+--------------------------- */
+@media (max-width: 768px) {
+  /* Prima immagine: margine minimo per avvicinarla al testo */
   .description-section .circle-image:first-of-type {
-    margin-top: 5px; /* avvicina l'immagine al testo */
+    margin-top: 3px; /* ridotto ulteriormente rispetto a prima */
   }
 
-  /* Le altre immagini restano con margine più generoso */
+  /* Le altre immagini: mantieni un margine confortevole */
   .description-section .circle-image:not(:first-of-type) {
-    margin-top: 20px; /* mantieni il distacco per le altre */
+    margin-top: 15px; /* puoi regolare qui il distacco tra le altre */
   }
 }
