@@ -82,26 +82,33 @@
 
     .description-section {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 40px;
       margin-bottom: 60px;
     }
 
-    .description-section .text {
+    .description-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .description-block .text {
       flex: 1 1 400px;
       min-width: 300px;
       line-height: 1.6;
       font-family: 'Roboto', sans-serif;
     }
 
-    .description-section .circle-image {
+    .description-block .circle-image {
       flex: 0 0 200px;
       border-radius: 50%;
       overflow: hidden;
       margin-top: 10px;
     }
 
-    .description-section .circle-image img {
+    .description-block .circle-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -109,12 +116,12 @@
     }
 
     @media(max-width: 768px) {
-      .description-section {
+      .description-block {
         flex-direction: column;
         align-items: center;
       }
 
-      .description-section .circle-image {
+      .description-block .circle-image {
         margin-top: 20px;
       }
 
@@ -136,18 +143,33 @@
       <h1>Auditorium Comunale di Piovene Rocchette</h1>
     </section>
 
-    <!-- Descrizione con immagini circolari -->
+    <!-- Descrizione con immagini circolari intervallate -->
     <section class="description-section">
-      <div class="text">
-        <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
-        <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
-        <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
+      <div class="description-block">
+        <div class="text">
+          <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
+        </div>
+        <div class="circle-image">
+          <img src="img/2.jpg" alt="Caffè Auditorium, interno">
+        </div>
       </div>
-      <div class="circle-image">
-        <img src="img/2.jpg" alt="Caffè Auditorium, interno">
+
+      <div class="description-block">
+        <div class="text">
+          <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
+        </div>
+        <div class="circle-image">
+          <img src="img/3.jpg" alt="Palco dell’Auditorium">
+        </div>
       </div>
-      <div class="circle-image">
-        <img src="img/3.jpg" alt="Palco dell’Auditorium">
+
+      <div class="description-block">
+        <div class="text">
+          <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
+        </div>
+        <div class="circle-image">
+          <img src="img/4.jpg" alt="Dettaglio interno del Caffè Auditorium">
+        </div>
       </div>
     </section>
   </main>
