@@ -732,15 +732,4 @@ nav ul li a:hover .fas.fa-phone-alt {
   box-shadow: 0 4px 6px rgba(0,0,0,0.25);
 }
 
-@media(max-width: 768px) {
-  /* Riduce lo spazio tra testo e primo cerchio */
-  .description-section .circle-image:first-of-type {
-    margin-top: 1px; /* o un piccolo valore positivo come 2px */
-  }
-
-  /* Mantieni margine per le altre immagini */
-  .description-section .circle-image:not(:first-of-type) {
-    margin-top: 20px;
-  }
-}
 
