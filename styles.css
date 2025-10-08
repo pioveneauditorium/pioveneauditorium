@@ -752,14 +752,14 @@ nav ul li a:hover .fas.fa-phone-alt {
 .grid-images {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  flex-wrap: nowrap;
+  gap: 20px;
+  flex-wrap: wrap;   /* ✅ permette alle immagini di andare a capo se necessario */
 }
 
 /* Ogni immagine circolare */
 .grid-images .circle-img {
-  width: 120px;
-  height: 120px;
+  width: 32%;              /* ✅ GRANDEZZA IMMAGINE */
+  aspect-ratio: 1 / 1;     /* ✅ mantiene la forma quadrata */
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -781,13 +781,10 @@ nav ul li a:hover .fas.fa-phone-alt {
   }
 
   .grid-images {
-    flex-wrap: wrap;
     justify-content: center;
   }
 
   .grid-images .circle-img {
-    width: 100px;
-    height: 100px;
+    width: 60%;   /* ✅ su mobile: immagini più grandi e una per riga */
   }
 }
-
