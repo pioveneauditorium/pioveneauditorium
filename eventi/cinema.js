@@ -21,6 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${day} ${month} ${year}`;
   }
 
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  }
+
   // --- Modale evento ---
   const modal = document.createElement("div");
   modal.id = "event-modal";
@@ -37,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = modal.querySelector(".event-modal-close");
 
   function openEventModal(eventData) {
-    // Crea link WhatsApp con messaggio precompilato
-    const siteURL = window.location.origin;
-    const whatsappText = `Guarda questo evento: ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${siteURL}`;
+    const eventSlug = slugify(eventData.titolo);
+    const shareURL = `${window.location.origin}${window.location.pathname}?evento=${eventSlug}`;
+    const whatsappText = `🎬 ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${shareURL}`;
     const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
 
     modalBody.innerHTML = `
@@ -62,10 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
   modalClose.addEventListener("click", closeEventModal);
   modal.addEventListener("click", (e) => { if (e.target === modal) closeEventModal(); });
 
-  // Inizializza array JSON-LD
-    window.eventiCinemaJSONLD = [];
+  window.eventiCinemaJSONLD = [];
 
-  // Carica CSV con PapaParse
+  // --- Carica CSV con PapaParse ---
   fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
     .then(res => res.text())
     .then(csvText => {
@@ -153,10 +162,32 @@ document.addEventListener("DOMContentLoaded", () => {
             window.eventiCinemaJSONLD.push(eventJSONLD);
           });
 
-          // Aggiorna JSON-LD nello script della pagina
+          // --- Aggiorna JSON-LD nello script ---
           const jsonLdScript = document.getElementById('json-ld-events');
           if (jsonLdScript) {
             jsonLdScript.textContent = JSON.stringify(window.eventiCinemaJSONLD);
+          }
+
+          // --- Apri popup automatico se c'è parametro evento nell'URL ---
+          const urlParams = new URLSearchParams(window.location.search);
+          const eventoSlug = urlParams.get('evento');
+
+          if (eventoSlug) {
+            const eventoDaAprire = results.data.find(row =>
+              row.Tipo && row.Tipo.toUpperCase() === "CINEMA" &&
+              slugify(row.Titolo?.trim()) === eventoSlug
+            );
+
+            if (eventoDaAprire) {
+              openEventModal({
+                titolo: eventoDaAprire.Titolo?.trim(),
+                dataEvento: eventoDaAprire.Data?.trim(),
+                orario: eventoDaAprire.Orario?.trim(),
+                descrizione: eventoDaAprire.Descrizione?.trim(),
+                immagine: eventoDaAprire.Immagine?.trim(),
+                linkBiglietti: eventoDaAprire.linkBiglietti?.trim()
+              });
+            }
           }
         },
         error: function(err) {
