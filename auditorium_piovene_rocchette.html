@@ -14,51 +14,29 @@
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pioveneauditorium.it/auditorium_piovene_rocchette.html">
+  <meta property="og:title" content="Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi">
+  <meta property="og:description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
+  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
-  <!-- Schema markup JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PerformingArtsTheatre",
-    "name": "Auditorium Comunale di Piovene Rocchette",
-    "image": "https://pioveneauditorium.it/img/logo2.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza degli Alpini 1",
-      "addressLocality": "Piovene Rocchette",
-      "addressRegion": "VI",
-      "postalCode": "36013",
-      "addressCountry": "IT"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.76229251350059,
-      "longitude": 11.430492775953956
-    },
-    "url": "https://pioveneauditorium.it"
-  }
-  </script>
+  <!-- Font e CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+  <!-- CSS interno isolato -->
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-
+    /* Base pagina */
     main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 60px 20px 50px;
+      background-color: #000;  /* sfondo nero */
+      color: #fff;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 60px 20px 50px;
     }
 
+    /* Hero */
     .hero {
       text-align: center;
       margin-bottom: 50px;
@@ -78,56 +56,47 @@
       color: #fdd835;
     }
 
-    /* ===== Griglia stile Veneto Social Media ===== */
-    .content-grid {
+    /* Sezione descrizione e griglia */
+    .description-section {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       align-items: start;
     }
 
-    .grid-item {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      color: #fff;
-    }
-
-    .grid-item p {
+    .description-section .text {
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      margin-bottom: 15px;
     }
 
-    .img-cerchio-container {
+    .description-section .circle-image {
       width: 200px;
       height: 200px;
-      overflow: hidden;
       border-radius: 50%;
-      margin: 0 auto 20px;
+      overflow: hidden;
+      margin: 0 auto;
     }
 
-    .img-cerchio {
+    .description-section .circle-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
+    /* Responsive */
     @media(max-width: 768px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
       .hero h1 {
         font-size: 2rem;
+      }
+
+      .description-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
   </style>
 </head>
-
 <body>
   <!-- Header dinamico -->
   <div id="header-placeholder"></div>
@@ -139,23 +108,21 @@
       <h1>Auditorium Comunale di Piovene Rocchette</h1>
     </section>
 
-    <!-- Griglia testi + immagini circolari -->
-    <section class="content-grid">
-      <div class="grid-item">
+    <!-- Descrizione + immagini circolari -->
+    <section class="description-section">
+      <div class="text">
         <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
         <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
         <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
       </div>
-      <div class="grid-item">
-        <div class="img-cerchio-container">
-          <img src="img/2.jpg" alt="Caffè Auditorium, interno" class="img-cerchio">
-        </div>
-        <div class="img-cerchio-container">
-          <img src="img/3.jpg" alt="Palco dell’Auditorium" class="img-cerchio">
-        </div>
-        <div class="img-cerchio-container">
-          <img src="img/4.jpg" alt="Altra vista dell’Auditorium" class="img-cerchio">
-        </div>
+      <div class="circle-image">
+        <img src="img/2.jpg" alt="Caffè Auditorium, interno">
+      </div>
+      <div class="circle-image">
+        <img src="img/3.jpg" alt="Palco dell’Auditorium">
+      </div>
+      <div class="circle-image">
+        <img src="img/4.jpg" alt="Altra vista dell’Auditorium">
       </div>
     </section>
   </main>
@@ -165,7 +132,6 @@
 
   <!-- Script principali -->
   <script src="script.js" defer></script>
-
   <script>
     function loadHTML(id, url, callback) {
       fetch(url)
@@ -177,33 +143,7 @@
         .catch(err => console.error(`Errore caricamento ${url}:`, err));
     }
 
-    loadHTML("header-placeholder", "header.html", () => {
-      const hamburger = document.querySelector('.hamburger');
-      const navMenu = document.getElementById('nav-menu');
-      const closeMenu = document.querySelector('.close-menu');
-
-      if(hamburger && navMenu){
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
-
-        if(closeMenu){
-          closeMenu.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        }
-
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
-      }
-    });
-
+    loadHTML("header-placeholder", "header.html");
     loadHTML("footer-placeholder", "footer.html");
   </script>
 </body>
