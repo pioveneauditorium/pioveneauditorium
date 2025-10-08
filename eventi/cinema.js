@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
-      <p>${eventData.descrizione}</p>
+      <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
     `;
     modal.classList.add("active");
