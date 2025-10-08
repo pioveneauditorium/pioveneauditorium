@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Titolo e meta description SEO -->
   <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
   <meta name="description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
   <link rel="canonical" href="https://pioveneauditorium.it/auditorium_piovene_rocchette.html">
@@ -22,35 +21,108 @@
   <meta property="og:description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi">
-  <meta name="twitter:description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
-
   <!-- Font e CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Schema markup JSON-LD per luogo (Auditorium) -->
+  <!-- Schema markup JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Place",
+    "@type": "PerformingArtsTheatre",
     "name": "Auditorium Comunale di Piovene Rocchette",
+    "image": "https://pioveneauditorium.it/img/logo2.png",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "P.za degli Alpini, 1",
+      "streetAddress": "Piazza degli Alpini 1",
       "addressLocality": "Piovene Rocchette",
-      "postalCode": "36013",
       "addressRegion": "VI",
+      "postalCode": "36013",
       "addressCountry": "IT"
     },
-    "image": "https://pioveneauditorium.it/img/logo2.png",
-    "description": "Spazio per musica, teatro, cinema ed eventi a Piovene Rocchette"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.76229251350059,
+      "longitude": 11.430492775953956
+    },
+    "url": "https://pioveneauditorium.it"
   }
   </script>
+
+  <style>
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 20px 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .hero img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-top: 20px;
+      color: #fdd835;
+    }
+
+    .description-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .description-section .text {
+      flex: 1 1 400px;
+      min-width: 300px;
+      line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .description-section .circle-image {
+      flex: 0 0 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .description-section .circle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media(max-width: 768px) {
+      .description-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .description-section .circle-image {
+        margin-top: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -58,9 +130,25 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="work-in-progress" style="text-align:center; padding:100px 20px;">
-      <h1 style="font-size:3em; margin-bottom:20px;"><i class="fas fa-university"></i> Auditorium</h1>
-      <p style="font-size:1.2em;">Work in progress</p>
+    <!-- Hero -->
+    <section class="hero">
+      <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium di Piovene Rocchette">
+      <h1>Auditorium Comunale di Piovene Rocchette</h1>
+    </section>
+
+    <!-- Descrizione con immagini circolari -->
+    <section class="description-section">
+      <div class="text">
+        <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
+        <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
+        <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
+      </div>
+      <div class="circle-image">
+        <img src="img/2.jpg" alt="Caffè Auditorium, interno">
+      </div>
+      <div class="circle-image">
+        <img src="img/3.jpg" alt="Palco dell’Auditorium">
+      </div>
     </section>
   </main>
 
@@ -81,7 +169,6 @@
         .catch(err => console.error(`Errore caricamento ${url}:`, err));
     }
 
-    // Carica header e inizializza hamburger menu
     loadHTML("header-placeholder", "header.html", () => {
       const hamburger = document.querySelector('.hamburger');
       const navMenu = document.getElementById('nav-menu');
@@ -93,7 +180,7 @@
           navMenu.classList.toggle('active');
         });
 
-        if (closeMenu) {
+        if(closeMenu){
           closeMenu.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
@@ -109,7 +196,6 @@
       }
     });
 
-    // Carica footer normalmente
     loadHTML("footer-placeholder", "footer.html");
   </script>
 </body>
