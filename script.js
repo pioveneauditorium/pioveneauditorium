@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>${eventData.dataEvento} ${eventData.orario}</strong></p>
-      <p>${eventData.descrizione}</p>
+      <p>${eventData.descrizione.replace(/\n/g, '<br>')}</p>
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
     `;
     if (modal) modal.classList.add('active');
