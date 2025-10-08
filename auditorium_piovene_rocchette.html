@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
-  <meta name="description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <link rel="canonical" href="https://pioveneauditorium.it/auditorium_piovene_rocchette.html">
+  <meta name="description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
@@ -14,26 +13,21 @@
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/auditorium_piovene_rocchette.html">
-  <meta property="og:title" content="Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi">
-  <meta property="og:description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
-
-  <!-- Font e CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- CSS interno isolato -->
   <style>
-    /* Base pagina */
-    main {
-      background-color: #000;  /* sfondo nero */
+    /* Main container della pagina */
+    main.page-content {
+      background-color: #000; /* sfondo nero */
       color: #fff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 20px 50px;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 20px 50px;
     }
 
     /* Hero */
@@ -56,11 +50,12 @@
       color: #fdd835;
     }
 
-    /* Sezione descrizione e griglia */
+    /* Griglia descrizione + immagini */
     .description-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr; /* mobile default */
       gap: 20px;
+      margin-bottom: 60px;
       align-items: start;
     }
 
@@ -69,6 +64,7 @@
       line-height: 1.6;
     }
 
+    /* Immagini circolari */
     .description-section .circle-image {
       width: 200px;
       height: 200px;
@@ -84,45 +80,62 @@
       display: block;
     }
 
-    /* Responsive */
+    /* Desktop: testo a sinistra, immagini orizzontali a destra */
+    @media(min-width: 768px) {
+      .description-section {
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+      }
+
+      .description-section .images-row {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+      }
+    }
+
+    /* Titoli e paragrafi */
+    .description-section .text p {
+      margin-bottom: 1em;
+    }
+
     @media(max-width: 768px) {
       .hero h1 {
         font-size: 2rem;
       }
-
-      .description-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
   </style>
 </head>
+
 <body>
   <!-- Header dinamico -->
   <div id="header-placeholder"></div>
 
-  <main>
+  <main class="page-content">
     <!-- Hero -->
     <section class="hero">
-      <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium di Piovene Rocchette">
+      <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium di Piovene Rocchette" />
       <h1>Auditorium Comunale di Piovene Rocchette</h1>
     </section>
 
-    <!-- Descrizione + immagini circolari -->
+    <!-- Descrizione con immagini circolari -->
     <section class="description-section">
       <div class="text">
         <p>Inaugurato nel <strong>2009</strong>, l’Auditorium Comunale di Piovene Rocchette è oggi un punto di riferimento per la cultura e lo spettacolo nel centro del paese.</p>
         <p>Durante tutto l’anno ospita <strong>rassegne di teatro, cinema e musica</strong>, accogliendo artisti e pubblico in un ambiente moderno e confortevole.</p>
         <p>All’interno è presente il <strong>Caffè Auditorium</strong>, un accogliente bar dove gustare un aperitivo o un caffè prima e dopo gli spettacoli, immersi in un’atmosfera piacevole e conviviale.</p>
       </div>
-      <div class="circle-image">
-        <img src="img/2.jpg" alt="Caffè Auditorium, interno">
-      </div>
-      <div class="circle-image">
-        <img src="img/3.jpg" alt="Palco dell’Auditorium">
-      </div>
-      <div class="circle-image">
-        <img src="img/4.jpg" alt="Altra vista dell’Auditorium">
+
+      <div class="images-row">
+        <div class="circle-image">
+          <img src="img/2.jpg" alt="Caffè Auditorium, interno" />
+        </div>
+        <div class="circle-image">
+          <img src="img/3.jpg" alt="Palco dell’Auditorium" />
+        </div>
+        <div class="circle-image">
+          <img src="img/4.jpg" alt="Altra vista dell’Auditorium" />
+        </div>
       </div>
     </section>
   </main>
@@ -130,8 +143,9 @@
   <!-- Footer dinamico -->
   <div id="footer-placeholder"></div>
 
-  <!-- Script principali -->
+  <!-- Script dinamici -->
   <script src="script.js" defer></script>
+
   <script>
     function loadHTML(id, url, callback) {
       fetch(url)
