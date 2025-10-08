@@ -735,7 +735,7 @@ nav ul li a:hover .fas.fa-phone-alt {
 @media(max-width: 768px) {
   /* Riduce lo spazio tra testo e primo cerchio */
   .description-section .circle-image:first-of-type {
-    margin-top: 1; /* o un piccolo valore positivo come 2px */
+    margin-top: 1px; /* o un piccolo valore positivo come 2px */
   }
 
   /* Mantieni margine per le altre immagini */
