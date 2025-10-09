@@ -38,30 +38,46 @@
 }
 
 /* ---------------------------
-   Immagini eventi - responsive e intere
+   Immagini eventi lista
 --------------------------- */
-.event-img,
-.event-modal-content img {
+.event-img {
   display: block;
-  width: 100%;          /* occupa tutta la larghezza del container */
-  height: auto;         /* mantiene proporzioni reali */
-  object-fit: contain;  /* mostra l’immagine intera senza ritagli */
+  width: 100%;          
+  height: auto;         
+  object-fit: contain;  
   border-radius: 10px;
   margin: 10px auto;
 }
 
-/* Limite altezza immagini desktop per non diventare troppo grandi */
+/* Limite altezza immagini desktop lista */
 @media (min-width: 769px) {
   .event-img {
     max-height: 400px;
   }
 }
 
-/* Limite altezza immagini mobile per adattarsi allo schermo */
+/* Limite altezza immagini mobile lista */
 @media (max-width: 768px) {
-  .event-img,
-  .event-modal-content img {
+  .event-img {
     max-height: 200px;
+  }
+}
+
+/* ---------------------------
+   Immagini popup eventi
+--------------------------- */
+.event-modal-content img {
+  width: 90%;
+  max-height: 600px;   /* maggiore altezza su desktop */
+  object-fit: contain;  
+  border-radius: 12px;
+  margin: 15px auto;
+}
+
+@media (max-width: 768px) {
+  .event-modal-content img {
+    max-height: 300px; /* maggiore altezza su mobile */
+    width: 95%;
   }
 }
 
@@ -149,6 +165,9 @@
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* ---------------------------
+   Pulsante WhatsApp
+--------------------------- */
 .whatsapp-share {
   display: inline-block;
   margin-top: 10px;
@@ -171,4 +190,3 @@
 .whatsapp-share:hover {
   background-color: #20ba5a;
 }
-
