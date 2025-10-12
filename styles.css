@@ -413,12 +413,12 @@ footer a:hover {
 }
 
 /* ---------------------------
-   Desktop Carousel Width
+   Desktop Carousel Width GRANDEZZA CAROSELLO
 --------------------------- */
 @media (min-width: 1025px) {
   .carousel {
-    width: 80%;
-    max-width: 900px;
+    width: 70%;
+    max-width: 800px;
     margin: 0 auto;
   }
 }
