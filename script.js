@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
           item.className = 'carousel-item';
 
           const img = document.createElement('img');
-          img.loading = "lazy"; // ✅ attiva il lazy loading
           img.src = immagine;
           img.alt = titolo;
 
