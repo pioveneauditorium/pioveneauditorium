@@ -12,20 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function truncateText(text, wordLimit = 15) {
-    if (!text) return "";
+    if (!text) return ""; // evita errori se text è undefined
     const words = text.split(/\s+/);
     if (words.length <= wordLimit) return text;
     return words.slice(0, wordLimit).join(' ') + '…';
   }
-
-  // ---------------------------
-  // Carica subito la prima immagine
-  // ---------------------------
-  let firstImageLoaded = false;
-  const firstImagePreload = new Image();
-  firstImagePreload.onload = () => {
-    firstImageLoaded = true;
-  };
 
   if (prevButton && nextButton && track) {
     prevButton.addEventListener('click', () => {
@@ -42,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
       download: true,
       header: true,
       complete: (results) => {
-        results.data.forEach((row, index) => {
-          if (!row.Immagine || !row.Titolo) return;
+        results.data.forEach((row, index) => { // <-- aggiunto index
+          if (!row.Immagine || !row.Titolo) return; // salta righe vuote
 
           const immagine = row.Immagine.trim();
           const titolo = row.Titolo.trim();
@@ -58,14 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = document.createElement('img');
           img.src = immagine;
           img.alt = titolo;
-
-          // Lazy solo per immagini successive alla prima
-          if (index !== 0) {
-            img.loading = "lazy";
-          } else {
-            // se la prima immagine non era già in preload, assegnala
-            if (!firstImageLoaded) firstImagePreload.src = immagine;
-          }
+          if (index !== 0) img.loading = "lazy"; // lazy solo per immagini dopo la prima
 
           const caption = document.createElement('div');
           caption.className = 'carousel-caption';
@@ -116,10 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modal) modal.classList.remove('active');
   }
 
-  if (modalClose) modalClose.addEventListener('click', closeEventModal);
-  if (modal) modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeEventModal();
-  });
+  if (modalClose) {
+    modalClose.addEventListener('click', closeEventModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeEventModal();
+    });
+  }
 
   // ---------------------------
   // Cookie Banner
