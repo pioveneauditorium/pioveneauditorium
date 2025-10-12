@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       download: true,
       header: true,
       complete: (results) => {
-        results.data.forEach(row => {
+        results.data.forEach((row, index) => { // <-- aggiunto index
           if (!row.Immagine || !row.Titolo) return; // salta righe vuote
 
           const immagine = row.Immagine.trim();
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = document.createElement('img');
           img.src = immagine;
           img.alt = titolo;
+          if (index !== 0) img.loading = "lazy"; // lazy solo per immagini dopo la prima
 
           const caption = document.createElement('div');
           caption.className = 'carousel-caption';
