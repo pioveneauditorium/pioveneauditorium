@@ -4,102 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Titolo e meta description SEO -->
   <title>Auditorium Piovene Rocchette – Cinema, Teatro, Musica ed Eventi</title>
   <meta name="description" content="Scopri cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
   <link rel="canonical" href="https://pioveneauditorium.it/">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png">
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/">
-  <meta property="og:title" content="Auditorium Piovene Rocchette – Cinema, Teatro, Musica ed Eventi">
-  <meta property="og:description" content="Scopri cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Auditorium Piovene Rocchette – Cinema, Teatro, Musica ed Eventi">
-  <meta name="twitter:description" content="Scopri cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-  <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
-
-  <!-- Font e CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- PapaParse (CSV parsing) -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
-  <!-- Schema markup JSON-LD per eventi -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Eventi Auditorium Piovene Rocchette",
-    "startDate": "2025-10-10T20:30",
-    "endDate": "2025-10-10T23:00",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": "Auditorium Comunale di Piovene Rocchette",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "P.za degli Alpini, 1",
-        "addressLocality": "Piovene Rocchette",
-        "postalCode": "36013",
-        "addressRegion": "VI",
-        "addressCountry": "IT"
-      }
-    },
-    "image": [
-      "https://pioveneauditorium.it/img/logo2.png"
-    ],
-    "description": "Cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://pioveneauditorium.it/calendario.html",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2025-10-07T00:00"
-    },
-    "performer": {
-      "@type": "PerformingGroup",
-      "name": "Piovene Auditorium"
-    }
-  }
-  </script>
-
-  <!-- Schema markup JSON-LD per l'organizzazione -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Auditorium di Piovene Rocchette",
-    "url": "https://pioveneauditorium.it",
-    "logo": "https://pioveneauditorium.it/logo1.png",
-    "email": "info@pioveneauditorium.it",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "P.za degli Alpini, 1",
-      "addressLocality": "Piovene Rocchette",
-      "postalCode": "36013",
-      "addressRegion": "VI",
-      "addressCountry": "IT"
-    },
-    "sameAs": [
-      "https://www.facebook.com/auditoriumpiovenerocchette",
-      "https://instagram.com/pioveneauditorium"
-    ]
-  }
-  </script>
 </head>
 
 <body>
@@ -112,9 +30,25 @@
       <h2>Prossimi Eventi</h2>
       <div class="carousel">
         <button class="prev">&#10094;</button>
+
         <div class="carousel-track">
-          <!-- Slide generate dinamicamente dal CSV -->
+          <!-- Prima slide statica -->
+          <div class="carousel-item">
+            <img src="foto1.jpg" alt="Scopri i film di ottobre">
+            <div class="carousel-caption">
+              <h3>Scopri i film di ottobre</h3>
+              <p></p>
+              <p>
+                A ottobre parte la programmazione cinematografica all’Auditorium di Piovene Rocchette!<br>
+                Tariffe: biglietto singolo €5, ridotto €3 (per under 19 e over 75).<br>
+                Ingresso gratuito per persone con disabilità + 1 accompagnatore.<br>
+                In arrivo: ABBONAMENTO cinema €45 per 13 film. Buona visione!
+              </p>
+            </div>
+          </div>
+          <!-- Le slide dal CSV saranno aggiunte dinamicamente qui tramite script.js -->
         </div>
+
         <button class="next">&#10095;</button>
       </div>
     </section>
@@ -126,7 +60,6 @@
   <!-- Script principali -->
   <script src="script.js" defer></script>
 
-  <!-- Script per caricare header e footer dinamicamente -->
   <script>
     function loadHTML(id, url, callback) {
       fetch(url)
@@ -138,7 +71,6 @@
         .catch(err => console.error(`Errore caricamento ${url}:`, err));
     }
 
-    // Carica header e inizializza hamburger menu
     loadHTML("header-placeholder", "header.html", () => {
       const hamburger = document.querySelector('.hamburger');
       const navMenu = document.getElementById('nav-menu');
@@ -166,7 +98,6 @@
       }
     });
 
-    // Carica footer normalmente
     loadHTML("footer-placeholder", "footer.html");
   </script>
 

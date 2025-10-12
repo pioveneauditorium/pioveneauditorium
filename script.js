@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function truncateText(text, wordLimit = 15) {
-    if (!text) return ""; // evita errori se text è undefined
+    if (!text) return "";
     const words = text.split(/\s+/);
     if (words.length <= wordLimit) return text;
     return words.slice(0, wordLimit).join(' ') + '…';
@@ -29,12 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
       updateCarousel();
     });
 
+    // ---------------------------
+    // Carica slide dinamiche dal CSV
+    // ---------------------------
     Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vTsHetVu62LIgBfbWqJ9AX5vRjWJBiN01Wspsj51i8nr9z5pWKqVb2jG3Zy_aAwJKjN0OiYxZ4mx9-1/pub?output=csv', {
       download: true,
       header: true,
       complete: (results) => {
-        results.data.forEach((row, index) => { // <-- aggiunto index
-          if (!row.Immagine || !row.Titolo) return; // salta righe vuote
+        results.data.forEach((row) => { 
+          if (!row.Immagine || !row.Titolo) return;
 
           const immagine = row.Immagine.trim();
           const titolo = row.Titolo.trim();
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = document.createElement('img');
           img.src = immagine;
           img.alt = titolo;
-          if (index !== 0) img.loading = "lazy"; // lazy solo per immagini dopo la prima
+          img.loading = "lazy";
 
           const caption = document.createElement('div');
           caption.className = 'carousel-caption';
@@ -100,15 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modal) modal.classList.remove('active');
   }
 
-  if (modalClose) {
-    modalClose.addEventListener('click', closeEventModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeEventModal();
-    });
-  }
+  if (modalClose) modalClose.addEventListener('click', closeEventModal);
+  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeEventModal(); });
 
   // ---------------------------
   // Cookie Banner
@@ -117,11 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById('accept-cookies');
 
   if (banner && btn) {
-    if (!localStorage.getItem('cookiesAccepted')) {
-      banner.style.display = 'flex';
-    } else {
-      banner.style.display = 'none';
-    }
+    if (!localStorage.getItem('cookiesAccepted')) banner.style.display = 'flex';
+    else banner.style.display = 'none';
 
     btn.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
