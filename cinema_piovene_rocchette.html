@@ -45,14 +45,31 @@
   <!-- Header dinamico -->
   <div id="header-placeholder"></div>
 
-  <main>
-    <section style="text-align:center; padding:50px 20px;">
-      <h1 style="font-size:3em; margin-bottom:20px;"><i class="fas fa-film"></i> Cinema</h1>
-      <div id="eventi-cinema" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
-        <!-- Eventi cinema caricati dinamicamente qui -->
-      </div>
-    </section>
-  </main>
+<main>
+  <section style="text-align:center; padding:50px 20px; max-width:1000px; margin:0 auto;">
+    <h1 style="font-size:3em; margin-bottom:20px;"><i class="fas fa-film"></i> Cinema</h1>
+
+    <!-- Promo abbonamento Cineforum -->
+    <div class="cineforum-promo" style="background:#f9f9f9; padding:30px; border-radius:15px; margin-bottom:40px; text-align:center;">
+      <h2 style="font-size:2em; margin-bottom:15px;">🎬 Abbonamenti Cineforum Disponibili</h2>
+      <p style="font-size:1.2em; margin-bottom:20px;">
+        13 film a soli 45 € fino al 10 aprile 2026 (pari a poco più di 3 euro a film).<br>
+        Vivi il cinema con noi e non perderti l’emozione del grande schermo.<br>
+        <small>(*sono esclusi dall'abbonamento i film del Cinema Ragazzi)</small>
+      </p>
+      <a href="https://liveticket.it/evento.aspx?Id=615205&InstantBuy=1&CallingPageUrl=http%3a%2f%2fwww.liveticket.it%2fpioveneauditorium" 
+         class="cta-button" 
+         style="display:inline-block; padding:15px 30px; background:#e50914; color:white; font-weight:700; border-radius:8px; text-decoration:none; font-size:1.2em;">
+        Compra Ora su Liveticket
+      </a>
+    </div>
+
+    <!-- Eventi cinema caricati dinamicamente -->
+    <div id="eventi-cinema" style="display:flex; flex-direction:column; gap:20px;">
+      <!-- Eventi cinema caricati dinamicamente qui -->
+    </div>
+  </section>
+</main>
 
   <!-- Footer dinamico -->
   <div id="footer-placeholder"></div>
