@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piovene Auditorium – Cinema Ragazzi / Junior</title>
+
+  <meta name="description" content="Spettacoli, cinema e attività dedicate ai ragazzi all'Auditorium di Piovene Rocchette.">
+  <link rel="canonical" href="https://pioveneauditorium.it/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
+  <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon">
+
+  <meta property="og:title" content="Piovene Auditorium – Cinema Ragazzi / Junior">
+  <meta property="og:description" content="Scopri gli eventi Junior all'Auditorium di Piovene Rocchette.">
+  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="eventi/eventi.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+</head>
+
+<body>
+<div id="loader"></div>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <section style="text-align:center; padding:50px 20px;">
+    <h1 style="font-size:3em; margin-bottom:20px; color:#4CAF50;"><i class="fas fa-child"></i> Junior</h1>
+    <div id="eventi-junior" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
+      <!-- Eventi JUNIOR caricati dinamicamente -->
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js" defer></script>
+<script src="eventi/junior.js" defer></script>
+
+<script id="json-ld-events" type="application/ld+json">[]</script>
+
+<script>
+  function loadHTML(id, url, callback) {
+    fetch(url)
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if (callback) callback();
+      })
+      .catch(err => console.error(`Errore caricamento ${url}:`, err));
+  }
+
+  loadHTML("header-placeholder", "header.html", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    if(hamburger && navMenu){
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+      if (closeMenu) closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+  });
+
+  loadHTML("footer-placeholder", "footer.html");
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.eventiJuniorJSONLD) {
+      document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
+    }
+  });
+</script>
+</body>
+</html>
