@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piovene Auditorium – Cinema Ragazzi / Junior</title>
+  <title>Piovene Auditorium – Cinema Ragazzi</title>
 
   <meta name="description" content="Spettacoli, cinema e attività dedicate ai ragazzi all'Auditorium di Piovene Rocchette.">
   <link rel="canonical" href="https://pioveneauditorium.it/">
@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
   <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon">
 
-  <meta property="og:title" content="Piovene Auditorium – Cinema Ragazzi / Junior">
+  <meta property="og:title" content="Piovene Auditorium – Cinema Ragazzi">
   <meta property="og:description" content="Scopri gli eventi Junior all'Auditorium di Piovene Rocchette.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
@@ -29,7 +29,9 @@
 
 <main>
   <section style="text-align:center; padding:50px 20px;">
-    <h1 style="font-size:3em; margin-bottom:20px; color:#4CAF50;"><i class="fas fa-child"></i> Junior</h1>
+    <h1 style="font-size:3em; margin-bottom:20px; color:#4CAF50;">
+      🪄👦 Cinema Ragazzi
+    </h1>
     <div id="eventi-junior" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
       <!-- Eventi JUNIOR caricati dinamicamente -->
     </div>
@@ -54,6 +56,7 @@
       .catch(err => console.error(`Errore caricamento ${url}:`, err));
   }
 
+  // Carica header e hamburger menu
   loadHTML("header-placeholder", "header.html", () => {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -78,6 +81,7 @@
 
   loadHTML("footer-placeholder", "footer.html");
 
+  // Aggiorna JSON-LD
   document.addEventListener('DOMContentLoaded', () => {
     if (window.eventiJuniorJSONLD) {
       document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
