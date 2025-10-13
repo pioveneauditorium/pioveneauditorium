@@ -199,4 +199,5 @@ button:disabled {
 .musica { background-color: orange; color: white; }
 .teatro { background-color: purple; color: white; }
 .cinema { background-color: yellow; color: black; }
+.junior { background-color: #4CAF50; color: white; } /* verde */
 .highlighted { background-color: lightgray; }

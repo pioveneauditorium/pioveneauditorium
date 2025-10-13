@@ -64,14 +64,15 @@ function renderCalendar() {
     const dateStr = `${currentYear}-${(currentMonth+1).toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
     let eventClass = '';
 
-    if (events[dateStr]) {
-      switch(events[dateStr].tipo.toUpperCase()) {
-        case 'MUSICA': eventClass = 'musica'; break;
-        case 'TEATRO': eventClass = 'teatro'; break;
-        case 'CINEMA': eventClass = 'cinema'; break;
-        default: eventClass = 'highlighted';
-      }
-    }
+if (events[dateStr]) {
+  switch(events[dateStr].tipo.toUpperCase()) {
+    case 'MUSICA': eventClass = 'musica'; break;
+    case 'TEATRO': eventClass = 'teatro'; break;
+    case 'CINEMA': eventClass = 'cinema'; break;
+    case 'JUNIOR': eventClass = 'junior'; break; // ✅ aggiunta nuova categoria
+    default: eventClass = 'highlighted';
+  }
+}
 
     calendarHtml += `<div class="day ${eventClass}" data-date="${dateStr}">${day}</div>`;
   }
