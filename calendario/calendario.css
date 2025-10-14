@@ -201,3 +201,12 @@ button:disabled {
 .cinema { background-color: yellow; color: black; }
 .junior { background-color: #4CAF50; color: white; } /* verde */
 .highlighted { background-color: lightgray; }
+
+/* Grandezza testo nel box event versione desktop */
+@media (min-width: 1024px) {
+    .event-box {
+        font-size: 15px; /* o 16px se vuoi un po’ di più */
+        line-height: 1.5;
+    }
+}
+
