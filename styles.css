@@ -790,28 +790,33 @@ nav ul li a:hover .fas.fa-phone-alt {
 }
 
 /* FOOTER IN VERSIONE DESKTOP */
-/* Footer desktop: massimo 2 righe */
 @media (min-width: 1024px) {
     footer {
         display: flex;
-        flex-wrap: wrap;         /* permette più righe se necessario */
-        justify-content: space-between; /* distribuzione orizzontale */
+        flex-wrap: wrap;            /* permette max 2 righe */
+        justify-content: center;     /* centra gli elementi orizzontalmente */
         align-items: center;
-        row-gap: 10px;           /* spazio verticale tra le righe */
-        padding: 2rem 5%;        /* margini interni desktop */
-        text-align: left;
+        row-gap: 10px;               /* spazio verticale tra le righe */
+        column-gap: 20px;            /* spazio orizzontale tra i paragrafi */
+        padding: 2rem 5%;
+        text-align: center;
     }
 
-    footer p, .footer-links-inline, .social-links {
-        flex: 1 1 45%;           /* larghezza massima circa metà per riga */
-        margin: 0;
+    footer p,
+    .footer-links-inline,
+    .social-links {
+        flex: 0 1 auto;             /* larghezza minima necessaria, non si allarga troppo */
+        margin: 0;                  /* rimuove margini default */
     }
 
     .footer-links-inline {
-        justify-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;                  /* spazio tra i link privacy/termini */
     }
 
     .social-links {
-        justify-content: flex-end;
+        display: flex;
+        gap: 10px;                  /* spazio tra le icone social */
     }
 }
