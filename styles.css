@@ -788,3 +788,30 @@ nav ul li a:hover .fas.fa-phone-alt {
     width: 60%;   /* ✅ su mobile: immagini più grandi e una per riga */
   }
 }
+
+/* FOOTER IN VERSIONE DESKTOP */
+/* Footer desktop: massimo 2 righe */
+@media (min-width: 1024px) {
+    footer {
+        display: flex;
+        flex-wrap: wrap;         /* permette più righe se necessario */
+        justify-content: space-between; /* distribuzione orizzontale */
+        align-items: center;
+        row-gap: 10px;           /* spazio verticale tra le righe */
+        padding: 2rem 5%;        /* margini interni desktop */
+        text-align: left;
+    }
+
+    footer p, .footer-links-inline, .social-links {
+        flex: 1 1 45%;           /* larghezza massima circa metà per riga */
+        margin: 0;
+    }
+
+    .footer-links-inline {
+        justify-content: flex-start;
+    }
+
+    .social-links {
+        justify-content: flex-end;
+    }
+}
