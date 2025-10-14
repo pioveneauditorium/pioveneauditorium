@@ -789,24 +789,26 @@ nav ul li a:hover .fas.fa-phone-alt {
   }
 }
 
-/* FOOTER IN VERSIONE DESKTOP */
+/*FOOTER DESKTOP */
 @media (min-width: 1024px) {
     footer {
         display: flex;
         flex-wrap: wrap;            /* permette max 2 righe */
         justify-content: center;     /* centra gli elementi orizzontalmente */
-        align-items: center;
+        align-items: flex-end;       /* spinge i blocchi verso il fondo */
         row-gap: 10px;               /* spazio verticale tra le righe */
-        column-gap: 20px;            /* spazio orizzontale tra i paragrafi */
+        column-gap: 20px;            /* spazio orizzontale tra i blocchi */
         padding: 2rem 5%;
         text-align: center;
+        min-height: 400px;           /* altezza footer desktop */
+        position: relative;          /* riferimento per eventuali figli assoluti */
     }
 
     footer p,
     .footer-links-inline,
     .social-links {
-        flex: 0 1 auto;             /* larghezza minima necessaria, non si allarga troppo */
-        margin: 0;                  /* rimuove margini default */
+        flex: 0 1 auto;             /* larghezza minima necessaria */
+        margin: 0;
     }
 
     .footer-links-inline {
@@ -820,3 +822,5 @@ nav ul li a:hover .fas.fa-phone-alt {
         gap: 10px;                  /* spazio tra le icone social */
     }
 }
+
+
