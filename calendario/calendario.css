@@ -205,7 +205,7 @@ button:disabled {
 /* Grandezza testo nel box event versione desktop */
 @media (min-width: 1024px) {
     .event-box {
-        font-size: 15px; /* o 16px se vuoi un po’ di più */
+        font-size: 16px; /* grandezza carattere */
         line-height: 1.5;
     }
 }
