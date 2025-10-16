@@ -83,7 +83,7 @@ nav ul li a {
 /* Palette colori menu desktop */
 nav ul li:nth-child(1) a { background-color: #e53935; } /* Rosso acceso */
 nav ul li:nth-child(2) a { background-color: #1e88e5; } /* Blu vivo */
-nav ul li:nth-child(3) a { background-color: #fdd835; color: #000; } /* Giallo brillante (testo nero) */
+nav ul li:nth-child(3) a { background-color: #FFD300; color: #000; } /* Giallo brillante (testo nero) */
 nav ul li:nth-child(4) a { background-color: #fb8c00; } /* Arancione forte */
 nav ul li:nth-child(5) a { background-color: #8e24aa; } /* Viola acceso */
 nav ul li:nth-child(6) a { background-color: #43a047; } /* Verde intenso */
@@ -174,7 +174,7 @@ nav ul li a:hover { filter: brightness(0.85); }
 /* Palette colori menu mobile */
 #nav-menu ul li:nth-child(1) a { background-color: #e53935; } /* Rosso acceso */
 #nav-menu ul li:nth-child(2) a { background-color: #1e88e5; } /* Blu vivo */
-#nav-menu ul li:nth-child(3) a { background-color: #fdd835; color: #000; } /* Giallo brillante (testo nero) */
+#nav-menu ul li:nth-child(3) a { background-color: #FFD300; color: #000; } /* Giallo brillante (testo nero) */
 #nav-menu ul li:nth-child(4) a { background-color: #fb8c00; } /* Arancione forte */
 #nav-menu ul li:nth-child(5) a { background-color: #8e24aa; } /* Viola acceso */
 #nav-menu ul li:nth-child(6) a { background-color: #43a047; } /* Verde intenso */
