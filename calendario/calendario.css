@@ -198,7 +198,7 @@ button:disabled {
 /* colori calendario */
 .musica { background-color: orange; color: white; }
 .teatro { background-color: purple; color: white; }
-.cinema { background-color: yellow; color: black; }
+.cinema { background-color: #FFD300; color: #000; }
 .junior { background-color: #4CAF50; color: white; } /* verde */
 .highlighted { background-color: lightgray; }
 
