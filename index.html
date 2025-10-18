@@ -36,6 +36,17 @@
   <!-- PapaParse (CSV parsing) -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
+  <!-- Regola per lo sfondo -->
+  <style>
+    body.home {
+      background-image: url('sfondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+
   <!-- Schema markup JSON-LD per eventi -->
   <script type="application/ld+json">
   {
@@ -58,9 +69,7 @@
         "addressCountry": "IT"
       }
     },
-    "image": [
-      "https://pioveneauditorium.it/img/logo2.png"
-    ],
+    "image": ["https://pioveneauditorium.it/img/logo2.png"],
     "description": "Cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.",
     "offers": {
       "@type": "Offer",
@@ -111,7 +120,6 @@
       <h2>Prossimi Eventi</h2>
       <div class="carousel">
         <button class="prev">&#10094;</button>
-
         <div class="carousel-track">
           <!-- Slide statica -->
           <div class="carousel-item">
@@ -120,10 +128,8 @@
               <a href="cinema_piovene_rocchette.html" class="more-text">Scopri di più</a>
             </div>
           </div>
-
           <!-- Slide dinamiche dal fetch saranno aggiunte qui da script.js -->
         </div>
-
         <button class="next">&#10095;</button>
       </div>
     </section>
@@ -147,7 +153,6 @@
         .catch(err => console.error(`Errore caricamento ${url}:`, err));
     }
 
-    // Carica header e inizializza hamburger menu
     loadHTML("header-placeholder", "header.html", () => {
       const hamburger = document.querySelector('.hamburger');
       const navMenu = document.getElementById('nav-menu');
@@ -175,7 +180,6 @@
       }
     });
 
-    // Carica footer normalmente
     loadHTML("footer-placeholder", "footer.html");
   </script>
 
