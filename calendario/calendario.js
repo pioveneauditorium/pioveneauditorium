@@ -23,7 +23,6 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
 
         // Dopo aver caricato gli eventi, crea JSON-LD dinamico
         generateJSONLD();
-
         renderCalendar();
       }
     });
@@ -45,6 +44,9 @@ function renderCalendar() {
 
   const firstDay = new Date(currentYear, currentMonth, 1);
   const lastDay = new Date(currentYear, currentMonth + 1, 0);
+  const today = new Date();
+  today.setHours(0,0,0,0); // per confronti precisi
+
   document.getElementById('calendar-title').textContent = `Eventi di ${monthNames[currentMonth]} ${currentYear}`;
   const numDays = lastDay.getDate();
 
@@ -55,28 +57,43 @@ function renderCalendar() {
     calendarHtml += `<div class="day">${weekdays[i].slice(0,3)}</div>`;
   }
 
+  // Giorni vuoti prima del primo del mese
   const firstDayOfWeek = (firstDay.getDay() + 6) % 7;
   for (let i = 0; i < firstDayOfWeek; i++) {
     calendarHtml += `<div class="day"></div>`;
   }
 
+  // Giorni del mese
   for (let day = 1; day <= numDays; day++) {
     const dateStr = `${currentYear}-${(currentMonth+1).toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
+    const dateObj = new Date(dateStr);
     let eventClass = '';
+    let isPast = false;
 
-if (events[dateStr]) {
-  switch(events[dateStr].tipo.toUpperCase()) {
-    case 'MUSICA': eventClass = 'musica'; break;
-    case 'TEATRO': eventClass = 'teatro'; break;
-    case 'CINEMA': eventClass = 'cinema'; break;
-    case 'JUNIOR': eventClass = 'junior'; break; // ✅ aggiunta nuova categoria
-    default: eventClass = 'highlighted';
+    // ✅ Se il giorno è passato nel mese corrente → velatura e disattiva click
+    if (currentYear === today.getFullYear() && currentMonth === today.getMonth() && dateObj < today) {
+      isPast = true;
+      eventClass += ' past-day';
+    }
+
+    // Classi per tipo evento
+    if (events[dateStr]) {
+      switch(events[dateStr].tipo.toUpperCase()) {
+        case 'MUSICA': eventClass += ' musica'; break;
+        case 'TEATRO': eventClass += ' teatro'; break;
+        case 'CINEMA': eventClass += ' cinema'; break;
+        case 'JUNIOR': eventClass += ' junior'; break;
+        default: eventClass += ' highlighted';
+      }
+    }
+
+    // Se è giorno passato → niente dataset-date (disattiva click)
+    const clickable = isPast ? '' : `data-date="${dateStr}"`;
+
+    calendarHtml += `<div class="day ${eventClass}" ${clickable}>${day}</div>`;
   }
-}
 
-    calendarHtml += `<div class="day ${eventClass}" data-date="${dateStr}">${day}</div>`;
-  }
-
+  // Giorni vuoti dopo l’ultimo del mese
   const lastDayOfWeek = (firstDay.getDay() + numDays) % 7;
   for (let i = lastDayOfWeek; i < 6; i++) {
     calendarHtml += `<div class="day"></div>`;
@@ -84,19 +101,16 @@ if (events[dateStr]) {
 
   document.getElementById('calendar').innerHTML = calendarHtml;
 
-  // Trova l'ultima data degli eventi
+  // Pulsanti navigazione mese
   const eventDates = Object.keys(events).sort();
   const lastEventDateStr = eventDates[eventDates.length - 1];
   const lastEventDate = new Date(lastEventDateStr);
 
-  // Pulsanti mese precedente/successivo
   const prevButton = document.getElementById('prev-month');
   const nextButton = document.getElementById('next-month');
-  const today = new Date();
 
   prevButton.disabled = currentYear < today.getFullYear() || 
                         (currentYear === today.getFullYear() && currentMonth <= today.getMonth());
-
   nextButton.disabled = currentYear > lastEventDate.getFullYear() ||
                         (currentYear === lastEventDate.getFullYear() && currentMonth >= lastEventDate.getMonth());
 }
@@ -182,6 +196,7 @@ function generateJSONLD() {
 document.addEventListener('DOMContentLoaded', () => {
   const calendarEl = document.getElementById('calendar');
 
+  // Click sui giorni
   calendarEl.addEventListener('click', function(e) {
     if (e.target.classList.contains('day') && e.target.dataset.date) {
       if (selectedDate) {
@@ -194,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Navigazione mesi
   document.getElementById('prev-month').addEventListener('click', () => {
     currentMonth--;
     if (currentMonth < 0) {

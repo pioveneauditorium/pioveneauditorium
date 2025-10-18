@@ -210,3 +210,17 @@ button:disabled {
     }
 }
 
+/* GIORNI PASSATI */
+.day.past-day {
+  opacity: 0.4;
+  cursor: default;
+  filter: grayscale(0.6);
+  pointer-events: none; /* importante per disattivare il click */
+}
+
+.day.past-day:hover {
+  opacity: 0.4;
+  transform: none; /* impedisce l'effetto hover degli altri giorni */
+}
+
+
