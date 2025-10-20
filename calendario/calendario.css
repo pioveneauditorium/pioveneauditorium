@@ -6,17 +6,14 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-    overflow: visible; /* permette scrollbar */
+    overflow: visible;
     color: #ffffff;
     box-sizing: border-box;
-    width: 100%; /* piena larghezza su tutti i dispositivi */
+    width: 100%;
 }
 
 @media (min-width: 1281px) {
-    #calendar-container {
-        padding-left: 50px;
-        padding-right: 50px;
-    }
+    #calendar-container { padding-left: 50px; padding-right: 50px; }
 }
 
 /* Calendario */
@@ -53,11 +50,7 @@
     filter: grayscale(0.6);
     pointer-events: none;
 }
-
-.day.past-day:hover {
-    opacity: 0.4;
-    transform: none;
-}
+.day.past-day:hover { opacity: 0.4; transform: none; }
 
 /* Event box */
 .event-box {
@@ -75,7 +68,7 @@
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    padding-right: 15px; /* spazio per scrollbar */
+    padding-right: 15px;
 }
 
 .event-box::-webkit-scrollbar { width: 8px; }
@@ -170,6 +163,23 @@ button:disabled {
 .cinema { background-color: #FFD300; color: #111111; }
 .junior { background-color: #4CAF50; color: white; }
 .highlighted { background-color: lightgray; }
+
+/* Tooltip calendario eventi */
+#calendar-tooltip {
+    position: absolute;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: opacity 0.15s ease;
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+}
 
 /* Pop-up modale eventi */
 .event-modal {
