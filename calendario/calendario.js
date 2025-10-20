@@ -22,7 +22,6 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
           };
         });
 
-        // Dopo aver caricato gli eventi, crea JSON-LD dinamico
         generateJSONLD();
         renderCalendar();
       }
@@ -37,6 +36,11 @@ let selectedDate = null;
 
 const monthNames = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 const weekdays = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
+
+// --- Tooltip ---
+const tooltip = document.createElement('div');
+tooltip.id = 'calendar-tooltip';
+document.body.appendChild(tooltip);
 
 // --- Pop-up modale ---
 const modal = document.createElement('div');
@@ -136,6 +140,7 @@ function renderCalendar() {
 // --- Click sui giorni calendario ---
 document.addEventListener('DOMContentLoaded', () => {
   const calendarEl = document.getElementById('calendar');
+
   calendarEl.addEventListener('click', function(e) {
     if (e.target.classList.contains('day') && e.target.dataset.date) {
       if (selectedDate) {
@@ -146,6 +151,26 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedDate = e.target.dataset.date;
       showEventPreview(selectedDate);
     }
+  });
+
+  // --- Tooltip hover su desktop ---
+  calendarEl.addEventListener('mousemove', e => {
+    const dayEl = e.target.closest('.day');
+    if(dayEl && dayEl.dataset.date && events[dayEl.dataset.date]){
+      tooltip.style.display = 'block';
+      tooltip.style.opacity = '1';
+      tooltip.style.left = e.pageX + 10 + 'px';
+      tooltip.style.top = e.pageY + 10 + 'px';
+      tooltip.textContent = events[dayEl.dataset.date].title;
+    } else {
+      tooltip.style.opacity = '0';
+      tooltip.style.display = 'none';
+    }
+  });
+
+  calendarEl.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+    tooltip.style.display = 'none';
   });
 });
 
