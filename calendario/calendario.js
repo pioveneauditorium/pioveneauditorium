@@ -45,7 +45,7 @@ function renderCalendar() {
   const firstDay = new Date(currentYear, currentMonth, 1);
   const lastDay = new Date(currentYear, currentMonth + 1, 0);
   const today = new Date();
-  today.setHours(0,0,0,0); // per confronti precisi
+  today.setHours(0,0,0,0);
 
   document.getElementById('calendar-title').textContent = `Eventi di ${monthNames[currentMonth]} ${currentYear}`;
   const numDays = lastDay.getDate();
@@ -70,7 +70,7 @@ function renderCalendar() {
     let eventClass = '';
     let isPast = false;
 
-    // ✅ Se il giorno è passato nel mese corrente → velatura e disattiva click
+    // Giorni passati → disattiva click
     if (currentYear === today.getFullYear() && currentMonth === today.getMonth() && dateObj < today) {
       isPast = true;
       eventClass += ' past-day';
@@ -87,13 +87,11 @@ function renderCalendar() {
       }
     }
 
-    // Se è giorno passato → niente dataset-date (disattiva click)
     const clickable = isPast ? '' : `data-date="${dateStr}"`;
-
     calendarHtml += `<div class="day ${eventClass}" ${clickable}>${day}</div>`;
   }
 
-  // Giorni vuoti dopo l’ultimo del mese
+  // Giorni vuoti dopo l’ultimo
   const lastDayOfWeek = (firstDay.getDay() + numDays) % 7;
   for (let i = lastDayOfWeek; i < 6; i++) {
     calendarHtml += `<div class="day"></div>`;
@@ -227,4 +225,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderCalendar();
   });
+
+  // --- Tooltip titolo evento (solo desktop, con colore tipo evento) ---
+  if (window.innerWidth >= 1024) {
+    const tooltip = document.createElement('div');
+    tooltip.id = 'calendar-tooltip';
+    tooltip.style.position = 'absolute';
+    tooltip.style.padding = '6px 10px';
+    tooltip.style.borderRadius = '6px';
+    tooltip.style.fontSize = '0.9rem';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.whiteSpace = 'nowrap';
+    tooltip.style.zIndex = '1000';
+    tooltip.style.display = 'none';
+    tooltip.style.boxShadow = '0 4px 8px rgba(0,0,0,0.4)';
+    tooltip.style.transition = 'opacity 0.15s ease';
+    tooltip.style.opacity = '0';
+    document.body.appendChild(tooltip);
+
+    const tipoColori = {
+      'CINEMA': '#FFD300',     // Giallo brillante
+      'TEATRO': '#8e24aa',     // Viola acceso
+      'MUSICA': '#fb8c00',     // Arancione forte
+      'JUNIOR': '#43a047',     // Verde intenso
+      'CONTATTI': '#d63384',   // Rosa
+      'DEFAULT': '#333'        // Neutro
+    };
+
+    calendarEl.addEventListener('mousemove', e => {
+      if (e.target.classList.contains('day') && e.target.dataset.date && events[e.target.dataset.date]) {
+        const ev = events[e.target.dataset.date];
+        const tipo = ev.tipo?.toUpperCase() || 'DEFAULT';
+        const bgColor = tipoColori[tipo] || tipoColori['DEFAULT'];
+        const textColor = (bgColor === '#FFD300') ? '#000' : '#fff';
+
+        tooltip.textContent = ev.title || 'Evento';
+        tooltip.style.background = bgColor;
+        tooltip.style.color = textColor;
+        tooltip.style.display = 'block';
+        tooltip.style.opacity = '1';
+        tooltip.style.left = `${e.pageX + 12}px`;
+        tooltip.style.top = `${e.pageY + 16}px`;
+      } else {
+        tooltip.style.opacity = '0';
+        tooltip.style.display = 'none';
+      }
+    });
+
+    calendarEl.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = '0';
+      tooltip.style.display = 'none';
+    });
+  }
 });
