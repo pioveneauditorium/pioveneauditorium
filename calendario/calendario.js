@@ -1,6 +1,17 @@
 const events = {};
 
-// Fetch del CSV e parsing con PapaParse
+// --- Funzione helper per convertire link YouTube in embed ---
+function getYouTubeEmbedUrl(url) {
+  if (!url) return '';
+  const regExp = /^.*(?:youtu.be\/|v\/|watch\?v=|watch\?.+&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[1].length === 11) {
+    return `https://www.youtube.com/embed/${match[1]}`;
+  }
+  return url; // fallback se non è YouTube
+}
+
+// --- Fetch del CSV e parsing con PapaParse ---
 fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
   .then(response => response.text())
   .then(csvText => {
@@ -61,7 +72,10 @@ function openEventModal(eventData) {
     <h3>${eventData.title}</h3>
     <p><strong>Orario:</strong> ${eventData.time}</p>
     <p>${(eventData.description || '').replace(/\n/g, '<br>')}</p>
-    ${eventData.trailer ? `<div style="margin:15px 0;"><iframe width="100%" height="315" src="${eventData.trailer}" title="Trailer ${eventData.title}" frameborder="0" allowfullscreen></iframe></div>` : ''}
+    ${eventData.trailer ? `<div style="margin:15px 0;">
+      <iframe width="100%" height="315" src="${getYouTubeEmbedUrl(eventData.trailer)}" 
+      title="Trailer ${eventData.title}" frameborder="0" allowfullscreen></iframe>
+    </div>` : ''}
     ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
   `;
   modal.classList.add("active");
