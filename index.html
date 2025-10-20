@@ -19,23 +19,25 @@
 
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-  <!-- Stile per cerchi laterali allineati al carosello -->
+  <!-- Stile per cerchi laterali allineati e bilanciati al carosello -->
   <style>
     @media (min-width: 1025px) {
       .carousel-wrapper-desktop {
         display: flex;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
         gap: 40px;
+        position: relative;
       }
 
       .side-circles {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly; /* distribuzione verticale uniforme */
         align-items: center;
         height: 100%;
-        flex: 0 0 140px; /* larghezza colonna cerchi */
+        flex: 0 0 140px;
+        min-height: 650px; /* garantisce un’altezza minima per equilibrio visivo */
       }
 
       .carousel-container {
@@ -76,67 +78,6 @@
       }
     }
   </style>
-
-  <!-- Schema JSON-LD per eventi e organizzazione -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Eventi Auditorium Piovene Rocchette",
-      "startDate": "2025-10-10T20:30",
-      "endDate": "2025-10-10T23:00",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "location": {
-        "@type": "Place",
-        "name": "Auditorium Comunale di Piovene Rocchette",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "P.za degli Alpini, 1",
-          "addressLocality": "Piovene Rocchette",
-          "postalCode": "36013",
-          "addressRegion": "VI",
-          "addressCountry": "IT"
-        }
-      },
-      "image": ["https://pioveneauditorium.it/img/logo2.png"],
-      "description": "Cinema, teatro, musica ed eventi all'Auditorium Comunale di Piovene Rocchette. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://pioveneauditorium.it/calendario.html",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "validFrom": "2025-10-07T00:00"
-      },
-      "performer": {
-        "@type": "PerformingGroup",
-        "name": "Piovene Auditorium"
-      }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Auditorium di Piovene Rocchette",
-      "url": "https://pioveneauditorium.it",
-      "logo": "https://pioveneauditorium.it/logo1.png",
-      "email": "info@pioveneauditorium.it",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "P.za degli Alpini, 1",
-        "addressLocality": "Piovene Rocchette",
-        "postalCode": "36013",
-        "addressRegion": "VI",
-        "addressCountry": "IT"
-      },
-      "sameAs": [
-        "https://www.facebook.com/auditoriumpiovenerocchette",
-        "https://instagram.com/pioveneauditorium"
-      ]
-    }
-  </script>
 </head>
 
 <body class="home">
@@ -147,11 +88,16 @@
       <h2>Prossimi Eventi</h2>
 
       <div class="carousel-wrapper-desktop">
+
+        <!-- Colonna sinistra -->
         <div class="side-circles left-circles">
           <a href="https://pioveneauditorium.it/cinema_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio1.png" alt="Cinema"></a>
           <a href="https://pioveneauditorium.it/musica_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio2.png" alt="Musica"></a>
+          <a href="https://pioveneauditorium.it/teatro_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio3.png" alt="Teatro"></a>
+          <a href="https://pioveneauditorium.it/cinema_ragazzi_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio4.png" alt="Cinema Ragazzi"></a>
         </div>
 
+        <!-- Carosello centrale -->
         <div class="carousel-container">
           <div class="carousel">
             <button class="prev">&#10094;</button>
@@ -167,10 +113,14 @@
           </div>
         </div>
 
+        <!-- Colonna destra -->
         <div class="side-circles right-circles">
-          <a href="https://pioveneauditorium.it/teatro_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio3.png" alt="Teatro"></a>
-          <a href="https://pioveneauditorium.it/cinema_ragazzi_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio4.png" alt="Cinema Ragazzi"></a>
+          <a href="https://pioveneauditorium.it/calendario.html" class="circle-item"><img src="cerchi/cerchio5.png" alt="Calendario"></a>
+          <a href="https://pioveneauditorium.it/contatti.html" class="circle-item"><img src="cerchi/cerchio6.png" alt="Contatti"></a>
+          <a href="https://www.facebook.com/auditoriumpiovenerocchette" class="circle-item"><img src="cerchi/cerchio7.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/pioveneauditorium" class="circle-item"><img src="cerchi/cerchio8.png" alt="Instagram"></a>
         </div>
+
       </div>
     </section>
   </main>
@@ -184,7 +134,7 @@
         .then(res => res.text())
         .then(data => {
           document.getElementById(id).innerHTML = data;
-          if(callback) callback();
+          if (callback) callback();
         })
         .catch(err => console.error(`Errore caricamento ${url}:`, err));
     }
@@ -194,7 +144,7 @@
       const navMenu = document.getElementById('nav-menu');
       const closeMenu = document.querySelector('.close-menu');
 
-      if(hamburger && navMenu){
+      if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
           hamburger.classList.toggle('active');
           navMenu.classList.toggle('active');
@@ -219,11 +169,13 @@
     loadHTML("footer-placeholder", "footer.html");
   </script>
 
+  <!-- Cookie Banner -->
   <div id="cookie-banner" class="cookie-banner">
     <p>Usiamo cookie tecnici per migliorare la tua esperienza. Continuando a navigare accetti la nostra <a href="privacy.html">informativa sulla privacy</a>.</p>
     <button id="accept-cookies">Ho capito</button>
   </div>
 
+  <!-- Popup scheda evento -->
   <div id="event-modal" class="event-modal">
     <div class="event-modal-content">
       <button class="event-modal-close">&times;</button>
