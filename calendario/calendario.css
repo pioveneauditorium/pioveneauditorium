@@ -240,36 +240,3 @@ button:disabled {
   .event-right { width: 100%; }
 }
 
-/* Desktop only – layout ordinato e leggibile */
-@media (min-width: 1024px) {
-    .event-main {
-        flex-direction: row;
-        gap: 20px;
-        align-items: flex-start;
-    }
-
-    .event-left img {
-        width: 40%;      /* immagine più grande e proporzionata */
-        max-width: 400px;
-        height: auto;
-        border-radius: 6px;
-        object-fit: cover;
-    }
-
-    .event-right {
-        flex: 1;
-        min-width: 300px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;       /* distanza tra titolo, descrizione, bottone e trailer */
-    }
-
-    .event-trailer {
-        margin-top: 10px;  /* separa trailer dal resto del contenuto */
-        width: 100%;
-        max-height: 300px;
-    }
-}
-
-
-
