@@ -119,28 +119,28 @@ function showEvent(eventDate) {
   const eventBox = document.getElementById('event-box');
 
   if (event) {
-    let textHtml = `
-      <div class="event-text">
-        <strong>Orario:</strong> Ore ${event.time}<br>
-        <strong>Titolo:</strong> ${event.title}<br>
-        <strong>Descrizione:</strong><br>${(event.description || '').replace(/\n/g, '<br>')}<br>
+    // Genera l'HTML principale con immagine a sinistra e testo a destra
+    let html = `
+      <div class="event-main">
+        <div class="event-left">
+          ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
+        </div>
+        <div class="event-right">
+          <h3 class="event-title">${event.title}</h3>
+          <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
+          <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
+          ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+        </div>
+      </div>
     `;
 
-    if (event.linkBiglietti) {
-      textHtml += `
-        <div style="margin-top:15px;">
-          <a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>
-        </div>
-      `;
-    }
-
-    // Trailer YouTube
+    // Trailer YouTube separato sotto
     if (event.trailer) {
       const videoId = event.trailer.split('v=')[1]?.split('&')[0] || '';
       if (videoId) {
-        textHtml += `
-          <div style="margin-top:15px;">
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/${videoId}" 
+        html += `
+          <div class="event-trailer">
+            <iframe width="100%" height="250" src="https://www.youtube.com/embed/${videoId}" 
               title="Trailer ${event.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>
           </div>
@@ -148,14 +148,7 @@ function showEvent(eventDate) {
       }
     }
 
-    textHtml += `</div>`;
-
-    let imageHtml = '';
-    if (event.image) {
-      imageHtml = `<img src="${event.image}" alt="${event.title}">`;
-    }
-
-    eventBox.innerHTML = textHtml + imageHtml;
+    eventBox.innerHTML = html;
   } else {
     eventBox.innerHTML = 'Non ci sono eventi questo giorno.';
   }
