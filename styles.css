@@ -822,4 +822,56 @@ nav ul li a:hover .fas.fa-phone-alt {
     }
 }
 
+/* Banner di orientamento verso Cinema Ragazzi */
+.cinema-ragazzi-banner {
+  background: linear-gradient(135deg, #222, #333);
+  padding: 25px;
+  border-radius: 14px;
+  margin: 0 auto 40px;
+  max-width: 900px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.cinema-ragazzi-banner p {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.cinema-ragazzi-banner .cta-button {
+  background-color: #43a047; /* Verde Junior */
+  color: #fff;
+}
+
+.cinema-ragazzi-banner .cta-button:hover {
+  background-color: #4caf50;
+}
+
+/* Sezione Abbonamento Cineforum */
+.cineforum-promo {
+  background: linear-gradient(135deg, #722f37, #4b1e25); /* Bordeaux cinematografico */
+  color: #fff;
+  padding: 35px;
+  border-radius: 16px;
+  margin: 40px auto;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.cineforum-promo h2 {
+  font-size: 1.9em;
+  margin-bottom: 15px;
+}
+
+.cineforum-promo .highlight {
+  color: #fdd835; /* giallo brillante coerente col brand */
+}
+
+.cineforum-promo p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
 
