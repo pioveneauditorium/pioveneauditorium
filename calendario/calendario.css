@@ -240,3 +240,41 @@ button:disabled {
   .event-right { width: 100%; }
 }
 
+/* Versione desktop 3 blocchi con proporzioni corrette */
+@media (min-width: 1024px) {
+    .event-main {
+        display: flex;
+        gap: 20px;
+        flex-wrap: nowrap; /* rimangono in riga */
+    }
+
+    .event-left,
+    .event-right,
+    .event-trailer {
+        flex: 1 1 33.333%; /* ognuno 1/3 */
+        min-width: 0; /* evita overflow testi lunghi */
+    }
+
+    .event-left img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+
+    /* Trailer responsivo con aspect-ratio 16:9 */
+    .event-trailer {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 ratio */
+    }
+
+    .event-trailer iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+    }
+}

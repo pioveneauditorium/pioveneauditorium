@@ -17,12 +17,11 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
             description: row.Descrizione?.trim(), 
             image: row.Immagine?.trim(), 
             linkBiglietti: row.linkBiglietti?.trim(), 
-            trailer: row.Trailer?.trim(), // ← nuova proprietà per YouTube
+            trailer: row.Trailer?.trim(),
             tipo
           };
         });
 
-        // Dopo aver caricato gli eventi, crea JSON-LD dinamico
         generateJSONLD();
         renderCalendar();
       }
@@ -71,13 +70,11 @@ function renderCalendar() {
     let eventClass = '';
     let isPast = false;
 
-    // Giorni passati → disattiva click
     if (currentYear === today.getFullYear() && currentMonth === today.getMonth() && dateObj < today) {
       isPast = true;
       eventClass += ' past-day';
     }
 
-    // Classi per tipo evento
     if (events[dateStr]) {
       switch(events[dateStr].tipo.toUpperCase()) {
         case 'MUSICA': eventClass += ' musica'; break;
@@ -100,7 +97,6 @@ function renderCalendar() {
 
   document.getElementById('calendar').innerHTML = calendarHtml;
 
-  // Pulsanti navigazione mese
   const eventDates = Object.keys(events).sort();
   const lastEventDateStr = eventDates[eventDates.length - 1];
   const lastEventDate = new Date(lastEventDateStr);
@@ -118,41 +114,33 @@ function showEvent(eventDate) {
   const event = events[eventDate];
   const eventBox = document.getElementById('event-box');
 
-  if (event) {
-    // Genera l'HTML principale con immagine a sinistra e testo a destra
-    let html = `
-      <div class="event-main">
-        <div class="event-left">
-          ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
-        </div>
-        <div class="event-right">
-          <h3 class="event-title">${event.title}</h3>
-          <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
-          <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
-          ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
-        </div>
-      </div>
-    `;
-
-    // Trailer YouTube separato sotto
-    if (event.trailer) {
-      const videoId = event.trailer.split('v=')[1]?.split('&')[0] || '';
-      if (videoId) {
-        html += `
-          <div class="event-trailer">
-            <iframe width="100%" height="250" src="https://www.youtube.com/embed/${videoId}" 
-              title="Trailer ${event.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-          </div>
-        `;
-      }
-    }
-
-    eventBox.innerHTML = html;
-  } else {
+  if (!event) {
     eventBox.innerHTML = 'Non ci sono eventi questo giorno.';
+    eventBox.style.display = 'flex';
+    return;
   }
 
+  let html = `
+    <div class="event-main">
+      <div class="event-left">
+        ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
+      </div>
+      <div class="event-right">
+        <h3 class="event-title">${event.title}</h3>
+        <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
+        <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
+        ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+      </div>
+      <div class="event-trailer">
+        ${event.trailer ? `
+          <iframe src="https://www.youtube.com/embed/${event.trailer.split('v=')[1]?.split('&')[0] || ''}" 
+          title="Trailer ${event.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  eventBox.innerHTML = html;
   eventBox.style.display = 'flex';
 }
 
@@ -202,7 +190,6 @@ function generateJSONLD() {
 document.addEventListener('DOMContentLoaded', () => {
   const calendarEl = document.getElementById('calendar');
 
-  // Click sui giorni
   calendarEl.addEventListener('click', function(e) {
     if (e.target.classList.contains('day') && e.target.dataset.date) {
       if (selectedDate) {
@@ -215,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Navigazione mesi
   document.getElementById('prev-month').addEventListener('click', () => {
     currentMonth--;
     if (currentMonth < 0) {
@@ -234,7 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCalendar();
   });
 
-  // --- Tooltip titolo evento (solo desktop, con colore tipo evento) ---
   if (window.innerWidth >= 1024) {
     const tooltip = document.createElement('div');
     tooltip.id = 'calendar-tooltip';
