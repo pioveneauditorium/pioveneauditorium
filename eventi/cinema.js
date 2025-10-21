@@ -52,13 +52,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const whatsappText = `🎬 ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${shareURL}`;
     const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
 
+    // --- Se trailer esiste, genera iframe embed YouTube ---
+    let trailerEmbed = '';
+    if (eventData.trailer) {
+      let videoId = '';
+      const ytMatch = eventData.trailer.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&\n]+)/);
+      if (ytMatch && ytMatch[1]) videoId = ytMatch[1];
+      if (videoId) {
+        trailerEmbed = `
+          <div style="margin:15px 0; position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+            <iframe src="https://www.youtube.com/embed/${videoId}" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:12px;">
+            </iframe>
+          </div>
+        `;
+      }
+    }
+
     modalBody.innerHTML = `
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
+      ${trailerEmbed}
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
-      ${eventData.trailer ? `<p><a href="${eventData.trailer}" target="_blank" class="cta-button">Guarda il trailer</a></p>` : ''}
       <a href="${whatsappLink}" target="_blank" class="whatsapp-share">
         <i class="fab fa-whatsapp"></i> Condividi evento
       </a>
@@ -92,9 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const descrizione = row.Descrizione?.trim();
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
-            const trailer = row.Trailer?.trim(); // <-- aggiunta colonna Trailer
+            const trailer = row.Trailer?.trim();
 
-            // --- Genera evento visibile ---
             const div = document.createElement("div");
             div.className = "event-item";
 
@@ -126,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             container.appendChild(div);
 
-            // --- JSON-LD per SEO ---
+            // --- JSON-LD ---
             const eventJSONLD = {
               "@context": "https://schema.org",
               "@type": "Event",
@@ -164,13 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
             window.eventiCinemaJSONLD.push(eventJSONLD);
           });
 
-          // --- Aggiorna JSON-LD nello script ---
           const jsonLdScript = document.getElementById('json-ld-events');
-          if (jsonLdScript) {
-            jsonLdScript.textContent = JSON.stringify(window.eventiCinemaJSONLD);
-          }
+          if (jsonLdScript) jsonLdScript.textContent = JSON.stringify(window.eventiCinemaJSONLD);
 
-          // --- Apri popup automatico se c'è parametro evento nell'URL ---
           const urlParams = new URLSearchParams(window.location.search);
           const eventoSlug = urlParams.get('evento');
 
@@ -188,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 descrizione: eventoDaAprire.Descrizione?.trim(),
                 immagine: eventoDaAprire.Immagine?.trim(),
                 linkBiglietti: eventoDaAprire.linkBiglietti?.trim(),
-                trailer: eventoDaAprire.Trailer?.trim() // <-- incluso Trailer
+                trailer: eventoDaAprire.Trailer?.trim()
               });
             }
           }
@@ -201,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Errore caricamento CSV cinema:", err));
 });
 
-// --- Loader: rimuovi dopo 1.5s ---
+// --- Loader ---
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     const loader = document.getElementById("loader");
