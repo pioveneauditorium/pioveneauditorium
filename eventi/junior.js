@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
   }
 
+  // --- Modale ---
   const modal = document.createElement("div");
   modal.id = "event-modal";
   modal.className = "event-modal";
@@ -44,11 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const whatsappText = `🎟️ ${eventData.titolo}%0A📅 ${formatDate(eventData.dataEvento)} - ${eventData.orario}%0A👉 ${shareURL}`;
     const whatsappLink = `https://api.whatsapp.com/send?text=${whatsappText}`;
 
+    // --- Trailer YouTube incorporato ---
+    let trailerEmbed = '';
+    if (eventData.trailer) {
+      let videoId = '';
+      const ytMatch = eventData.trailer.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&\n]+)/);
+      if (ytMatch && ytMatch[1]) videoId = ytMatch[1];
+      if (videoId) {
+        trailerEmbed = `
+          <div style="margin:15px 0; position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+            <iframe src="https://www.youtube.com/embed/${videoId}" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:12px;">
+            </iframe>
+          </div>`;
+      }
+    }
+
     modalBody.innerHTML = `
       ${eventData.immagine ? `<img src="${eventData.immagine}" alt="${eventData.titolo}">` : ''}
       <h3>${eventData.titolo}</h3>
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
+      ${trailerEmbed}
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota</a>` : ''}
       <a href="${whatsappLink}" target="_blank" class="whatsapp-share"><i class="fab fa-whatsapp"></i> Condividi evento</a>`;
     modal.classList.add("active");
@@ -75,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const descrizione = row.Descrizione?.trim();
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
+            const trailer = row.Trailer?.trim();
 
             const div = document.createElement("div");
             div.className = "event-item";
@@ -101,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.appendChild(p2);
 
             p2.querySelector(".more-text").addEventListener("click", () => {
-              openEventModal({ titolo, dataEvento, orario, descrizione, immagine, linkBiglietti });
+              openEventModal({ titolo, dataEvento, orario, descrizione, immagine, linkBiglietti, trailer });
             });
 
             container.appendChild(div);
@@ -126,15 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           const jsonLdScript = document.getElementById('json-ld-events');
-          if (jsonLdScript) {
-            jsonLdScript.textContent = JSON.stringify(window.eventiJuniorJSONLD);
-          }
+          if (jsonLdScript) jsonLdScript.textContent = JSON.stringify(window.eventiJuniorJSONLD);
         }
       });
     })
     .catch(err => console.error("Errore caricamento CSV Junior:", err));
 });
 
+// --- Loader ---
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     const loader = document.getElementById("loader");
