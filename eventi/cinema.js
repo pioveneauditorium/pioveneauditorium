@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <p><strong>Data:</strong> ${formatDate(eventData.dataEvento)} <strong>Orario:</strong> ${eventData.orario}</p>
       <p>${(eventData.descrizione || '').replace(/\n/g, '<br>')}</p>
       ${eventData.linkBiglietti ? `<a href="${eventData.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+      ${eventData.trailer ? `<p><a href="${eventData.trailer}" target="_blank" class="cta-button">Guarda il trailer</a></p>` : ''}
       <a href="${whatsappLink}" target="_blank" class="whatsapp-share">
         <i class="fab fa-whatsapp"></i> Condividi evento
       </a>
@@ -91,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const descrizione = row.Descrizione?.trim();
             const immagine = row.Immagine?.trim();
             const linkBiglietti = row.linkBiglietti?.trim();
+            const trailer = row.Trailer?.trim(); // <-- aggiunta colonna Trailer
 
             // --- Genera evento visibile ---
             const div = document.createElement("div");
@@ -119,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const moreText = p2.querySelector(".more-text");
             moreText.addEventListener("click", () => {
-              openEventModal({ titolo, dataEvento, orario, descrizione, immagine, linkBiglietti });
+              openEventModal({ titolo, dataEvento, orario, descrizione, immagine, linkBiglietti, trailer });
             });
 
             container.appendChild(div);
@@ -185,7 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 orario: eventoDaAprire.Orario?.trim(),
                 descrizione: eventoDaAprire.Descrizione?.trim(),
                 immagine: eventoDaAprire.Immagine?.trim(),
-                linkBiglietti: eventoDaAprire.linkBiglietti?.trim()
+                linkBiglietti: eventoDaAprire.linkBiglietti?.trim(),
+                trailer: eventoDaAprire.Trailer?.trim() // <-- incluso Trailer
               });
             }
           }
