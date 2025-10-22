@@ -875,3 +875,11 @@ nav ul li a:hover .fas.fa-phone-alt {
   margin-bottom: 20px;
 }
 
+/* Aspect Ratio per ridurre CLS */
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.8; /* 1280 / 1600 */
+  display: block;
+}
+
