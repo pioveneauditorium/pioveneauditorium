@@ -33,11 +33,11 @@
       .side-circles {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly; /* distribuzione verticale uniforme */
+        justify-content: space-evenly;
         align-items: center;
         height: 100%;
         flex: 0 0 140px;
-        min-height: 650px; /* garantisce un’altezza minima per equilibrio visivo */
+        min-height: 650px;
       }
 
       .carousel-container {
@@ -76,6 +76,43 @@
       .side-circles {
         display: none;
       }
+    }
+
+    /* Cookie banner (aggiornato) */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      padding: 15px;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 10000;
+    }
+    .cookie-banner p {
+      flex: 1 1 70%;
+      margin: 0;
+      font-size: 14px;
+    }
+    .cookie-banner button {
+      background: #ffcc00;
+      border: none;
+      padding: 8px 14px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cookie-banner button.secondary {
+      background: #555;
+      color: #fff;
+    }
+    .cookie-banner button.secondary:hover {
+      background: #777;
     }
   </style>
 </head>
@@ -128,6 +165,7 @@
   <div id="footer-placeholder"></div>
 
   <script src="script.js" defer></script>
+
   <script>
     function loadHTML(id, url, callback) {
       fetch(url)
@@ -171,8 +209,11 @@
 
   <!-- Cookie Banner -->
   <div id="cookie-banner" class="cookie-banner">
-    <p>Usiamo cookie tecnici per migliorare la tua esperienza. Continuando a navigare accetti la nostra <a href="privacy.html">informativa sulla privacy</a>.</p>
-    <button id="accept-cookies">Ho capito</button>
+    <p>Usiamo cookie tecnici e, previo consenso, cookie di analisi (Google Analytics) per migliorare la tua esperienza.
+      <a href="privacy.html" target="_blank">Scopri di più</a>.
+    </p>
+    <button id="accept-cookies">Accetta</button>
+    <button id="reject-cookies" class="secondary">Rifiuta</button>
   </div>
 
   <!-- Popup scheda evento -->
