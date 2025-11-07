@@ -42,6 +42,23 @@
   <script id="json-ld-events" type="application/ld+json">
     []
   </script>
+
+<script>
+  // Se l’utente ha già accettato i cookie, carica Analytics
+  document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YBSGEL3RZH');
+    }
+  });
+</script>
 </head>
 
 <body>
