@@ -76,11 +76,24 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!row.Tipo || row.Tipo.toUpperCase() !== "MUSICA") return;
 
             const dataEvento = row.Data?.trim();
-            const orario = row.Orario?.trim() || "20:00";
-            const titolo = row.Titolo?.trim();
-            const descrizione = row.Descrizione?.trim();
-            const immagine = row.Immagine?.trim();
-            const linkBiglietti = row.linkBiglietti?.trim();
+const orario = row.Orario?.trim();
+const titolo = row.Titolo?.trim();
+const descrizione = row.Descrizione?.trim();
+const immagine = row.Immagine?.trim();
+const linkBiglietti = row.linkBiglietti?.trim();
+const trailer = row.Trailer?.trim();
+
+// --- FILTRO: NON mostra eventi con data precedente ad oggi ---
+if (dataEvento) {
+  const oggi = new Date();
+  oggi.setHours(0,0,0,0);
+
+  const dataJS = new Date(dataEvento);
+
+  if (dataJS < oggi) {
+    return; // NON far vedere l'evento
+  }
+}
 
             // Crea div evento
             const div = document.createElement("div");
