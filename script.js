@@ -46,18 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const descrizione = row.Descrizione?.trim() || "";
   const linkBiglietti = row.linkBiglietti?.trim() || "";
 
-  // --- FILTRO: NON mostra eventi con data precedente ad oggi ---
-  if (dataEvento) {
-    const oggi = new Date();
-    oggi.setHours(0, 0, 0, 0);
-
-    const dataJS = new Date(dataEvento);
-
-    if (dataJS < oggi) {
-      return; // SALTA lo slide se l'evento è nel passato
-    }
-  }
-
           const item = document.createElement('div');
           item.className = 'carousel-item';
 
