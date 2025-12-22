@@ -17,129 +17,129 @@
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="eventi/eventi.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
 
-  <script>
-    // Se l’utente ha già accettato i cookie, carica Analytics
-    document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem('cookieConsent') === 'accepted') {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
-        document.head.appendChild(script);
+<script>
+  // Se l’utente ha già accettato i cookie, carica Analytics
+  document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
+      document.head.appendChild(script);
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YBSGEL3RZH');
-      }
-    });
-  </script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YBSGEL3RZH');
+    }
+  });
+</script>
 </head>
 
 <body>
-  <div id="loader"></div>
+<div id="loader"></div>
 
-  <div id="header-placeholder"></div>
+<div id="header-placeholder"></div>
 
-  <main>
-    <section style="text-align:center; padding:50px 20px;">
-      <h1 style="font-size:3em; margin-bottom:20px;">
-        Eventi per Bambini e Ragazzi🎉
-      </h1>
+<main>
+  <!-- Promo Cinema Ragazzi -->
+  <div class="cineforum-promo" 
+       style="padding:40px; border-radius:15px; margin-bottom:50px; text-align:center; color:#fff;
+              background:linear-gradient(135deg, #212121, #2c2c2c); box-shadow:0 4px 20px rgba(0,0,0,0.4);">
 
-      <!-- Promo Cinema Ragazzi -->
-      <div class="cineforum-promo" 
-           style="padding:40px; border-radius:15px; margin-bottom:50px; text-align:center; color:#fff;
-                  background:linear-gradient(135deg, #4CAF50, #3e8e41); box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+    <h2 style="font-size:2em; margin-bottom:15px;">
+      🎬 Domenica cinema pomeridiano e attività per bambini e ragazzi
+    </h2>
 
-        <h2 style="font-size:2em; margin-bottom:15px;">
-          🎬 Domenica cinema pomeridiano e attività per bambini e ragazzi
-        </h2>
+    <h3 style="font-size:1.2em; margin-bottom:20px; font-weight:normal; line-height:1.4;">
+      <strong>Biglietto singolo:</strong> 5 €<br>
+      <strong>Ridotto</strong> (&lt;19 – &gt;75 anni): 3 €<br>
+      <strong>Persone con disabilità</strong> + 1 accompagnatore: ingresso gratuito
+    </h3>
 
-        <h3 style="font-size:1.2em; margin-bottom:20px; font-weight:normal; line-height:1.4;">
-          <strong>Biglietto singolo:</strong> 5 €<br>
-          <strong>Ridotto</strong>: 3 € (&lt;19 – &gt;75 anni)<br>
-          <strong>Persone con disabilità</strong> + 1 accompagnatore: ingresso gratuito
-        </h3>
+    <p style="font-size:1.15em; margin-bottom:20px; line-height:1.6;">
+      <strong>Ogni due domeniche</strong>, il Consiglio Comunale dei Ragazzi propone film <strong>divertenti e originali</strong>, 
+      mai banali. Un’occasione unica per vivere storie emozionanti e curiose, pensate apposta per i più giovani.
+    </p>
 
-        <p style="font-size:1.15em; margin-bottom:20px; line-height:1.6;">
-          <strong>Ogni due domeniche</strong>, il Consiglio Comunale dei Ragazzi ha curato la proposta per i più giovani, 
-          sorprendendoci per il coraggio dei temi trattati. Film <strong>non scontati</strong>, ma sempre divertenti e coinvolgenti. 
-          Sarà una grande avventura culturale, una <strong>miscellanea emozionante</strong> di storie originali e curiose, da vivere con intensità e partecipazione.
-        </p>
+    <p style="font-size:1.05em; margin-bottom:25px;">
+      Verifica le date dei film 
+      <a href="https://pioveneauditorium.it/calendario.html"
+         style="color:#fdd835; font-weight:bold; text-decoration:underline;">
+        QUI
+      </a>
+    </p>
 
-        <p style="font-size:1.05em; margin-bottom:25px;">
-          Verifica le date dei film 
-          <a href="https://pioveneauditorium.it/calendario.html"
-             style="color:#fdd835; font-weight:bold; text-decoration:underline;">
-            QUI
-          </a>
-        </p>
+    <a href="https://liveticket.it/pioveneauditorium"
+       class="cta-button">
+      📅 Prenota il tuo biglietto
+    </a>
 
-        <a href="https://liveticket.it/pioveneauditorium"
-           class="cta-button">
-          📅 Prenota il tuo biglietto
-        </a>
+  </div>
 
-      </div>
+  <!-- Eventi JUNIOR caricati dinamicamente -->
+  <section style="text-align:center; padding:50px 20px;">
+    <h1 style="font-size:3em; margin-bottom:20px;">
+      Eventi per Bambini e Ragazzi🎉
+    </h1>
+    <div id="eventi-junior" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
+      <!-- Eventi JUNIOR caricati dinamicamente -->
+    </div>
+  </section>
+</main>
 
-      <div id="eventi-junior" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
-        <!-- Eventi JUNIOR caricati dinamicamente -->
-      </div>
-    </section>
-  </main>
+<div id="footer-placeholder"></div>
 
-  <div id="footer-placeholder"></div>
+<script src="script.js" defer></script>
+<script src="eventi/junior.js" defer></script>
 
-  <script src="script.js" defer></script>
-  <script src="eventi/junior.js" defer></script>
+<script id="json-ld-events" type="application/ld+json">[]</script>
 
-  <script id="json-ld-events" type="application/ld+json">[]</script>
+<script>
+  function loadHTML(id, url, callback) {
+    fetch(url)
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if (callback) callback();
+      })
+      .catch(err => console.error(`Errore caricamento ${url}:`, err));
+  }
 
-  <script>
-    function loadHTML(id, url, callback) {
-      fetch(url)
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-          if (callback) callback();
-        })
-        .catch(err => console.error(`Errore caricamento ${url}:`, err));
-    }
-
-    // Carica header e hamburger menu
-    loadHTML("header-placeholder", "header.html", () => {
-      const hamburger = document.querySelector('.hamburger');
-      const navMenu = document.getElementById('nav-menu');
-      const closeMenu = document.querySelector('.close-menu');
-      if(hamburger && navMenu){
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
-        if (closeMenu) closeMenu.addEventListener('click', () => {
+  // Carica header e hamburger menu
+  loadHTML("header-placeholder", "header.html", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    if(hamburger && navMenu){
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+      if (closeMenu) closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
           hamburger.classList.remove('active');
           navMenu.classList.remove('active');
         });
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
-      }
-    });
+      });
+    }
+  });
 
-    loadHTML("footer-placeholder", "footer.html");
+  loadHTML("footer-placeholder", "footer.html");
 
-    // Aggiorna JSON-LD
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.eventiJuniorJSONLD) {
-        document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
-      }
-    });
-  </script>
+  // Aggiorna JSON-LD dinamico
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.eventiJuniorJSONLD) {
+      document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
+    }
+  });
+</script>
 </body>
 </html>
