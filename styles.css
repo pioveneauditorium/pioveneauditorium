@@ -915,37 +915,15 @@ nav ul li a:hover .fas.fa-phone-alt {
   color: #f1c40f; /* un giallo leggibile e non troppo acceso */
 }
 
-/* ---------------------------
-   Cartello VERDE dietro hamburger con effetto neon sul perimetro
---------------------------- */
+/* Effetto NEON sul perimetro del cartello */
 .exit-sign {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: center; /* Allinea l'immagine al centro */
-  align-items: center;
-  background-color: green;
-  padding: 10px 15px; /* Aggiusta il padding per fare spazio all'immagine */
-  border-radius: 8px;
-  min-width: 100px; /* Puoi aggiustare la larghezza come preferisci */
-  z-index: 1000;
-  
-  /* Effetto neon sul perimetro del rettangolo */
   box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* Effetto glow iniziale */
   transition: box-shadow 0.3s ease; /* Transizione per l'effetto glow */
 }
 
-/* Quando l'utente passa sopra, intensifica l'effetto neon */
+/* Intensifica l'effetto neon al passaggio del mouse */
 .exit-sign:hover {
   box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1); /* Glow più forte al passaggio del mouse */
 }
 
-.exit-left .exit-icon {
-  height: 24px; /* Imposta la dimensione dell'icona dell'omino */
-  width: auto;
-  display: block;
-  margin-right: 10px; /* Spazio tra l'icona e il bordo */
-}
 
