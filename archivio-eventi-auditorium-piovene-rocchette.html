@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivio Eventi Auditorium Piovene Rocchette</title>
+<meta name="description" content="Archivio degli eventi passati all'Auditorium Comunale di Piovene Rocchette: teatro, cinema, e tanto altro.">
+<link rel="canonical" href="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png">
+<link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
+<meta property="og:title" content="Archivio Eventi Auditorium Piovene Rocchette">
+<meta property="og:description" content="Archivio degli eventi passati all'Auditorium Comunale di Piovene Rocchette: teatro, cinema, e tanto altro.">
+<meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+<!-- Font e CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Schema markup JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PerformingArtsTheatre",
+  "name": "Auditorium Comunale di Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/img/logo2.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "VI",
+    "postalCode": "36013",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.76229251350059,
+    "longitude": 11.430492775953956
+  },
+  "url": "https://pioveneauditorium.it"
+}
+</script>
+
+<style>
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #fdd835;
+}
+
+.table-container {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #fdd835;
+  color: #000; /* Testo della riga delle intestazioni in nero */
+}
+
+table tr {
+  background-color: #000; /* Sfondo nero per tutte le righe */
+  color: #fff; /* Testo bianco per tutte le righe */
+}
+
+table tr:hover {
+  background-color: #333; /* Sfondo grigio scuro al passaggio del mouse */
+}
+
+@media (max-width: 768px) {
+  table {
+    border: none;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  table th {
+    display: none;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Header dinamico -->
+<div id="header-placeholder"></div>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium di Piovene Rocchette">
+    <h1>Archivio Eventi Auditorium Piovene Rocchette</h1>
+  </section>
+
+  <!-- Tabella degli eventi -->
+  <section class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Artista/Compagnia</th>
+          <th>Titolo</th>
+          <th>Data</th>
+          <th>Tipo di Evento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Artista/Compagnia">Nautilus Cantiere Teatrale</td>
+          <td data-label="Titolo">Quattro donne e un bastardo</td>
+          <td data-label="Data">4 ottobre 2025</td>
+          <td data-label="Tipo di Evento">TEATRO</td>
+        </tr>
+        <tr>
+          <td data-label="Artista/Compagnia">/</td>
+          <td data-label="Titolo">Le assaggiatrici</td>
+          <td data-label="Data">17 ottobre 2025</td>
+          <td data-label="Tipo di Evento">CINEMA</td>
+        </tr>
+        <tr>
+          <td data-label="Artista/Compagnia">La Compagnia Teatrale Piovene Teatro</td>
+          <td data-label="Titolo">Imposibile nar d'acordo</td>
+          <td data-label="Data">18 ottobre 2025</td>
+          <td data-label="Tipo di Evento">TEATRO</td>
+        </tr>
+        <tr>
+          <td data-label="Artista/Compagnia">/</td>
+          <td data-label="Titolo">Lilo&Stitch</td>
+          <td data-label="Data">19 ottobre 2025</td>
+          <td data-label="Tipo di Evento">BAMBINI & RAGAZZI</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<!-- Footer dinamico -->
+<div id="footer-placeholder"></div>
+
+<!-- Script principali -->
+<script src="script.js" defer></script>
+<script>
+function loadHTML(id, url, callback) {
+  fetch(url)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+      if(callback) callback();
+    })
+    .catch(err => console.error(`Errore caricamento ${url}:`, err));
+}
+
+loadHTML("header-placeholder", "header.html", () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const closeMenu = document.querySelector('.close-menu');
+
+  if(hamburger && navMenu){
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    if(closeMenu){
+      closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    }
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  }
+});
+
+loadHTML("footer-placeholder", "footer.html");
+</script>
+</body>
+</html>
