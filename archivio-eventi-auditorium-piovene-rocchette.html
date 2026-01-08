@@ -77,11 +77,6 @@ main {
 }
 
 /* Stile per la tabella */
-.events-table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* per migliorare la scorrevolezza su dispositivi iOS */
-}
-
 .events-table {
   width: 100%;
   border-collapse: collapse;
@@ -89,14 +84,12 @@ main {
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   color: #333;
-  table-layout: fixed; /* Impedisce la tabella di uscire dallo schermo */
 }
 
 .events-table th, .events-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  white-space: nowrap; /* Impedisce che il testo si divida su più righe */
 }
 
 .events-table th {
@@ -112,13 +105,40 @@ main {
   background-color: #f1f1f1;
 }
 
+/* Modifiche per la versione mobile */
 @media (max-width: 768px) {
+  /* Nascondiamo la struttura a tabella */
   .events-table {
-    font-size: 14px;
+    display: block;
   }
 
-  .events-table th, .events-table td {
-    padding: 8px;
+  .events-table thead {
+    display: none; /* Nascondiamo l'intestazione */
+  }
+
+  .events-table tr {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .events-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+
+  .events-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Modifichiamo la larghezza delle colonne per migliorare la leggibilità */
+  .events-table td {
+    font-size: 14px;
   }
 }
 </style>
@@ -138,44 +158,42 @@ main {
   <!-- Tabella Eventi -->
   <section>
     <h2>Archivio Eventi</h2>
-    <div class="events-table-wrapper">
-      <table class="events-table">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Titolo</th>
-            <th>Artista/Compagnia</th>
-            <th>Tipo di evento</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 ottobre 2025</td>
-            <td>Quattro donne e un bastardo</td>
-            <td>Nautilus Cantiere Teatrale</td>
-            <td>TEATRO</td>
-          </tr>
-          <tr>
-            <td>17 ottobre 2025</td>
-            <td>Le assaggiatrici</td>
-            <td>/</td>
-            <td>CINEMA</td>
-          </tr>
-          <tr>
-            <td>18 ottobre 2025</td>
-            <td>Imposibile nar d'acordo</td>
-            <td>La Compagnia Teatrale Piovene Teatro</td>
-            <td>TEATRO</td>
-          </tr>
-          <tr>
-            <td>19 ottobre 2025</td>
-            <td>Lilo&Stitch</td>
-            <td>/</td>
-            <td>BAMBINI&RAGAZZI</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="events-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Titolo</th>
+          <th>Artista/Compagnia</th>
+          <th>Tipo di evento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Data">4 ottobre 2025</td>
+          <td data-label="Titolo">Quattro donne e un bastardo</td>
+          <td data-label="Artista/Compagnia">Nautilus Cantiere Teatrale</td>
+          <td data-label="Tipo di evento">TEATRO</td>
+        </tr>
+        <tr>
+          <td data-label="Data">17 ottobre 2025</td>
+          <td data-label="Titolo">Le assaggiatrici</td>
+          <td data-label="Artista/Compagnia">/</td>
+          <td data-label="Tipo di evento">CINEMA</td>
+        </tr>
+        <tr>
+          <td data-label="Data">18 ottobre 2025</td>
+          <td data-label="Titolo">Imposibile nar d'accordo</td>
+          <td data-label="Artista/Compagnia">La Compagnia Teatrale Piovene Teatro</td>
+          <td data-label="Tipo di evento">TEATRO</td>
+        </tr>
+        <tr>
+          <td data-label="Data">19 ottobre 2025</td>
+          <td data-label="Titolo">Lilo&Stitch</td>
+          <td data-label="Artista/Compagnia">/</td>
+          <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </main>
 
