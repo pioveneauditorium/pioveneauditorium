@@ -77,6 +77,11 @@ main {
 }
 
 /* Stile per la tabella */
+.events-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* per migliorare la scorrevolezza su dispositivi iOS */
+}
+
 .events-table {
   width: 100%;
   border-collapse: collapse;
@@ -84,12 +89,14 @@ main {
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   color: #333;
+  table-layout: fixed; /* Impedisce la tabella di uscire dallo schermo */
 }
 
 .events-table th, .events-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  white-space: nowrap; /* Impedisce che il testo si divida su più righe */
 }
 
 .events-table th {
@@ -131,42 +138,44 @@ main {
   <!-- Tabella Eventi -->
   <section>
     <h2>Archivio Eventi</h2>
-    <table class="events-table">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Titolo</th>
-          <th>Artista/Compagnia</th>
-          <th>Tipo di evento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>4 ottobre 2025</td>
-          <td>Quattro donne e un bastardo</td>
-          <td>Nautilus Cantiere Teatrale</td>
-          <td>TEATRO</td>
-        </tr>
-        <tr>
-          <td>17 ottobre 2025</td>
-          <td>Le assaggiatrici</td>
-          <td>/</td>
-          <td>CINEMA</td>
-        </tr>
-        <tr>
-          <td>18 ottobre 2025</td>
-          <td>Imposibile nar d'acordo</td>
-          <td>La Compagnia Teatrale Piovene Teatro</td>
-          <td>TEATRO</td>
-        </tr>
-        <tr>
-          <td>19 ottobre 2025</td>
-          <td>Lilo&Stitch</td>
-          <td>/</td>
-          <td>BAMBINI&RAGAZZI</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="events-table-wrapper">
+      <table class="events-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Titolo</th>
+            <th>Artista/Compagnia</th>
+            <th>Tipo di evento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4 ottobre 2025</td>
+            <td>Quattro donne e un bastardo</td>
+            <td>Nautilus Cantiere Teatrale</td>
+            <td>TEATRO</td>
+          </tr>
+          <tr>
+            <td>17 ottobre 2025</td>
+            <td>Le assaggiatrici</td>
+            <td>/</td>
+            <td>CINEMA</td>
+          </tr>
+          <tr>
+            <td>18 ottobre 2025</td>
+            <td>Imposibile nar d'acordo</td>
+            <td>La Compagnia Teatrale Piovene Teatro</td>
+            <td>TEATRO</td>
+          </tr>
+          <tr>
+            <td>19 ottobre 2025</td>
+            <td>Lilo&Stitch</td>
+            <td>/</td>
+            <td>BAMBINI&RAGAZZI</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </main>
 
