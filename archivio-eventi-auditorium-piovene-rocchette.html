@@ -49,6 +49,104 @@
 }
 </script>
 
+<style>
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #fdd835;
+}
+
+.table-container {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #fdd835;
+  color: #000; /* Testo della riga delle intestazioni in nero */
+}
+
+table tr {
+  background-color: #000; /* Sfondo nero per tutte le righe */
+  color: #fff; /* Testo bianco per tutte le righe */
+}
+
+table tr:hover {
+  background-color: #333; /* Sfondo grigio scuro al passaggio del mouse */
+}
+
+@media (max-width: 768px) {
+  table {
+    border: none;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  table th {
+    display: none;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFD700; /* COLORE VOCI COLONNE SMARTPHONE */
+  }
+}
+</style>
 </head>
 <body>
 <!-- Header dinamico -->
