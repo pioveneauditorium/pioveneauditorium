@@ -141,6 +141,56 @@ main {
     font-size: 14px;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  main {
+    background-color: #000;
+    padding: 0; /* Azzera il padding su main */
+  }
+
+  /* Rimuoviamo margini e padding dalle tabelle */
+  .events-table {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .events-table thead {
+    display: none; /* Nascondiamo l'intestazione */
+  }
+
+  .events-table tr {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .events-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    margin: 0; /* Rimuovi margine dalle celle */
+  }
+
+  .events-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Modifica la larghezza delle colonne per migliorare la leggibilità */
+  .events-table td {
+    font-size: 14px;
+  }
+}
 </style>
 
 </head>
