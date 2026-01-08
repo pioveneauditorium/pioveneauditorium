@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archivio Eventi Auditorium Piovene Rocchette</title>
-<meta name="description" content="Archivio degli eventi passati all'Auditorium Comunale di Piovene Rocchette: teatro, cinema, e tanto altro.">
+<title>Archivio eventi dell'Auditorium di Piovene Rocchette</title>
+<meta name="description" content="Archivio eventi dell'Auditorium Comunale di Piovene Rocchette: storico degli eventi passati.">
 <link rel="canonical" href="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
 
 <!-- Favicon -->
@@ -16,8 +16,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
-<meta property="og:title" content="Archivio Eventi Auditorium Piovene Rocchette">
-<meta property="og:description" content="Archivio degli eventi passati all'Auditorium Comunale di Piovene Rocchette: teatro, cinema, e tanto altro.">
+<meta property="og:title" content="Archivio eventi dell'Auditorium di Piovene Rocchette">
+<meta property="og:description" content="Archivio eventi dell'Auditorium Comunale di Piovene Rocchette: storico degli eventi passati.">
 <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
 <!-- Font e CSS -->
@@ -59,91 +59,56 @@ main {
   margin: 0 auto;
   color: #fff;
 }
-
 .hero {
   text-align: center;
   margin-bottom: 50px;
 }
-
 .hero img {
   width: 100%;
   max-height: 500px;
   object-fit: cover;
   border-radius: 10px;
 }
-
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   margin-top: 20px;
   color: #fdd835;
 }
-
-.table-container {
-  margin-top: 40px;
-  overflow-x: auto;
+.description-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 60px;
 }
-
-table {
+.description-section .text {
+  flex: 1 1 400px;
+  min-width: 300px;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+.description-section .circle-image {
+  flex: 0 0 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.description-section .circle-image img {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 40px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-table th, table td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-table th {
-  background-color: #fdd835;
-  color: #000; /* Testo della riga delle intestazioni in nero */
-}
-
-table tr {
-  background-color: #000; /* Sfondo nero per tutte le righe */
-  color: #fff; /* Testo bianco per tutte le righe */
-}
-
-table tr:hover {
-  background-color: #333; /* Sfondo grigio scuro al passaggio del mouse */
-}
-
-@media (max-width: 768px) {
-  table {
-    border: none;
+@media(max-width: 768px) {
+  .description-section {
+    flex-direction: column;
+    align-items: center;
   }
-
-  table th, table td {
-    padding: 8px;
+  .description-section .circle-image {
+    margin-top: 20px;
   }
-
-  table tr {
-    display: block;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ddd;
-  }
-
-  table th {
-    display: none;
-  }
-
-  table td {
-    display: block;
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-  }
-
-  table td:before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    top: 8px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFD700; /* COLORE VOCI COLONNE SMARTPHONE */
+  .hero h1 {
+    font-size: 2rem;
   }
 }
 </style>
@@ -155,49 +120,15 @@ table tr:hover {
 <main>
   <!-- Hero -->
   <section class="hero">
-    <img src="img/archivio.jpg" alt="L’Auditorium di Piovene Rocchette negli anni '50">
-    <h1>Archivio Eventi Auditorium Piovene Rocchette</h1>
+    <img src="img/archivio.jpg" alt="Archivio Eventi Auditorium Piovene Rocchette">
+    <h1>Archivio eventi dell'Auditorium di Piovene Rocchette</h1>
   </section>
 
-<!-- Tabella degli eventi -->
-<section class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Data</th>
-        <th>Titolo</th>
-        <th>Artista/Compagnia</th>
-        <th>Tipo di Evento</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="Data">4 ottobre 2025</td>
-        <td data-label="Titolo">Quattro donne e un bastardo</td>
-        <td data-label="Artista/Compagnia">Nautilus Cantiere Teatrale</td>
-        <td data-label="Tipo di Evento">TEATRO</td>
-      </tr>
-      <tr>
-        <td data-label="Data">17 ottobre 2025</td>
-        <td data-label="Titolo">Le assaggiatrici</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di Evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">18 ottobre 2025</td>
-        <td data-label="Titolo">Imposibile nar d'acordo</td>
-        <td data-label="Artista/Compagnia">La Compagnia Teatrale Piovene Teatro</td>
-        <td data-label="Tipo di Evento">TEATRO</td>
-      </tr>
-      <tr>
-        <td data-label="Data">19 ottobre 2025</td>
-        <td data-label="Titolo">Lilo&Stitch</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di Evento">BAMBINI & RAGAZZI</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  <!-- Testo di prova -->
+  <section>
+    <p>Testo di prova</p>
+  </section>
+</main>
 
 <!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
