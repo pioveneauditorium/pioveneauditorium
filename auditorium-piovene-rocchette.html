@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
 
+<!-- CSS principale -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Font Awesome per icone -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
 html, body {
   margin: 0;
@@ -56,7 +62,7 @@ main {
 .auditorium-content strong.inline-highlight {
   color: #FFC107;
   font-weight: bold;
-  font-size: 1.5em; /* stessa dimensione del TESTO */
+  font-size: 1.5em;
 }
 .auditorium-content a {
   color: #fdd835;
@@ -83,10 +89,10 @@ main {
 
 /* Video circolare */
 .circle-video {
-  width: 250px;       /* dimensione desktop */
-  height: 250px;      /* mantiene il cerchio */
-  border-radius: 50%; /* rende circolare */
-  object-fit: cover;  /* riempie il cerchio senza distorsioni */
+  width: 250px;       
+  height: 250px;      
+  border-radius: 50%; 
+  object-fit: cover;  
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   border: none
 }
@@ -105,6 +111,9 @@ main {
 </style>
 </head>
 <body>
+
+<!-- Header dinamico -->
+<div id="header-placeholder"></div>
 
 <main>
   <!-- Hero -->
@@ -161,6 +170,7 @@ function loadHTML(id, url, callback) {
     .catch(err => console.error(`Errore caricamento ${url}:`, err));
 }
 
+// Carica header con hamburger menu
 loadHTML("header-placeholder", "header.html", () => {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.getElementById('nav-menu');
@@ -188,6 +198,7 @@ loadHTML("header-placeholder", "header.html", () => {
   }
 });
 
+// Carica footer
 loadHTML("footer-placeholder", "footer.html");
 </script>
 </body>
