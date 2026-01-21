@@ -13,12 +13,7 @@ html, body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #000; /* fallback nero */
-  background-image: url('img/sfondo-sito.jpg'); /* immagine sfondo */
-  background-size: cover;          /* copre tutta l'area */
-  background-position: center;     /* centrata */
-  background-repeat: no-repeat;    /* non ripete */
-  background-attachment: fixed;    /* effetto fisso su scroll */
+  background-color: #000;
   color: #fff;
   line-height: 1.6;
   display: flex;
