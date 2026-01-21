@@ -34,44 +34,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- JSON-LD LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Auditorium Comunale Piovene Rocchette",
-    "image": "https://pioveneauditorium.it/img/logo2.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza degli Alpini 1",
-      "addressLocality": "Piovene Rocchette",
-      "addressRegion": "VI",
-      "postalCode": "36013",
-      "addressCountry": "IT"
-    },
-    "email": "info@pioveneauditorium.it",
-    "url": "https://pioveneauditorium.it",
-    "sameAs": [
-      "https://www.facebook.com/auditoriumpiovenerocchette",
-      "https://instagram.com/pioveneauditorium"
-    ]
-  }
-  </script>
-
-<script>
-  // Se l’utente ha già accettato i cookie, carica Analytics
-  document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('cookieConsent') === 'accepted') {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
-      document.head.appendChild(script);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YBSGEL3RZH');
-    }
-  });
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Auditorium Comunale Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/img/logo2.png",
+  "url": "https://pioveneauditorium.it",
+  "email": "info@pioveneauditorium.it",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "VI",
+    "postalCode": "36013",
+    "addressCountry": "IT"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+393519694361",
+    "contactType": "customer service",
+    "availableLanguage": ["Italian"],
+    "areaServed": "IT"
+  }],
+  "sameAs": [
+    "https://www.facebook.com/auditoriumpiovenerocchette",
+    "https://instagram.com/pioveneauditorium",
+    "https://wa.me/393519694361",
+    "https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
+  ]
+}
 </script>
 </head>
 
@@ -79,47 +71,51 @@
   <!-- Header dinamico -->
   <div id="header-placeholder"></div>
 
-  <main>
-<section class="contact-info">
-<h1>Contattaci</h1>
-<p>Per qualsiasi informazione su eventi ed attività dell'Auditorium, non esitare a contattarci.</p>
+<main>
+  <section class="contact-info">
+    <h1>Contattaci</h1>
 
-<p>
-  <strong>
-    <span class="highlight-yellow">
-      Hai suggerimenti o idee per nuovi film da proiettare? Ci farebbe piacere conoscere la tua opinione!
-    </span>
-  </strong>
-</p>
+    <p>
+      Per qualsiasi informazione su attività ed eventi dell'Auditorium, non esitare a contattarci!
+    </p>
 
-<ul>
-  <li><strong>Indirizzo:</strong> Piazza degli Alpini 1, Piovene Rocchette, 36013 (VI)</li>
-  <li><strong>Email:</strong> <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></li>
-  <li>
-    <strong>Seguici sui social:</strong>
-    <span class="social-icons-inline">
-      <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://instagram.com/pioveneauditorium" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </span>
-  </li>
-</ul>
-</section>
+    <ul>
+      <li>
+        <i class="fab fa-whatsapp"></i>
+        <strong>Scrivici su WhatsApp:</strong>
+        <a href="https://wa.me/393519694361" target="_blank">351 969 4361</a>
+      </li>
 
-    <section class="contact-map">
-      <h2>Dove siamo</h2>
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.4439455505053!2d11.430492775953956!3d45.76229251350059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4778b776bc0b7c31%3A0x4981d35977a5a2e9!2sAuditorium%20Piovene%20Rocchette!5e0!3m2!1sit!2sit!4v1757844803894!5m2!1sit!2sit" 
-        style="width:100%; height:400px; border:0; border-radius:8px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </section>
-  </main>
+      <li>
+        <i class="fab fa-whatsapp"></i>
+        <strong>Canale WhatsApp:</strong>
+        <a href="https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F" target="_blank">
+          iscriviti per rimanere aggiornato sulla programmazione
+        </a>
+      </li>
+
+      <li>
+        <i class="fas fa-envelope"></i>
+        <strong>Email:</strong>
+        <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a><br>
+        <span class="note">
+          Hai consigli su film o sulla programmazione? Ci farebbe piacere conoscere la tua opinione!
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="contact-map">
+    <h2>Dove siamo</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.4439455505053!2d11.430492775953956!3d45.76229251350059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4778b776bc0b7c31%3A0x4981d35977a5a2e9!2sAuditorium%20Piovene%20Rocchette!5e0!3m2!1sit!2sit!4v1757844803894!5m2!1sit!2sit" 
+      style="width:100%; height:400px; border:0; border-radius:8px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+</main>
 
   <!-- Footer dinamico -->
   <div id="footer-placeholder"></div>
