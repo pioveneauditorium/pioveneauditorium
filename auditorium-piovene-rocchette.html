@@ -4,51 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
-<meta name="description" content="Scopri l'Auditorium Comunale di Piovene Rocchette: spazio per musica, teatro, cinema ed eventi. Consulta il calendario aggiornato e partecipa ai prossimi spettacoli.">
-<link rel="canonical" href="https://pioveneauditorium.it/auditorium-piovene-rocchette.html">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png">
-<link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
-<link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
-
-<!-- Font e CSS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-/* RESET BASE */
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* niente scroll orizzontale */
-  box-sizing: border-box;
+  overflow-x: hidden; /* rimuove scroll orizzontale */
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background-color: #000;
   line-height: 1.6;
 }
 
-/* MAIN */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 60px 20px 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* HERO */
+/* Hero */
 .hero {
   text-align: center;
   margin-bottom: 50px;
 }
 .hero img {
   width: 100%;
-  height: auto;
   max-height: 500px;
   object-fit: cover;
   border-radius: 10px;
@@ -60,44 +34,77 @@ main {
   color: #fdd835;
 }
 
-/* GRID PARAGRAFI - desktop */
-.auditorium-grid {
+/* Container principale */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Contenuto: 2 colonne desktop, 1 colonna mobile */
+.auditorium-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
-/* STILE PARAGRAFI */
-.grid-text p {
+/* Paragrafi */
+.auditorium-content p {
   margin-top: 20px;
   word-break: break-word;
 }
-.grid-text p strong.inline-highlight {
+.auditorium-content strong.inline-highlight {
   color: #FFC107;
   font-weight: bold;
-  font-size: 1em; /* stessa dimensione del testo normale */
+  font-size: 1em; /* stessa dimensione del testo */
 }
-
-/* LINK */
-.grid-text a {
+.auditorium-content a {
   color: #fdd835;
   text-decoration: underline;
 }
 
-/* RESPONSIVE MOBILE */
+/* MOBILE: UNA colonna */
 @media(max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
-  .auditorium-grid {
-    grid-template-columns: 1fr; /* ogni paragrafo singolo in colonna */
+  .auditorium-content {
+    grid-template-columns: 1fr; /* una colonna singola */
+  }
+}
+
+/* Contenitore video circolare centrato */
+.video-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0; /* spazio sopra e sotto */
+}
+
+/* Video circolare */
+.circle-video {
+  width: 250px;       /* dimensione desktop */
+  height: 250px;      /* mantiene il cerchio */
+  border-radius: 50%; /* rende circolare */
+  object-fit: cover;  /* riempie il cerchio senza distorsioni */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border: none
+}
+
+/* Versione mobile */
+@media (max-width: 768px) {
+  .circle-video {
+    width: 180px;
+    height: 180px;
+  }
+
+  .video-circle-container {
+    margin: 30px 0;
   }
 }
 </style>
 </head>
 <body>
-<!-- Header dinamico -->
-<div id="header-placeholder"></div>
 
 <main>
   <!-- Hero -->
@@ -106,31 +113,37 @@ main {
     <h1>Auditorium Comunale di Piovene Rocchette</h1>
   </section>
 
-  <!-- Contenuto principale -->
-  <section class="auditorium-grid">
-    <div class="grid-text">
-      <p><strong class="inline-highlight">L'Auditorium</strong><br>
-      Inaugurato nel 2009, l'Auditorium Comunale di Piovene Rocchette è il cuore pulsante della cultura locale, offrendo un ricco programma di eventi tutto l’anno: dal teatro al cinema, passando per la musica.<br>
-      Per consultare <strong class="inline-highlight">l'archivio degli eventi passati</strong> clicca <a href="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html" target="_blank">QUI</a>.</p>
+  <!-- Contenuto -->
+  <section class="auditorium-content">
+    <p><strong class="inline-highlight">L'Auditorium</strong><br>
+    Inaugurato nel 2009, l'Auditorium Comunale di Piovene Rocchette è il cuore pulsante della cultura locale, offrendo un ricco programma di eventi tutto l’anno: dal teatro al cinema, passando per la musica.<br>
+    Per consultare <strong class="inline-highlight">l'archivio degli eventi passati</strong> clicca <a href="#">QUI</a>.</p>
 
-      <p><strong class="inline-highlight">A teatro con Il Mascherone (e non solo)</strong><br>
-      Ogni anno "Il Mascherone" porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non, in una gara di risate, talento e passione per il teatro. Per le date de <strong class="inline-highlight">Il Mascherone 2026</strong> clicca <a href="https://pioveneauditorium.it/teatro_piovene_rocchette.html" target="_blank">QUI</a>.<br>
-      <strong class="inline-highlight">Non solo Mascherone</strong>: durante tutto l'anno l'Auditorium ospita spettacoli che spaziano dalla commedia ai temi più importanti.</p>
+    <p><strong class="inline-highlight">A teatro con Il Mascherone (e non solo)</strong><br>
+    Ogni anno "Il Mascherone" porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non, in una gara di risate, talento e passione per il teatro. Per le date de <strong class="inline-highlight">Il Mascherone 2026</strong> clicca <a href="#">QUI</a>.<br>
+    <strong class="inline-highlight">Non solo Mascherone</strong>: durante tutto l'anno l'Auditorium ospita spettacoli che spaziano dalla commedia ai temi più importanti.</p>
 
-      <p><strong class="inline-highlight">Cinema del Venerdì e della Domenica</strong><br>
-      I venerdì sera sono dedicati al cinema d’autore, mentre le domeniche pomeriggio offrono film per bambini e ragazzi (verifica date e orari <a href="https://pioveneauditorium.it/calendario.html" target="_blank">QUI</a>).</p>
+    <p><strong class="inline-highlight">Cinema del Venerdì e della Domenica</strong><br>
+    I venerdì sera sono dedicati al cinema d’autore, mentre le domeniche pomeriggio offrono film per bambini e ragazzi (verifica date e orari <a href="#">QUI</a>).</p>
 
-      <p><strong class="inline-highlight">Summano Festival - Sabato 14 Marzo 2026</strong><br>
-      Un evento imperdibile: sei artisti, quattro brani ciascuno, e una serata di pura energia e creatività!</p>
+    <p><strong class="inline-highlight">Summano Festival - Sabato 14 Marzo 2026</strong><br>
+    Un evento imperdibile: sei artisti, quattro brani ciascuno, e una serata di pura energia e creatività!</p>
 
-      <p><strong class="inline-highlight">Bar dell'Auditorium</strong><br>
-      Goditi un aperitivo al bar dell'Auditorium, l’ideale per un momento di relax prima e dopo gli spettacoli, in un’atmosfera accogliente e conviviale.</p>
+    <p><strong class="inline-highlight">Bar dell'Auditorium</strong><br>
+    Goditi un aperitivo al bar dell'Auditorium, l’ideale per un momento di relax prima e dopo gli spettacoli, in un’atmosfera accogliente e conviviale.</p>
 
-      <p><strong class="inline-highlight">Condividi il tuo parere!</strong><br>
-      Hai suggerimenti per il nostro programma o dei film da consigliare? Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>, la tua opinione è importante per noi!</p>
-    </div>
+    <p><strong class="inline-highlight">Condividi il tuo parere!</strong><br>
+    Hai suggerimenti per il nostro programma o dei film da consigliare? Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>, la tua opinione è importante per noi!</p>
   </section>
 </main>
+
+<!-- Video circolare Auditorium -->
+<div class="video-circle-container">
+  <video class="circle-video" autoplay muted loop playsinline>
+    <source src="img/video-auditorium.mp4" type="video/mp4">
+    Il tuo browser non supporta i video HTML5.
+  </video>
+</div>
 
 <!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
