@@ -13,7 +13,12 @@ html, body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background-color: #000; /* fallback nero */
+  background-image: url('img/sfondo-sito.jpg'); /* immagine sfondo */
+  background-size: cover;          /* copre tutta l'area */
+  background-position: center;     /* centrata */
+  background-repeat: no-repeat;    /* non ripete */
+  background-attachment: fixed;    /* effetto fisso su scroll */
   color: #fff;
   line-height: 1.6;
   display: flex;
@@ -925,5 +930,128 @@ nav ul li a:hover .fas.fa-phone-alt {
 .exit-sign:hover {
   box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1); /* Glow più forte al passaggio del mouse */
 }
+
+.auditorium-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Contenitore testo */
+.grid-text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 60px;
+}
+
+/* Blocco singolo */
+.info-block {
+  background: rgba(255,255,255,0.03);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.info-block h2 {
+  color: #FFC107;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.info-block p {
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Colonna immagini */
+.grid-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.circle-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.circle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+<style>
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.hero img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #fdd835;
+}
+
+/* Griglia testo e immagini desktop */
+.auditorium-grid {
+  display: flex;
+  flex-direction: column; /* Testo sopra, immagini sotto */
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* Testo diviso in blocchi */
+.grid-text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonne per i paragrafi */
+  gap: 40px 60px;
+}
+
+.info-block {
+  background: rgba(255,255,255,0.03);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.info-block h2 {
+  color: #FFC107;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.info-block p {
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+
 
 
