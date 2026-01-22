@@ -170,10 +170,6 @@ nav ul li a:hover { filter: brightness(0.85); }
   height: 100vh;
 }
 
-#nav-menu.active {
-  height: 100vh;
-}
-
 #nav-menu ul {
   list-style: none;
   text-align: center;
