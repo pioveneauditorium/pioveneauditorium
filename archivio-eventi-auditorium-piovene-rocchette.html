@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archivio eventi dell'Auditorium di Piovene Rocchette</title>
 <meta name="description" content="Archivio eventi dell'Auditorium Comunale di Piovene Rocchette: storico degli eventi passati.">
-<link rel="canonical" href="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
@@ -13,52 +12,27 @@
 <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html">
-<meta property="og:title" content="Archivio eventi dell'Auditorium di Piovene Rocchette">
-<meta property="og:description" content="Archivio eventi dell'Auditorium Comunale di Piovene Rocchette: storico degli eventi passati.">
-<meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
-
 <!-- Font e CSS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<!-- Schema markup JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PerformingArtsTheatre",
-  "name": "Auditorium Comunale di Piovene Rocchette",
-  "image": "https://pioveneauditorium.it/img/logo2.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Piazza degli Alpini 1",
-    "addressLocality": "Piovene Rocchette",
-    "addressRegion": "VI",
-    "postalCode": "36013",
-    "addressCountry": "IT"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.76229251350059,
-    "longitude": 11.430492775953956
-  },
-  "url": "https://pioveneauditorium.it"
-}
-</script>
-
 <style>
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 60px 20px 50px;
+  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  color: #fff;
 }
+
 .hero {
   text-align: center;
   margin-bottom: 50px;
@@ -76,125 +50,68 @@ main {
   color: #fdd835;
 }
 
-/* Stile per la tabella */
-.events-table {
-  width: 100%;
-  border-collapse: collapse;
+/* Event Cards */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
-  background-color: #fff;
-  color: #333;
 }
 
-.events-table th, .events-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.event-card {
+  background-color: #121212;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.1);
 }
 
-.events-table th {
-  background-color: #fdd835;
+.event-date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+/* Colori categorie */
+.cinema { background-color: #fdd835; } /* giallo */
+.teatro { background-color: #9c27b0; } /* viola */
+.bambini { background-color: #4caf50; } /* verde */
+.musica { background-color: #ff9800; } /* arancione */
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #fdd835;
+}
+.event-artist {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+.event-type {
+  font-weight: bold;
+  font-size: 0.85rem;
   color: #fff;
+  margin-top: 5px;
 }
 
-.events-table tr:nth-child(even) {
-  background-color: #e0e0e0; /* SFONDO CELLE PARI */
-}
-
-.events-table tr:hover {
-  background-color: #FFEB3B; /* EFFETTO HOVER */
-}
-
-/* Modifiche per la versione mobile */
-@media (max-width: 768px) {
-  /* Nascondiamo la struttura a tabella */
-  .events-table {
-    display: block;
-  }
-
-  .events-table thead {
-    display: none; /* Nascondiamo l'intestazione */
-  }
-
-  .events-table tr {
-    display: block;
-    margin-bottom: 15px;
-  }
-
-  .events-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 15px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-
-  .events-table td:before {
-    content: attr(data-label);
-    font-weight: bold;
-    margin-right: 10px;
-  }
-
-  /* Modifichiamo la larghezza delle colonne per migliorare la leggibilità */
-  .events-table td {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    background-color: #000;
-    color: #fff;
-  }
-
-  main {
-    background-color: #000;
-    padding: 0; /* Azzera il padding su main */
-  }
-
-  /* Rimuoviamo margini e padding dalle tabelle */
-  .events-table {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .events-table thead {
-    display: none; /* Nascondiamo l'intestazione */
-  }
-
-  .events-table tr {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .events-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 15px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-    margin: 0; /* Rimuovi margine dalle celle */
-  }
-
-  .events-table td:before {
-    content: attr(data-label);
-    font-weight: bold;
-    margin-right: 10px;
-  }
-
-  /* Modifica la larghezza delle colonne per migliorare la leggibilità */
-  .events-table td {
-    font-size: 14px;
-  }
+/* Responsive */
+@media(max-width:768px){
+  main { padding: 20px 10px; }
 }
 </style>
-
 </head>
 <body>
+
 <!-- Header dinamico -->
 <div id="header-placeholder"></div>
 
@@ -205,176 +122,77 @@ main {
     <h1>Archivio eventi dell'Auditorium di Piovene Rocchette</h1>
   </section>
 
-<!-- Tabella Eventi -->
-<section>
-  <h2>Archivio degli eventi da ottobre 2025 in poi</h2>
-  <table class="events-table">
-    <thead>
-      <tr>
-        <th>Data</th>
-        <th>Titolo</th>
-        <th>Artista/Compagnia</th>
-        <th>Tipo di evento</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="Data">4 ottobre 2025</td>
-        <td data-label="Titolo">Quattro donne e un bastardo</td>
-        <td data-label="Artista/Compagnia">Nautilus Cantiere Teatrale</td>
-        <td data-label="Tipo di evento">TEATRO</td>
-      </tr>
-      <tr>
-        <td data-label="Data">17 ottobre 2025</td>
-        <td data-label="Titolo">Le assaggiatrici</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">18 ottobre 2025</td>
-        <td data-label="Titolo">Imposibile nar d'accordo</td>
-        <td data-label="Artista/Compagnia">La Compagnia Teatrale Piovene Teatro</td>
-        <td data-label="Tipo di evento">TEATRO</td>
-      </tr>
-      <tr>
-        <td data-label="Data">19 ottobre 2025</td>
-        <td data-label="Titolo">Lilo&Stitch</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
-      </tr>
-      <tr>
-        <td data-label="Data">25 ottobre 2025</td>
-        <td data-label="Titolo">Serata d'autore</td>
-        <td data-label="Artista/Compagnia">Daniele Groff e Studio3</td>
-        <td data-label="Tipo di evento">MUSICA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">31 ottobre 2025</td>
-        <td data-label="Titolo">Sotto le foglie</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">2 novembre 2025</td>
-        <td data-label="Titolo">Elio</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
-      </tr>
-      <tr>
-        <td data-label="Data">14 novembre 2025</td>
-        <td data-label="Titolo">Le occasioni dell'amore</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">16 novembre 2025</td>
-        <td data-label="Titolo">Moon il panda</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
-      </tr>
-      <tr>
-        <td data-label="Data">22 novembre 2025</td>
-        <td data-label="Titolo">Maddalena</td>
-        <td data-label="Artista/Compagnia">Eleonora Fontana e Davide Peron</td>
-        <td data-label="Tipo di evento">TEATRO PER LA GIORNATA INTERNAZIONALE PER L'ELIMINAZIONE DELLA VIOLENZA CONTRO LE DONNE</td>
-      </tr>
-      <tr>
-        <td data-label="Data">28 novembre 2025</td>
-        <td data-label="Titolo">Gloria!</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">29 novembre 2025</td>
-        <td data-label="Titolo">Stria, stria vattene via!</td>
-        <td data-label="Artista/Compagnia">Fiorella Mauri, Luigi Catuogno, Pino Costalunga</td>
-        <td data-label="Tipo di evento">TEATRO e MUSICA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">30 novembre 2025</td>
-        <td data-label="Titolo">Maracuda-diventare grandi è una giungla</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
-      </tr>
-      <tr>
-        <td data-label="Data">12 dicembre 2025</td>
-        <td data-label="Titolo">Brenta connection</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">13 dicembre 2025</td>
-        <td data-label="Titolo">Canti e musiche della tradizione natalizia</td>
-        <td data-label="Artista/Compagnia">BandaBrian</td>
-        <td data-label="Tipo di evento">MUSICA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">27 e 28 dicembre 2025</td>
-        <td data-label="Titolo">Dragon trainer</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">BAMBINI&RAGAZZI</td>
-      </tr>
-      <tr>
-        <td data-label="Data">1 gennaio 2026</td>
-        <td data-label="Titolo">Come fly with me</td>
-        <td data-label="Artista/Compagnia">CAM Orchestra</td>
-        <td data-label="Tipo di evento">MUSICA</td>
-      </tr>
-      <tr>
-        <td data-label="Data">2 gennaio 2026</td>
-        <td data-label="Titolo">A complete unknown</td>
-        <td data-label="Artista/Compagnia">/</td>
-        <td data-label="Tipo di evento">CINEMA</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  <!-- Event Cards -->
+  <section>
+    <h2>Archivio degli eventi da ottobre 2025 in poi</h2>
+    <div class="events-grid" id="events-container">
+      <!-- Eventi generati via JS -->
+    </div>
+  </section>
 </main>
 
 <!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
 
-<!-- Script principali -->
-<script src="script.js" defer></script>
 <script>
-function loadHTML(id, url, callback) {
-  fetch(url)
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById(id).innerHTML = data;
-      if(callback) callback();
-    })
-    .catch(err => console.error(`Errore caricamento ${url}:`, err));
+// Lista eventi
+const events = [
+  {date: "2026-01-02", title:"A complete unknown", artist:"/", type:"CINEMA"},
+  {date: "2026-01-01", title:"Come fly with me", artist:"CAM Orchestra", type:"MUSICA"},
+  {date: "2025-12-27", title:"Dragon trainer", artist:"/", type:"BAMBINI&RAGAZZI"},
+  {date: "2025-12-13", title:"Canti e musiche della tradizione natalizia", artist:"BandaBrian", type:"MUSICA"},
+  {date: "2025-12-12", title:"Brenta connection", artist:"/", type:"CINEMA"},
+  {date: "2025-11-30", title:"Maracuda-diventare grandi è una giungla", artist:"/", type:"BAMBINI&RAGAZZI"},
+  {date: "2025-11-29", title:"Stria, stria vattene via!", artist:"Fiorella Mauri, Luigi Catuogno, Pino Costalunga", type:"TEATRO e MUSICA"},
+  {date: "2025-11-28", title:"Gloria!", artist:"/", type:"CINEMA"},
+  {date: "2025-11-22", title:"Maddalena", artist:"Eleonora Fontana e Davide Peron", type:"TEATRO"},
+  {date: "2025-11-16", title:"Moon il panda", artist:"/", type:"BAMBINI&RAGAZZI"},
+  {date: "2025-11-14", title:"Le occasioni dell'amore", artist:"/", type:"CINEMA"},
+  {date: "2025-11-02", title:"Elio", artist:"/", type:"BAMBINI&RAGAZZI"},
+  {date: "2025-10-31", title:"Sotto le foglie", artist:"/", type:"CINEMA"},
+  {date: "2025-10-25", title:"Serata d'autore", artist:"Daniele Groff e Studio3", type:"MUSICA"},
+  {date: "2025-10-19", title:"Lilo&Stitch", artist:"/", type:"BAMBINI&RAGAZZI"},
+  {date: "2025-10-18", title:"Imposibile nar d'accordo", artist:"La Compagnia Teatrale Piovene Teatro", type:"TEATRO"},
+  {date: "2025-10-17", title:"Le assaggiatrici", artist:"/", type:"CINEMA"},
+  {date: "2025-10-04", title:"Quattro donne e un bastardo", artist:"Nautilus Cantiere Teatrale", type:"TEATRO"}
+];
+
+// Mappa colore per categoria
+function getCategoryClass(type){
+  type = type.toUpperCase();
+  if(type.includes("CINEMA")) return "cinema";
+  if(type.includes("TEATRO")) return "teatro";
+  if(type.includes("BAMBINI")) return "bambini";
+  if(type.includes("MUSICA")) return "musica";
+  return "cinema"; // default
 }
 
-loadHTML("header-placeholder", "header.html", () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.getElementById('nav-menu');
-  const closeMenu = document.querySelector('.close-menu');
+// Ordina dal più recente al meno recente
+events.sort((a,b)=> new Date(b.date) - new Date(a.date));
 
-  if(hamburger && navMenu){
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    if(closeMenu){
-      closeMenu.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    }
-
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-  }
+// Genera HTML eventi
+const container = document.getElementById("events-container");
+events.forEach(ev=>{
+  const card = document.createElement("div");
+  card.className = "event-card";
+  card.innerHTML = `
+    <div class="event-date ${getCategoryClass(ev.type)}">${new Date(ev.date).toLocaleDateString('it-IT', {day:'2-digit', month:'long', year:'numeric'})}</div>
+    <div class="event-title">${ev.title}</div>
+    <div class="event-artist">${ev.artist}</div>
+    <div class="event-type">${ev.type}</div>
+  `;
+  container.appendChild(card);
 });
 
-loadHTML("footer-placeholder", "footer.html");
+// Caricamento header/footer dinamico
+function loadHTML(id,url,callback){
+  fetch(url).then(r=>r.text()).then(data=>{
+    document.getElementById(id).innerHTML=data;
+    if(callback) callback();
+  });
+}
+loadHTML("header-placeholder","header.html");
+loadHTML("footer-placeholder","footer.html");
 </script>
 </body>
 </html>
