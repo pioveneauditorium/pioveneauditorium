@@ -50,30 +50,15 @@
 </script>
 
 <style>
-/* Reset base */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-}
-
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
+  padding: 60px 20px 50px;
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  color: #fff;
 }
-
 .hero {
   text-align: center;
   margin-bottom: 50px;
@@ -91,63 +76,44 @@ main {
   color: #fdd835;
 }
 
-/* Grid eventi */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+/* Stile per la tabella */
+.events-table {
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #333;
 }
 
-.event-card {
-  background-color: #111;
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+.events-table th, .events-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.event-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  margin: 10px 0 5px;
+.events-table th {
+  background-color: #fdd835;
+  color: #fff;
 }
 
-.event-date {
-  font-weight: bold;
-  margin-bottom: 10px;
+.events-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.event-artist {
-  font-style: italic;
-  margin-bottom: 10px;
+.events-table tr:hover {
+  background-color: #f1f1f1;
 }
 
-/* Colori per categoria */
-.event-cinema {
-  border-left: 5px solid #FFD700; /* giallo */
-}
-.event-teatro {
-  border-left: 5px solid #800080; /* viola */
-}
-.event-bambini {
-  border-left: 5px solid #4CAF50; /* verde */
-}
-.event-musica {
-  border-left: 5px solid #FF5722; /* arancione */
-}
-
-/* Responsive cards */
 @media (max-width: 768px) {
-  .events-grid {
-    grid-template-columns: 1fr;
+  .events-table {
+    font-size: 14px;
+  }
+
+  .events-table th, .events-table td {
+    padding: 8px;
   }
 }
-
-/* Hamburger menu placeholder: aggiungi qui eventuali stili del menu */
 </style>
 
 </head>
@@ -162,52 +128,53 @@ main {
     <h1>Archivio eventi dell'Auditorium di Piovene Rocchette</h1>
   </section>
 
- <!-- Grid Eventi -->
-<section>
-  <h2>Archivio degli eventi da ottobre 2025 in poi</h2>
-  <div class="events-grid">
-    <!-- Tutti gli eventi con registi/artisti già aggiornati -->
-
-    <!-- 18 gennaio 2026 - BAMBINI&RAGAZZI -->
-    <div class="event-card event-bambini">
-      <div class="event-date">18 gennaio 2026</div>
-      <div class="event-title">Se solo fossi un orso</div>
-      <div class="event-artist">Regia di Z. Purevdash</div>
-      <div class="event-type">BAMBINI&RAGAZZI</div>
-    </div>
-
-    <!-- 17 gennaio 2026 - TEATRO -->
-    <div class="event-card event-teatro">
-      <div class="event-date">17 gennaio 2026</div>
-      <div class="event-title">Cash on Delivery</div>
-      <div class="event-artist">Tarvisium Teatro di Villorba (TV)</div>
-      <div class="event-type">TEATRO</div>
-    </div>
-
-    <!-- 16 gennaio 2026 - CINEMA -->
-    <div class="event-card event-cinema">
-      <div class="event-date">16 gennaio 2026</div>
-      <div class="event-title">Tutto quello che resta di te</div>
-      <div class="event-artist">Regia di Cherien Dabis</div>
-      <div class="event-type">CINEMA</div>
-    </div>
-
-    <!-- 10 gennaio 2026 - TEATRO -->
-    <div class="event-card event-teatro">
-      <div class="event-date">10 gennaio 2026</div>
-      <div class="event-title">Un de masa (Uno di troppo)</div>
-      <div class="event-artist">Fon Teatro di Sovramonte (BL)</div>
-      <div class="event-type">TEATRO</div>
-    </div>
-
-    <!-- altri eventi precedenti... copia quelli che avevi già -->
-  </div>
-</section>
+  <!-- Tabella Eventi -->
+  <section>
+    <h2>Archivio Eventi</h2>
+    <table class="events-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Titolo</th>
+          <th>Artista/Compagnia</th>
+          <th>Tipo di evento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4 ottobre 2025</td>
+          <td>Quattro donne e un bastardo</td>
+          <td>Nautilus Cantiere Teatrale</td>
+          <td>TEATRO</td>
+        </tr>
+        <tr>
+          <td>17 ottobre 2025</td>
+          <td>Le assaggiatrici</td>
+          <td>/</td>
+          <td>CINEMA</td>
+        </tr>
+        <tr>
+          <td>18 ottobre 2025</td>
+          <td>Imposibile nar d'acordo</td>
+          <td>La Compagnia Teatrale Piovene Teatro</td>
+          <td>TEATRO</td>
+        </tr>
+        <tr>
+          <td>19 ottobre 2025</td>
+          <td>Lilo&Stitch</td>
+          <td>/</td>
+          <td>BAMBINI&RAGAZZI</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
 
 <!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
 
 <!-- Script principali -->
+<script src="script.js" defer></script>
 <script>
 function loadHTML(id, url, callback) {
   fetch(url)
@@ -219,20 +186,33 @@ function loadHTML(id, url, callback) {
     .catch(err => console.error(`Errore caricamento ${url}:`, err));
 }
 
-// Funzione per attivare l'hamburger menu
-function initMenu() {
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
-  if(!hamburger || !navMenu) return;
+loadHTML("header-placeholder", "header.html", () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const closeMenu = document.querySelector('.close-menu');
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    hamburger.classList.toggle("active");
-  });
-}
+  if(hamburger && navMenu){
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
 
-// Carica header e footer, poi inizializza menu
-loadHTML("header-placeholder", "header.html", initMenu);
+    if(closeMenu){
+      closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    }
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  }
+});
+
 loadHTML("footer-placeholder", "footer.html");
 </script>
 </body>
