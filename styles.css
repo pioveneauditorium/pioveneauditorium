@@ -28,11 +28,11 @@ header {
   /* Colore sfondo aggiornato: effetto tenda di teatro sfumata */
   background: linear-gradient(
       to right,
-      #C62828,
-      #d32f2f,
-      #e53935,
-      #d32f2f,
-      #C62828
+      #FF0000,   /* rosso vivo */
+      #00FF00,   /* verde brillante */
+      #0000FF,   /* blu intenso */
+      #FFFF00,   /* giallo acceso */
+      #FF00FF    /* magenta */
   );
 
   display: flex;
@@ -148,15 +148,7 @@ nav ul li a:hover { filter: brightness(0.85); }
   width: 100%;
   height: 0;
   overflow-y: auto;
-  /* Sfondo a tenda identico all'header */
-  background: linear-gradient(
-      to right,
-      #C62828,
-      #d32f2f,
-      #e53935,
-      #d32f2f,
-      #C62828
-  );
+  background-color: #C62828; /* COLORE SFONDO HAMBURGER MENU */
   display: block;
   transition: height 0.3s ease;
   z-index: 999;
