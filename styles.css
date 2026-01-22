@@ -22,7 +22,7 @@ body {
 }
 
 /* ---------------------------
-   Header
+   HEADER
 --------------------------- */
 header {
   background-color: #C62828;
@@ -93,7 +93,7 @@ nav ul li:nth-child(8) a { background-color: #d81b60; } /* Fucsia / rosa scuro *
 nav ul li a:hover { filter: brightness(0.85); }
 
 /* ---------------------------
-   Hamburger
+   HAMBURGER
 --------------------------- */
 .hamburger {
   position: absolute;
@@ -130,7 +130,7 @@ nav ul li a:hover { filter: brightness(0.85); }
 }
 
 /* ---------------------------
-   Menu (hamburger + desktop)
+   MENU (hamburger + desktop)
 --------------------------- */
 #nav-menu {
   position: fixed;
@@ -183,7 +183,7 @@ nav ul li a:hover { filter: brightness(0.85); }
 #nav-menu ul li a:hover { filter: brightness(0.85); }
 
 /* ---------------------------
-   Main content
+   MAIN CONTENT
 --------------------------- */
 main {
   flex: 1;
@@ -202,105 +202,7 @@ main {
 .hero h1 { font-size: 3rem; }
 
 /* ---------------------------
-   Footer
---------------------------- */
-footer {
-  width: 100%;
-  min-height: 400px; /* altezza più comoda su tutti i dispositivi */
-  position: relative;
-  display: block; /* righe verticali */
-  text-align: center;
-  overflow: visible; /* modificato da hidden a visible */
-  z-index: 1; /* assicura stacking dei contenuti */
-}
-
-footer img.footer-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center; /* parte alta sempre visibile */
-  z-index: 0; /* sotto i contenuti */
-  background: transparent;
-}
-
-footer p {
-  position: relative;
-  z-index: 2; /* sopra l'immagine */
-  color: #fff;
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  padding: 0 10px;
-  word-wrap: break-word;
-}
-
-footer a {
-  color: #00bbff;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Loghi social */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  position: relative; /* necessario per stacking */
-  z-index: 2;         /* sopra l'immagine di sfondo */
-}
-
-.social-links a svg {
-  transition: transform 0.3s ease;
-}
-
-.social-links a:hover svg {
-  transform: scale(1.2);
-}
-
-.social-icon {
-  width: 32px;
-  height: 32px;
-  margin: 0 0.25rem;
-  vertical-align: middle;
-}
-
-/* Privacy e termini inline */
-.footer-links-inline {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin: 0.5rem 0;
-  position: relative;
-  z-index: 2;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .footer-links-inline {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .social-links {
-    gap: 0.5rem;
-  }
-
-  .social-links a svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-/* ---------------------------
-   Events Carousel
+   EVENTS CAROUSEL
 --------------------------- */
 .events-carousel {
   text-align: center;
@@ -366,7 +268,7 @@ footer a:hover {
 .carousel button.next { right: 10px; }
 
 /* ---------------------------
-   Responsive
+   RESPONSIVE 2
 --------------------------- */
 @media (max-width: 1280px) {
   header {
@@ -423,7 +325,7 @@ footer a:hover {
 }
 
 /* ---------------------------
-   Cartello verde dietro hamburger
+   CARTELLO VERDE DIETRO HAMBURGER
 --------------------------- */
 .exit-sign {
   position: absolute;
@@ -1008,40 +910,136 @@ main {
   font-family: 'Roboto', sans-serif;
 }
 
-/* WRAPPER generale solo per desktop */
-@media (min-width: 769px) {
-  .footer-desktop-wrapper {
-    position: absolute; /* sopra i sedili */
-    bottom: 50px; /* regola in base allo spazio disponibile sopra i sedili */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem; /* righe molto vicine */
-    z-index: 1;
-  }
+/* ---------------------------
+   FOOTER
+--------------------------- */
+footer {
+  width: 100%;
+  min-height: 400px; /* altezza più comoda su tutti i dispositivi */
+  position: relative;
+  display: block; /* righe verticali */
+  text-align: center;
+  overflow: visible; /* modificato da hidden a visible */
+  z-index: 1; /* assicura stacking dei contenuti */
+}
 
-  .footer-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem; /* spazio tra gli elementi della stessa riga */
-  }
+footer img.footer-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* parte alta sempre visibile */
+  z-index: 0; /* sotto i contenuti */
+  background: transparent;
+}
 
-  /* Privacy e termini inline */
+footer p {
+  position: relative;
+  z-index: 2; /* sopra l'immagine */
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  padding: 0 10px;
+  word-wrap: break-word;
+}
+
+footer a {
+  color: #00bbff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* LOGHI SOCIAL */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  position: relative; /* necessario per stacking */
+  z-index: 2;         /* sopra l'immagine di sfondo */
+}
+
+.social-links a svg {
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover svg {
+  transform: scale(1.2);
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 0.25rem;
+  vertical-align: middle;
+}
+
+/* PRIVACY e termini inline */
+.footer-links-inline {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
   .footer-links-inline {
-    display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   .social-links {
-    display: flex;
-    gap: 0.75rem;
-    font-size: 1.3rem;
+    gap: 0.5rem;
+  }
+
+  .social-links a svg {
+    width: 28px;
+    height: 28px;
   }
 }
 
+/* FOOTER DESKTOP */
+@media (min-width: 1024px) {
+    footer {
+        display: flex;
+        flex-wrap: wrap;             /* permette max 2 righe */
+        justify-content: center;     /* centra gli elementi orizzontalmente */
+        align-items: flex-start;     /* spinge i blocchi verso l’alto */
+        row-gap: 5px;                /* distanza verticale tra le righe */
+        column-gap: 20px;            /* spazio orizzontale tra i blocchi */
+        padding: 1rem 5%;            /* meno spazio sopra/sotto */
+        text-align: center;
+        min-height: 400px;           /* altezza footer desktop */
+        position: relative;          /* riferimento per eventuali figli assoluti */
+    }
 
+    footer p,
+    .footer-links-inline,
+    .social-links {
+        flex: 0 1 auto;              /* larghezza minima necessaria */
+        margin: 0;
+    }
 
+    .footer-links-inline {
+        display: flex;
+        flex-wrap: wrap;             /* permette link su 2 righe se necessario */
+        gap: 5px;                    /* spazio tra i link privacy/termini */
+        justify-content: center;     /* centra i link */
+    }
 
-
+    .social-links {
+        display: flex;
+        gap: 5px;                    /* spazio tra le icone social */
+        justify-content: center;     /* centra le icone */
+    }
+}
