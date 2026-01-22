@@ -25,14 +25,17 @@ body {
    HEADER
 --------------------------- */
 header {
-  /* Colore sfondo aggiornato: effetto tenda di teatro */
+/* Colore sfondo aggiornato: effetto tenda di teatro sfumata */
+header {
   background: repeating-linear-gradient(
       to right,
-      #C62828 0px,
-      #C62828 20px,
-      #e53935 20px,
-      #e53935 40px
+      #C62828 0%,
+      #e53935 25%,
+      #C62828 50%,
+      #e53935 75%,
+      #C62828 100%
   );
+  background-size: 80px 100%; /* larghezza di una "striscia" */
   
   display: flex;
   justify-content: center;
