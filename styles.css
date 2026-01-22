@@ -1008,40 +1008,46 @@ footer a:hover {
   }
 }
 
-/* FOOTER DESKTOP */
+/* FOOTER DESKTOP OTTIMIZZATO */
 @media (min-width: 1024px) {
     footer {
         display: flex;
         flex-wrap: wrap;             
         justify-content: center;     
         align-items: flex-start;     
-        row-gap: 2px;                /* ridotto da 5px a 2px */
+        row-gap: 0px;               /* minimo spazio verticale tra le righe */
         column-gap: 20px;            
-        padding: 1rem 5%;            
+        padding: 0.5rem 5%;         /* più compatto verticalmente */
         text-align: center;
         min-height: 400px;           
         position: relative;          
     }
 
+    /* Elementi figli: niente margini extra e line-height compatto */
     footer p,
     .footer-links-inline,
     .social-links {
         flex: 0 1 auto;              
-        margin: 0;                   /* rimuove eventuali margini nascosti */
+        margin: 0;                   
+        line-height: 1.2;            /* riduce spazio verticale tra righe */
+        padding: 0;                   /* rimuove padding interni se presenti */
     }
 
+    /* Footer link inline */
     .footer-links-inline {
         display: flex;
         flex-wrap: wrap;             
         gap: 5px;                    
         justify-content: center;     
-        margin-bottom: 0;            /* rimuove margine sotto la prima riga */
+        margin: 0;                   /* niente margini extra */
     }
 
+    /* Social icons */
     .social-links {
         display: flex;
         gap: 5px;                    
         justify-content: center;     
-        margin-top: 2px;             /* avvicina la seconda riga alla prima */
+        margin: 0;                   /* niente margine sopra/basso */
     }
 }
+
