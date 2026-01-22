@@ -1042,8 +1042,38 @@ main {
   font-family: 'Roboto', sans-serif;
 }
 
+/* WRAPPER generale solo per desktop */
+@media (min-width: 769px) {
+  .footer-desktop-wrapper {
+    position: absolute; /* sopra i sedili */
+    bottom: 50px; /* regola in base allo spazio disponibile sopra i sedili */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem; /* righe molto vicine */
+    z-index: 1;
+  }
 
+  .footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* spazio tra gli elementi della stessa riga */
+  }
 
+  /* Privacy e termini inline */
+  .footer-links-inline {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 1.3rem;
+  }
+}
 
 
 
