@@ -26,15 +26,14 @@ body {
 --------------------------- */
 header {
   /* Colore sfondo aggiornato: effetto tenda di teatro sfumata */
-  background: repeating-linear-gradient(
+  background: linear-gradient(
       to right,
-      #C62828 0%,
-      #d32f2f 20%,
-      #e53935 40%,
-      #d32f2f 60%,
-      #C62828 80%
+      #C62828,
+      #d32f2f,
+      #e53935,
+      #d32f2f,
+      #C62828
   );
-  background-size: 80px 100%; /* larghezza di una "striscia" */
 
   display: flex;
   justify-content: center;
@@ -149,10 +148,22 @@ nav ul li a:hover { filter: brightness(0.85); }
   width: 100%;
   height: 0;
   overflow-y: auto;
-  background-color: #C62828;
+  /* Sfondo a tenda identico all'header */
+  background: linear-gradient(
+      to right,
+      #C62828,
+      #d32f2f,
+      #e53935,
+      #d32f2f,
+      #C62828
+  );
   display: block;
   transition: height 0.3s ease;
   z-index: 999;
+}
+
+#nav-menu.active {
+  height: 100vh;
 }
 
 #nav-menu.active {
