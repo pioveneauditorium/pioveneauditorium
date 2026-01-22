@@ -28,11 +28,11 @@ header {
   /* Colore sfondo aggiornato: effetto tenda di teatro sfumata */
   background: linear-gradient(
       to right,
-      #FF0000,   /* rosso vivo */
-      #00FF00,   /* verde brillante */
-      #0000FF,   /* blu intenso */
-      #FFFF00,   /* giallo acceso */
-      #FF00FF    /* magenta */
+      #8B0000,  /* rosso molto scuro - ombra */
+      #B22222,  /* rosso cupo */
+      #DC143C,  /* rosso vivo - piega centrale */
+      #B22222,  /* rosso cupo */
+      #8B0000   /* rosso molto scuro - ombra */
   );
 
   display: flex;
