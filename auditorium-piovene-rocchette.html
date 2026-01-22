@@ -5,17 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
 
-<!-- CSS principale -->
-<link rel="stylesheet" href="styles.css">
-
-<!-- Font Awesome per icone -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <style>
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* rimuove scroll orizzontale */
+  overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background-color: #000;
@@ -47,7 +41,7 @@ main {
   padding: 60px 20px;
 }
 
-/* Contenuto: 2 colonne desktop, 1 colonna mobile */
+/* Contenuto */
 .auditorium-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -62,58 +56,71 @@ main {
 .auditorium-content strong.inline-highlight {
   color: #FFC107;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.5rem; /* GRANDEZZA TITOLI */
 }
 .auditorium-content a {
   color: #fdd835;
   text-decoration: underline;
 }
 
-/* MOBILE: UNA colonna */
+/* Immagini – STATO INIZIALE */
+.auditorium-content img.paragraph-image {
+  display: block;
+  margin: 20px auto 40px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+
+  transform: scale(0.6);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Stato quando entrano in viewport */
+.auditorium-content img.paragraph-image.in-view {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Mobile */
 @media(max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
   .auditorium-content {
-    grid-template-columns: 1fr; /* una colonna singola */
+    grid-template-columns: 1fr;
+  }
+  .auditorium-content img.paragraph-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
   }
 }
 
-/* Contenitore video circolare centrato */
+/* Video */
 .video-circle-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0; /* spazio sopra e sotto */
+  margin: 50px 0;
 }
-
-/* Video circolare */
 .circle-video {
-  width: 250px;       
-  height: 250px;      
-  border-radius: 50%; 
-  object-fit: cover;  
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  border: none
 }
-
-/* Versione mobile */
 @media (max-width: 768px) {
   .circle-video {
     width: 180px;
     height: 180px;
   }
-
-  .video-circle-container {
-    margin: 30px 0;
-  }
 }
 </style>
 </head>
-<body>
 
-<!-- Header dinamico -->
-<div id="header-placeholder"></div>
+<body>
 
 <main>
   <!-- Hero -->
@@ -124,80 +131,87 @@ main {
 
   <!-- Contenuto -->
   <section class="auditorium-content">
+
     <p><strong class="inline-highlight">L'Auditorium</strong><br>
-    Inaugurato nel 2009, l'Auditorium Comunale di Piovene Rocchette è il cuore pulsante della cultura locale, offrendo un ricco programma di eventi tutto l’anno: dal teatro al cinema, passando per la musica.<br>
+      Inaugurato nel 2009, l'Auditorium Comunale di Piovene Rocchette è il cuore pulsante della cultura locale,
+      offrendo un ricco programma di eventi tutto l’anno: dal teatro al cinema, passando per la musica.
+    </p>
+    <img src="cerchi/cerchio-giallo-1.png" class="paragraph-image" alt="Auditorium">
 
     <p><strong class="inline-highlight">A teatro con Il Mascherone (e non solo)</strong><br>
-    Ogni anno "Il Mascherone" porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non, in una gara di risate, talento e passione per il teatro.<br><strong>Non solo Mascherone</strong>: durante tutto l'anno l'Auditorium ospita spettacoli che spaziano dalla commedia ai temi più importanti.</p>
+      Ogni anno "Il Mascherone" porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non,
+      in una gara di risate, talento e passione per il teatro.<br>
+      <strong>Non solo Mascherone</strong>: durante tutto l'anno l'Auditorium ospita spettacoli che spaziano
+      dalla commedia ai temi più importanti.
+    </p>
+    <img src="cerchi/cerchio-giallo-2.png" class="paragraph-image" alt="Teatro">
 
     <p><strong class="inline-highlight">Cinema ogni due Venerdì e ogni due Domeniche</strong><br>
-    I venerdì sera sono dedicati al cinema d’autore, mentre le domeniche pomeriggio offrono film per bambini e ragazzi.</p>
+      I venerdì sera sono dedicati al cinema d’autore, mentre le domeniche pomeriggio offrono film
+      per bambini e ragazzi.
+    </p>
+    <img src="cerchi/cerchio-giallo-3.png" class="paragraph-image" alt="Cinema">
 
     <p><strong class="inline-highlight">Summano Festival - Sabato 14 Marzo 2026</strong><br>
-    Un evento imperdibile: sei artisti, quattro brani ciascuno, e una serata di pura energia e creatività!</p>
+      Un evento imperdibile: sei artisti, quattro brani ciascuno,
+      e una serata di pura energia e creatività!
+    </p>
+    <img src="cerchi/cerchio-giallo-4.png" class="paragraph-image" alt="Festival">
 
     <p><strong class="inline-highlight">Bar dell'Auditorium</strong><br>
-    Goditi un aperitivo al bar dell'Auditorium, l’ideale per un momento di relax prima e dopo gli spettacoli, in un’atmosfera accogliente e conviviale.</p>
+      Goditi un aperitivo al bar dell'Auditorium, l’ideale per un momento di relax
+      prima e dopo gli spettacoli, in un’atmosfera accogliente e conviviale.
+    </p>
+    <img src="cerchi/cerchio-giallo-5.png" class="paragraph-image" alt="Bar">
 
     <p><strong class="inline-highlight">Condividi il tuo parere!</strong><br>
-    Hai suggerimenti per il nostro programma o dei film da consigliare? Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>, la tua opinione è importante per noi!</p>
+      Hai suggerimenti per il nostro programma o dei film da consigliare?
+      Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>,
+      la tua opinione è importante per noi!
+    </p>
+    <img src="cerchi/cerchio-giallo-6.png" class="paragraph-image" alt="Feedback">
+
   </section>
 </main>
 
-<!-- Video circolare Auditorium -->
+<!-- Video -->
 <div class="video-circle-container">
   <video class="circle-video" autoplay muted loop playsinline>
     <source src="img/video-auditorium.mp4" type="video/mp4">
-    Il tuo browser non supporta i video HTML5.
   </video>
 </div>
 
-<!-- Footer dinamico -->
+<!-- Footer -->
 <div id="footer-placeholder"></div>
 
-<!-- Script principali -->
 <script src="script.js" defer></script>
+
 <script>
-function loadHTML(id, url, callback) {
-  fetch(url)
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById(id).innerHTML = data;
-      if(callback) callback();
-    })
-    .catch(err => console.error(`Errore caricamento ${url}:`, err));
-}
+/* Intersection Observer – effetto scale-in */
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".paragraph-image");
 
-// Carica header con hamburger menu
-loadHTML("header-placeholder", "header.html", () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.getElementById('nav-menu');
-  const closeMenu = document.querySelector('.close-menu');
-
-  if(hamburger && navMenu){
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        observer.unobserve(entry.target); // anima una sola volta
+      }
     });
+  }, {
+    threshold: 0.3
+  });
 
-    if(closeMenu){
-      closeMenu.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    }
-
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-  }
+  images.forEach(img => observer.observe(img));
 });
+</script>
 
-// Carica footer
+<script>
+function loadHTML(id, url) {
+  fetch(url).then(r => r.text()).then(t => document.getElementById(id).innerHTML = t);
+}
 loadHTML("footer-placeholder", "footer.html");
 </script>
+
 </body>
 </html>
