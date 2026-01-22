@@ -25,7 +25,15 @@ body {
    HEADER
 --------------------------- */
 header {
-  background-color: #C62828;
+  /* Colore sfondo aggiornato: effetto tenda di teatro */
+  background: repeating-linear-gradient(
+      to right,
+      #C62828 0px,
+      #C62828 20px,
+      #e53935 20px,
+      #e53935 40px
+  );
+  
   display: flex;
   justify-content: center;
   align-items: center;
