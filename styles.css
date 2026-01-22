@@ -1012,34 +1012,36 @@ footer a:hover {
 @media (min-width: 1024px) {
     footer {
         display: flex;
-        flex-wrap: wrap;             /* permette max 2 righe */
-        justify-content: center;     /* centra gli elementi orizzontalmente */
-        align-items: flex-start;     /* spinge i blocchi verso l’alto */
-        row-gap: 5px;                /* distanza verticale tra le righe */
-        column-gap: 20px;            /* spazio orizzontale tra i blocchi */
-        padding: 1rem 5%;            /* meno spazio sopra/sotto */
+        flex-wrap: wrap;             
+        justify-content: center;     
+        align-items: flex-start;     
+        row-gap: 2px;                /* ridotto da 5px a 2px */
+        column-gap: 20px;            
+        padding: 1rem 5%;            
         text-align: center;
-        min-height: 400px;           /* altezza footer desktop */
-        position: relative;          /* riferimento per eventuali figli assoluti */
+        min-height: 400px;           
+        position: relative;          
     }
 
     footer p,
     .footer-links-inline,
     .social-links {
-        flex: 0 1 auto;              /* larghezza minima necessaria */
-        margin: 0;
+        flex: 0 1 auto;              
+        margin: 0;                   /* rimuove eventuali margini nascosti */
     }
 
     .footer-links-inline {
         display: flex;
-        flex-wrap: wrap;             /* permette link su 2 righe se necessario */
-        gap: 5px;                    /* spazio tra i link privacy/termini */
-        justify-content: center;     /* centra i link */
+        flex-wrap: wrap;             
+        gap: 5px;                    
+        justify-content: center;     
+        margin-bottom: 0;            /* rimuove margine sotto la prima riga */
     }
 
     .social-links {
         display: flex;
-        gap: 5px;                    /* spazio tra le icone social */
-        justify-content: center;     /* centra le icone */
+        gap: 5px;                    
+        justify-content: center;     
+        margin-top: 2px;             /* avvicina la seconda riga alla prima */
     }
 }
