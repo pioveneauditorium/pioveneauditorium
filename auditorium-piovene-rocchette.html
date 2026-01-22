@@ -5,10 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
 
+<!-- CSS principale -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Font Awesome per icone -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* rimuove scroll orizzontale */
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background-color: #000;
@@ -40,7 +47,7 @@ main {
   padding: 60px 20px;
 }
 
-/* Contenuto */
+/* Contenuto: 2 colonne desktop, 1 colonna mobile */
 .auditorium-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -55,14 +62,14 @@ main {
 .auditorium-content strong.inline-highlight {
   color: #FFC107;
   font-weight: bold;
-  font-size: 1.5rem; /* GRANDEZZA TITOLI */
+  font-size: 1.5em;
 }
 .auditorium-content a {
   color: #fdd835;
   text-decoration: underline;
 }
 
-/* Immagini – STATO INIZIALE */
+/* Animazione immagini paragraph-image */
 .auditorium-content img.paragraph-image {
   display: block;
   margin: 20px auto 40px;
@@ -74,52 +81,56 @@ main {
   opacity: 0;
   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
 }
-
-/* Stato quando entrano in viewport */
 .auditorium-content img.paragraph-image.in-view {
   transform: scale(1);
   opacity: 1;
 }
 
-/* Mobile */
+/* MOBILE: UNA colonna */
 @media(max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
   .auditorium-content {
-    grid-template-columns: 1fr;
-  }
-  .auditorium-content img.paragraph-image {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr; /* una colonna singola */
   }
 }
 
-/* Video */
+/* Contenitore video circolare centrato */
 .video-circle-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0;
+  margin: 50px 0; /* spazio sopra e sotto */
 }
+
+/* Video circolare */
 .circle-video {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 250px;       
+  height: 250px;      
+  border-radius: 50%; 
+  object-fit: cover;  
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border: none
 }
+
+/* Versione mobile */
 @media (max-width: 768px) {
   .circle-video {
     width: 180px;
     height: 180px;
   }
+
+  .video-circle-container {
+    margin: 30px 0;
+  }
 }
 </style>
 </head>
-
 <body>
+
+<!-- Header dinamico -->
+<div id="header-placeholder"></div>
 
 <main>
   <!-- Hero -->
@@ -173,20 +184,62 @@ main {
   </section>
 </main>
 
-<!-- Video -->
+<!-- Video circolare Auditorium -->
 <div class="video-circle-container">
   <video class="circle-video" autoplay muted loop playsinline>
     <source src="img/video-auditorium.mp4" type="video/mp4">
+    Il tuo browser non supporta i video HTML5.
   </video>
 </div>
 
-<!-- Footer -->
+<!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
 
+<!-- Script principali -->
 <script src="script.js" defer></script>
-
 <script>
-/* Intersection Observer – effetto scale-in */
+function loadHTML(id, url, callback) {
+  fetch(url)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+      if(callback) callback();
+    })
+    .catch(err => console.error(`Errore caricamento ${url}:`, err));
+}
+
+// Carica header con hamburger menu
+loadHTML("header-placeholder", "header.html", () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const closeMenu = document.querySelector('.close-menu');
+
+  if(hamburger && navMenu){
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    if(closeMenu){
+      closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    }
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  }
+});
+
+// Carica footer
+loadHTML("footer-placeholder", "footer.html");
+
+// Animazione immagini paragraph-image
 document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".paragraph-image");
 
@@ -194,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("in-view");
-        observer.unobserve(entry.target); // anima una sola volta
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -204,13 +257,5 @@ document.addEventListener("DOMContentLoaded", () => {
   images.forEach(img => observer.observe(img));
 });
 </script>
-
-<script>
-function loadHTML(id, url) {
-  fetch(url).then(r => r.text()).then(t => document.getElementById(id).innerHTML = t);
-}
-loadHTML("footer-placeholder", "footer.html");
-</script>
-
 </body>
 </html>
