@@ -362,10 +362,9 @@ function loadHTML(id, url, callback) {
     .catch(err => console.error(`Errore caricamento ${url}:`, err));
 }
 
-// Funzione per attivare l'hamburger menu
 function initMenu() {
   const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
+  const navMenu = document.getElementById("nav-menu");
   if(!hamburger || !navMenu) return;
 
   hamburger.addEventListener("click", () => {
