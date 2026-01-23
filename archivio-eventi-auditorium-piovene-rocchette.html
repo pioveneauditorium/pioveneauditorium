@@ -99,45 +99,61 @@ main {
   width: 100%;
 }
 
+/* Event cards – nuovo stile */
 .event-card {
-  background-color: #111;
-  padding: 20px;
+  background-color: #121212;
+  border: 1px solid #222;
   border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.1);
 }
 
+/* Data come badge colorato per categoria */
+.event-date {
+  display: inline-block;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #000;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Colori badge per categoria */
+.event-cinema .event-date {
+  background-color: #fdd835; /* giallo */
+}
+.event-teatro .event-date {
+  background-color: #9c27b0; /* viola */
+}
+.event-bambini .event-date {
+  background-color: #4caf50; /* verde */
+}
+.event-musica .event-date {
+  background-color: #ff9800; /* arancione */
+}
+
+/* Titolo e testi */
 .event-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
   margin: 10px 0 5px;
+  color: #fdd835;
 }
-
-.event-date {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
 .event-artist {
   font-style: italic;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  color: #ccc;
 }
-
-/* Colori per categoria */
-.event-cinema {
-  border-left: 5px solid #FFD700; /* giallo */
-}
-.event-teatro {
-  border-left: 5px solid #800080; /* viola */
-}
-.event-bambini {
-  border-left: 5px solid #4CAF50; /* verde */
-}
-.event-musica {
-  border-left: 5px solid #FF5722; /* arancione */
+.event-type {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #fff;
+  margin-top: 5px;
 }
 
 /* Responsive cards */
@@ -146,8 +162,6 @@ main {
     grid-template-columns: 1fr;
   }
 }
-
-/* Hamburger menu placeholder: aggiungi qui eventuali stili del menu */
 </style>
 
 </head>
