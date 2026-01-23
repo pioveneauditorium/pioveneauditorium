@@ -436,6 +436,11 @@ main {
     width: 20px;
     height: 2px;
   }
+
+  /* WhatsApp più piccolo su mobile */
+  .whatsapp-link img {
+    height: 30px;
+  }
 }
 
 /* CORNETTA */
@@ -1071,4 +1076,28 @@ footer a:hover {
         margin: 0;                   /* niente margine sopra/basso */
     }
 }
+
+/* ---------------------------
+   WHATSAPP HEADER
+--------------------------- */
+.whatsapp-link {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp-link img {
+  height: 42px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-link:hover img {
+  transform: scale(1.15);
+}
+
 
