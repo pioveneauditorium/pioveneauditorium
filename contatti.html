@@ -18,8 +18,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pioveneauditorium.it/contatti.html">
   <meta property="og:title" content="Piovene Auditorium – Contatti e informazioni">
-  <meta property="og:description" content="Contatta l'Auditorium di Piovene Rocchette per informazioni su eventi, musica, teatro, cinema e attività.">
+  <meta property="og:description" content="Contatta l'Auditorium di Piovene Rocchette per informazioni su eventi, musica, teatro, cinema e attività. Trova indirizzo, email e social ufficiali.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Piovene Auditorium – Contatti e informazioni">
+  <meta name="twitter:description" content="Contatta l'Auditorium di Piovene Rocchette per informazioni su eventi, musica, teatro, cinema e attività. Trova indirizzo, email e social ufficiali.">
+  <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -27,40 +33,42 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Auditorium Comunale Piovene Rocchette",
-    "image": "https://pioveneauditorium.it/img/logo2.png",
-    "url": "https://pioveneauditorium.it",
-    "email": "info@pioveneauditorium.it",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza degli Alpini 1",
-      "addressLocality": "Piovene Rocchette",
-      "addressRegion": "VI",
-      "postalCode": "36013",
-      "addressCountry": "IT"
-    },
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+393519694361",
-      "contactType": "customer service",
-      "availableLanguage": ["Italian"]
-    }],
-    "sameAs": [
-      "https://www.facebook.com/auditoriumpiovenerocchette",
-      "https://instagram.com/pioveneauditorium",
-      "https://wa.me/393519694361",
-      "https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
-    ]
-  }
-  </script>
+  <!-- JSON-LD LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Auditorium Comunale Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/img/logo2.png",
+  "url": "https://pioveneauditorium.it",
+  "email": "info@pioveneauditorium.it",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "VI",
+    "postalCode": "36013",
+    "addressCountry": "IT"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+393519694361",
+    "contactType": "customer service",
+    "availableLanguage": ["Italian"],
+    "areaServed": "IT"
+  }],
+  "sameAs": [
+    "https://www.facebook.com/auditoriumpiovenerocchette",
+    "https://instagram.com/pioveneauditorium",
+    "https://wa.me/393519694361",
+    "https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
+  ]
+}
+</script>
 </head>
 
 <body>
+  <!-- Header dinamico -->
   <div id="header-placeholder"></div>
 
 <main>
@@ -110,9 +118,52 @@
   </section>
 </main>
 
+  <!-- Footer dinamico -->
   <div id="footer-placeholder"></div>
 
+  <!-- Script principali -->
   <script src="script.js" defer></script>
+
+  <script>
+    function loadHTML(id, url, callback) {
+      fetch(url)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if (callback) callback();
+        })
+        .catch(err => console.error(`Errore caricamento ${url}:`, err));
+    }
+
+    loadHTML("header-placeholder", "header.html", () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      const closeMenu = document.querySelector('.close-menu');
+
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+
+        if (closeMenu) {
+          closeMenu.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+          });
+        }
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+    });
+
+    loadHTML("footer-placeholder", "footer.html");
+  </script>
 
   <style>
     .contact-info ul {
