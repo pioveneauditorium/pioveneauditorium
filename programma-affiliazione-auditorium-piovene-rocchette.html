@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programma Affiliazione – Auditorium Piovene Rocchette</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #fdd835;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    /* TABLE DESKTOP */
+    .sponsor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 60px;
+    }
+
+    .sponsor-table th, .sponsor-table td {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sponsor-table th {
+      background: #8B0000;
+      font-size: 1.2rem;
+    }
+
+    .sponsor-table td {
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+
+    .sponsor-table td:hover {
+      background: rgba(253,216,53,0.2);
+    }
+
+    /* Spunta verde */
+    .check {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: bold;
+      line-height: 22px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #fdd835;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* DESCRIPTION */
+    .description-section {
+      margin-top: 50px;
+    }
+
+    .description-section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #fdd835;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .description-block {
+      margin-bottom: 40px;
+      background: rgba(255,255,255,0.03);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .description-block h3 {
+      color: #FFC107;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .description-block p {
+      line-height: 1.6;
+    }
+
+    /* CTA BUTTON */
+    .cta-section {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #fdd835, #ffc107);
+      color: #000;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      padding: 18px 50px;
+      border-radius: 30px;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(255, 215, 53, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(255, 215, 53, 0.5);
+      background: linear-gradient(135deg, #ffc107, #fdd835);
+    }
+
+    /* RESPONSIVE MOBILE */
+    @media(max-width: 768px){
+      .sponsor-table { display: none; }
+      .mobile-cards { display: flex; flex-direction: column; gap: 20px; }
+
+      .mobile-card {
+        background: rgba(255,255,255,0.05);
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      .mobile-card h3 {
+        margin: 0 0 10px;
+        font-family: 'Playfair Display', serif;
+        color: #fdd835;
+        font-size: 1.5rem;
+      }
+
+      .mobile-card .price {
+        font-weight: bold;
+        color: #fdd835;
+        margin-bottom: 15px;
+      }
+
+      .mobile-card ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .mobile-card li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .mobile-card li .check {
+        flex-shrink: 0;
+      }
+
+      .cta-button {
+        width: 90%;
+        max-width: 320px;
+        font-size: 1.2rem;
+        padding: 15px 0;
+      }
+    }
+
+    @media(min-width: 769px){ .mobile-cards { display: none; } }
+
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Programma Affiliazione – Diventa Partner dell'Auditorium</h1>
+      <p>Scopri i livelli di sponsorizzazione e scegli quello più adatto alla tua azienda.</p>
+    </section>
+
+    <!-- TABLE DESKTOP -->
+    <section class="sponsor-levels">
+      <table class="sponsor-table">
+        <thead>
+          <tr>
+            <th>Livelli di affiliazione - Stagione 2026/2027</th>
+            <th>Partner Base<br><span class="price">€300</span></th>
+            <th>Partner Premium<br><span class="price">€450</span></th>
+            <th>Partner Istituzionale<br><span class="price">€1450</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Il tuo marchio prima dei film al cinema <span class="check">✓</span></td>
+            <td></td>
+            <td></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Il tuo marchio sui 7000 libretti distribuiti sul territorio <span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Il tuo marchio nel video mensile sulla pagina facebook dell'Auditorium <span class="check">✓</span></td>
+            <td></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Il tuo marchio sui roll-up permanenti presso il Comune di Piovene Rocchette e la Biblioteca Comunale <span class="check">✓</span></td>
+            <td></td>
+            <td></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Il tuo marchio sul manifesto cartaceo mensile con la programmazione dell'Auditorium <span class="check">✓</span></td>
+            <td></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Il tuo marchio sul sito web dell'Auditorium <span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- MOBILE CARDS -->
+    <section class="mobile-cards">
+      <div class="mobile-card">
+        <h3>Partner Base</h3>
+        <span class="price">€300</span>
+        <ul>
+          <li><span class="check">✓</span> Libretto programma stagione</li>
+          <li><span class="check">✓</span> Presenza sul sito web</li>
+        </ul>
+      </div>
+
+      <div class="mobile-card">
+        <h3>Partner Premium</h3>
+        <span class="price">€450</span>
+        <ul>
+          <li><span class="check">✓</span> Libretto programma stagione</li>
+          <li><span class="check">✓</span> Video mensile su Facebook</li>
+          <li><span class="check">✓</span> Manifesto mensile</li>
+          <li><span class="check">✓</span> Presenza sul sito web</li>
+        </ul>
+      </div>
+
+      <div class="mobile-card">
+        <h3>Partner Istituzionale</h3>
+        <span class="price">€1450</span>
+        <ul>
+          <li><span class="check">✓</span> Video al cinema</li>
+          <li><span class="check">✓</span> Libretto programma stagione</li>
+          <li><span class="check">✓</span> Video mensile su Facebook</li>
+          <li><span class="check">✓</span> Roll-up permanenti Comune & Biblioteca</li>
+          <li><span class="check">✓</span> Manifesto mensile</li>
+          <li><span class="check">✓</span> Presenza sul sito web</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="description-section">
+      <h2>Dettagli Voci Sponsorizzazione</h2>
+
+      <div id="video-cinema" class="description-block">
+        <h3>Video al cinema</h3>
+        <p>Prima di ogni proiezione cinematografica presso l’Auditorium di Piovene Rocchette viene trasmesso un video informativo dedicato alla programmazione imminente. I loghi delle aziende partner sono inclusi, garantendo visibilità diretta al pubblico in sala.</p>
+      </div>
+
+      <div id="libretto" class="description-block">
+        <h3>Libretto programma stagione</h3>
+        <p>All’inizio di ogni stagione culturale, a settembre, viene distribuito il libretto ufficiale della programmazione. Stampato in 7.000 copie e diffuso sul territorio, include i loghi dei partner, assicurando visibilità per l’intera stagione culturale.</p>
+      </div>
+
+      <div id="video-fb" class="description-block">
+        <h3>Video mensile su Facebook</h3>
+        <p>All’inizio di ogni mese viene pubblicato un video sulla pagina Facebook ufficiale dell’Auditorium dedicato agli eventi in programma, con i loghi dei partner inclusi per visibilità digitale costante.</p>
+      </div>
+
+      <div id="rollups" class="description-block">
+        <h3>Roll-up permanenti presso Comune e Biblioteca</h3>
+        <p>I partner sono valorizzati tramite roll-up espositivi permanenti (2 metri di altezza) presso il Comune di Piovene Rocchette e la Biblioteca Comunale, garantendo visibilità stabile e continuativa.</p>
+      </div>
+
+      <div id="manifesto" class="description-block">
+        <h3>Manifesto mensile</h3>
+        <p>Ogni mese viene affisso un manifesto cartaceo (70x100 cm) in punti strategici del territorio, riportando eventi e loghi dei partner, per massima diffusione.</p>
+      </div>
+
+      <div id="sito" class="description-block">
+        <h3>Presenza sul sito web ufficiale</h3>
+        <p>All’interno della sezione “I nostri partner” del sito ufficiale dell’Auditorium sono pubblicati i loghi delle aziende sostenitrici, garantendo visibilità digitale istituzionale costante.</p>
+      </div>
+    </section>
+
+    <!-- CTA BUTTON -->
+    <section class="cta-section">
+      <a href="mailto:info@pioveneauditorium.it" class="cta-button">Diventa Partner Ora</a>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.sponsor-table td[data-target]').forEach(td=>{
+      td.addEventListener('click', ()=>{
+        const target = document.querySelector(td.dataset.target);
+        if(target){
+          target.scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
