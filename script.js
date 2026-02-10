@@ -37,14 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
       header: true,
       complete: (results) => {
         results.data.forEach((row) => { 
-          if (!row.Immagine || !row.Titolo) return;
+  if (!row.Immagine || !row.Titolo) return;
 
-          const immagine = row.Immagine.trim();
-          const titolo = row.Titolo.trim();
-          const dataEvento = row.Data?.trim() || "";
-          const orario = row.Orario?.trim() || "";
-          const descrizione = row.Descrizione?.trim() || "";
-          const linkBiglietti = row.linkBiglietti?.trim() || "";
+  const immagine = row.Immagine.trim();
+  const titolo = row.Titolo.trim();
+  const dataEvento = row.Data?.trim() || "";
+  const orario = row.Orario?.trim() || "";
+  const descrizione = row.Descrizione?.trim() || "";
+  const linkBiglietti = row.linkBiglietti?.trim() || "";
 
           const item = document.createElement('div');
           item.className = 'carousel-item';
@@ -148,19 +148,4 @@ document.addEventListener("DOMContentLoaded", () => {
       banner.style.display = 'none';
     });
   }
-
-  // ---------------------------
-  // Video silenzioso cliccabile
-  // ---------------------------
-  const video = document.getElementById('slide-video');
-  if (video) {
-    video.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  }
-
 });
