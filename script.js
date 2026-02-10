@@ -8,7 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function updateCarousel() {
-    if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (!track) return;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Riparte il video quando torni alla prima slide
+    const video = document.getElementById('slide-video');
+    if (video) {
+      const firstSlideIndex = 0; // index della slide del video
+      if (currentIndex === firstSlideIndex && video.paused) {
+        video.play();
+      }
+    }
   }
 
   function truncateText(text, wordLimit = 15) {
@@ -37,14 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
       header: true,
       complete: (results) => {
         results.data.forEach((row) => { 
-  if (!row.Immagine || !row.Titolo) return;
+          if (!row.Immagine || !row.Titolo) return;
 
-  const immagine = row.Immagine.trim();
-  const titolo = row.Titolo.trim();
-  const dataEvento = row.Data?.trim() || "";
-  const orario = row.Orario?.trim() || "";
-  const descrizione = row.Descrizione?.trim() || "";
-  const linkBiglietti = row.linkBiglietti?.trim() || "";
+          const immagine = row.Immagine.trim();
+          const titolo = row.Titolo.trim();
+          const dataEvento = row.Data?.trim() || "";
+          const orario = row.Orario?.trim() || "";
+          const descrizione = row.Descrizione?.trim() || "";
+          const linkBiglietti = row.linkBiglietti?.trim() || "";
 
           const item = document.createElement('div');
           item.className = 'carousel-item';
@@ -113,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const acceptBtn = document.getElementById('accept-cookies');
   const rejectBtn = document.getElementById('reject-cookies');
 
-  // Carica Google Analytics solo dopo consenso
   function enableAnalytics() {
     const script = document.createElement('script');
     script.async = true;
@@ -127,12 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const cookieChoice = localStorage.getItem('cookieConsent');
-
-  if (!cookieChoice && banner) {
-    banner.style.display = 'flex';
-  } else if (cookieChoice === 'accepted') {
-    enableAnalytics();
-  }
+  if (!cookieChoice && banner) banner.style.display = 'flex';
+  else if (cookieChoice === 'accepted') enableAnalytics();
 
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
@@ -148,4 +153,18 @@ document.addEventListener("DOMContentLoaded", () => {
       banner.style.display = 'none';
     });
   }
+
+  // ---------------------------
+  // Video silenzioso cliccabile
+  // ---------------------------
+  const video = document.getElementById('slide-video');
+  if (video) {
+    video.addEventListener('click', () => {
+      if (video.paused) video.play();
+      else video.pause();
+    });
+  }
+
+  // Aggiorna subito per far partire il video all’inizio
+  updateCarousel();
 });
