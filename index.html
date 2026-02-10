@@ -135,48 +135,63 @@
 
   <main>
     <section class="events-carousel">
-      <h2>Prossimi Eventi</h2>
+  <h2>Prossimi Eventi</h2>
 
-      <div class="carousel-wrapper-desktop">
+  <div class="carousel-wrapper-desktop">
 
-        <!-- Colonna sinistra -->
-        <div class="side-circles left-circles">
-          <a href="https://pioveneauditorium.it/cinema_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio1.png" alt="Cinema"></a>
-          <a href="https://pioveneauditorium.it/musica_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio2.png" alt="Musica"></a>
-          <a href="https://pioveneauditorium.it/teatro_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio3.png" alt="Teatro"></a>
-          <a href="https://pioveneauditorium.it/cinema_ragazzi_piovene_rocchette.html" class="circle-item"><img src="cerchi/cerchio4.png" alt="Cinema Ragazzi"></a>
+    <!-- Colonna sinistra -->
+    <div class="side-circles left-circles">
+      <a href="https://pioveneauditorium.it/cinema_piovene_rocchette.html" class="circle-item">
+        <img src="cerchi/cerchio1.png" alt="Cinema">
+      </a>
+      <a href="https://pioveneauditorium.it/musica_piovene_rocchette.html" class="circle-item">
+        <img src="cerchi/cerchio2.png" alt="Musica">
+      </a>
+      <a href="https://pioveneauditorium.it/teatro_piovene_rocchette.html" class="circle-item">
+        <img src="cerchi/cerchio3.png" alt="Teatro">
+      </a>
+      <a href="https://pioveneauditorium.it/cinema_ragazzi_piovene_rocchette.html" class="circle-item">
+        <img src="cerchi/cerchio4.png" alt="Cinema Ragazzi">
+      </a>
+    </div>
+
+    <!-- Carosello centrale -->
+    <div class="carousel-container">
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+
+        <div class="carousel-track">
+          <div class="carousel-item static-slide">
+            <video id="slide-video" autoplay muted loop playsinline>
+              <source src="video1.mp4" type="video/mp4">
+              Il tuo browser non supporta i video HTML5.
+            </video>
+          </div>
+          <!-- le slide dal CSV verranno aggiunte qui via JS -->
         </div>
 
-<!-- Carosello centrale -->
-<div class="carousel-container">
-  <div class="carousel">
-    <button class="prev">&#10094;</button>
-    <div class="carousel-track">
-      <div class="carousel-item static-slide">
-        <video id="slide-video" autoplay muted loop playsinline>
-          <source src="video1.mp4" type="video/mp4">
-          Il tuo browser non supporta i video HTML5.
-        </video>
+        <button class="next">&#10095;</button>
       </div>
     </div>
-    <button class="next">&#10095;</button>
-  </div>
-</div>
+
+    <!-- Colonna destra -->
+    <div class="side-circles right-circles">
+      <a href="https://pioveneauditorium.it/calendario.html" class="circle-item">
+        <img src="cerchi/cerchio5.png" alt="Calendario">
+      </a>
+      <a href="https://pioveneauditorium.it/contatti.html" class="circle-item">
+        <img src="cerchi/cerchio6.png" alt="Contatti">
+      </a>
+      <a href="https://www.facebook.com/auditoriumpiovenerocchette" class="circle-item">
+        <img src="cerchi/cerchio7.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/pioveneauditorium" class="circle-item">
+        <img src="cerchi/cerchio8.png" alt="Instagram">
+      </a>
     </div>
-    <button class="next">&#10095;</button>
+
   </div>
-</div>
-
-        <!-- Colonna destra -->
-        <div class="side-circles right-circles">
-          <a href="https://pioveneauditorium.it/calendario.html" class="circle-item"><img src="cerchi/cerchio5.png" alt="Calendario"></a>
-          <a href="https://pioveneauditorium.it/contatti.html" class="circle-item"><img src="cerchi/cerchio6.png" alt="Contatti"></a>
-          <a href="https://www.facebook.com/auditoriumpiovenerocchette" class="circle-item"><img src="cerchi/cerchio7.png" alt="Facebook"></a>
-          <a href="https://www.instagram.com/pioveneauditorium" class="circle-item"><img src="cerchi/cerchio8.png" alt="Instagram"></a>
-        </div>
-
-      </div>
-    </section>
+</section>
   </main>
 
   <div id="footer-placeholder"></div>
