@@ -1,81 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://pioveneauditorium.it/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://pioveneauditorium.it/auditorium-piovene-rocchette.html</loc>
-    <lastmod>2025-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <url>
     <loc>https://pioveneauditorium.it/calendario.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://pioveneauditorium.it/archivio-eventi-auditorium-piovene-rocchette.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://pioveneauditorium.it/cinema_piovene_rocchette.html</loc>
+    <loc>https://pioveneauditorium.it/cinema-piovene-rocchette.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://pioveneauditorium.it/cinema_ragazzi_piovene_rocchette.html</loc>
+    <loc>https://pioveneauditorium.it/cinema-ragazzi-piovene-rocchette.html</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://pioveneauditorium.it/musica_piovene_rocchette.html</loc>
+    <loc>https://pioveneauditorium.it/musica-piovene-rocchette.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://pioveneauditorium.it/teatro_piovene_rocchette.html</loc>
+    <loc>https://pioveneauditorium.it/teatro-piovene-rocchette.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://pioveneauditorium.it/contatti.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://pioveneauditorium.it/privacy.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://pioveneauditorium.it/termini.html</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
 </urlset>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piovene Auditorium – Cinema Ragazzi</title>
+
+  <meta name="description" content="Spettacoli, cinema e attività dedicate ai ragazzi all'Auditorium di Piovene Rocchette.">
+  <link rel="canonical" href="https://pioveneauditorium.it/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
+  <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon">
+
+  <meta property="og:title" content="Piovene Auditorium – Cinema Ragazzi">
+  <meta property="og:description" content="Scopri gli eventi Junior all'Auditorium di Piovene Rocchette.">
+  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="eventi/eventi.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+
+<script>
+  // Se l’utente ha già accettato i cookie, carica Analytics
+  document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YBSGEL3RZH');
+    }
+  });
+</script>
+</head>
+
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+
+  <!-- Eventi JUNIOR caricati dinamicamente -->
+  <section style="text-align:center; padding:50px 20px;">
+    <h1 style="font-size:3em; margin-bottom:20px;">
+      Eventi per Bambini e Ragazzi🎉
+    </h1>
+
+  <!-- Promo Cinema Ragazzi -->
+  <div class="cineforum-promo" 
+       style="padding:40px; border-radius:15px; margin-bottom:50px; text-align:center; color:#fff;
+              background:linear-gradient(135deg, #212121, #2c2c2c); box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+
+<h2 style="font-size:2em; margin-bottom:15px;">
+    🎬 <span style="color: yellow;">Domenica Cinema</span> (e non solo)!
+</h2>
+
+<h3 style="font-size:1.2em; margin-bottom:20px; font-weight:normal; line-height:1.4;">
+    <span style="font-weight: bold;">• Biglietto singolo:</span> 5 €<br>
+    <span style="font-weight: bold;">• Ridotto</span>: 3 € (<19/>75)<br>
+    <span style="font-weight: bold;">• Persone con disabilità</span> + 1 accompagnatore: ingresso gratuito
+</h3>
+
+<p style="font-size:1.15em; margin-bottom:20px; line-height:1.6;">
+    <strong><span style="color: yellow;">Ogni due domeniche pomeriggio</span></strong>, il Consiglio Comunale dei Ragazzi propone film <strong>divertenti e originali</strong>, 
+    mai banali. Un’occasione unica per vivere storie emozionanti e curiose, pensate apposta per i più giovani.
+</p>
+
+    <a href="https://liveticket.it/pioveneauditorium"
+       class="cta-button">
+      📅 Prenota il tuo biglietto
+    </a>
+
+  </div>
+
+    <div id="eventi-junior" style="display:flex; flex-direction:column; gap:20px; max-width:1000px; margin:0 auto;">
+      <!-- Eventi JUNIOR caricati dinamicamente -->
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js" defer></script>
+<script src="eventi/junior.js" defer></script>
+
+<script id="json-ld-events" type="application/ld+json">[]</script>
+
+<script>
+  function loadHTML(id, url, callback) {
+    fetch(url)
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if (callback) callback();
+      })
+      .catch(err => console.error(`Errore caricamento ${url}:`, err));
+  }
+
+  // Carica header e hamburger menu
+  loadHTML("header-placeholder", "header.html", () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    if(hamburger && navMenu){
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+      if (closeMenu) closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+  });
+
+  loadHTML("footer-placeholder", "footer.html");
+
+  // Aggiorna JSON-LD dinamico
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.eventiJuniorJSONLD) {
+      document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
+    }
+  });
+</script>
+</body>
+</html>
