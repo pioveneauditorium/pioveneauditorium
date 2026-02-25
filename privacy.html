@@ -142,10 +142,9 @@
           <li><strong>Technical cookies</strong>: necessary for site operation.</li>
           <li><strong>Third-party analytics cookies (Google Analytics)</strong>: installed only after user consent, used anonymously for traffic analysis.</li>
         </ul>
-        <p>You can manage or withdraw consent via the cookie banner or browser settings.</p>
 
         <h2 id="user-rights-en">User Rights</h2>
-        <p>Access, modification, deletion: contact <a href="mailto:<a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+        <p>Access, modification, deletion: contact <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
 
         <h2 id="data-controller-en">Data Controller</h2>
         <p><strong>Dedalofurioso Soc. Coop.</strong><br>
@@ -167,16 +166,60 @@
 <div id="footer-placeholder"></div>
 
 <script src="script.js" defer></script>
+
+<!-- Script multilingua + gestione pulsanti Cookie -->
 <script>
-  function loadHTML(id,url,callback){fetch(url).then(r=>r.text()).then(d=>{document.getElementById(id).innerHTML=d;if(callback)callback();}).catch(e=>console.error(`Errore caricamento ${url}:`,e));}
-  loadHTML("header-placeholder","header.html",()=>{const h=document.querySelector('.hamburger'),n=document.getElementById('nav-menu'),c=document.querySelector('.close-menu');if(h&&n){h.addEventListener('click',()=>{h.classList.toggle('active');n.classList.toggle('active');});if(c){c.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});}n.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});});}});
+  function loadHTML(id,url,callback){
+    fetch(url).then(r=>r.text()).then(d=>{
+      document.getElementById(id).innerHTML=d;
+      if(callback) callback();
+    }).catch(e=>console.error(`Errore caricamento ${url}:`,e));
+  }
+  loadHTML("header-placeholder","header.html",()=>{
+    const h=document.querySelector('.hamburger'),
+          n=document.getElementById('nav-menu'),
+          c=document.querySelector('.close-menu');
+    if(h&&n){
+      h.addEventListener('click',()=>{h.classList.toggle('active');n.classList.toggle('active');});
+      if(c){c.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});}
+      n.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});});
+    }
+  });
   loadHTML("footer-placeholder","footer.html");
 
   document.addEventListener('DOMContentLoaded',()=>{
-    const btnIt=document.getElementById('btn-it'),btnEn=document.getElementById('btn-en'),privacyIt=document.getElementById('privacy-it'),privacyEn=document.getElementById('privacy-en');
+    const btnIt=document.getElementById('btn-it'),
+          btnEn=document.getElementById('btn-en'),
+          privacyIt=document.getElementById('privacy-it'),
+          privacyEn=document.getElementById('privacy-en');
+
     function showIt(){privacyIt.classList.remove('hidden');privacyEn.classList.add('hidden');btnIt.classList.add('active');btnEn.classList.remove('active');}
     function showEn(){privacyIt.classList.add('hidden');privacyEn.classList.remove('hidden');btnEn.classList.add('active');btnIt.classList.remove('active');}
-    btnIt.addEventListener('click',showIt);btnEn.addEventListener('click',showEn);showIt();
+
+    btnIt.addEventListener('click',showIt);
+    btnEn.addEventListener('click',showEn);
+    showIt();
+
+    // Pulsanti Gestione Cookie
+    const changeIt = document.createElement('button');
+    changeIt.id = 'change-cookie-settings';
+    changeIt.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
+    changeIt.textContent = 'Modifica le tue preferenze cookie';
+    document.querySelector('#privacy-it h2#cookie-policy').insertAdjacentElement('afterend', changeIt);
+    changeIt.addEventListener('click', ()=>{
+      const banner = document.getElementById('cookie-banner');
+      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
+    });
+
+    const changeEn = document.createElement('button');
+    changeEn.id = 'change-cookie-settings-en';
+    changeEn.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
+    changeEn.textContent = 'Change your cookie preferences';
+    document.querySelector('#privacy-en h2#cookie-policy-en').insertAdjacentElement('afterend', changeEn);
+    changeEn.addEventListener('click', ()=>{
+      const banner = document.getElementById('cookie-banner');
+      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
+    });
   });
 </script>
 </body>
