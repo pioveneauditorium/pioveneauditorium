@@ -14,41 +14,48 @@
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png" sizes="180x180">
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pioveneauditorium.it/privacy.html">
-  <meta property="og:title" content="Privacy e Cookie Policy – Auditorium Piovene Rocchette">
-  <meta property="og:description" content="Consulta la Privacy e Cookie Policy del sito gestito da Dedalofurioso Soc. Coop.">
-  <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy e Cookie Policy – Auditorium Piovene Rocchette">
-  <meta name="twitter:description" content="Consulta la Privacy e Cookie Policy del sito gestito da Dedalofurioso Soc. Coop.">
-  <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Privacy e Cookie Policy",
-    "url": "https://pioveneauditorium.it/privacy.html",
-    "about": {
-      "@type": "PrivacyPolicy",
-      "name": "Privacy e Cookie Policy Dedalofurioso – Auditorium Piovene Rocchette"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Dedalofurioso Soc. Coop.",
-      "url": "https://dedalofurioso.it",
-      "logo": { "@type": "ImageObject", "url": "https://pioveneauditorium.it/img/logo2.png" }
-    }
-  }
-  </script>
-
   <style>
+    /* --- Menu responsive sobrio --- */
+    .privacy-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 0;
+      list-style: none;
+    }
+    .privacy-menu a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: rgba(0, 123, 204, 0.1);
+      border: 1px solid #007bcc;
+      border-radius: 4px;
+      color: #007bcc;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .privacy-menu a:hover {
+      background-color: #007bcc;
+      color: #fff;
+    }
+    @media(max-width:768px){
+      .privacy-menu {
+        flex-direction: column;
+        align-items: center;
+      }
+      .privacy-menu a {
+        width: 90%;
+        text-align: center;
+      }
+    }
+
+    /* --- Contenuto principale --- */
     .content-grid { display: grid; grid-template-columns: 1fr minmax(auto,700px) 1fr; gap: 2rem; padding: 2rem 1rem; }
     .grid-item { grid-column: 2; }
     main, main * { color: white !important; }
@@ -73,14 +80,14 @@
     <div class="grid-item">
       <h1>Privacy e Cookie Policy</h1>
 
-      <!-- Indice interno -->
+      <!-- Menu professionale e sobrio all’inizio -->
       <nav>
-        <ul>
+        <ul class="privacy-menu">
           <li><a href="#privacy-policy">Privacy Policy</a></li>
           <li><a href="#cookie-policy">Cookie Policy</a></li>
-          <li><a href="#user-rights">Diritti degli utenti</a></li>
-          <li><a href="#data-controller">Titolare del trattamento</a></li>
-          <li><a href="#legal-basis">Base giuridica del trattamento</a></li>
+          <li><a href="#user-rights">Diritti utenti</a></li>
+          <li><a href="#data-controller">Titolare trattamento</a></li>
+          <li><a href="#legal-basis">Base giuridica</a></li>
           <li><a href="#data-retention">Conservazione dati</a></li>
         </ul>
       </nav>
@@ -94,13 +101,10 @@
       <div id="privacy-it">
         <h2 id="privacy-policy">Privacy Policy</h2>
         <p>La presente Privacy Policy descrive come <strong>Dedalofurioso Soc. Coop.</strong> raccoglie, utilizza e protegge i dati personali degli utenti che visitano il sito web <a href="https://pioveneauditorium.it">pioveneauditorium.it</a> e utilizzano i suoi servizi.</p>
-
         <h3>Dati raccolti</h3>
-        <p>Raccogliamo dati personali solo se forniti volontariamente tramite form di contatto o comunicazioni dirette. Vengono inoltre raccolti dati tecnici anonimi tramite <strong>Google Analytics</strong> (pagine visitate, tempo di permanenza, browser, dispositivo, provenienza geografica approssimativa).</p>
-
+        <p>Raccogliamo dati personali solo se forniti volontariamente tramite form di contatto o comunicazioni dirette. Vengono inoltre raccolti dati tecnici anonimi tramite <strong>Google Analytics</strong>.</p>
         <h3 id="legal-basis">Base giuridica del trattamento</h3>
-        <p>I dati sono trattati sulla base del consenso dell’utente per i cookie analitici, e per eseguire le richieste o fornire servizi richiesti. Alcuni dati tecnici sono necessari per l’esecuzione del sito (art. 6 GDPR).</p>
-
+        <p>I dati sono trattati sulla base del consenso dell’utente per i cookie analitici e per fornire i servizi richiesti. Alcuni dati tecnici sono necessari per l’esecuzione del sito (art. 6 GDPR).</p>
         <h2 id="cookie-policy">Cookie Policy</h2>
         <p>Questo sito utilizza:</p>
         <ul>
@@ -108,55 +112,22 @@
           <li><strong>Cookie analitici di terze parti (Google Analytics)</strong>: installati solo previo consenso, usati in forma anonima per analisi del traffico.</li>
         </ul>
         <p>Puoi gestire o revocare il consenso tramite il banner dei cookie o le impostazioni del browser.</p>
-
-        <h2 id="user-rights">Diritti degli utenti</h2>
-        <p>Accesso, modifica, cancellazione dei dati personali: scrivere a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
-
-        <h2 id="data-controller">Titolare del trattamento</h2>
-        <p><strong>Dedalofurioso Soc. Coop.</strong><br>
-           via San Francesco 24, 36031 Dueville (VI)<br>
-           P.IVA / C.F.: 03072080249<br>
-           Email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a>
-        </p>
-
-        <h2 id="data-retention">Conservazione dei dati</h2>
-        <p>I dati personali forniti volontariamente vengono conservati fino a completamento della richiesta o per necessità amministrative legittime. I dati tecnici anonimi vengono conservati per scopi statistici in forma aggregata.</p>
-
-        <p><strong>Ultimo aggiornamento:</strong> 25 febbraio 2026</p>
       </div>
 
       <!-- PRIVACY EN -->
       <div id="privacy-en" class="hidden">
         <h2 id="privacy-policy-en">Privacy Policy</h2>
         <p>This Privacy Policy explains how <strong>Dedalofurioso Soc. Coop.</strong> collects, uses, and protects personal data of users visiting <a href="https://pioveneauditorium.it">pioveneauditorium.it</a>.</p>
-
         <h3>Data Collected</h3>
-        <p>We only collect personal data voluntarily provided via contact forms or direct communication. Technical anonymized data are collected via <strong>Google Analytics</strong> (pages visited, time on site, browser, device, approximate location).</p>
-
+        <p>We only collect personal data voluntarily provided via contact forms or direct communication. Technical anonymized data are collected via <strong>Google Analytics</strong>.</p>
         <h3 id="legal-basis-en">Legal Basis for Processing</h3>
         <p>Data are processed based on user consent for analytics cookies, and to fulfill service requests. Some technical data are necessary for website operation (Art. 6 GDPR).</p>
-
         <h2 id="cookie-policy-en">Cookie Policy</h2>
         <p>This website uses:</p>
         <ul>
           <li><strong>Technical cookies</strong>: necessary for site operation.</li>
           <li><strong>Third-party analytics cookies (Google Analytics)</strong>: installed only after user consent, used anonymously for traffic analysis.</li>
         </ul>
-
-        <h2 id="user-rights-en">User Rights</h2>
-        <p>Access, modification, deletion: contact <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
-
-        <h2 id="data-controller-en">Data Controller</h2>
-        <p><strong>Dedalofurioso Soc. Coop.</strong><br>
-           via San Francesco 24, 36031 Dueville (VI)<br>
-           VAT / Tax Code: 03072080249<br>
-           Email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a>
-        </p>
-
-        <h2 id="data-retention-en">Data Retention</h2>
-        <p>Voluntarily provided data are kept until completion of the request or for legitimate administrative needs. Technical anonymized data are retained for aggregated statistical purposes.</p>
-
-        <p><strong>Last update:</strong> February 25, 2026</p>
       </div>
 
     </div>
@@ -164,10 +135,9 @@
 </main>
 
 <div id="footer-placeholder"></div>
+<div id="cookie-banner-placeholder"></div>
 
 <script src="script.js" defer></script>
-
-<!-- Script multilingua + gestione pulsanti Cookie -->
 <script>
   function loadHTML(id,url,callback){
     fetch(url).then(r=>r.text()).then(d=>{
@@ -175,51 +145,20 @@
       if(callback) callback();
     }).catch(e=>console.error(`Errore caricamento ${url}:`,e));
   }
-  loadHTML("header-placeholder","header.html",()=>{
-    const h=document.querySelector('.hamburger'),
-          n=document.getElementById('nav-menu'),
-          c=document.querySelector('.close-menu');
-    if(h&&n){
-      h.addEventListener('click',()=>{h.classList.toggle('active');n.classList.toggle('active');});
-      if(c){c.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});}
-      n.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});});
-    }
-  });
+  loadHTML("header-placeholder","header.html");
   loadHTML("footer-placeholder","footer.html");
+  loadHTML("cookie-banner-placeholder","cookie-banner.html");
 
   document.addEventListener('DOMContentLoaded',()=>{
     const btnIt=document.getElementById('btn-it'),
           btnEn=document.getElementById('btn-en'),
           privacyIt=document.getElementById('privacy-it'),
           privacyEn=document.getElementById('privacy-en');
-
     function showIt(){privacyIt.classList.remove('hidden');privacyEn.classList.add('hidden');btnIt.classList.add('active');btnEn.classList.remove('active');}
     function showEn(){privacyIt.classList.add('hidden');privacyEn.classList.remove('hidden');btnEn.classList.add('active');btnIt.classList.remove('active');}
-
     btnIt.addEventListener('click',showIt);
     btnEn.addEventListener('click',showEn);
     showIt();
-
-    // Pulsanti Gestione Cookie
-    const changeIt = document.createElement('button');
-    changeIt.id = 'change-cookie-settings';
-    changeIt.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
-    changeIt.textContent = 'Modifica le tue preferenze cookie';
-    document.querySelector('#privacy-it h2#cookie-policy').insertAdjacentElement('afterend', changeIt);
-    changeIt.addEventListener('click', ()=>{
-      const banner = document.getElementById('cookie-banner');
-      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
-    });
-
-    const changeEn = document.createElement('button');
-    changeEn.id = 'change-cookie-settings-en';
-    changeEn.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
-    changeEn.textContent = 'Change your cookie preferences';
-    document.querySelector('#privacy-en h2#cookie-policy-en').insertAdjacentElement('afterend', changeEn);
-    changeEn.addEventListener('click', ()=>{
-      const banner = document.getElementById('cookie-banner');
-      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
-    });
   });
 </script>
 </body>
