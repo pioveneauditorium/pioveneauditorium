@@ -97,6 +97,13 @@
         </ul>
         <p>Puoi gestire o revocare il consenso tramite il banner dei cookie o le impostazioni del browser.</p>
 
+        <!-- Pulsante per modificare le scelte cookie -->
+        <button 
+          onclick="localStorage.removeItem('cookieConsent'); window.location.href='index.html';"
+          style="margin-top:1rem; padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;">
+          Modifica le tue preferenze cookie
+        </button>
+
         <h2 id="user-rights">Diritti degli utenti</h2>
         <p>Accesso, modifica, cancellazione dei dati personali: scrivere a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
 
@@ -130,6 +137,14 @@
           <li><strong>Technical cookies</strong>: necessary for site operation.</li>
           <li><strong>Third-party analytics cookies (Google Analytics)</strong>: installed only after user consent, used anonymously for traffic analysis.</li>
         </ul>
+        <p>You can manage or revoke consent via the cookie banner or browser settings.</p>
+
+        <!-- Button for changing cookie preferences -->
+        <button 
+          onclick="localStorage.removeItem('cookieConsent'); window.location.href='index.html';"
+          style="margin-top:1rem; padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;">
+          Change your cookie preferences
+        </button>
 
         <h2 id="user-rights-en">User Rights</h2>
         <p>Access, modification, deletion: contact <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
@@ -154,8 +169,6 @@
 <div id="footer-placeholder"></div>
 
 <script src="script.js" defer></script>
-
-<!-- Script multilingua + gestione pulsanti Cookie -->
 <script>
   function loadHTML(id,url,callback){
     fetch(url).then(r=>r.text()).then(d=>{
@@ -175,6 +188,7 @@
   });
   loadHTML("footer-placeholder","footer.html");
 
+  // Multilingua
   document.addEventListener('DOMContentLoaded',()=>{
     const btnIt=document.getElementById('btn-it'),
           btnEn=document.getElementById('btn-en'),
@@ -187,27 +201,6 @@
     btnIt.addEventListener('click',showIt);
     btnEn.addEventListener('click',showEn);
     showIt();
-
-    // Pulsanti Gestione Cookie
-    const changeIt = document.createElement('button');
-    changeIt.id = 'change-cookie-settings';
-    changeIt.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
-    changeIt.textContent = 'Modifica le tue preferenze cookie';
-    document.querySelector('#privacy-it h2#cookie-policy').insertAdjacentElement('afterend', changeIt);
-    changeIt.addEventListener('click', ()=>{
-      const banner = document.getElementById('cookie-banner');
-      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
-    });
-
-    const changeEn = document.createElement('button');
-    changeEn.id = 'change-cookie-settings-en';
-    changeEn.style.cssText = 'padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;';
-    changeEn.textContent = 'Change your cookie preferences';
-    document.querySelector('#privacy-en h2#cookie-policy-en').insertAdjacentElement('afterend', changeEn);
-    changeEn.addEventListener('click', ()=>{
-      const banner = document.getElementById('cookie-banner');
-      if(banner){ banner.style.display='flex'; banner.scrollIntoView({behavior:'smooth'}); }
-    });
   });
 </script>
 </body>
