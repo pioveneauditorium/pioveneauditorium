@@ -239,13 +239,14 @@
     loadHTML("footer-placeholder", "footer.html");
   </script>
 
-<!-- Placeholder per il banner condiviso -->
-<div id="cookie-banner-placeholder"></div>
-
-<script>
-  // Carica banner cookie condiviso
-  loadHTML("cookie-banner-placeholder", "cookie-banner.html");
-</script>
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>Usiamo cookie tecnici e, previo consenso, cookie di analisi (Google Analytics) per migliorare la tua esperienza.
+      <a href="privacy.html" target="_blank">Scopri di più</a>.
+    </p>
+    <button id="accept-cookies">Accetta</button>
+    <button id="reject-cookies" class="secondary">Rifiuta</button>
+  </div>
 
   <!-- Popup scheda evento -->
   <div id="event-modal" class="event-modal">
