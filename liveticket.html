@@ -15,58 +15,36 @@
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: #fdd835;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: #fff;
 }
 
-.liveticket-container {
-  max-width: 1000px;
-  margin: 0 auto 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.liveticket-box {
-  background: rgba(255,255,255,0.04);
-  padding: 30px;
-  border-radius: 16px;
-}
-
-.liveticket-box h2 {
-  color: #FFC107;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
-}
-
-.liveticket-box ol {
-  padding-left: 20px;
+.notice {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
   line-height: 1.7;
-}
-
-.liveticket-box li {
-  margin-bottom: 12px;
 }
 
 .cta-liveticket {
   text-align: center;
-  margin: 30px 0;
+  margin-bottom: 50px;
 }
 
 .cta-liveticket a {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
   background-color: #fdd835;
   color: #000;
   font-weight: bold;
-  border-radius: 14px;
+  border-radius: 16px;
   text-decoration: none;
+  font-size: 1.1rem;
   transition: 0.3s ease;
 }
 
@@ -75,11 +53,40 @@
   transform: translateY(-3px);
 }
 
-.notice {
+.section-box {
+  background: rgba(255,255,255,0.04);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 50px;
+}
+
+.section-box h2 {
+  color: #FFC107;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+.section-box ol {
+  padding-left: 22px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.section-box li {
+  margin-bottom: 14px;
+}
+
+.help-box {
+  background: linear-gradient(135deg, #722f37, #4b1e25);
+  padding: 30px;
+  border-radius: 16px;
   text-align: center;
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+}
+
+.help-box strong {
+  color: #fdd835;
 }
 </style>
 </head>
@@ -91,52 +98,87 @@
 <main>
 
 <section class="hero">
-  <h1>🎟️ Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
+  <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
   <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
 </section>
 
 <div class="notice">
-  La prima volta richiede pochi minuti per la registrazione.<br>
-  <strong>Dalla seconda volta in poi sarà tutto molto più veloce!</strong>
+  La prima volta è necessario registrarsi (richiede solo pochi minuti).  
+  <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
 </div>
 
 <div class="cta-liveticket">
   <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
-    Vai al portale LiveTicket
+    Vai su LiveTicket
   </a>
 </div>
 
-<div class="liveticket-container">
+<!-- PRIMA VOLTA -->
+<div class="section-box">
+<h2>Se NON hai ancora un account LiveTicket</h2>
 
-  <!-- NUOVO ACCOUNT -->
-  <div class="liveticket-box">
-    <h2>🔰 Non ho ancora un account LiveTicket</h2>
-    <ol>
-      <li>Apri il portale LiveTicket (si apre in una nuova pagina).</li>
-      <li>Clicca sulla foto dell’evento che ti interessa.</li>
-      <li>Se previsto, scegli il tuo posto in platea (per il cinema non serve).</li>
-      <li>Clicca su <strong>Prosegui</strong>.</li>
-      <li>Inserisci il tuo numero di cellulare.</li>
-      <li>Compila i tuoi dati (importante: email corretta).</li>
-      <li>Riceverai un codice OTP via SMS o chiamata: inseriscilo per confermare.</li>
-      <li>Scegli il metodo di pagamento e clicca <strong>Concludi e paga</strong>.</li>
-      <li>Il biglietto ti arriverà via email con QR code.</li>
-    </ol>
-  </div>
+<ol>
+<li>Vai su liveticket.it/pioveneauditorium cliccando il bottone qui sopra.  
+    <strong>(Si aprirà una nuova pagina e potrai continuare a leggere queste istruzioni.)</strong></li>
 
-  <!-- GIÀ REGISTRATO -->
-  <div class="liveticket-box">
-    <h2>🔐 Ho già un account LiveTicket</h2>
-    <ol>
-      <li>Accedi con numero di telefono e password.</li>
-      <li>Scegli l’evento.</li>
-      <li>Se previsto, seleziona il posto.</li>
-      <li>Scegli il metodo di pagamento.</li>
-      <li>Concludi l’acquisto: il biglietto arriverà alla tua email.</li>
-    </ol>
-    <p>Hai dimenticato la password? Usa la funzione <strong>"Password dimenticata"</strong> per riceverne una nuova via SMS.</p>
-  </div>
+<li>Clicca sulla foto dell’evento desiderato.  
+    Comparirà un rettangolo con data, orario e luogo dell’evento: clicca sul rettangolo.</li>
 
+<li>Ora sei nella pagina dell’evento.  
+    Per teatro e musica puoi scegliere il posto.  
+    Per il cinema non è necessario.</li>
+
+<li>Clicca sul posto desiderato: si aprirà una finestrella dove scegliere il tipo di biglietto (intero, ridotto, ecc.).  
+    Seleziona il tipo di biglietto.</li>
+
+<li>Se vuoi prenotare più di un posto, seleziona anche gli altri posti desiderati.</li>
+
+<li>Clicca su <strong>Prosegui</strong>.</li>
+
+<li>Inserisci il tuo numero di cellulare e premi <strong>Continua</strong>.</li>
+
+<li>Compila i tuoi dati.  
+    <strong>È molto importante scrivere correttamente l’email: il biglietto arriverà lì e anche la tua password per accedere su Liveticket</strong>.  
+    Scegli anche una password che userai per entrare nel tuo profilo le prossime volte.</li>
+
+<li>Ti verrà inviato un codice OTP: scegli se riceverlo via SMS o tramite chiamata vocale e clicca <strong>Continua</strong>.</li>
+
+<li>Scrivi il codice OTP ricevuto e clicca <strong>Continua</strong>.  
+    Perfetto: hai validato il tuo profilo su LiveTicket.</li>
+
+<li>Ora puoi lasciare i posti scelti prima (non serve fare nulla) oppure, se vuoi cambiarli, torna alla pianta della platea, clicca il posto selezionato (in questo modo lo annulli) e scegli i nuovi posti. Poi clicca <strong>Prosegui</strong>.</li>
+
+<li>Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>.</li>
+
+<li>Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>.  
+    Al termine, il biglietto ti arriverà via email con QR code.</li>
+</ol>
+</div>
+
+<!-- ACCESSI SUCCESSIVI -->
+<div class="section-box">
+<h2>Per accedere le volte successive (se hai già un account)</h2>
+
+<ol>
+<li>Vai su: https://www.liveticket.it/pioveneauditorium</li>
+
+<li>Clicca su <strong>Accedi</strong> in alto a destra.  
+    Inserisci numero di telefono e password.  
+    Se hai dimenticato la password, clicca su <strong>Password dimenticata</strong>: riceverai un SMS con le istruzioni.</li>
+
+<li>Una volta entrato, clicca su <strong>Torna su LiveTicket</strong>: verrai riportato alla pagina dell’Auditorium.</li>
+
+<li>Scegli l’evento, seleziona il posto (se previsto), scegli il metodo di pagamento, clicca <strong>Concludi e paga</strong> e inserisci i dati della carta. Poi clicca <strong>Paga ora</strong>.</li>
+
+<li>Il biglietto ti verrà inviato alla tua email.</li>
+</ol>
+</div>
+
+<!-- BOX AIUTO -->
+<div class="help-box">
+Se hai ancora dubbi,<br>
+<strong>chiamaci pure al 351 969 4361</strong>.<br>
+Saremo felici di aiutarti!
 </div>
 
 </main>
