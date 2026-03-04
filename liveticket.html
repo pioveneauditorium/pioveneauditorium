@@ -8,6 +8,22 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
+/* ==========================
+   RESET SCROLL ORIZZONTALE
+========================== */
+html, body {
+  overflow-x: hidden;   /* elimina scroll orizzontale */
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
+}
+
+/* ==========================
+   HERO
+========================== */
 .hero {
   text-align: center;
   margin-bottom: 40px;
@@ -17,23 +33,34 @@
   font-family: 'Playfair Display', serif;
   font-size: 2.6rem;
   color: #fdd835;
+  word-break: break-word;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-top: 10px;
+  word-break: break-word;
 }
 
+/* ==========================
+   NOTICE
+========================== */
 .notice {
   text-align: center;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
+/* ==========================
+   CTA LiveTicket
+========================== */
 .cta-liveticket {
   text-align: center;
   margin-bottom: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .cta-liveticket a {
@@ -46,6 +73,9 @@
   text-decoration: none;
   font-size: 1.1rem;
   transition: 0.3s ease;
+  word-break: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .cta-liveticket a:hover {
@@ -53,29 +83,45 @@
   transform: translateY(-3px);
 }
 
+/* ==========================
+   SECTION BOX
+========================== */
 .section-box {
   background: rgba(255,255,255,0.04);
   padding: 30px;
   border-radius: 16px;
   margin-bottom: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 .section-box h2 {
   color: #FFC107;
   font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
+  word-break: break-word;
 }
 
 .section-box ol {
   padding-left: 22px;
   line-height: 1.8;
   font-size: 1.05rem;
+  overflow-wrap: anywhere;
 }
 
 .section-box li {
   margin-bottom: 14px;
 }
 
+.section-box a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================
+   HELP BOX
+========================== */
 .help-box {
   background: linear-gradient(135deg, #722f37, #4b1e25);
   padding: 30px;
@@ -83,106 +129,120 @@
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 60px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .help-box strong {
   color: #fdd835;
+}
+
+/* ==========================
+   MEDIA QUERY PER MOBILE
+========================== */
+@media (max-width: 768px) {
+  main {
+    padding: 20px 10px;
+  }
+
+  .section-box {
+    padding: 20px 10px;
+  }
+
+  .cta-liveticket a {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+
+  .section-box ol {
+    padding-left: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .help-box {
+    padding: 20px 10px;
+    font-size: 1.1rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Header dinamico -->
 <div id="header-placeholder"></div>
 
 <main>
 
-<section class="hero">
-  <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
-  <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
-</section>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
+    <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
+  </section>
 
-<div class="notice">
-  La prima volta è necessario registrarsi (richiede solo pochi minuti).  
-  <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
-</div>
+  <!-- Notice -->
+  <div class="notice">
+    La prima volta è necessario registrarsi (richiede solo pochi minuti).  
+    <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
+  </div>
 
-<div class="cta-liveticket">
-  <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
-    Vai su LiveTicket
-  </a>
-</div>
+  <!-- CTA -->
+  <div class="cta-liveticket">
+    <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
+      Vai su LiveTicket
+    </a>
+  </div>
 
-<!-- PRIMA VOLTA -->
-<div class="section-box">
-<h2>Se NON hai ancora un account LiveTicket</h2>
+  <!-- PRIMA VOLTA -->
+  <div class="section-box">
+    <h2>Se NON hai ancora un account LiveTicket</h2>
+    <ol>
+      <li>Vai su liveticket.it/pioveneauditorium cliccando il bottone qui sopra.  
+          <strong>(Si aprirà una nuova pagina e potrai continuare a leggere queste istruzioni.)</strong></li>
+      <li>Clicca sulla foto dell’evento desiderato. Comparirà un rettangolo con data, orario e luogo dell’evento: clicca sul rettangolo.</li>
+      <li>Ora sei nella pagina dell’evento. Per teatro e musica puoi scegliere il posto. Per il cinema non è necessario.</li>
+      <li>Clicca sul posto desiderato: si aprirà una finestrella dove scegliere il tipo di biglietto (intero, ridotto, ecc.). Seleziona il tipo di biglietto.</li>
+      <li>Se vuoi prenotare più di un posto, seleziona anche gli altri posti desiderati.</li>
+      <li>Clicca su <strong>Prosegui</strong>.</li>
+      <li>Inserisci il tuo numero di cellulare e premi <strong>Continua</strong>.</li>
+      <li>Compila i tuoi dati. <strong>È molto importante scrivere correttamente l’email: il biglietto arriverà lì e anche la tua password per accedere su Liveticket</strong>. Scegli anche una password che userai per entrare nel tuo profilo le prossime volte.</li>
+      <li>Ti verrà inviato un codice OTP: scegli se riceverlo via SMS o tramite chiamata vocale e clicca <strong>Continua</strong>.</li>
+      <li>Scrivi il codice OTP ricevuto e clicca <strong>Continua</strong>. Perfetto: hai validato il tuo profilo su LiveTicket.</li>
+      <li>Ora puoi lasciare i posti scelti prima oppure, se vuoi cambiarli, torna alla pianta della platea, clicca il posto selezionato e scegli i nuovi posti. Poi clicca <strong>Prosegui</strong>.</li>
+      <li>Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>.</li>
+      <li>Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>. Al termine, il biglietto ti arriverà via email con QR code.</li>
+    </ol>
+  </div>
 
-<ol>
-<li>Vai su liveticket.it/pioveneauditorium cliccando il bottone qui sopra.  
-    <strong>(Si aprirà una nuova pagina e potrai continuare a leggere queste istruzioni.)</strong></li>
+  <!-- ACCESSI SUCCESSIVI -->
+  <div class="section-box">
+    <h2>Per accedere le volte successive (se hai già un account)</h2>
+    <ol>
+      <li>Vai su: https://www.liveticket.it/pioveneauditorium</li>
+      <li>Clicca su <strong>Accedi</strong> in alto a destra. Inserisci numero di telefono e password. Se hai dimenticato la password, clicca su <strong>Password dimenticata</strong>: riceverai un SMS con le istruzioni.</li>
+      <li>Una volta entrato, clicca su <strong>Torna su LiveTicket</strong>: verrai riportato alla pagina dell’Auditorium.</li>
+      <li>Scegli l’evento, seleziona il posto (se previsto), scegli il metodo di pagamento, clicca <strong>Concludi e paga</strong> e inserisci i dati della carta. Poi clicca <strong>Paga ora</strong>.</li>
+      <li>Il biglietto ti verrà inviato alla tua email.</li>
+    </ol>
+  </div>
 
-<li>Clicca sulla foto dell’evento desiderato.  
-    Comparirà un rettangolo con data, orario e luogo dell’evento: clicca sul rettangolo.</li>
-
-<li>Ora sei nella pagina dell’evento.  
-    Per teatro e musica puoi scegliere il posto.  
-    Per il cinema non è necessario.</li>
-
-<li>Clicca sul posto desiderato: si aprirà una finestrella dove scegliere il tipo di biglietto (intero, ridotto, ecc.).  
-    Seleziona il tipo di biglietto.</li>
-
-<li>Se vuoi prenotare più di un posto, seleziona anche gli altri posti desiderati.</li>
-
-<li>Clicca su <strong>Prosegui</strong>.</li>
-
-<li>Inserisci il tuo numero di cellulare e premi <strong>Continua</strong>.</li>
-
-<li>Compila i tuoi dati.  
-    <strong>È molto importante scrivere correttamente l’email: il biglietto arriverà lì e anche la tua password per accedere su Liveticket</strong>.  
-    Scegli anche una password che userai per entrare nel tuo profilo le prossime volte.</li>
-
-<li>Ti verrà inviato un codice OTP: scegli se riceverlo via SMS o tramite chiamata vocale e clicca <strong>Continua</strong>.</li>
-
-<li>Scrivi il codice OTP ricevuto e clicca <strong>Continua</strong>.  
-    Perfetto: hai validato il tuo profilo su LiveTicket.</li>
-
-<li>Ora puoi lasciare i posti scelti prima (non serve fare nulla) oppure, se vuoi cambiarli, torna alla pianta della platea, clicca il posto selezionato (in questo modo lo annulli) e scegli i nuovi posti. Poi clicca <strong>Prosegui</strong>.</li>
-
-<li>Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>.</li>
-
-<li>Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>.  
-    Al termine, il biglietto ti arriverà via email con QR code.</li>
-</ol>
-</div>
-
-<!-- ACCESSI SUCCESSIVI -->
-<div class="section-box">
-<h2>Per accedere le volte successive (se hai già un account)</h2>
-
-<ol>
-<li>Vai su: https://www.liveticket.it/pioveneauditorium</li>
-
-<li>Clicca su <strong>Accedi</strong> in alto a destra.  
-    Inserisci numero di telefono e password.  
-    Se hai dimenticato la password, clicca su <strong>Password dimenticata</strong>: riceverai un SMS con le istruzioni.</li>
-
-<li>Una volta entrato, clicca su <strong>Torna su LiveTicket</strong>: verrai riportato alla pagina dell’Auditorium.</li>
-
-<li>Scegli l’evento, seleziona il posto (se previsto), scegli il metodo di pagamento, clicca <strong>Concludi e paga</strong> e inserisci i dati della carta. Poi clicca <strong>Paga ora</strong>.</li>
-
-<li>Il biglietto ti verrà inviato alla tua email.</li>
-</ol>
-</div>
-
-<!-- BOX AIUTO -->
-<div class="help-box">
-Se hai ancora dubbi,<br>
-<strong>chiamaci pure al 351 969 4361</strong>.<br>
-Saremo felici di aiutarti!
-</div>
+  <!-- BOX AIUTO -->
+  <div class="help-box">
+    Se hai ancora dubbi,<br>
+    <strong>chiamaci pure al 351 969 4361</strong>.<br>
+    Saremo felici di aiutarti!
+  </div>
 
 </main>
 
+<!-- Footer dinamico -->
 <div id="footer-placeholder"></div>
 
 <script>
