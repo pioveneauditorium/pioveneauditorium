@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acquista i tuoi biglietti – LiveTicket | Auditorium Piovene Rocchette</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #fdd835;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.liveticket-container {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.liveticket-box {
+  background: rgba(255,255,255,0.04);
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.liveticket-box h2 {
+  color: #FFC107;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+.liveticket-box ol {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.liveticket-box li {
+  margin-bottom: 12px;
+}
+
+.cta-liveticket {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.cta-liveticket a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fdd835;
+  color: #000;
+  font-weight: bold;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.cta-liveticket a:hover {
+  background-color: #ffeb3b;
+  transform: translateY(-3px);
+}
+
+.notice {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+
+<section class="hero">
+  <h1>🎟️ Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
+  <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
+</section>
+
+<div class="notice">
+  La prima volta richiede pochi minuti per la registrazione.<br>
+  <strong>Dalla seconda volta in poi sarà tutto molto più veloce!</strong>
+</div>
+
+<div class="cta-liveticket">
+  <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
+    Vai al portale LiveTicket
+  </a>
+</div>
+
+<div class="liveticket-container">
+
+  <!-- NUOVO ACCOUNT -->
+  <div class="liveticket-box">
+    <h2>🔰 Non ho ancora un account LiveTicket</h2>
+    <ol>
+      <li>Apri il portale LiveTicket (si apre in una nuova pagina).</li>
+      <li>Clicca sulla foto dell’evento che ti interessa.</li>
+      <li>Se previsto, scegli il tuo posto in platea (per il cinema non serve).</li>
+      <li>Clicca su <strong>Prosegui</strong>.</li>
+      <li>Inserisci il tuo numero di cellulare.</li>
+      <li>Compila i tuoi dati (importante: email corretta).</li>
+      <li>Riceverai un codice OTP via SMS o chiamata: inseriscilo per confermare.</li>
+      <li>Scegli il metodo di pagamento e clicca <strong>Concludi e paga</strong>.</li>
+      <li>Il biglietto ti arriverà via email con QR code.</li>
+    </ol>
+  </div>
+
+  <!-- GIÀ REGISTRATO -->
+  <div class="liveticket-box">
+    <h2>🔐 Ho già un account LiveTicket</h2>
+    <ol>
+      <li>Accedi con numero di telefono e password.</li>
+      <li>Scegli l’evento.</li>
+      <li>Se previsto, seleziona il posto.</li>
+      <li>Scegli il metodo di pagamento.</li>
+      <li>Concludi l’acquisto: il biglietto arriverà alla tua email.</li>
+    </ol>
+    <p>Hai dimenticato la password? Usa la funzione <strong>"Password dimenticata"</strong> per riceverne una nuova via SMS.</p>
+  </div>
+
+</div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+function loadHTML(id, url) {
+  fetch(url)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+loadHTML("header-placeholder", "header.html");
+loadHTML("footer-placeholder", "footer.html");
+</script>
+
+</body>
+</html>
