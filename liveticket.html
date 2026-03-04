@@ -193,33 +193,82 @@ html, body {
     <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
   </div>
 
-  <!-- CTA -->
-  <div class="cta-liveticket">
-    <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
-      Vai su LiveTicket
-    </a>
-  </div>
+<!-- CTA -->
+<div class="cta-liveticket">
+  <a href="https://www.liveticket.it/pioveneauditorium" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     style="
+       background: linear-gradient(135deg, #FFD700, #FF6A00, #FF007F, #FF0000);
+       color: #ffffff;
+       padding: 10px 20px;
+       border-radius: 6px;
+       text-decoration: none;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       font-weight: bold;
+       font-size: 1.1rem;
+       transition: transform 0.2s ease, box-shadow 0.2s ease;
+     "
+     onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 15px rgba(255,0,0,0.4)';"
+     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+  >
+    <i class="fas fa-ticket-alt" style="margin-right: 6px;"></i> Vai su LiveTicket
+  </a>
+</div>
 
-  <!-- PRIMA VOLTA -->
-  <div class="section-box">
-    <h2>Se NON hai ancora un account LiveTicket</h2>
-    <ol>
-      <li>Vai su liveticket.it/pioveneauditorium cliccando il bottone qui sopra.  
-          <strong>(Si aprirà una nuova pagina e potrai continuare a leggere queste istruzioni.)</strong></li>
-      <li>Clicca sulla foto dell’evento desiderato. Comparirà un rettangolo con data, orario e luogo dell’evento: clicca sul rettangolo.</li>
-      <li>Ora sei nella pagina dell’evento. <strong>Per teatro e musica puoi scegliere il posto. Per il cinema non è necessario</strong>.</li>
-      <li>Clicca sul posto desiderato: si aprirà una finestrella dove scegliere il tipo di biglietto (intero, ridotto, ecc.). Seleziona il tipo di biglietto.</li>
-      <li>Se vuoi prenotare più di un posto, seleziona anche gli altri posti desiderati.</li>
-      <li>Clicca su <strong>Prosegui</strong>.</li>
-      <li>Inserisci il tuo numero di cellulare e premi <strong>Continua</strong>.</li>
-      <li>Compila i tuoi dati. <strong>È molto importante scrivere correttamente l’email: il biglietto arriverà lì e anche la tua password per accedere su Liveticket</strong>. Scegli anche una password che userai per entrare nel tuo profilo le prossime volte.</li>
-      <li>Ti verrà inviato un codice OTP: scegli se riceverlo via SMS o tramite chiamata vocale e clicca <strong>Continua</strong>.</li>
-      <li>Scrivi il codice OTP ricevuto e clicca <strong>Continua</strong>. Perfetto: hai validato il tuo profilo su LiveTicket.</li>
-      <li>Ora puoi lasciare i posti scelti prima(non serve fare nulla) oppure, se vuoi cambiarli, torna alla pianta della platea, clicca il posto selezionato e scegli i nuovi posti. Poi clicca <strong>Prosegui</strong>.</li>
-      <li>Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>.</li>
-      <li>Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>. Al termine, il biglietto ti arriverà via email con QR code.</li>
-    </ol>
-  </div>
+<!-- PRIMA VOLTA -->
+<div class="section-box">
+  <h2>Se NON hai ancora un account LiveTicket</h2>
+
+  <ol>
+    <!-- Accesso iniziale -->
+    <li>
+      Vai su <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">liveticket.it/pioveneauditorium</a> cliccando il bottone qui sopra. Si aprirà una nuova pagina, potrai continuare a leggere queste istruzioni.
+    </li>
+
+    <!-- Scelta evento -->
+    <li>
+      Clicca sulla foto dell’evento desiderato. Comparirà un rettangolo con data, orario e luogo dell’evento: cliccaci sopra.
+    </li>
+
+    <!-- Selezione posto -->
+    <li>
+      Nella pagina dell’evento, scegli il posto se previsto (teatro e musica). Per il cinema non è necessario selezionare un posto.
+    </li>
+
+    <!-- Tipo e numero di biglietti -->
+    <li>
+      Clicca sul posto desiderato: si aprirà una finestrella per scegliere il tipo di biglietto (intero, ridotto, ecc.). Seleziona il tipo di biglietto e, se vuoi più posti, selezionali qui. Poi clicca <strong>Prosegui</strong>.
+    </li>
+
+    <!-- Inserimento contatti -->
+    <li>
+      Inserisci il tuo numero di cellulare e clicca <strong>Continua</strong>.
+    </li>
+
+    <!-- Creazione account -->
+    <li>
+      Compila i tuoi dati personali. <strong>Assicurati che l’email sia corretta</strong>, perché lì arriveranno sia il biglietto sia la password per accedere al tuo profilo LiveTicket. Scegli una password che userai per gli accessi futuri.
+    </li>
+
+    <!-- Codice OTP -->
+    <li>
+      Riceverai un codice OTP via SMS o chiamata vocale: inseriscilo e clicca <strong>Continua</strong>. Perfetto, il tuo account è ora validato.
+    </li>
+
+    <!-- Eventuali modifiche ai posti -->
+    <li>
+      Se vuoi cambiare i posti selezionati, torna alla pianta della platea, clicca il posto scelto e seleziona i nuovi posti. Poi clicca <strong>Prosegui</strong>.
+    </li>
+
+    <!-- Pagamento -->
+    <li>
+      Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>. Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>. Al termine, il biglietto arriverà via email con QR code.
+    </li>
+  </ol>
+</div>
 
   <!-- ACCESSI SUCCESSIVI -->
   <div class="section-box">
