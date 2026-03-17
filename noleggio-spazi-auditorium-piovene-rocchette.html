@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noleggio Spazi - Auditorium Piovene Rocchette</title>
-  <link rel="stylesheet" href="style.css"> <!-- riutilizza il CSS esistente -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noleggio Spazi - Auditorium Piovene Rocchette</title>
+<meta name="description" content="Informazioni sul noleggio degli spazi dell'Auditorium Comunale di Piovene Rocchette, con video dimostrativo e scheda tecnica scaricabile.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_centered_32x32.png">
+
+<!-- Font e CSS principale -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* Stili specifici per questa pagina */
+main {
+  margin: 60px auto;
+  padding: 0 20px;
+  max-width: 1000px;
+  color: #fff;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: #fdd835;
+  text-align: center;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Video responsivo */
+.video-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.video-container video {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* Bottone download PDF */
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #fdd835;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  transition: background 0.3s ease;
+}
+.download-btn:hover {
+  background: #e6c300;
+}
+</style>
 </head>
+
 <body>
-  <main>
-    <section class="hero">
-      <h1>Noleggio Spazi - Auditorium Piovene Rocchette</h1>
-      <p>Scopri le nostre sale, il palco e le dotazioni per eventi, spettacoli e proiezioni.</p>
-    </section>
 
-    <section class="auditorium-grid">
-      <div class="grid-text">
-        <div class="info-block">
-          <h2>Video Auditorium</h2>
-          <p>Guarda il nostro auditorium in azione attraverso questo breve video.</p>
-          <video controls>
-            <source src="img/video-auditorium-piovene-rocchette.mp4" type="video/mp4">
-            Il tuo browser non supporta il video.
-          </video>
-        </div>
+<!-- Header dinamico -->
+<div id="header-placeholder"></div>
 
-        <div class="info-block">
-          <h2>Scheda Tecnica</h2>
-          <p>Scarica la scheda tecnica completa con informazioni su palco, poltrone, camerini e accessi.</p>
-          <a href="download/scheda-tecnica-auditorium-piovene-rocchette.pdf" class="cta-button" target="_blank">Scarica PDF</a>
-        </div>
+<main>
 
-        <div class="info-block">
-          <h2>Capienza e Accessi</h2>
-          <p>200 poltrone, accesso diretto dalla strada per materiali pesanti, camerini per artisti, bar interno, ingresso per disabili.</p>
-        </div>
-      </div>
+  <section class="hero">
+    <h1>Noleggio Spazi - Auditorium Piovene Rocchette</h1>
+    <p>Guarda il video dell’Auditorium e scarica la scheda tecnica completa degli spazi.</p>
+  </section>
 
-      <div class="grid-images">
-        <div class="circle-img"><img src="img/auditorium1.jpg" alt="Auditorium Piovene Rocchette"></div>
-        <div class="circle-img"><img src="img/auditorium2.jpg" alt="Palco e sedute"></div>
-        <div class="circle-img"><img src="img/auditorium3.jpg" alt="Camerini e backstage"></div>
-      </div>
-    </section>
+  <section class="video-section">
+    <h2>Video dimostrativo dell’auditorium</h2>
+    <div class="video-container">
+      <video controls>
+        <source src="img/video-auditorium-piovene-rocchette.mp4" type="video/mp4">
+        Il tuo browser non supporta i video HTML5.
+      </video>
+    </div>
+  </section>
 
-    <section class="cta-section">
-      <a href="mailto:info@pioveneauditorium.it" class="cta-button">Richiedi Informazioni</a>
-    </section>
-  </main>
+  <section class="scheda-section">
+    <h2>Scheda tecnica da scaricare</h2>
+    <p>Clicca qui per scaricare la scheda tecnica completa degli spazi disponibili:</p>
+    <div style="text-align:center;">
+      <a href="download/scheda-tecnica-auditorium-piovene-rocchette.pdf" download class="download-btn">
+        Scarica Scheda Tecnica (PDF)
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer dinamico -->
+<div id="footer-placeholder"></div>
+
+<script>
+// Carica header e footer dinamici (come nel resto del sito)
+function loadHTML(id, url) {
+  fetch(url)
+    .then(resp => resp.text())
+    .then(data => document.getElementById(id).innerHTML = data)
+    .catch(err => console.error(`Errore caricamento ${url}:`, err));
+}
+
+loadHTML("header-placeholder", "header.html");
+loadHTML("footer-placeholder", "footer.html");
+</script>
+
 </body>
 </html>
