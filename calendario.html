@@ -35,6 +35,38 @@
   <link rel="stylesheet" href="calendario/calendario.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PerformingArtsTheater",
+  "name": "Auditorium Comunale di Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/logo1.png",
+  "url": "https://pioveneauditorium.it",
+  "description": "Auditorium Comunale di Piovene Rocchette cinema musica teatro e attività per bambini",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "postalCode": "36013",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "Vicenza",
+    "addressCountry": "Italia"
+  },
+  "telephone": "+39 3519694361",
+  "email": "info@pioveneauditorium.it",
+  "openingHours": [
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/AuditoriumPioveneRocchette",
+    "https://www.instagram.com/pioveneauditorium",
+    "https://wa.me/393519694361"
+  ]
+}
+</script>
+
+
 </head>
 
 <body>
@@ -42,8 +74,9 @@
   <div id="header-placeholder"></div>
 
 <main>
-  <section class="intro">
-  <h2>Calendario Eventi</h2>
+<section class="intro">
+  <h1>Calendario Eventi – Auditorium di Piovene Rocchette</h1>
+  <h2>Consulta gli eventi di cinema, teatro, musica e attività per bambini</h2>
 
   <!-- Nuovo link discreto all'archivio subito sotto il titolo -->
   <p style="margin-top:5px; font-size:0.95rem; color:#CCCCCC;">
@@ -188,5 +221,70 @@
 
 <!-- Script calendario con JSON-LD dinamico -->
 <script src="calendario/calendario.js"></script>
+
+<script>
+fetch('calendario/eventi.csv') // percorso corretto del tuo CSV
+  .then(response => response.text())
+  .then(csv => {
+    const data = Papa.parse(csv, { header: true }).data;
+
+    const events = data
+      .filter(e => e.Titolo && e.Data) // filtra solo righe valide
+      .map(e => {
+        const eventObj = {
+          "@type": "Event",
+          "name": e.Titolo,
+          "description": e.Descrizione || undefined,
+          "image": e.Immagine || undefined,
+          "startDate": e.Data + (e.Orario ? 'T' + e.Orario : ''), // ISO 8601
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Auditorium Comunale di Piovene Rocchette",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Piazza degli Alpini 1",
+              "addressLocality": "Piovene Rocchette",
+              "addressRegion": "VI",
+              "postalCode": "36013",
+              "addressCountry": "IT"
+            }
+          }
+        };
+
+        // Se c'è il link per i biglietti
+        if(e.linkBiglietti) {
+          eventObj.offers = {
+            "@type": "Offer",
+            "url": e.linkBiglietti,
+            "availability": "https://schema.org/InStock"
+          };
+        }
+
+        // Se c'è il trailer
+        if(e.Trailer) {
+          eventObj.video = {
+            "@type": "VideoObject",
+            "name": e.Titolo + " - Trailer",
+            "contentUrl": e.Trailer,
+            "thumbnailUrl": e.Immagine || undefined
+          };
+        }
+
+        return eventObj;
+      });
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": events
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+  })
+  .catch(err => console.error("Errore caricamento CSV:", err));
+</script>
 </body>
 </html>
