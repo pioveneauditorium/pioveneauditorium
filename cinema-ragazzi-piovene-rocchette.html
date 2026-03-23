@@ -68,7 +68,22 @@
   </section>
 </main>
 
-<div id="footer-placeholder"></div>
+<footer>
+  <p>Auditorium di Piovene Rocchette</p>
+  <p>P.za degli Alpini, 1, 36013 (VI)</p>
+  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
+
+  <p class="footer-links-inline">
+    <a href="privacy.html">Cookie&privacy policy</a>
+    <a href="termini.html">Termini&condizioni</a>
+  </p>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/pioveneauditorium" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/393519694361" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
+  </div>
+</footer>
 
 <script src="script.js" defer></script>
 <script src="eventi/junior.js" defer></script>
@@ -108,8 +123,6 @@
       });
     }
   });
-
-  loadHTML("footer-placeholder", "footer.html");
 
   // Aggiorna JSON-LD dinamico
   document.addEventListener('DOMContentLoaded', () => {
