@@ -15,7 +15,7 @@ html, body {
 
 body {
   font-family: Arial, sans-serif;
-  background: url('img/sfondo-sito-auditorium-piovene-rocchette.png') no-repeat center top;
+  background: url('img/sfondo-sito-auditorium-piovene-rocchette.jpg') no-repeat center top;
   background-size: cover;          /* copre tutta l’altezza disponibile */
   background-attachment: fixed;    /* mantiene sfondo fisso e pieno */
   background-repeat: no-repeat;
