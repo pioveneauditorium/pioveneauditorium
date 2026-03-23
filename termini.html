@@ -77,21 +77,6 @@
 
     @media(max-width:768px){.content-grid{grid-template-columns:1fr;padding:1rem;}.grid-item{grid-column:1;}}
   </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem('cookieConsent') === 'accepted') {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-YBSGEL3RZH";
-        document.head.appendChild(script);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YBSGEL3RZH');
-      }
-    });
-  </script>
 </head>
 
 <body>
@@ -125,7 +110,7 @@
         <p>Dedalofurioso Soc. Coop. non è responsabile per errori, inesattezze, link esterni o contenuti di siti terzi. L’accesso ai servizi avviene secondo le regole del sito.</p>
 
         <p><strong>Privacy e Cookie</strong></p>
-        <p>Per informazioni sul trattamento dei dati personali e sull’uso dei cookie, consultare la <a href="privacy.html">Privacy e Cookie Policy</a>. I cookie analitici di Google Analytics sono attivati solo dopo il tuo consenso tramite <strong>Consent Mode</strong> e, se rifiuti, raccolgono dati in forma anonima.</p>
+        <p>Per informazioni sul trattamento dei dati personali e sull’uso dei cookie, consultare la <a href="privacy.html">Privacy e Cookie Policy</a>. Il sito utilizza solo cookie tecnici necessari al funzionamento.</p>
 
         <p><strong>Legge applicabile e foro competente</strong></p>
         <p>I presenti Termini e Condizioni sono regolati dalla legge italiana.</p>
@@ -133,7 +118,7 @@
         <p><strong>Titolare del trattamento</strong></p>
         <p>Dedalofurioso Soc. Coop., via San Francesco 24, 36031 Dueville (VI), P.IVA 03072080249, email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a></p>
 
-        <p><strong>Ultimo aggiornamento:</strong> 25 febbraio 2026</p>
+        <p><strong>Ultimo aggiornamento:</strong> 23 marzo 2026</p>
       </div>
 
       <!-- Termini EN -->
@@ -153,7 +138,7 @@
         <p>Dedalofurioso Soc. Coop. is not responsible for errors, inaccuracies, external links, or third-party content. Access occurs according to site rules.</p>
 
         <p><strong>Privacy and Cookies</strong></p>
-        <p>For information on personal data processing and cookies, consult the <a href="privacy.html">Privacy and Cookie Policy</a>. Google Analytics cookies are activated only after your consent via <strong>Consent Mode</strong>, and if you refuse, data are collected anonymously.</p>
+        <p>For information on personal data processing and cookies, consult the <a href="privacy.html">Privacy and Cookie Policy</a>. The site uses only essential technical cookies.</p>
 
         <p><strong>Applicable Law and Jurisdiction</strong></p>
         <p>These Terms and Conditions are governed by Italian law.</p>
@@ -161,14 +146,29 @@
         <p><strong>Data Controller</strong></p>
         <p>Dedalofurioso Soc. Coop., via San Francesco 24, 36031 Dueville (VI), VAT 03072080249, email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a></p>
 
-        <p><strong>Last update:</strong> February 25, 2026</p>
+        <p><strong>Last update:</strong> March 23, 2026</p>
       </div>
 
     </div>
   </section>
 </main>
 
-<div id="footer-placeholder"></div>
+<footer>
+  <p>Auditorium di Piovene Rocchette</p>
+  <p>P.za degli Alpini, 1, 36013 (VI)</p>
+  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
+
+  <p class="footer-links-inline">
+    <a href="privacy.html">Cookie&privacy policy</a>
+    <a href="termini.html">Termini&condizioni</a>
+  </p>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/pioveneauditorium" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/393519694361" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
+  </div>
+</footer>
 
 <script src="script.js" defer></script>
 
@@ -206,8 +206,6 @@
       });
     }
   });
-
-  loadHTML("footer-placeholder", "footer.html");
 
   // Multilingua
   document.addEventListener('DOMContentLoaded', () => {
