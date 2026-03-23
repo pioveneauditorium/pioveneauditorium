@@ -182,6 +182,62 @@ main {
   <div class="events-grid">
     <!-- Ordine: più recente -> meno recente -->
 
+<!-- 28 marzo 2026 - MUSICA -->
+<div class="event-card event-musica">
+  <div class="event-date">28 marzo 2026</div>
+  <div class="event-title">Albori di una Radio Pirata</div>
+  <div class="event-artist">ONDARADIO & FEEL</div>
+  <div class="event-type">MUSICA</div>
+</div>
+
+<!-- 27 marzo 2026 - CINEMA -->
+<div class="event-card event-cinema">
+  <div class="event-date">27 marzo 2026</div>
+  <div class="event-title">Come fratelli</div>
+  <div class="event-artist">Regia di Antonio Padovan</div>
+  <div class="event-type">CINEMA</div>
+</div>
+
+<!-- 20 marzo 2026 - CINEMA -->
+<div class="event-card event-cinema">
+  <div class="event-date">20 marzo 2026</div>
+  <div class="event-title">La gazza ladra</div>
+  <div class="event-artist">Regia di Robert Guédiguian</div>
+  <div class="event-type">CINEMA</div>
+</div>
+
+<!-- 14 marzo 2026 - MUSICA -->
+<div class="event-card event-musica">
+  <div class="event-date">14 marzo 2026</div>
+  <div class="event-title">Summano Festival</div>
+  <div class="event-artist">Simone Patrizi, Emanuele Conte, Big River, Fabia e Alessia Salvucci</div>
+  <div class="event-type">MUSICA</div>
+</div>
+
+<!-- 13 marzo 2026 - CINEMA -->
+<div class="event-card event-cinema">
+  <div class="event-date">13 marzo 2026</div>
+  <div class="event-title">Una sconosciuta a Tunisi</div>
+  <div class="event-artist">Regia di Mehdi Barsaoui</div>
+  <div class="event-type">CINEMA</div>
+</div>
+
+<!-- 8 marzo 2026 - BAMBINI&RAGAZZI -->
+<div class="event-card event-bambini">
+  <div class="event-date">8 marzo 2026</div>
+  <div class="event-title">La Bottega della Buonanotte</div>
+  <div class="event-artist">Rassegna Il Teatro delle Bestie</div>
+  <div class="event-type">BAMBINI&RAGAZZI</div>
+</div>
+
+<!-- 7 marzo 2026 - TEATRO -->
+<div class="event-card event-teatro">
+  <div class="event-date">7 marzo 2026</div>
+  <div class="event-title">In piedi, signori, davanti a una donna</div>
+  <div class="event-artist">Compagnia Ma.Ma. & Marta Miranda</div>
+  <div class="event-type">TEATRO</div>
+</div>
+
 <!-- 27 febbraio 2026 - CINEMA -->
 <div class="event-card event-cinema">
   <div class="event-date">27 febbraio 2026</div>
@@ -445,8 +501,22 @@ main {
 </section>
 </main>
 
-<!-- Footer dinamico -->
-<div id="footer-placeholder"></div>
+<footer>
+  <p>Auditorium di Piovene Rocchette</p>
+  <p>P.za degli Alpini, 1, 36013 (VI)</p>
+  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
+
+  <p class="footer-links-inline">
+    <a href="privacy.html">Cookie&privacy policy</a>
+    <a href="termini.html">Termini&condizioni</a>
+  </p>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/pioveneauditorium" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/393519694361" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
+  </div>
+</footer>
 
 <!-- Script principali -->
 <script>
@@ -473,7 +543,6 @@ function initMenu() {
 
 // Carica header e footer, poi inizializza menu
 loadHTML("header-placeholder", "header.html", initMenu);
-loadHTML("footer-placeholder", "footer.html");
 </script>
 </body>
 </html>
