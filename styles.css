@@ -1,5 +1,5 @@
 /* ---------------------------
-   Reset base
+   Reset base 
 --------------------------- */
 * {
   margin: 0;
@@ -9,32 +9,25 @@
 
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background: url('img/sfondo-sito-auditorium-piovene-rocchette.png') no-repeat center top;
+  background-size: cover;          /* copre tutta l’altezza disponibile */
+  background-attachment: fixed;    /* mantiene sfondo fisso e pieno */
+  background-repeat: no-repeat;
   color: #fff;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;          /* permette footer subito dopo main */
 }
 
-/* ---------------------------
-   HEADER
---------------------------- */
+/* --------------------------- HEADER --------------------------- */
 header {
-  /* Colore sfondo aggiornato: effetto tenda di teatro sfumata */
-  background: linear-gradient(
-      to right,
-      #8B0000,  /* rosso molto scuro - ombra */
-      #B22222,  /* rosso cupo */
-      #DC143C,  /* rosso vivo - piega centrale */
-      #B22222,  /* rosso cupo */
-      #8B0000   /* rosso molto scuro - ombra */
-  );
-
+  background: rgba(0, 0, 0, 0.25); /* nero semi-trasparente elegante */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,15 +42,13 @@ header .logo {
 }
 
 header .logo img {
-  height: 160px;
-  width: auto;
-}
-
-.logo img {
+  filter: invert(1);   /* logo SVG bianco */
+  height: 120px;       /* altezza logo */
+  width: auto;         /* mantiene proporzioni */
   transition: transform 0.2s ease;
 }
 
-.logo img:hover {
+header .logo img:hover {
   transform: scale(1.05);
 }
 
@@ -88,18 +79,6 @@ nav ul li a {
   display: inline-block;
   color: #fff;
 }
-
-/* Palette colori menu desktop */
-nav ul li:nth-child(1) a { background-color: #e53935; } /* Auditorium Rosso acceso */
-nav ul li:nth-child(2) a { background-color: #1e88e5; } /* Calendario Blu vivo */
-nav ul li:nth-child(3) a { background-color: #43a047; } /* Junior Verde intenso */
-nav ul li:nth-child(4) a { background-color: #FFD300; color: #000; } /* Cinema Giallo brillante (testo nero) */
-nav ul li:nth-child(5) a { background-color: #fb8c00; } /* Musica Arancione forte */
-nav ul li:nth-child(6) a { background-color: #8e24aa; } /* Teatro Viola acceso */
-nav ul li:nth-child(7) a { background-color: #d63384; } /* Contatti ROSA */
-nav ul li:nth-child(8) a { background-color: #d81b60; } /* Fucsia / rosa scuro */
-
-nav ul li a:hover { filter: brightness(0.85); }
 
 /* ---------------------------
    HAMBURGER
@@ -149,18 +128,6 @@ nav ul li a:hover { filter: brightness(0.85); }
   height: 0;
   overflow-y: auto;
 
-  /* Sfondo effetto sipario teatrale */
-  background: linear-gradient(
-    to right,
-    #4b0000,  /* bordo molto scuro - ombra */
-    #8B0000,  /* rosso molto scuro */
-    #B22222,  /* rosso cupo */
-    #DC143C,  /* rosso vivo - piega centrale */
-    #B22222,  /* rosso cupo */
-    #8B0000,  /* rosso molto scuro */
-    #4b0000   /* bordo molto scuro - ombra */
-  );
-
   display: block;
   transition: height 0.3s ease;
   z-index: 999;
@@ -191,18 +158,6 @@ nav ul li a:hover { filter: brightness(0.85); }
   color: #fff;
 }
 
-/* Palette colori menu mobile */
-#nav-menu ul li:nth-child(1) a { background-color: #e53935; } /* Auditorium Rosso acceso */
-#nav-menu ul li:nth-child(2) a { background-color: #1e88e5; } /* Calendario Blu vivo */
-#nav-menu ul li:nth-child(3) a { background-color: #43a047; } /* Junior Verde intenso */
-#nav-menu ul li:nth-child(4) a { background-color: #FFD300; color: #000; } /* Cinema Giallo brillante (testo nero) */
-#nav-menu ul li:nth-child(5) a { background-color: #fb8c00; } /* Musica Arancione forte */
-#nav-menu ul li:nth-child(6) a { background-color: #8e24aa; } /* Teatro Viola acceso */
-#nav-menu ul li:nth-child(7) a { background-color: #d63384; } /* Contatti ROSA */
-#nav-menu ul li:nth-child(8) a { background-color: #d81b60; } /* Fucsia / rosa scuro */
-
-#nav-menu ul li a:hover { filter: brightness(0.85); }
-
 /* ---------------------------
    MAIN CONTENT
 --------------------------- */
@@ -228,7 +183,7 @@ main {
 .events-carousel {
   text-align: center;
   padding: 40px 0;
-  background-color: #111;
+  background-color: transparent;
   color: #fff;
   margin-bottom: 20px;
 }
@@ -937,37 +892,27 @@ main {
 }
 
 /* ---------------------------
-   FOOTER
+   FOOTER PULITO E AGGIORNATO
 --------------------------- */
 footer {
   width: 100%;
-  min-height: 400px; /* altezza più comoda su tutti i dispositivi */
-  position: relative;
-  display: block; /* righe verticali */
+  min-height: 200px;       /* altezza comoda, più contenuta */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* allinea contenuti verticalmente */
+  align-items: center;
+  padding: 30px 20px;       /* distanza interna confortevole */
   text-align: center;
-  overflow: visible; /* modificato da hidden a visible */
-  z-index: 1; /* assicura stacking dei contenuti */
-}
-
-footer img.footer-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center; /* parte alta sempre visibile */
-  z-index: 0; /* sotto i contenuti */
-  background: transparent;
-}
-
-footer p {
   position: relative;
-  z-index: 2; /* sopra l'immagine */
+  background: rgba(0, 0, 0, 0.6); /* overlay elegante e trasparente */
   color: #fff;
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Testo e link */
+footer p {
+  margin: 5px 0;
+  font-size: 1.1rem;
   word-wrap: break-word;
 }
 
@@ -987,8 +932,6 @@ footer a:hover {
   justify-content: center;
   gap: 0.75rem;
   margin-top: 0.5rem;
-  position: relative; /* necessario per stacking */
-  z-index: 2;         /* sopra l'immagine di sfondo */
 }
 
 .social-links a svg {
@@ -1002,8 +945,6 @@ footer a:hover {
 .social-icon {
   width: 32px;
   height: 32px;
-  margin: 0 0.25rem;
-  vertical-align: middle;
 }
 
 /* PRIVACY e termini inline */
@@ -1013,12 +954,15 @@ footer a:hover {
   gap: 0.5rem;
   flex-wrap: wrap;
   margin: 0.5rem 0;
-  position: relative;
-  z-index: 2;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE MOBILE */
 @media (max-width: 480px) {
+  footer {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+
   .footer-links-inline {
     flex-direction: column;
     gap: 0.25rem;
@@ -1034,47 +978,21 @@ footer a:hover {
   }
 }
 
-/* FOOTER DESKTOP OTTIMIZZATO */
+/* FOOTER DESKTOP */
 @media (min-width: 1024px) {
-    footer {
-        display: flex;
-        flex-wrap: wrap;             
-        justify-content: center;     
-        align-items: flex-start;     
-        row-gap: 0px;               /* minimo spazio verticale tra le righe */
-        column-gap: 20px;            
-        padding: 0.5rem 5%;         /* più compatto verticalmente */
-        text-align: center;
-        min-height: 400px;           
-        position: relative;          
-    }
+  footer {
+    flex-wrap: nowrap;      /* niente wrap per le icone */
+    justify-content: center; 
+    align-items: center;
+    padding: 40px 5%;       
+    min-height: 200px;      
+  }
 
-    /* Elementi figli: niente margini extra e line-height compatto */
-    footer p,
-    .footer-links-inline,
-    .social-links {
-        flex: 0 1 auto;              
-        margin: 0;                   
-        line-height: 1.2;            /* riduce spazio verticale tra righe */
-        padding: 0;                   /* rimuove padding interni se presenti */
-    }
-
-    /* Footer link inline */
-    .footer-links-inline {
-        display: flex;
-        flex-wrap: wrap;             
-        gap: 5px;                    
-        justify-content: center;     
-        margin: 0;                   /* niente margini extra */
-    }
-
-    /* Social icons */
-    .social-links {
-        display: flex;
-        gap: 5px;                    
-        justify-content: center;     
-        margin: 0;                   /* niente margine sopra/basso */
-    }
+  .footer-links-inline, .social-links, footer p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+  }
 }
 
 /* ---------------------------
@@ -1106,4 +1024,63 @@ footer a:hover {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* STILE MENU PRO */
+#nav-menu ul {
+  max-width: 90%;
+  margin: 80px auto;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+#nav-menu ul li {
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#nav-menu ul li:last-child {
+  border-bottom: none;
+}
+
+#nav-menu ul li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.4rem;
+  padding: 15px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* ICONE */
+#nav-menu ul li a i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fdd835;
+  font-size: 1.2rem;
+}
+
+/* HOVER */
+#nav-menu ul li a:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* H1 solo nella home, versione smartphone, font fluido */
+@media (max-width: 768px) {
+  body.home h1 {
+    font-size: clamp(1rem, 5vw, 1.8rem); /* minimo 1rem, massimo 1.8rem, scala con lo schermo */
+    line-height: 1.2;
+    white-space: normal;  /* permette il wrapping se necessario */
+    overflow: visible;    /* niente scroll */
+    text-overflow: clip;
+  }
 }
