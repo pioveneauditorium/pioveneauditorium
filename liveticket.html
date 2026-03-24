@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Acquista i tuoi biglietti – LiveTicket | Auditorium Piovene Rocchette</title>
 
 <link rel="stylesheet" href="styles.css">
 
+<!-- Font Awesome (MANCAVA 👉 fondamentale per icone + coerenza header) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-/* ==========================
-   RESET SCROLL ORIZZONTALE
-========================== */
+
+/* RESET */
 html, body {
-  overflow-x: hidden;   /* elimina scroll orizzontale */
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -21,9 +24,7 @@ html, body {
   line-height: 1.6;
 }
 
-/* ==========================
-   HERO
-========================== */
+/* HERO */
 .hero {
   text-align: center;
   margin-bottom: 40px;
@@ -42,29 +43,23 @@ html, body {
   word-break: break-word;
 }
 
-/* ==========================
-   NOTICE
-========================== */
+/* NOTICE */
 .notice {
   text-align: center;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.7;
-  overflow-wrap: break-word;
 }
 
-/* ==========================
-   CTA LiveTicket
-========================== */
+/* CTA */
 .cta-liveticket {
   text-align: center;
   margin-bottom: 50px;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
 .cta-liveticket a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 14px 28px;
   background-color: #fdd835;
   color: #000;
@@ -73,9 +68,6 @@ html, body {
   text-decoration: none;
   font-size: 1.1rem;
   transition: 0.3s ease;
-  word-break: break-word;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
 .cta-liveticket a:hover {
@@ -83,45 +75,31 @@ html, body {
   transform: translateY(-3px);
 }
 
-/* ==========================
-   SECTION BOX
-========================== */
+/* SECTION */
 .section-box {
   background: rgba(255,255,255,0.04);
   padding: 30px;
   border-radius: 16px;
   margin-bottom: 50px;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
 }
 
 .section-box h2 {
   color: #FFC107;
   font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
-  word-break: break-word;
 }
 
 .section-box ol {
   padding-left: 22px;
   line-height: 1.8;
   font-size: 1.05rem;
-  overflow-wrap: anywhere;
 }
 
 .section-box li {
   margin-bottom: 14px;
 }
 
-.section-box a {
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-/* ==========================
-   HELP BOX
-========================== */
+/* HELP */
 .help-box {
   background: linear-gradient(135deg, #722f37, #4b1e25);
   padding: 30px;
@@ -129,92 +107,46 @@ html, body {
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 60px;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
 .help-box strong {
   color: #fdd835;
 }
 
-/* ==========================
-   MEDIA QUERY PER MOBILE
-========================== */
+/* MOBILE */
 @media (max-width: 768px) {
-  main {
-    padding: 20px 10px;
-  }
-
-  .section-box {
-    padding: 20px 10px;
-  }
-
-  .cta-liveticket a {
-    padding: 10px 15px;
-    font-size: 1rem;
-  }
-
-  .section-box ol {
-    padding-left: 15px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .help-box {
-    padding: 20px 10px;
-    font-size: 1.1rem;
-  }
+  main { padding: 20px 10px; }
+  .section-box { padding: 20px 10px; }
+  .cta-liveticket a { padding: 10px 15px; font-size: 1rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .help-box { padding: 20px 10px; font-size: 1.1rem; }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- Header dinamico -->
+<!-- HEADER DINAMICO -->
 <div id="header-placeholder"></div>
 
 <main>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
-    <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
-  </section>
+<section class="hero">
+  <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
+  <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
+</section>
 
-  <!-- Notice -->
-  <div class="notice">
-    La prima volta è necessario registrarsi (richiede solo pochi minuti).  
-    <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
-  </div>
+<div class="notice">
+  La prima volta è necessario registrarsi (richiede solo pochi minuti).
+  <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
+</div>
 
-<!-- CTA -->
 <div class="cta-liveticket">
-  <a href="https://www.liveticket.it/pioveneauditorium" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     style="
-       background: linear-gradient(135deg, #FFD700, #FF6A00, #FF007F, #FF0000);
-       color: #ffffff;
-       padding: 10px 20px;
-       border-radius: 6px;
-       text-decoration: none;
-       display: inline-flex;
-       align-items: center;
-       justify-content: center;
-       font-weight: bold;
-       font-size: 1.1rem;
-       transition: transform 0.2s ease, box-shadow 0.2s ease;
-     "
-     onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 15px rgba(255,0,0,0.4)';"
-     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-  >
-    <i class="fas fa-ticket-alt" style="margin-right: 6px;"></i> Vai su LiveTicket
+  <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-ticket-alt" style="margin-right:8px;"></i>
+    Vai su LiveTicket
   </a>
 </div>
 
@@ -277,42 +209,61 @@ html, body {
     </ol>
   </div>
 
-  <!-- BOX AIUTO -->
-  <div class="help-box">
-    Se hai ancora dubbi,<br>
-    <strong>chiamaci pure al 351 969 4361</strong>.<br>
-    Saremo felici di aiutarti!
-  </div>
+<div class="help-box">
+  Se hai ancora dubbi,<br>
+  <strong>chiamaci al 351 969 4361</strong>
+</div>
 
 </main>
 
 <footer>
   <p>Auditorium di Piovene Rocchette</p>
-  <p>P.za degli Alpini, 1, 36013 (VI)</p>
-  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
-
-  <p class="footer-links-inline">
-    <a href="privacy.html">Cookie&privacy policy</a>
-    <a href="termini.html">Termini&condizioni</a>
-  </p>
-
-  <div class="social-links">
-    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/pioveneauditorium" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/393519694361" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
-  </div>
 </footer>
 
+<!-- SCRIPT PRINCIPALE -->
+<script src="script.js" defer></script>
+
+<!-- LOAD HEADER + INIT HAMBURGER -->
 <script>
-function loadHTML(id, url) {
+function loadHTML(id, url, callback) {
   fetch(url)
     .then(res => res.text())
     .then(data => {
       document.getElementById(id).innerHTML = data;
-    });
+      if (callback) callback();
+    })
+    .catch(err => console.error("Errore:", err));
 }
 
-loadHTML("header-placeholder", "header.html");
+loadHTML("header-placeholder", "header.html", () => {
+
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const closeMenu = document.querySelector('.close-menu');
+
+  if (hamburger && navMenu) {
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    if (closeMenu) {
+      closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    }
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+  }
+});
 </script>
 
 </body>
