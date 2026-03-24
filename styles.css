@@ -15,14 +15,21 @@ html, body {
 
 body {
   font-family: Arial, sans-serif;
-  background: url('img/sfondo-sito-auditorium-piovene-rocchette.jpg') no-repeat center top;
-  background-size: cover;          /* copre tutta l’altezza disponibile */
-  background-attachment: fixed;    /* mantiene sfondo fisso e pieno */
+
+  /* Sfondo di fallback nero prima che l'immagine sia caricata */
+  background-color: #000;
+
+  /* Sfondo principale */
+  background-image: url('img/sfondo-sito-auditorium-piovene-rocchette.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
+
   color: #fff;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;          /* permette footer subito dopo main */
+  flex-direction: column;
 }
 
 /* --------------------------- HEADER --------------------------- */
