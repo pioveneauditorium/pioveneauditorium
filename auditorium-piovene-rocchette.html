@@ -3,129 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auditorium Piovene Rocchette – Musica, Teatro, Cinema ed Eventi</title>
 
-<!-- CSS principale -->
+<title>Auditorium Piovene Rocchette – Eventi, Teatro, Cinema, Musica per Vicenza e Provincia</title>
+<meta name="description" content="Partecipa a eventi a Piovene Rocchette e provincia di Vicenza: teatro, cinema per bambini, musica e spettacoli all'Auditorium Comunale. Scopri il calendario completo!">
+<link rel="canonical" href="https://pioveneauditorium.it/auditorium-piovene-rocchette.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pioveneauditorium.it/auditorium-piovene-rocchette.html">
+<meta property="og:title" content="Auditorium Piovene Rocchette – Eventi, Teatro, Cinema, Musica per Vicenza e Provincia">
+<meta property="og:description" content="Partecipa a eventi a Piovene Rocchette e provincia di Vicenza: teatro, cinema per bambini, musica e spettacoli all'Auditorium Comunale. Scopri il calendario completo!">
+<meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auditorium Piovene Rocchette – Eventi, Teatro, Cinema, Musica per Vicenza e Provincia">
+<meta name="twitter:description" content="Partecipa a eventi a Piovene Rocchette e provincia di Vicenza: teatro, cinema per bambini, musica e spettacoli all'Auditorium Comunale. Scopri il calendario completo!">
+<meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png">
+<link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
+
+<!-- Font e CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Font Awesome per icone -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* rimuove scroll orizzontale */
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  background-color: #000;
-  line-height: 1.6;
+<!-- Schema.org per SEO locale ed eventi -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PerformingArtsTheater",
+  "name": "Auditorium Comunale di Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/img/logo.svg",
+  "url": "https://pioveneauditorium.it/auditorium-piovene-rocchette.html",
+  "description": "Auditorium Comunale di Piovene Rocchette: cinema, musica, teatro, eventi per bambini e famiglie in provincia di Vicenza.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "postalCode": "36013",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "Vicenza",
+    "addressCountry": "Italia"
+  },
+  "telephone": "+39 3519694361",
+  "email": "info@pioveneauditorium.it",
+  "openingHours": [
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/AuditoriumPioveneRocchette",
+    "https://www.instagram.com/pioveneauditorium",
+    "https://wa.me/393519694361"
+  ]
 }
-
-/* Hero */
-.hero {
-  text-align: center;
-  margin-bottom: 50px;
-}
-.hero img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-top: 20px;
-  color: #fdd835;
-}
-
-/* Container principale */
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-
-/* Contenuto: 2 colonne desktop, 1 colonna mobile */
-.auditorium-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-/* Paragrafi */
-.auditorium-content p {
-  margin-top: 20px;
-  word-break: break-word;
-}
-.auditorium-content strong.inline-highlight {
-  color: #FFC107;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-.auditorium-content a {
-  color: #fdd835;
-  text-decoration: underline;
-}
-
-/* Animazione immagini paragraph-image */
-.auditorium-content img.paragraph-image {
-  display: block;
-  margin: 20px auto 40px;
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
-
-  transform: scale(0.6);
-  opacity: 0;
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-}
-.auditorium-content img.paragraph-image.in-view {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* MOBILE: UNA colonna */
-@media(max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .auditorium-content {
-    grid-template-columns: 1fr; /* una colonna singola */
-  }
-}
-
-/* Contenitore video circolare centrato */
-.video-circle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0; /* spazio sopra e sotto */
-}
-
-/* Video circolare */
-.circle-video {
-  width: 250px;       
-  height: 250px;      
-  border-radius: 50%; 
-  object-fit: cover;  
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  border: none
-}
-
-/* Versione mobile */
-@media (max-width: 768px) {
-  .circle-video {
-    width: 180px;
-    height: 180px;
-  }
-
-  .video-circle-container {
-    margin: 30px 0;
-  }
-}
-</style>
+</script>
 </head>
 <body>
 
@@ -135,51 +71,49 @@ main {
 <main>
   <!-- Hero -->
   <section class="hero">
-    <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium di Piovene Rocchette">
-    <h1>Auditorium Comunale di Piovene Rocchette</h1>
+    <img src="img/1.jpg" alt="Vista panoramica dell’Auditorium Comunale di Piovene Rocchette, Vicenza">
+    <h1>Auditorium Comunale di Piovene Rocchette – Eventi, Teatro, Cinema e Musica per Vicenza e Provincia</h1>
   </section>
 
   <!-- Contenuto -->
   <section class="auditorium-content">
 
-    <p><strong class="inline-highlight">L'Auditorium</strong><br>
-      Inaugurato nel 2008, l'Auditorium Comunale di Piovene Rocchette è il cuore pulsante della cultura locale,
-      offrendo un ricco programma di eventi tutto l’anno: dal teatro al cinema, passando per la musica.
+    <p>
+      <strong class="inline-highlight" role="heading" aria-level="2">L'Auditorium di Piovene Rocchette: un gioiello in provincia di Vicenza</strong><br>
+      Inaugurato nel 2008, l'<strong>Auditorium Comunale di Piovene Rocchette</strong> è il cuore pulsante della cultura locale. Offre un ricco programma di <strong>eventi per famiglie e bambini</strong>, spettacoli teatrali, concerti e <strong>cinema a Vicenza e provincia</strong>.
     </p>
-    <img src="cerchi/cerchio-giallo-1.png" class="paragraph-image" alt="Auditorium">
+    <img src="cerchi/auditorium-piovene-rocchette-logo.png" class="paragraph-image" alt="Logo dell’Auditorium Comunale di Piovene Rocchette, Vicenza">
 
-    <p><strong class="inline-highlight">A teatro con Il Mascherone (e non solo)</strong><br>
-      Ogni anno "Il Mascherone" porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non,
-      in una gara di risate, talento e passione per il teatro.<br>
-      <strong>Non solo Mascherone</strong>: durante tutto l'anno l'Auditorium ospita spettacoli che spaziano
-      dalla commedia ai temi più importanti.
+    <p>
+      <strong class="inline-highlight" role="heading" aria-level="2">A teatro con Il Mascherone (e non solo)</strong><br>
+      Ogni anno la compagnia <strong>"Il Mascherone"</strong> porta in scena commedie divertenti e dialettali, con compagnie teatrali venete e non, creando un’esperienza unica per adulti e bambini.<br>
+      <strong>Non solo Mascherone</strong>: durante tutto l’anno l’Auditorium ospita spettacoli teatrali di vario genere, eventi culturali e performance musicali per la <strong>provincia di Vicenza</strong>.
     </p>
-    <img src="cerchi/cerchio-giallo-2.png" class="paragraph-image" alt="Teatro">
+    <img src="cerchi/teatro-mascherone-piovene-rocchette.png" class="paragraph-image" alt="Spettacolo teatrale Mascherone all’Auditorium Comunale di Piovene Rocchette, Vicenza">
 
-    <p><strong class="inline-highlight">Cinema ogni due Venerdì e ogni due Domeniche</strong><br>
-      I venerdì sera sono dedicati al cinema d’autore, mentre le domeniche pomeriggio offrono film
-      per bambini e ragazzi.
+    <p>
+      <strong class="inline-highlight" role="heading" aria-level="2">Cinema ogni due Venerdì e ogni due Domeniche</strong><br>
+      I venerdì sera sono dedicati al <strong>cinema d’autore per adulti</strong>, mentre le domeniche pomeriggio offrono <strong>film per bambini e ragazzi a Piovene Rocchette e provincia di Vicenza</strong>.
     </p>
-    <img src="cerchi/cerchio-giallo-3.png" class="paragraph-image" alt="Cinema">
+    <img src="cerchi/cinema-piovene-rocchette.png" class="paragraph-image" alt="Proiezione di cinema per bambini all’Auditorium di Piovene Rocchette">
 
-    <p><strong class="inline-highlight">Summano Festival - Sabato 14 Marzo 2026</strong><br>
-      Un evento imperdibile: sei artisti, quattro brani ciascuno,
-      e una serata di pura energia e creatività!
+    <p>
+<strong class="inline-highlight" role="heading" aria-level="2">Musica dal vivo all’Auditorium</strong><br>
+L'Auditorium di Piovene Rocchette è il punto di riferimento per la <strong>musica dal vivo in provincia di Vicenza</strong>. Dal <strong>Summano Festival</strong>, che raduna artisti di diversi generi, ai concerti di band e musicisti come <strong>Daniele Groff, Studio3, Simone Patrizi, Ondaradio e Feel</strong>, la musica è protagonista tutto l’anno.
     </p>
-    <img src="cerchi/cerchio-giallo-4.png" class="paragraph-image" alt="Festival">
+    <img src="cerchi/concerto-musica-piovene-rocchette.png" class="paragraph-image" alt="Concerto musicale all’Auditorium Comunale di Piovene Rocchette">
 
-    <p><strong class="inline-highlight">Bar dell'Auditorium</strong><br>
-      Goditi un aperitivo al bar dell'Auditorium, l’ideale per un momento di relax
-      prima e dopo gli spettacoli, in un’atmosfera accogliente e conviviale.
+    <p>
+      <strong class="inline-highlight" role="heading" aria-level="2">Bar dell'Auditorium</strong><br>
+      Goditi un aperitivo al bar dell’Auditorium, ideale per rilassarti prima e dopo gli spettacoli. Uno spazio accogliente per <strong>famiglie e visitatori da Vicenza e provincia</strong>.
     </p>
-    <img src="cerchi/cerchio-giallo-5.png" class="paragraph-image" alt="Bar">
+    <img src="cerchi/bar-auditorium-piovene-rocchette.png" class="paragraph-image" alt="Bar e area relax dell’Auditorium di Piovene Rocchette">
 
-    <p><strong class="inline-highlight">Condividi il tuo parere!</strong><br>
-      Hai suggerimenti per il nostro programma o dei film da consigliare?
-      Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>,
-      la tua opinione è importante per noi!
+    <p>
+      <strong class="inline-highlight" role="heading" aria-level="2">Condividi il tuo parere!</strong><br>
+      Hai suggerimenti sui nostri eventi o film da consigliare? Scrivici a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>. La tua opinione aiuta a migliorare il <strong>programma di eventi dell’Auditorium di Piovene Rocchette</strong> per la <strong>provincia di Vicenza</strong>.
     </p>
-    <img src="cerchi/cerchio-giallo-6.png" class="paragraph-image" alt="Feedback">
+    <img src="cerchi/feedback-eventi-piovene.png" class="paragraph-image" alt="Visitatori che lasciano feedback sull’Auditorium di Piovene Rocchette">
 
   </section>
 </main>

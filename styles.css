@@ -1193,4 +1193,119 @@ footer a:hover {
     .cookie-banner button.secondary:hover {
       background: #777;
     }
+
+/* PAGINA AUDITORIUM */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* rimuove scroll orizzontale */
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.hero img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #fdd835;
+}
+
+/* Container principale */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Contenuto: 2 colonne desktop, 1 colonna mobile */
+.auditorium-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* Paragrafi */
+.auditorium-content p {
+  margin-top: 20px;
+  word-break: break-word;
+}
+.auditorium-content strong.inline-highlight {
+  color: #FFC107;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.auditorium-content a {
+  color: #fdd835;
+  text-decoration: underline;
+}
+
+/* Animazione immagini paragraph-image */
+.auditorium-content img.paragraph-image {
+  display: block;
+  margin: 20px auto 40px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+
+  transform: scale(0.6);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.auditorium-content img.paragraph-image.in-view {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* MOBILE: UNA colonna */
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .auditorium-content {
+    grid-template-columns: 1fr; /* una colonna singola */
+  }
+}
+
+/* Contenitore video circolare centrato */
+.video-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0; /* spazio sopra e sotto */
+}
+
+/* Video circolare */
+.circle-video {
+  width: 250px;       
+  height: 250px;      
+  border-radius: 50%; 
+  object-fit: cover;  
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border: none
+}
+
+/* Versione mobile */
+@media (max-width: 768px) {
+  .circle-video {
+    width: 180px;
+    height: 180px;
+  }
+
+  .video-circle-container {
+    margin: 30px 0;
+  }
+}
   
