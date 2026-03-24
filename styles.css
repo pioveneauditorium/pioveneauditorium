@@ -50,7 +50,7 @@ header .logo {
 
 header .logo img {
   filter: invert(1);   /* logo SVG bianco */
-  height: 120px;       /* altezza logo */
+  height: 80px;       /* ALTEZZA LOGO */
   width: auto;         /* mantiene proporzioni */
   transition: transform 0.2s ease;
 }
