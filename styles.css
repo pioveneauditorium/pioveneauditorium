@@ -97,7 +97,7 @@ nav ul li a {
 /* Smartphone */
 @media (max-width: 600px) {
   header .logo img {
-    height: 40px;  /* compatto su mobile */
+    height: 50px;  /* compatto su mobile */
   }
 }
 
