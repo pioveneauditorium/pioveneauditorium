@@ -87,6 +87,20 @@ nav ul li a {
   color: #fff;
 }
 
+/* LOGO SVG Tablet / schermi medi */
+@media (max-width: 1280px) {
+  header .logo img {
+    height: 60px;  /* più piccolo su tablet/laptop */
+  }
+}
+
+/* Smartphone */
+@media (max-width: 600px) {
+  header .logo img {
+    height: 40px;  /* compatto su mobile */
+  }
+}
+
 /* ---------------------------
    HAMBURGER
 --------------------------- */
