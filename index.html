@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Preload immagine di sfondo per velocizzare il rendering -->
+  <link rel="preload" as="image" href="img/sfondo-sito-auditorium-piovene-rocchette.jpg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <title>Auditorium Piovene Rocchette – Cinema, Teatro, Musica ed Eventi</title>
@@ -29,7 +31,34 @@
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-  <!-- Font e CSS -->
+  <!-- CSS critico inline -->
+  <style>
+    body {
+      background-color: #000;
+      background-image: url('img/sfondo-sito-auditorium-piovene-rocchette.jpg');
+      background-position: center top;
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <!-- CSS principale -->
   <link rel="stylesheet" href="styles.css">
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
