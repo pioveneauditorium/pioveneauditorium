@@ -355,8 +355,9 @@
   }
 </style>
 
-  <!-- CSS principale -->
-  <link rel="stylesheet" href="styles.css">
+<!-- CSS principale non bloccante -->
+<link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
 
