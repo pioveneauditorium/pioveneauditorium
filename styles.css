@@ -1309,4 +1309,15 @@ main {
     border-radius: 6px;
   }
 }
+
+/* Fix PERFORMANCE mobile background */
+body {
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+}
   
