@@ -1321,18 +1321,21 @@ body {
   }
 }
 
-/* SVG MENU */
+/* SVG MENU – dimensioni uniformi e cerchio centrato */
 #nav-menu ul li a svg {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255, 215, 0, 0.1);
+  width: 20px;                /* dimensione icona interna */
+  height: 20px;
+  padding: 8px;               /* spazio interno, crea il cerchio più grande */
+  border-radius: 50%;          /* cerchio perfetto */
+  background: rgba(255, 215, 0, 0.1); /* colore cerchio */
+  
   display: flex;
   align-items: center;
   justify-content: center;
-
-  fill: #fdd835; /* IMPORTANTISSIMO: sostituisce color */
+  
+  fill: #fdd835;              /* colore icona */
   flex-shrink: 0;
+  box-sizing: content-box;    /* assicura che padding non modifichi la dimensione icona */
 }
 
 /* Icone social SVG */
