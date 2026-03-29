@@ -27,7 +27,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <script type="application/ld+json">
   {
@@ -66,7 +65,7 @@
 </head>
 <body>
 
-<div id="header-placeholder"></div>
+<div id="header-container"></div>
 
 <main>
   <section class="content-grid">
@@ -148,42 +147,10 @@
   </section>
 </main>
 
-<footer>
-  <p>Auditorium di Piovene Rocchette</p>
-  <p>P.za degli Alpini, 1, 36013 (VI)</p>
-  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
-
-  <p class="footer-links-inline">
-    <a href="privacy.html">Cookie&privacy policy</a>
-    <a href="termini.html">Termini&condizioni</a>
-  </p>
-
-  <div class="social-links">
-    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/pioveneauditorium" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/393519694361" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
-  </div>
-</footer>
+<div id="footer-container"></div>
 
 <script src="script.js" defer></script>
 <script>
-  function loadHTML(id,url,callback){
-    fetch(url).then(r=>r.text()).then(d=>{
-      document.getElementById(id).innerHTML=d;
-      if(callback) callback();
-    }).catch(e=>console.error(`Errore caricamento ${url}:`,e));
-  }
-  loadHTML("header-placeholder","header.html",()=>{
-    const h=document.querySelector('.hamburger'),
-          n=document.getElementById('nav-menu'),
-          c=document.querySelector('.close-menu');
-    if(h&&n){
-      h.addEventListener('click',()=>{h.classList.toggle('active');n.classList.toggle('active');});
-      if(c){c.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});}
-      n.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{h.classList.remove('active');n.classList.remove('active');});});
-    }
-  });
-
   // Multilingua
   document.addEventListener('DOMContentLoaded',()=>{
     const btnIt=document.getElementById('btn-it'),
