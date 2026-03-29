@@ -1,17 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ---------------------------
-  // HEADER e FOOTER DINAMICI
+  // HEADER e FOOTER DINAMICI con callback
   // ---------------------------
-  function loadHTML(containerId, url) {
+  function loadHTML(containerId, url, callback) {
     const container = document.getElementById(containerId);
     if (!container) return;
     fetch(url)
       .then(response => response.text())
-      .then(html => container.innerHTML = html)
+      .then(html => {
+        container.innerHTML = html;
+        if (callback) callback(); // Esegue codice dopo caricamento
+      })
       .catch(err => console.error(`Errore nel caricamento di ${url}:`, err));
   }
 
-  loadHTML('header-container', 'header.html');
+  // Caricamento header con hamburger inizializzato
+  loadHTML('header-container', 'header.html', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.querySelector('.close-menu');
+
+    if(hamburger && navMenu){
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      if (closeMenu) {
+        closeMenu.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      }
+
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+  });
+
+  // Footer
   loadHTML('footer-container', 'footer.html');
 
   // ---------------------------
@@ -27,10 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
     const video = document.getElementById('slide-video');
-    if (video) {
-      const firstSlideIndex = 0;
-      if (currentIndex === firstSlideIndex && video.paused) video.play();
-    }
+    if (video && currentIndex === 0 && video.paused) video.play();
   }
 
   function truncateText(text, wordLimit = 15) {
@@ -127,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeEventModal(); });
 
   // ---------------------------
-  // Cookie Banner (solo visualizzazione)
+  // Cookie Banner
   // ---------------------------
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('accept-cookies');
@@ -173,9 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.3
-  });
+  }, { threshold: 0.3 });
 
   images.forEach(img => observer.observe(img));
 
