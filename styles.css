@@ -1320,4 +1320,41 @@ body {
     background-attachment: fixed;
   }
 }
+
+/* SVG MENU */
+#nav-menu ul li a svg {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  fill: #fdd835; /* IMPORTANTISSIMO: sostituisce color */
+  flex-shrink: 0;
+}
+
+/* Icone social SVG */
+.social-links svg {
+  width: 20px;        /* dimensione */
+  height: 20px;
+  fill: #fff;         /* colore */
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+/* Spaziatura link */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+/* Hover effetto */
+.social-links a:hover svg {
+  transform: scale(1.2);
+  fill: #f04; /* oppure il tuo colore accent */
+}
+
   
