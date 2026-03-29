@@ -33,38 +33,45 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- JSON-LD LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Auditorium Comunale Piovene Rocchette",
-    "image": "https://pioveneauditorium.it/img/logo2.png",
-    "url": "https://pioveneauditorium.it",
-    "email": "info@pioveneauditorium.it",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza degli Alpini 1",
-      "addressLocality": "Piovene Rocchette",
-      "addressRegion": "VI",
-      "postalCode": "36013",
-      "addressCountry": "IT"
-    },
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+393519694361",
-      "contactType": "customer service",
-      "availableLanguage": ["Italian"],
-      "areaServed": "IT"
-    }],
-    "sameAs": [
-      "https://www.facebook.com/auditoriumpiovenerocchette",
-      "https://instagram.com/pioveneauditorium",
-      "https://wa.me/393519694361",
-      "https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
-    ]
-  }
-  </script>
+<!-- JSON-LD LocalBusiness aggiornato per pagina contatti -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Auditorium Comunale Piovene Rocchette",
+  "image": "https://pioveneauditorium.it/img/logo2.png",
+  "url": "https://pioveneauditorium.it",
+  "email": "info@pioveneauditorium.it",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza degli Alpini 1",
+    "addressLocality": "Piovene Rocchette",
+    "addressRegion": "VI",
+    "postalCode": "36013",
+    "addressCountry": "IT"
+  },
+  "telephone": "+39 3519694361",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+39 3519694361",
+    "contactType": "customer service",
+    "availableLanguage": ["Italian"],
+    "areaServed": "IT",
+    "url": "https://wa.me/393519694361"
+  }],
+  "openingHours": [
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/auditoriumpiovenerocchette",
+    "https://instagram.com/pioveneauditorium",
+    "https://wa.me/393519694361",
+    "https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -75,11 +82,11 @@
   <section class="contact-info">
     <h1>Contattaci</h1>
 
-    <p>Per qualsiasi informazione su attività ed eventi dell'Auditorium, non esitare a contattarci!</p>
+    <p>Per qualsiasi informazione su <a href="https://pioveneauditorium.it/calendario">attività ed eventi</a> dell'Auditorium, non esitare a contattarci!</p>
 
     <!-- BLOCCO EVIDENZIATO CANALE WHATSAPP -->
     <div class="whatsapp-channel-box">
-      <a href="https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F" target="_blank">
+      <a href="https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F" target="_blank" rel="noopener noreferrer">
         <img src="img/logo-ww.png" alt="Canale WhatsApp Piovene Auditorium">
         <div>
           <strong>Seguici sul Canale WhatsApp</strong>
@@ -92,7 +99,7 @@
       <li>
         <i class="fab fa-whatsapp"></i>
         <strong>Scrivici su WhatsApp:</strong>
-        <a href="https://wa.me/393519694361" target="_blank">351 969 4361</a>
+        <a href="https://wa.me/393519694361" target="_blank" rel="noopener noreferrer">351 969 4361</a>
       </li>
 
       <li>
@@ -121,7 +128,7 @@
 </div>
 
 <p style="margin-top:0.5rem;">
-  <a href="https://www.openstreetmap.org/?mlat=45.762265&mlon=11.432972&zoom=19" target="_blank" style="color:#00bbff;">Apri in OpenStreetMap</a>
+  <a href="https://www.openstreetmap.org/?mlat=45.762265&mlon=11.432972&zoom=19" target="_blank" style="color:#00bbff;" rel="noopener noreferrer">Apri in OpenStreetMap</a>
 </p>
 
   </section>
