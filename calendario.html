@@ -170,11 +170,9 @@
 
 <div id="footer-container"></div>
 
-<!-- Include PapaParse PRIMA del JS del calendario -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-<!-- Script calendario con JSON-LD dinamico -->
-<script src="calendario/calendario.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+<script src="calendario/calendario.js" defer></script>
+<script src="script.js" defer></script>
 
 <script>
 fetch('calendario/eventi.csv') // percorso corretto del tuo CSV
