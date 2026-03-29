@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ---------------------------
+  // HEADER e FOOTER DINAMICI
+  // ---------------------------
+  function loadHTML(containerId, url) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    fetch(url)
+      .then(response => response.text())
+      .then(html => container.innerHTML = html)
+      .catch(err => console.error(`Errore nel caricamento di ${url}:`, err));
+  }
+
+  loadHTML('header-container', 'header.html');
+  loadHTML('footer-container', 'footer.html');
+
+  // ---------------------------
   // Carosello dinamico
   // ---------------------------
   const track = document.querySelector('.carousel-track');
@@ -11,13 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!track) return;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    // Riparte il video quando torni alla prima slide
     const video = document.getElementById('slide-video');
     if (video) {
-      const firstSlideIndex = 0; // index della slide del video
-      if (currentIndex === firstSlideIndex && video.paused) {
-        video.play();
-      }
+      const firstSlideIndex = 0;
+      if (currentIndex === firstSlideIndex && video.paused) video.play();
     }
   }
 
@@ -46,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       download: true,
       header: true,
       complete: (results) => {
-        results.data.forEach((row) => { 
+        results.data.forEach((row) => {
           if (!row.Immagine || !row.Titolo) return;
 
           const immagine = row.Immagine.trim();
@@ -85,9 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         updateCarousel();
       },
-      error: (err) => {
-        console.error('Errore nel caricamento del CSV del carosello:', err);
-      }
+      error: (err) => console.error('Errore nel caricamento del CSV del carosello:', err)
     });
   }
 
@@ -150,6 +160,24 @@ document.addEventListener("DOMContentLoaded", () => {
       else video.pause();
     });
   }
+
+  // ---------------------------
+  // Animazione immagini paragraph-image
+  // ---------------------------
+  const images = document.querySelectorAll(".paragraph-image");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  images.forEach(img => observer.observe(img));
 
   // Aggiorna subito per far partire il video all’inizio
   updateCarousel();
