@@ -26,7 +26,6 @@
   <!-- CSS / Font -->
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="eventi/eventi.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
 
   <!-- Schema JSON-LD -->
@@ -61,7 +60,7 @@
 
 <body>
 
-<div id="header-placeholder"></div>
+<div id="header-container"></div>
 
 <main>
   <section style="text-align:center; padding:50px 20px; max-width:1200px; margin:0 auto;">
@@ -81,7 +80,7 @@
 
       <h3 style="font-size:1.2em; margin-bottom:20px; font-weight:normal; line-height:1.4;">
         <span style="font-weight: bold;">• Biglietto singolo:</span> 5 €<br>
-        <span style="font-weight: bold;">• Ridotto:</span> 3 € (<19/>75)<br>
+        <span style="font-weight: bold;">• Ridotto:</span> 3 € (minori 19, maggiori 75)<br>
         <span style="font-weight: bold;">• Persone con disabilità + 1 accompagnatore:</span> ingresso gratuito
       </h3>
 
@@ -106,69 +105,24 @@
   Scrivici su <a href="https://wa.me/393519694361" target="_blank" style="color:#fdd835; text-decoration:underline;">WhatsApp al 351 969 4361</a>, saremo felici di aiutarti!
 </div>
 
-  </section>
+</section>
 </main>
 
-<footer>
-  <p>Auditorium di Piovene Rocchette</p>
-  <p>P.za degli Alpini, 1, 36013 (VI)</p>
-  <p><a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a></p>
+<div id="footer-container"></div>
 
-  <p class="footer-links-inline">
-    <a href="privacy.html">Cookie&privacy policy</a>
-    <a href="termini.html">Termini&condizioni</a>
-  </p>
-
-  <div class="social-links">
-    <a href="https://www.facebook.com/auditoriumpiovenerocchette" target="_blank" aria-label="Facebook Auditorium Piovene"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/pioveneauditorium" target="_blank" aria-label="Instagram Auditorium Piovene"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/393519694361" target="_blank" aria-label="WhatsApp Auditorium Piovene"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
-  </div>
-</footer>
-
+<!-- Script principali -->
 <script src="script.js" defer></script>
 <script src="eventi/junior.js" defer></script>
 
+<!-- JSON-LD per eventi dinamici -->
 <script id="json-ld-events" type="application/ld+json">[]</script>
 
 <script>
-  function loadHTML(id, url, callback) {
-    fetch(url)
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById(id).innerHTML = data;
-        if (callback) callback();
-      })
-      .catch(err => console.error(`Errore caricamento ${url}:`, err));
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.eventiJuniorJSONLD) {
+    document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
   }
-
-  loadHTML("header-placeholder", "header.html", () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const closeMenu = document.querySelector('.close-menu');
-    if(hamburger && navMenu){
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
-      if (closeMenu) closeMenu.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-      navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-        });
-      });
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.eventiJuniorJSONLD) {
-      document.getElementById('json-ld-events').textContent = JSON.stringify(window.eventiJuniorJSONLD);
-    }
-  });
+});
 </script>
 
 </body>
