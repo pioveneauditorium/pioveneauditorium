@@ -11,15 +11,20 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
         results.data.forEach(row => {
           const date = row.Data?.trim();
           const tipo = row.Tipo?.trim() || '';
-          events[date] = { 
-            time: row.Orario?.trim(), 
-            title: row.Titolo?.trim(), 
-            description: row.Descrizione?.trim(), 
-            image: row.Immagine?.trim(), 
-            linkBiglietti: row.linkBiglietti?.trim(), 
+
+          if (!events[date]) {
+            events[date] = [];
+          }
+
+          events[date].push({
+            time: row.Orario?.trim(),
+            title: row.Titolo?.trim(),
+            description: row.Descrizione?.trim(),
+            image: row.Immagine?.trim(),
+            linkBiglietti: row.linkBiglietti?.trim(),
             trailer: row.Trailer?.trim(),
             tipo
-          };
+          });
         });
 
         generateJSONLD();
@@ -57,13 +62,11 @@ function renderCalendar() {
     calendarHtml += `<div class="day">${weekdays[i].slice(0,3)}</div>`;
   }
 
-  // Giorni vuoti prima del primo del mese
   const firstDayOfWeek = (firstDay.getDay() + 6) % 7;
   for (let i = 0; i < firstDayOfWeek; i++) {
     calendarHtml += `<div class="day"></div>`;
   }
 
-  // Giorni del mese
   for (let day = 1; day <= numDays; day++) {
     const dateStr = `${currentYear}-${(currentMonth+1).toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
     const dateObj = new Date(dateStr);
@@ -76,7 +79,9 @@ function renderCalendar() {
     }
 
     if (events[dateStr]) {
-      switch(events[dateStr].tipo.toUpperCase()) {
+      const firstEvent = events[dateStr][0];
+
+      switch(firstEvent.tipo.toUpperCase()) {
         case 'MUSICA': eventClass += ' musica'; break;
         case 'TEATRO': eventClass += ' teatro'; break;
         case 'CINEMA': eventClass += ' cinema'; break;
@@ -89,7 +94,6 @@ function renderCalendar() {
     calendarHtml += `<div class="day ${eventClass}" ${clickable}>${day}</div>`;
   }
 
-  // Giorni vuoti dopo l’ultimo
   const lastDayOfWeek = (firstDay.getDay() + numDays) % 7;
   for (let i = lastDayOfWeek; i < 6; i++) {
     calendarHtml += `<div class="day"></div>`;
@@ -111,79 +115,66 @@ function renderCalendar() {
 }
 
 function showEvent(eventDate) {
-  const event = events[eventDate];
+  const dayEvents = events[eventDate];
   const eventBox = document.getElementById('event-box');
 
-  if (!event) {
+  if (!dayEvents) {
     eventBox.innerHTML = 'Non ci sono eventi questo giorno.';
     eventBox.style.display = 'flex';
     return;
   }
 
-  let html = `
-    <div class="event-main">
-      <div class="event-left">
-        ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
+  let html = '';
+
+  dayEvents.forEach(event => {
+    html += `
+      <div class="event-main">
+        <div class="event-left">
+          ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
+        </div>
+        <div class="event-right">
+          <h3 class="event-title">${event.title}</h3>
+          <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
+          <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
+          ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
+        </div>
+        <div class="event-trailer">
+          ${event.trailer ? `
+            <iframe src="https://www.youtube.com/embed/${event.trailer.split('v=')[1]?.split('&')[0] || ''}" 
+            title="Trailer ${event.title}" frameborder="0" allowfullscreen></iframe>
+          ` : ''}
+        </div>
       </div>
-      <div class="event-right">
-        <h3 class="event-title">${event.title}</h3>
-        <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
-        <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
-        ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
-      </div>
-      <div class="event-trailer">
-        ${event.trailer ? `
-          <iframe src="https://www.youtube.com/embed/${event.trailer.split('v=')[1]?.split('&')[0] || ''}" 
-          title="Trailer ${event.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        ` : ''}
-      </div>
-    </div>
-  `;
+    `;
+  });
 
   eventBox.innerHTML = html;
   eventBox.style.display = 'flex';
 }
 
 function generateJSONLD() {
-  const eventsArray = Object.keys(events).map(dateStr => {
-    const e = events[dateStr];
-    return {
-      "@type": "Event",
-      "name": e.title,
-      "startDate": `${dateStr}T${e.time || "20:30"}`,
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "location": {
-        "@type": "Place",
-        "name": "Auditorium Comunale di Piovene Rocchette",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "P.za degli Alpini, 1",
-          "addressLocality": "Piovene Rocchette",
-          "postalCode": "36013",
-          "addressRegion": "VI",
-          "addressCountry": "IT"
-        }
-      },
-      "image": e.image || "https://pioveneauditorium.it/img/logo2.png",
-      "description": e.description,
-      "offers": {
-        "@type": "Offer",
-        "url": e.linkBiglietti || "https://pioveneauditorium.it/calendario.html",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      },
-      "performer": {
-        "@type": "PerformingGroup",
-        "name": "Piovene Auditorium"
-      }
-    };
+  const eventsArray = [];
+
+  Object.keys(events).forEach(dateStr => {
+    events[dateStr].forEach(e => {
+      eventsArray.push({
+        "@type": "Event",
+        "name": e.title,
+        "startDate": `${dateStr}T${e.time || "20:30"}`,
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Auditorium Comunale di Piovene Rocchette"
+        },
+        "image": e.image || "https://pioveneauditorium.it/img/logo2.png",
+        "description": e.description
+      });
+    });
   });
 
   const script = document.createElement('script');
   script.type = 'application/ld+json';
-  script.text = JSON.stringify(eventsArray, null, 2);
+  script.text = JSON.stringify(eventsArray);
   document.head.appendChild(script);
 }
 
@@ -219,55 +210,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderCalendar();
   });
-
-  if (window.innerWidth >= 1024) {
-    const tooltip = document.createElement('div');
-    tooltip.id = 'calendar-tooltip';
-    tooltip.style.position = 'absolute';
-    tooltip.style.padding = '6px 10px';
-    tooltip.style.borderRadius = '6px';
-    tooltip.style.fontSize = '0.9rem';
-    tooltip.style.pointerEvents = 'none';
-    tooltip.style.whiteSpace = 'nowrap';
-    tooltip.style.zIndex = '1000';
-    tooltip.style.display = 'none';
-    tooltip.style.boxShadow = '0 4px 8px rgba(0,0,0,0.4)';
-    tooltip.style.transition = 'opacity 0.15s ease';
-    tooltip.style.opacity = '0';
-    document.body.appendChild(tooltip);
-
-    const tipoColori = {
-      'CINEMA': '#FFD300',
-      'TEATRO': '#8e24aa',
-      'MUSICA': '#fb8c00',
-      'JUNIOR': '#43a047',
-      'CONTATTI': '#d63384',
-      'DEFAULT': '#333'
-    };
-
-    calendarEl.addEventListener('mousemove', e => {
-      if (e.target.classList.contains('day') && e.target.dataset.date && events[e.target.dataset.date]) {
-        const ev = events[e.target.dataset.date];
-        const tipo = ev.tipo?.toUpperCase() || 'DEFAULT';
-        const bgColor = tipoColori[tipo] || tipoColori['DEFAULT'];
-        const textColor = (bgColor === '#FFD300') ? '#000' : '#fff';
-
-        tooltip.textContent = ev.title || 'Evento';
-        tooltip.style.background = bgColor;
-        tooltip.style.color = textColor;
-        tooltip.style.display = 'block';
-        tooltip.style.opacity = '1';
-        tooltip.style.left = `${e.pageX + 12}px`;
-        tooltip.style.top = `${e.pageY + 16}px`;
-      } else {
-        tooltip.style.opacity = '0';
-        tooltip.style.display = 'none';
-      }
-    });
-
-    calendarEl.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = '0';
-      tooltip.style.display = 'none';
-    });
-  }
 });
