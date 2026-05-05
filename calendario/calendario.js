@@ -1,6 +1,6 @@
 const events = {};
 
-// Fetch del CSV e parsing con PapaParse
+// Fetch CSV
 fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
   .then(response => response.text())
   .then(csvText => {
@@ -32,7 +32,7 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
       }
     });
   })
-  .catch(error => console.error('Errore nel caricamento del CSV:', error));
+  .catch(error => console.error('Errore CSV:', error));
 
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
@@ -44,7 +44,7 @@ const weekdays = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabat
 
 function renderCalendar() {
   const eventBox = document.getElementById('event-box');
-  eventBox.innerHTML = '<em>Seleziona un giorno per vedere i dettagli</em>';
+  eventBox.innerHTML = '<em>Seleziona un giorno</em>';
   eventBox.style.display = 'none';
 
   const firstDay = new Date(currentYear, currentMonth, 1);
@@ -53,161 +53,133 @@ function renderCalendar() {
   today.setHours(0,0,0,0);
 
   document.getElementById('calendar-title').textContent = `Eventi di ${monthNames[currentMonth]} ${currentYear}`;
-  const numDays = lastDay.getDate();
 
-  let calendarHtml = '';
+  let html = '';
 
-  // Intestazione giorni
-  for (let i = 0; i < weekdays.length; i++) {
-    calendarHtml += `<div class="day">${weekdays[i].slice(0,3)}</div>`;
-  }
+  // Header giorni
+  weekdays.forEach(d => {
+    html += `<div class="day">${d.slice(0,3)}</div>`;
+  });
 
   const firstDayOfWeek = (firstDay.getDay() + 6) % 7;
   for (let i = 0; i < firstDayOfWeek; i++) {
-    calendarHtml += `<div class="day"></div>`;
+    html += `<div class="day"></div>`;
   }
 
-  for (let day = 1; day <= numDays; day++) {
+  for (let day = 1; day <= lastDay.getDate(); day++) {
     const dateStr = `${currentYear}-${(currentMonth+1).toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
     const dateObj = new Date(dateStr);
-    let eventClass = '';
-    let isPast = false;
 
-    if (currentYear === today.getFullYear() && currentMonth === today.getMonth() && dateObj < today) {
-      isPast = true;
-      eventClass += ' past-day';
-    }
+    let isPast = dateObj < today;
+    let classes = 'day';
+    let style = '';
+
+    if (isPast) classes += ' past-day';
 
     if (events[dateStr]) {
-      const firstEvent = events[dateStr][0];
+      const tipoColori = {
+        'CINEMA': '#FFD300',
+        'TEATRO': 'purple',
+        'MUSICA': 'orange',
+        'JUNIOR': '#4CAF50',
+        'DEFAULT': 'lightgray'
+      };
 
-      switch(firstEvent.tipo.toUpperCase()) {
-        case 'MUSICA': eventClass += ' musica'; break;
-        case 'TEATRO': eventClass += ' teatro'; break;
-        case 'CINEMA': eventClass += ' cinema'; break;
-        case 'JUNIOR': eventClass += ' junior'; break;
-        default: eventClass += ' highlighted';
+      const tipi = events[dateStr].map(e => e.tipo.toUpperCase());
+      const unici = [...new Set(tipi)];
+      const colori = unici.map(t => tipoColori[t] || tipoColori['DEFAULT']);
+
+      if (colori.length === 1) {
+        style = `background:${colori[0]}`;
+      } else {
+        const step = 100 / colori.length;
+        const gradient = colori.map((c,i)=>{
+          return `${c} ${i*step}% ${(i+1)*step}%`;
+        }).join(',');
+
+        style = `background:linear-gradient(to right, ${gradient})`;
       }
     }
 
     const clickable = isPast ? '' : `data-date="${dateStr}"`;
-    calendarHtml += `<div class="day ${eventClass}" ${clickable}>${day}</div>`;
+
+    html += `<div class="${classes}" style="${style}" ${clickable}>${day}</div>`;
   }
 
-  const lastDayOfWeek = (firstDay.getDay() + numDays) % 7;
-  for (let i = lastDayOfWeek; i < 6; i++) {
-    calendarHtml += `<div class="day"></div>`;
-  }
-
-  document.getElementById('calendar').innerHTML = calendarHtml;
-
-  const eventDates = Object.keys(events).sort();
-  const lastEventDateStr = eventDates[eventDates.length - 1];
-  const lastEventDate = new Date(lastEventDateStr);
-
-  const prevButton = document.getElementById('prev-month');
-  const nextButton = document.getElementById('next-month');
-
-  prevButton.disabled = currentYear < today.getFullYear() || 
-                        (currentYear === today.getFullYear() && currentMonth <= today.getMonth());
-  nextButton.disabled = currentYear > lastEventDate.getFullYear() ||
-                        (currentYear === lastEventDate.getFullYear() && currentMonth >= lastEventDate.getMonth());
+  document.getElementById('calendar').innerHTML = html;
 }
 
-function showEvent(eventDate) {
-  const dayEvents = events[eventDate];
-  const eventBox = document.getElementById('event-box');
+function showEvent(date) {
+  const dayEvents = events[date];
+  const box = document.getElementById('event-box');
 
   if (!dayEvents) {
-    eventBox.innerHTML = 'Non ci sono eventi questo giorno.';
-    eventBox.style.display = 'flex';
+    box.innerHTML = 'Nessun evento';
+    box.style.display = 'flex';
     return;
   }
 
   let html = '';
 
-  dayEvents.forEach(event => {
+  dayEvents.forEach(ev => {
     html += `
       <div class="event-main">
         <div class="event-left">
-          ${event.image ? `<img src="${event.image}" alt="${event.title}">` : ''}
+          ${ev.image ? `<img src="${ev.image}">` : ''}
         </div>
         <div class="event-right">
-          <h3 class="event-title">${event.title}</h3>
-          <p class="event-date-time"><strong>Data:</strong> ${eventDate} • <strong>Orario:</strong> ${event.time}</p>
-          <p class="event-description">${(event.description || '').replace(/\n/g, '<br>')}</p>
-          ${event.linkBiglietti ? `<a href="${event.linkBiglietti}" target="_blank" class="cta-button">Prenota il tuo posto</a>` : ''}
-        </div>
-        <div class="event-trailer">
-          ${event.trailer ? `
-            <iframe src="https://www.youtube.com/embed/${event.trailer.split('v=')[1]?.split('&')[0] || ''}" 
-            title="Trailer ${event.title}" frameborder="0" allowfullscreen></iframe>
-          ` : ''}
+          <h3>${ev.title}</h3>
+          <p><strong>${date}</strong> • ${ev.time}</p>
+          <p>${(ev.description||'').replace(/\n/g,'<br>')}</p>
+          ${ev.linkBiglietti ? `<a href="${ev.linkBiglietti}" target="_blank" class="cta-button">Prenota</a>` : ''}
         </div>
       </div>
     `;
   });
 
-  eventBox.innerHTML = html;
-  eventBox.style.display = 'flex';
+  box.innerHTML = html;
+  box.style.display = 'flex';
 }
 
 function generateJSONLD() {
-  const eventsArray = [];
+  const arr = [];
 
-  Object.keys(events).forEach(dateStr => {
-    events[dateStr].forEach(e => {
-      eventsArray.push({
+  Object.keys(events).forEach(d => {
+    events[d].forEach(e => {
+      arr.push({
         "@type": "Event",
         "name": e.title,
-        "startDate": `${dateStr}T${e.time || "20:30"}`,
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": {
-          "@type": "Place",
-          "name": "Auditorium Comunale di Piovene Rocchette"
-        },
-        "image": e.image || "https://pioveneauditorium.it/img/logo2.png",
-        "description": e.description
+        "startDate": `${d}T${e.time||"20:30"}`
       });
     });
   });
 
   const script = document.createElement('script');
   script.type = 'application/ld+json';
-  script.text = JSON.stringify(eventsArray);
+  script.text = JSON.stringify(arr);
   document.head.appendChild(script);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const calendarEl = document.getElementById('calendar');
+  const cal = document.getElementById('calendar');
 
-  calendarEl.addEventListener('click', function(e) {
-    if (e.target.classList.contains('day') && e.target.dataset.date) {
-      if (selectedDate) {
-        const old = document.querySelector(`[data-date="${selectedDate}"]`);
-        if (old) old.classList.remove('selected');
-      }
+  cal.addEventListener('click', e => {
+    if (e.target.dataset.date) {
+      document.querySelectorAll('.day').forEach(d=>d.classList.remove('selected'));
       e.target.classList.add('selected');
-      selectedDate = e.target.dataset.date;
-      showEvent(selectedDate);
+      showEvent(e.target.dataset.date);
     }
   });
 
-  document.getElementById('prev-month').addEventListener('click', () => {
+  document.getElementById('prev-month').onclick = () => {
     currentMonth--;
-    if (currentMonth < 0) {
-      currentMonth = 11;
-      currentYear--;
-    }
+    if (currentMonth < 0) { currentMonth=11; currentYear--; }
     renderCalendar();
-  });
+  };
 
-  document.getElementById('next-month').addEventListener('click', () => {
+  document.getElementById('next-month').onclick = () => {
     currentMonth++;
-    if (currentMonth > 11) {
-      currentMonth = 0;
-      currentYear++;
-    }
+    if (currentMonth > 11) { currentMonth=0; currentYear++; }
     renderCalendar();
-  });
+  };
 });
