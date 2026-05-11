@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Eventi Piovene Rocchette: Beatles Live 30 Maggio 2026 | Auditorium Vicenza</title>
+<title>Beatles Live a Piovene Rocchette (Vicenza) – 30 Maggio 2026 | Evento Auditorium</title>
 
-<meta name="description" content="Evento Beatles a Piovene Rocchette (Vicenza) il 30 maggio 2026. Teatro e musica dal vivo all’Auditorium Comunale. Biglietti disponibili ora – prenota online o via WhatsApp.">
+<meta name="description" content="Evento Beatles a Piovene Rocchette (Vicenza) il 30 maggio 2026. Spettacolo teatrale e musicale dal vivo all’Auditorium Comunale. Prenota online o scrivici su WhatsApp.">
 
 <link rel="canonical" href="https://pioveneauditorium.it/beatles-piovene-rocchette-30-maggio-2026.html">
 
-<!-- Preload immagine -->
 <link rel="preload" as="image" href="img/foto1.svg">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Beatles Live a Piovene Rocchette – 30 Maggio 2026">
-<meta property="og:description" content="Uno spettacolo emozionante sui Beatles. Prenota ora i tuoi posti.">
+<meta property="og:title" content="Beatles Live a Piovene Rocchette (Vicenza) – 30 Maggio 2026">
+<meta property="og:description" content="Rivivi la magia dei Beatles dal vivo. Evento all’Auditorium Comunale di Piovene Rocchette.">
 <meta property="og:image" content="https://pioveneauditorium.it/img/foto1.svg">
 <meta property="og:type" content="event">
 
@@ -28,6 +27,13 @@
   margin: 0 auto;
 }
 
+.event-wrapper {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  padding: 30px;
+  border-radius: 16px;
+}
+
 .event-page h1 {
   font-size: 2.5rem;
   color: #fdd835;
@@ -36,19 +42,25 @@
 
 .event-meta {
   font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.countdown {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
   margin-bottom: 20px;
+}
+
+.countdown span {
+  color: #fdd835;
 }
 
 .urgency {
   color: #fdd835;
   font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.event-image {
-  width: 100%;
-  border-radius: 10px;
   margin-bottom: 20px;
+  font-size: 1.1rem;
 }
 
 .cta-main {
@@ -84,60 +96,29 @@
 .video-container {
   margin: 40px 0;
 }
+
 video {
   width: 100%;
   border-radius: 10px;
 }
-</style>
 
-<!-- SCHEMA SEO PRO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicEvent",
-  "name": "Una Cantina Piena di Rumore - Beatles",
-  "startDate": "2026-05-30T20:45",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "location": {
-    "@type": "Place",
-    "name": "Auditorium Comunale Piovene Rocchette",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza degli Alpini 1",
-      "addressLocality": "Piovene Rocchette",
-      "addressRegion": "VI",
-      "postalCode": "36013",
-      "addressCountry": "IT"
-    }
-  },
-  "image": [
-    "https://pioveneauditorium.it/img/foto1.svg"
-  ],
-  "description": "Spettacolo teatrale e musicale sui Beatles con Mario Palmieri e Fourback.",
-  "performer": [
-    {
-      "@type": "Person",
-      "name": "Mario Palmieri"
-    },
-    {
-      "@type": "MusicGroup",
-      "name": "Fourback"
-    }
-  ],
-  "organizer": {
-    "@type": "Organization",
-    "name": "Auditorium Piovene Rocchette",
-    "url": "https://pioveneauditorium.it"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://www.liveticket.it/pioveneauditorium",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "EUR"
-  }
+.countdown {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #111;
+  padding: 12px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 0, 0, 0.4);
 }
-</script>
+
+.countdown span {
+  color: #ff2b2b;
+  font-weight: 900;
+}
+</style>
 
 </head>
 
@@ -147,29 +128,54 @@ video {
 
 <main class="event-page">
 
-<h1>Beatles Live a Piovene Rocchette</h1>
+<div class="event-wrapper">
+
+<h1>Beatles Live a Piovene Rocchette (Vicenza)</h1>
+
+<img 
+  src="img/30-maggio-2026-beatles-piovene-rocchette.webp" 
+  alt="Locandina Beatles Live Piovene Rocchette 30 Maggio 2026"
+  style="width:100%; max-width:700px; margin:20px auto; display:block; border-radius:12px;"
+>
+
+<p style="font-size:1.3rem; margin-bottom:15px;">
+🎶 Chiudi gli occhi… e sei dentro la storia dei Beatles
+</p>
 
 <p class="event-meta">
 📅 Sabato 30 Maggio 2026 – ore 20:45<br>
-📍 Auditorium Comunale – Piovene Rocchette (Vicenza)
+📍 Auditorium Comunale – Piovene Rocchette (VI)
+</p>
+
+<p class="countdown">
+⏳ Mancano: <span id="countdown"></span> all’evento
 </p>
 
 <p class="urgency">
-⚠️ Biglietti disponibili fino a esaurimento della capienza della sala
+✨ Teatro e musica dal vivo per rivivere l’epoca dei Beatles
 </p>
 
-<!-- CTA PRINCIPALE -->
+<p style="font-size:1.1rem; margin-bottom:10px;">
+👉 Uno spettacolo unico tra racconto teatrale e musica live
+</p>
+
 <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" class="cta-main">
-🎟️ Acquista Biglietti Ora
+🎟️ Acquista i biglietti
 </a>
 
-<!-- WHATSAPP -->
 <p>
 Hai bisogno di informazioni?<br>
 <a href="https://wa.me/393519694361" class="cta-secondary">
 📲 Scrivici su WhatsApp
 </a>
 </p>
+
+<div style="margin:30px 0; font-size:1.2rem;">
+<strong>
+Non è un concerto.<br>
+È un viaggio teatrale dentro la leggenda dei Beatles.
+</strong>
+</div>
 
 <div class="video-container">
   <video controls>
@@ -179,48 +185,51 @@ Hai bisogno di informazioni?<br>
 
 <div class="event-description">
 
-<h2>Un viaggio nella storia dei Beatles</h2>
+<h2>Rivivi i Beatles come non li hai mai sentiti</h2>
 
 <p>
-Dopo il grande successo ottenuto nel Veronese, arriva finalmente a Piovene Rocchette – a grande richiesta – 
+Dopo aver emozionato il pubblico nel Veronese, arriva a Piovene Rocchette 
 <strong>“Una Cantina Piena di Rumore”</strong>.
 </p>
 
 <p>
-Uno spettacolo unico che unisce teatro e musica dal vivo, raccontando l’epopea dei Beatles attraverso lo sguardo del loro storico manager <strong>Brian Epstein</strong>.
+Attraverso il racconto di <strong>Brian Epstein</strong>, interpretato da <strong>Mario Palmieri</strong>, 
+ripercorri la nascita e l’ascesa dei Beatles.
 </p>
 
 <p>
-L’attore professionista <strong>Mario Palmieri</strong> ti accompagnerà in questo viaggio emozionante, affiancato dal sound potente e coinvolgente dei <strong>Fourback</strong>.
+Sul palco, i <strong>Fourback</strong> eseguono dal vivo i brani che hanno segnato un’epoca.
 </p>
 
 <p>
-Rivivi i grandi successi: <em>Twist and Shout</em>, <em>Michelle</em>, <em>Strawberry Fields Forever</em>, <em>Let It Be</em>.
+🎶 Twist and Shout – Michelle – Let It Be – Strawberry Fields Forever
 </p>
 
 <p>
-Un’esperienza che ti farà emozionare, cantare e tornare indietro nel tempo.
+Chiudi gli occhi… e sei lì.
 </p>
 
-<h2>Perché questo evento è speciale</h2>
+<h2>Perché non perderlo</h2>
 
 <ul>
-<li>🎭 Teatro e musica dal vivo in un unico spettacolo</li>
-<li>🎶 Le canzoni più amate dei Beatles</li>
-<li>❤️ Perfetto per tutte le età</li>
+<li>🎭 Narrazione teatrale + musica live integrata</li>
+<li>🎶 I Beatles suonati e raccontati dal vivo</li>
+<li>❤️ Esperienza immersiva e cinematografica</li>
 </ul>
 
-<h2>Evento a Piovene Rocchette (Vicenza)</h2>
+<h2>Evento a Vicenza</h2>
 
 <p>
-Se stai cercando eventi a Piovene Rocchette o eventi in provincia di Vicenza, questo è uno degli appuntamenti musicali più attesi della stagione all’Auditorium Comunale.
+Uno degli spettacoli più intensi della stagione culturale all’Auditorium Comunale di Piovene Rocchette.
 </p>
 
 <p style="text-align:center; margin-top:30px;">
 <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" class="cta-main">
-Prenota subito il tuo posto
+🎟️ Prenota ora il tuo posto
 </a>
 </p>
+
+</div>
 
 </div>
 
@@ -229,6 +238,27 @@ Prenota subito il tuo posto
 <div id="footer-container"></div>
 
 <script src="script.js" defer></script>
+
+<script>
+const eventDate = new Date("2026-05-30T20:45:00").getTime();
+
+const countdown = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+    days + " giorni " + hours + " ore " + minutes + " min";
+
+  if (distance < 0) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML = "evento in corso";
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
