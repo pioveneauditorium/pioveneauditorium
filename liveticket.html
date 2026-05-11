@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -31,13 +32,11 @@ html, body {
   font-family: 'Playfair Display', serif;
   font-size: 2.6rem;
   color: #fdd835;
-  word-break: break-word;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-top: 10px;
-  word-break: break-word;
 }
 
 /* NOTICE */
@@ -45,40 +44,39 @@ html, body {
   text-align: center;
   font-size: 1.1rem;
   margin-bottom: 40px;
-  line-height: 1.7;
 }
 
 /* CTA */
 .cta-liveticket {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
+/* uso stile già esistente */
 .cta-liveticket a {
-  display: inline-flex;
-  align-items: center;
-  padding: 14px 28px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
   background-color: #fdd835;
   color: #000;
-  font-weight: bold;
-  border-radius: 16px;
+  font-weight: 600;
+  border-radius: 12px;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .cta-liveticket a:hover {
   background-color: #ffeb3b;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* SECTION */
+/* SECTION migliorata (più leggibile) */
 .section-box {
-  background: rgba(0, 0, 0, 0.6); /* nero con 60% di opacità */
-  backdrop-filter: blur(6px);     /* effetto vetro sfocato */
+  background: linear-gradient(145deg, #1a1a1a, #222); /* più pieno */
   padding: 30px;
   border-radius: 16px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .section-box h2 {
@@ -88,16 +86,15 @@ html, body {
 }
 
 .section-box ol {
-  padding-left: 22px;
+  padding-left: 20px;
   line-height: 1.8;
-  font-size: 1.05rem;
 }
 
 .section-box li {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* HELP */
+/* HELP / WHATSAPP */
 .help-box {
   background: linear-gradient(135deg, #722f37, #4b1e25);
   padding: 30px;
@@ -111,102 +108,112 @@ html, body {
   color: #fdd835;
 }
 
+.help-box a {
+  color: #fdd835;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.help-box a:hover {
+  text-decoration: underline;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   main { padding: 20px 10px; }
-  .section-box { padding: 20px 10px; }
-  .cta-liveticket a { padding: 10px 15px; font-size: 1rem; }
+  .section-box { padding: 20px 15px; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
-  .help-box { padding: 20px 10px; font-size: 1.1rem; }
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- HEADER DINAMICO -->
 <div id="header-container"></div>
 
 <main>
 
 <section class="hero">
-  <h1>Acquista i tuoi biglietti sul nostro portale LiveTicket</h1>
-  <p>Ecco i passaggi per scegliere e riservare il tuo posto.</p>
+  <h1>Acquista il tuo biglietto in pochi minuti</h1>
+  <p>Puoi farlo online con LiveTicket oppure scriverci su WhatsApp: ti aiutiamo noi.</p>
 </section>
 
 <div class="notice">
-  La prima volta è necessario registrarsi (richiede solo pochi minuti).
-  <br><strong>Dalla volta successiva sarà tutto molto più semplice e veloce.</strong>
+  La prima volta serve registrarsi (2 minuti).<br>
+  <strong>Dopo sarà tutto molto più veloce.</strong>
 </div>
 
 <div class="cta-liveticket">
-  <a href="https://www.liveticket.it/pioveneauditorium" target="_blank" rel="noopener noreferrer">
-    Vai su LiveTicket
+  <a href="https://www.liveticket.it/pioveneauditorium" target="_blank">
+    Vai sul portale LiveTicket dell'Auditorium
   </a>
 </div>
 
 <!-- PRIMA VOLTA -->
+
 <div class="section-box">
-  <h2>Se NON hai ancora un account LiveTicket</h2>
+  <h2>Prima volta su LiveTicket</h2>
 
   <ol>
-    <!-- Accesso iniziale -->
-    <li>
-      Clicca il bottone qui sopra. Si aprirà una nuova pagina, <strong>potrai continuare a leggere queste istruzioni</strong>.
-    </li>
+    <li>Apri LiveTicket con il bottone sopra</li>
+    <li>Scegli l’evento e clicca su <strong>prosegui</strong></li>
+    <li>Inserisci il tuo numero di telefono</li>
+    <li>Compila i tuoi dati (controlla bene l’email)</li>
+    <li>Inserisci il codice che ricevi via SMS</li>
+    <li>Paga con carta → il biglietto arriva via email</li>
+  </ol>
 
-    <!-- Scelta evento -->
-    <li>
-      Clicca sull'evento desiderato e seleziona il posto (possibile solo su eventi di teatro e musica, no cinema). Poi clicca su <strong>prosegui</strong>
-    </li>
+  <div class="cta-liveticket">
+    <a href="https://www.liveticket.it/pioveneauditorium" target="_blank">
+      Vai sul portale Liveticket dell'Auditorium
+    </a>
+  </div>
+</div>
 
-    <!-- Inserimento contatti -->
-    <li>
-      Inserisci il tuo numero di cellulare e clicca <strong>Continua</strong>.
-    </li>
+<!-- ACCESSI SUCCESSIVI -->
 
-    <!-- Creazione account -->
-    <li>
-      Compila i tuoi dati personali. <strong>Assicurati che l’email sia corretta</strong>, perché lì arriveranno sia il biglietto sia la password per accedere al tuo profilo LiveTicket. 
-    </li>
+<div class="section-box">
+  <h2>Se hai già un account</h2>
 
-    <!-- Codice OTP -->
-    <li>
-      Riceverai un codice OTP via SMS o chiamata vocale: inseriscilo e clicca <strong>Continua</strong>. Perfetto, il tuo account è ora validato. Clicca su <strong>Procedi</strong>.
-    </li>
-
-    <!-- Pagamento -->
-    <li>
-      Scegli il metodo di pagamento, accetta le condizioni di vendita e clicca <strong>Concludi e paga</strong>. Inserisci il numero della tua carta e clicca <strong>Paga ora</strong>. Il biglietto arriverà via mail.
-    </li>
+  <ol>
+    <li>Apri LiveTicket</li>
+    <li>Clicca <strong>Accedi</strong> (in alto a destra)</li>
+    <li>Entra con numero e password</li>
+    <li>Scegli evento → posto → paga</li>
+    <li>Ricevi il biglietto via email</li>
   </ol>
 </div>
 
-  <!-- ACCESSI SUCCESSIVI -->
-  <div class="section-box">
-    <h2>Per accedere le volte successive (se hai già un account)</h2>
-    <ol>
-      <li>Clicca il bottone sopra "Vai su Live Ticket"</li>
-      <li>Clicca su <strong>Accedi</strong> in alto a destra. Inserisci numero di telefono e password. Se hai dimenticato la password, clicca su <strong>Password dimenticata</strong>: riceverai un SMS con la nuova password.</li>
-      <li>Una volta entrato, clicca su <strong>Torna su LiveTicket</strong>: verrai riportato alla pagina dell’Auditorium.</li>
-      <li>Scegli l’evento, seleziona il posto, scegli il metodo di pagamento, clicca <strong>Concludi e paga</strong> e inserisci i dati della carta. Poi clicca <strong>Paga ora</strong>.</li>
-      <li>Il biglietto ti verrà inviato alla tua email.</li>
-    </ol>
-  </div>
+<!-- WHATSAPP SUPPORT -->
 
 <div class="help-box">
-  Se hai ancora dubbi,<br>
-  <strong>chiamaci al 351 969 4361</strong><br>
-Saremo felici di aiutarti!
+
+<div class="circle-img" style="margin: 0 auto 20px;">
+  <img src="img/assistenza-auditorium-piovene-rocchette.webp" 
+       alt="Assistenza Auditorium">
+</div>
+
+  <p>
+    Non riesci? Nessun problema 😊<br>
+    <strong>Scrivici su WhatsApp</strong><br>
+    ti aiutiamo noi passo passo.
+  </p>
+
+  <a href="https://wa.me/393519694361" target="_blank">
+    Clicca qui per scriverci su WhatsApp → 351 969 4361
+  </a>
+
 </div>
 
 </main>
 
 <div id="footer-container"></div>
 
-<!-- SCRIPT PRINCIPALE -->
 <script src="script.js" defer></script>
 
 </body>
