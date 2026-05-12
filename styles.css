@@ -1360,4 +1360,96 @@ body {
   fill: #f04; /* oppure il tuo colore accent */
 }
 
+/* FAQ */
+/* =========================
+   FAQ SECTION PRO
+========================= */
+.faq {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 40px 20px;
+}
+
+.faq h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #fdd835;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ITEM */
+.faq-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 215, 53, 0.15);
+  border-radius: 14px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* HOVER CARD */
+.faq-item:hover {
+  border-color: rgba(255, 215, 53, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* DOMANDA */
+.faq-item h3 {
+  margin: 0;
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ICONA + / - */
+.faq-item h3::after {
+  content: '+';
+  color: #fdd835;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+/* RISPOSTA */
+.faq-item p {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: all 0.35s ease;
+}
+
+/* ATTIVO (JS toggle) */
+.faq-item.active p {
+  max-height: 200px;
+  padding: 0 20px 18px;
+}
+
+.faq-item.active h3::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .faq h2 {
+    font-size: 1.6rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+  }
+}
   
