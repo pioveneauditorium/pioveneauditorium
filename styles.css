@@ -1478,3 +1478,7 @@ body {
   outline-offset: 4px;
   border-radius: 6px;
 }
+
+button.hamburger {
+  -webkit-tap-highlight-color: transparent;
+}
