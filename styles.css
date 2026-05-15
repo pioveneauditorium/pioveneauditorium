@@ -1452,4 +1452,29 @@ body {
     font-size: 1rem;
   }
 }
-  
+
+/* Reset button hamburger (remove white box / default styles) */
+.hamburger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}
+
+/* evita il quadrato bianco su focus/click */
+.hamburger:focus,
+.hamburger:focus-visible {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* opzionale: focus accessibile ma pulito */
+.hamburger:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
