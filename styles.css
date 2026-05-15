@@ -1,5 +1,5 @@
 /* ---------------------------
-   Reset base 
+   Reset base 1
 --------------------------- */
 * {
   margin: 0;
@@ -427,7 +427,7 @@ nav ul li a:hover .fas.fa-phone-alt {
     transform: scaleX(-1) scale(1.2); /* mantiene lo specchio e ingrandisce al passaggio del mouse */
 }
 
-/* CTA Button LiveTicket – versione più morbida per la home */
+/* CTA Button LiveTicket – versione più morbida per la home 2*/
 .cta-button {
   display: inline-block;
   margin-top: 8px;                /* meno invasivo */
@@ -648,7 +648,7 @@ nav ul li a:hover .fas.fa-phone-alt {
   }
 }
 
-/* Banner di orientamento verso Cinema Ragazzi */
+/* Banner di orientamento verso Cinema Ragazzi 3*/
 .cinema-ragazzi-banner {
   background: linear-gradient(135deg, #222, #333);
   padding: 25px;
@@ -771,7 +771,6 @@ nav ul li a:hover .fas.fa-phone-alt {
   object-fit: cover;
 }
 
-<style>
 main {
   flex: 1;
   display: flex;
@@ -898,7 +897,7 @@ footer a:hover {
   margin: 0.5rem 0;
 }
 
-/* RESPONSIVE MOBILE */
+/* RESPONSIVE MOBILE 4*/
 @media (max-width: 480px) {
   footer {
     min-height: auto;
@@ -1144,7 +1143,7 @@ footer a:hover {
   background: #777;
 }
 
-/* Mobile: impilamento elegante */
+/* Mobile: impilamento elegante 5*/
 @media (max-width: 600px) {
   .cookie-banner {
     flex-direction: column;
@@ -1321,7 +1320,7 @@ body {
   }
 }
 
-/* SVG MENU – dimensioni uniformi e cerchio centrato */
+/* SVG MENU – dimensioni uniformi e cerchio centrato 6*/
 #nav-menu ul li a svg {
   width: 20px;                /* dimensione icona interna */
   height: 20px;
@@ -1360,7 +1359,6 @@ body {
   fill: #f04; /* oppure il tuo colore accent */
 }
 
-/* FAQ */
 /* =========================
    FAQ SECTION PRO
 ========================= */
