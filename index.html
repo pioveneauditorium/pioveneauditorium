@@ -379,61 +379,63 @@
 <section class="faq">
   <h2>Domande frequenti</h2>
 
-<div class="faq-item">
-  <h3>Dove posso acquistare i biglietti per gli eventi?</h3>
-  <p>
-    I biglietti per cinema, teatro e musica all’Auditorium di Piovene Rocchette si possono acquistare comodamente 
-    all’Auditorium Bar oppure online su 
-    <a href="https://www.liveticket.it/pioveneauditorium" target="_blank">liveticket.it/pioveneauditorium</a>.  
-    Consigliamo sempre l’acquisto anticipato per gli eventi più richiesti.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>Dove posso acquistare i biglietti per gli eventi?</summary>
+    <p>
+      I biglietti per cinema, teatro e musica all’Auditorium di Piovene Rocchette si possono acquistare comodamente 
+      all’Auditorium Bar oppure online su 
+      <a href="https://www.liveticket.it/pioveneauditorium" target="_blank">liveticket.it/pioveneauditorium</a>.  
+      Consigliamo sempre l’acquisto anticipato per gli eventi più richiesti.
+    </p>
+  </details>
 
-<div class="faq-item">
-  <h3>Dove trovo la programmazione completa dell'Auditorium?</h3>
-  <p>
-    La programmazione aggiornata dell’Auditorium di Piovene Rocchette è sempre disponibile nella pagina 
-    <a href="calendario.html">calendario eventi</a>.  
-    Per non perderti nessuno spettacolo (cinema, teatro o concerti), ti consigliamo di seguire il canale WhatsApp ufficiale:  
-    <a href="https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F" target="_blank">clicca qui per iscriverti</a>.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>Dove trovo la programmazione completa dell'Auditorium?</summary>
+    <p>
+      La programmazione aggiornata dell’Auditorium di Piovene Rocchette è sempre disponibile nella pagina 
+      <a href="calendario.html">calendario eventi</a>.  
+      Per non perderti nessuno spettacolo (cinema, teatro o concerti), ti consigliamo di seguire il canale WhatsApp ufficiale:  
+      <a href="https://whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F" target="_blank">clicca qui per iscriverti</a>.
+    </p>
+  </details>
 
-<div class="faq-item">
-  <h3>Dove parcheggiare quando si va all’Auditorium?</h3>
-  <p>
-    Per tutti gli eventi all’Auditorium Comunale di Piovene Rocchette è disponibile un comodo parcheggio gratuito in 
-    Piazza degli Alpini, a pochi metri dall’ingresso.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>Dove parcheggiare quando si va all’Auditorium?</summary>
+    <p>
+      Per tutti gli eventi all’Auditorium Comunale di Piovene Rocchette è disponibile un comodo parcheggio gratuito in 
+      Piazza degli Alpini, a pochi metri dall’ingresso.
+    </p>
+  </details>
 
-<div class="faq-item">
-  <h3>L’Auditorium è accessibile?</h3>
-  <p>
-    Sì 👍 l’Auditorium di Piovene Rocchette è completamente accessibile anche a persone con disabilità, 
-    senza barriere architettoniche.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>L’Auditorium è accessibile?</summary>
+    <p>
+      Sì 👍 l’Auditorium di Piovene Rocchette è completamente accessibile anche a persone con disabilità, 
+      senza barriere architettoniche.
+    </p>
+  </details>
 
-<div class="faq-item">
-  <h3>Ci sono eventi per bambini e famiglie?</h3>
-  <p>
-    Sì! L’Auditorium propone spesso cinema per ragazzi, spettacoli e attività dedicate alle famiglie.  
-    Puoi vedere tutti gli eventi aggiornati nella pagina 
-    <a href="cinema-ragazzi-piovene-rocchette.html">Cinema Ragazzi Piovene Rocchette</a>.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>Ci sono eventi per bambini e famiglie?</summary>
+    <p>
+      Sì! L’Auditorium propone spesso cinema per ragazzi, spettacoli e attività dedicate alle famiglie.  
+      Puoi vedere tutti gli eventi aggiornati nella pagina 
+      <a href="cinema-ragazzi-piovene-rocchette.html">Cinema Ragazzi Piovene Rocchette</a>.
+    </p>
+  </details>
 
-<div class="faq-item">
-  <h3>Come posso contattare l’Auditorium?</h3>
-  <p>
-    Per informazioni su eventi, biglietti o programmazione puoi scriverci direttamente su WhatsApp al 
-    <a href="https://wa.me/393519694361" target="_blank">351 969 4361</a>  
-    oppure inviare una mail a 
-    <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.  
-    Rispondiamo sempre il prima possibile.
-  </p>
-</div>
+  <details class="faq-item">
+    <summary>Come posso contattare l’Auditorium?</summary>
+    <p>
+      Per informazioni su eventi, biglietti o programmazione puoi scriverci direttamente su WhatsApp al 
+      <a href="https://wa.me/393519694361" target="_blank">351 969 4361</a>  
+      oppure inviare una mail a 
+      <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.  
+      Rispondiamo sempre il prima possibile.
+    </p>
+  </details>
+
+</section>
 
 </main>
 
@@ -516,18 +518,5 @@
   </div>
 </div>
 
-<script>
-document.querySelectorAll('.faq-item h3').forEach((q) => {
-  q.addEventListener('click', () => {
-    const item = q.parentElement;
-
-    document.querySelectorAll('.faq-item').forEach(el => {
-      if (el !== item) el.classList.remove('active');
-    });
-
-    item.classList.toggle('active');
-  });
-});
-</script>
 </body>
 </html>

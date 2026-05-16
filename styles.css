@@ -11,6 +11,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* rimuove scroll orizzontale */
+
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
 }
 
 body {
@@ -103,17 +109,32 @@ nav ul li a {
 /* ---------------------------
    HAMBURGER
 --------------------------- */
+
+/* Base */
 .hamburger {
   position: absolute;
+  top: 50%;
   right: 10px;
-  cursor: pointer;
+  transform: translateY(-50%);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 20px;
+
+  cursor: pointer;
   z-index: 1001;
+
+  /* reset button */
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  appearance: none;
+  box-shadow: none;
 }
 
+/* LINEE H */
 .hamburger span {
   display: block;
   width: 25px;
@@ -123,6 +144,7 @@ nav ul li a {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* ANIMAZIONE HAMBURGER */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
   transform-origin: 5% 5%;
@@ -135,6 +157,25 @@ nav ul li a {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
   transform-origin: 5% 95%;
+}
+
+/* Focus accessibile */
+.hamburger:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.8);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hamburger {
+    height: 16px;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
+  }
 }
 
 /* ---------------------------
@@ -178,18 +219,7 @@ nav ul li a {
   color: #fff;
 }
 
-/* ---------------------------
-   MAIN CONTENT
---------------------------- */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 60px 20px 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+/* HEROOO */
 .hero {
   text-align: center;
   margin-bottom: 50px;
@@ -285,10 +315,6 @@ main {
     margin-bottom: 0px;
   }
 
-  main {
-    padding-bottom: 10px;
-  }
-
   footer {
     min-height: 150px; /* mobile più compatto */
   }
@@ -347,42 +373,6 @@ main {
   margin-right: 10px;
 }
 
-/* Mantieni l’hamburger assoluto originale */
-.hamburger {
-  position: absolute;
-  right: 10px; /* Distanza icona hamburger dal bordo */
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 20px;
-  z-index: 1001;
-}
-
-/* Righe dell’hamburger */
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg);
-  transform-origin: 5% 5%;
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg);
-  transform-origin: 5% 95%;
-}
-
 /* ---------------------------
    Smartphone: riduzione exit-sign
 --------------------------- */
@@ -399,28 +389,10 @@ main {
     margin-right: 6px;
   }
 
-  .hamburger {
-    height: 16px;              /* hamburger più piccolo */
-  }
-
-  .hamburger span {
-    width: 20px;
-    height: 2px;
-  }
-
   /* WhatsApp più piccolo su mobile */
   .whatsapp-link img {
     height: 30px;
   }
-}
-
-/* CORNETTA */
-.fas.fa-phone-alt {
-    margin-left: 5px;
-    vertical-align: middle;
-    color: #fff; /* colore del testo del menu */
-    transform: scaleX(-1); /* specchia orizzontalmente */
-    transition: transform 0.3s ease;
 }
 
 nav ul li a:hover .fas.fa-phone-alt {
@@ -1161,17 +1133,6 @@ footer a:hover {
   }
 }
 
-/* PAGINA AUDITORIUM */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* rimuove scroll orizzontale */
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  background-color: #000;
-  line-height: 1.6;
-}
-
 /* Hero */
 .hero {
   text-align: center;
@@ -1188,13 +1149,6 @@ html, body {
   font-size: 3rem;
   margin-top: 20px;
   color: #fdd835;
-}
-
-/* Container principale */
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
 }
 
 /* Contenuto: 2 colonne desktop, 1 colonna mobile */
@@ -1359,96 +1313,77 @@ body {
   fill: #f04; /* oppure il tuo colore accent */
 }
 
-/* =========================
-   FAQ SECTION PRO
-========================= */
-.faq {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 40px 20px;
-}
-
-.faq h2 {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: #fdd835;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-}
-
-/* ITEM */
-.faq-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 215, 53, 0.15);
-  border-radius: 14px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(6px);
-}
-
-/* HOVER CARD */
-.faq-item:hover {
-  border-color: rgba(255, 215, 53, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
-
-/* DOMANDA */
-.faq-item h3 {
-  margin: 0;
-  padding: 18px 20px;
-  font-size: 1.1rem;
-  color: #fff;
+/* ---------------------------
+   HAMBURGER
+--------------------------- */
+.hamburger {
+  position: absolute;
+  right: 10px;
   cursor: pointer;
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  height: 20px;
+  z-index: 1001;
 }
 
-/* ICONA + / - */
-.faq-item h3::after {
-  content: '+';
-  color: #fdd835;
-  font-size: 1.4rem;
-  transition: transform 0.3s ease;
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* RISPOSTA */
-.faq-item p {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  color: #ddd;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  transition: all 0.35s ease;
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: 5% 5%;
 }
 
-/* ATTIVO (JS toggle) */
-.faq-item.active p {
-  max-height: 200px;
-  padding: 0 20px 18px;
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
 }
 
-.faq-item.active h3::after {
-  content: '−';
-  transform: rotate(180deg);
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 5% 95%;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .faq h2 {
-    font-size: 1.6rem;
-  }
+/* Mantieni l’hamburger assoluto originale */
+.hamburger {
+  position: absolute;
+  right: 10px; /* Distanza icona hamburger dal bordo */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  z-index: 1001;
+}
 
-  .faq-item h3 {
-    font-size: 1rem;
-  }
+/* Righe dell’hamburger */
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: 5% 5%;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 5% 95%;
 }
 
 /* Reset button hamburger (remove white box / default styles) */
@@ -1479,4 +1414,170 @@ body {
 
 button.hamburger {
   -webkit-tap-highlight-color: transparent;
+}
+
+  .hamburger {
+    height: 16px;              /* hamburger più piccolo */
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
+  }
+
+/* =========================
+   FAQ SECTION PRO (DETAILS VERSION - CLEAN)
+========================= */
+
+.faq {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.faq h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #fdd835;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* CARD */
+.faq-item {
+  display: block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 215, 53, 0.15);
+  border-radius: 14px;
+  margin-bottom: 15px;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* HOVER */
+.faq-item:hover {
+  border-color: rgba(255, 215, 53, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* SUMMARY */
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  color: #fff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* rimozione marker browser */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ICONA + / − */
+.faq-item summary::after {
+  content: '+';
+  color: #fdd835;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+/* RISPOSTA */
+.faq-item p {
+  margin: 0;
+  padding: 0 20px;
+
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transform: translateY(-6px);
+  transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* APERTO */
+.faq-item[open] p {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+  padding-bottom: 18px;
+}
+
+/* FOCUS (VERSIONE FINALE PULITA) */
+.faq-item:focus-within {
+  border-color: rgba(255, 215, 53, 0.6);
+  box-shadow: 0 0 0 3px rgba(253, 216, 53, 0.25);
+  transform: translateY(-2px);
+}
+
+.faq-item:focus {
+  outline: 2px solid #fdd835;
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid #fdd835;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* quando è aperto NON mostra focus sul titolo */
+.faq-item[open] summary {
+  outline: none;
+}
+
+/* FIX LARGHEZZA FAQ (evita resize quando si apre) */
+.faq,
+.faq-item {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.faq-item summary {
+  width: 100%;
+  min-width: 0; /* fondamentale per evitare espansioni in flex */
+}
+
+/* opzionale ma utile per stabilizzare il layout */
+.faq-item {
+  contain: layout paint;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .faq h2 {
+    font-size: 1.6rem;
+  }
+
+  .faq-item summary {
+    font-size: 1rem;
+  }
 }
