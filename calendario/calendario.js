@@ -1,5 +1,13 @@
 const events = {};
 
+// limiti calendario
+const today = new Date();
+const minYear = today.getFullYear();
+const minMonth = today.getMonth();
+
+let maxYear = minYear;
+let maxMonth = minMonth;
+
 // Fetch CSV
 fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTIvX4XUTRz8719e9xflNmyNAYaQB3h_JfM8E9Mes5AVKgaXGKMIDo-pN/pub?output=csv')
   .then(response => response.text())
@@ -8,9 +16,12 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
       header: true,
       skipEmptyLines: true,
       complete: function(results) {
+
         results.data.forEach(row => {
           const date = row.Data?.trim();
           const tipo = row.Tipo?.trim() || '';
+
+          if (!date) return;
 
           if (!events[date]) {
             events[date] = [];
@@ -25,6 +36,15 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
             trailer: row.Trailer?.trim(),
             tipo
           });
+        });
+
+        // calcolo ultimo mese con eventi
+        Object.keys(events).forEach(dateStr => {
+          const d = new Date(dateStr);
+          if (d > new Date(maxYear, maxMonth)) {
+            maxYear = d.getFullYear();
+            maxMonth = d.getMonth();
+          }
         });
 
         generateJSONLD();
@@ -52,11 +72,12 @@ function renderCalendar() {
   const today = new Date();
   today.setHours(0,0,0,0);
 
-  document.getElementById('calendar-title').textContent = `Eventi di ${monthNames[currentMonth]} ${currentYear}`;
+  document.getElementById('calendar-title').textContent =
+    `Eventi di ${monthNames[currentMonth]} ${currentYear}`;
 
   let html = '';
 
-  // Header giorni
+  // header giorni
   weekdays.forEach(d => {
     html += `<div class="day">${d.slice(0,3)}</div>`;
   });
@@ -93,9 +114,9 @@ function renderCalendar() {
         style = `background:${colori[0]}`;
       } else {
         const step = 100 / colori.length;
-        const gradient = colori.map((c,i)=>{
-          return `${c} ${i*step}% ${(i+1)*step}%`;
-        }).join(',');
+        const gradient = colori.map((c,i)=>
+          `${c} ${i*step}% ${(i+1)*step}%`
+        ).join(',');
 
         style = `background:linear-gradient(to right, ${gradient})`;
       }
@@ -107,6 +128,24 @@ function renderCalendar() {
   }
 
   document.getElementById('calendar').innerHTML = html;
+
+  // 🔒 BLOCCO BOTTONI
+  const prevBtn = document.getElementById('prev-month');
+  const nextBtn = document.getElementById('next-month');
+
+  // minimo = mese corrente
+  if (currentYear < minYear || (currentYear === minYear && currentMonth <= minMonth)) {
+    prevBtn.disabled = true;
+  } else {
+    prevBtn.disabled = false;
+  }
+
+  // massimo = ultimo mese con eventi
+  if (currentYear > maxYear || (currentYear === maxYear && currentMonth >= maxMonth)) {
+    nextBtn.disabled = true;
+  } else {
+    nextBtn.disabled = false;
+  }
 }
 
 function showEvent(date) {
@@ -165,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cal.addEventListener('click', e => {
     if (e.target.dataset.date) {
-      document.querySelectorAll('.day').forEach(d=>d.classList.remove('selected'));
+      document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
       e.target.classList.add('selected');
       showEvent(e.target.dataset.date);
     }
@@ -173,13 +212,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('prev-month').onclick = () => {
     currentMonth--;
-    if (currentMonth < 0) { currentMonth=11; currentYear--; }
+    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
     renderCalendar();
   };
 
   document.getElementById('next-month').onclick = () => {
     currentMonth++;
-    if (currentMonth > 11) { currentMonth=0; currentYear++; }
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
     renderCalendar();
   };
 });
