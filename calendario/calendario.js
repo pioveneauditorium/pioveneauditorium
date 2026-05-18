@@ -57,7 +57,6 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRSqROrdJEDeejhnLMrFq9tTI
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
-let selectedDate = null;
 
 const monthNames = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 const weekdays = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
@@ -91,13 +90,15 @@ function renderCalendar() {
     const dateStr = `${currentYear}-${(currentMonth+1).toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
     const dateObj = new Date(dateStr);
 
-    let isPast = dateObj < today;
+    const isPast = dateObj < today;
+    const hasEvents = !!events[dateStr];
+
     let classes = 'day';
     let style = '';
 
     if (isPast) classes += ' past-day';
 
-    if (events[dateStr]) {
+    if (hasEvents) {
       const tipoColori = {
         'CINEMA': '#FFD300',
         'TEATRO': 'purple',
@@ -122,30 +123,27 @@ function renderCalendar() {
       }
     }
 
-    const clickable = isPast ? '' : `data-date="${dateStr}"`;
+    const clickable = (!isPast && hasEvents) ? `data-date="${dateStr}"` : '';
+    const focusable = (!isPast && hasEvents) ? 'tabindex="0" role="button"' : '';
+    const aria = (!isPast && hasEvents) ? `aria-label="Eventi il giorno ${day}"` : '';
 
-    html += `<div class="${classes}" style="${style}" ${clickable}>${day}</div>`;
+    html += `<div 
+      class="${classes}" 
+      style="${style}" 
+      ${clickable}
+      ${focusable}
+      ${aria}
+    >${day}</div>`;
   }
 
   document.getElementById('calendar').innerHTML = html;
 
-  // 🔒 BLOCCO BOTTONI
+  // bottoni mese
   const prevBtn = document.getElementById('prev-month');
   const nextBtn = document.getElementById('next-month');
 
-  // minimo = mese corrente
-  if (currentYear < minYear || (currentYear === minYear && currentMonth <= minMonth)) {
-    prevBtn.disabled = true;
-  } else {
-    prevBtn.disabled = false;
-  }
-
-  // massimo = ultimo mese con eventi
-  if (currentYear > maxYear || (currentYear === maxYear && currentMonth >= maxMonth)) {
-    nextBtn.disabled = true;
-  } else {
-    nextBtn.disabled = false;
-  }
+  prevBtn.disabled = currentYear < minYear || (currentYear === minYear && currentMonth <= minMonth);
+  nextBtn.disabled = currentYear > maxYear || (currentYear === maxYear && currentMonth >= maxMonth);
 }
 
 function showEvent(date) {
@@ -202,11 +200,20 @@ function generateJSONLD() {
 document.addEventListener('DOMContentLoaded', () => {
   const cal = document.getElementById('calendar');
 
+  // click
   cal.addEventListener('click', e => {
     if (e.target.dataset.date) {
       document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
       e.target.classList.add('selected');
       showEvent(e.target.dataset.date);
+    }
+  });
+
+  // tastiera (Enter / Space)
+  cal.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.dataset.date) {
+      e.preventDefault();
+      e.target.click();
     }
   });
 
