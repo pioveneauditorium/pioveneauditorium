@@ -167,8 +167,19 @@ function showEvent(date) {
         <div class="event-right">
           <h3>${ev.title}</h3>
           <p><strong>${date}</strong> • ${ev.time}</p>
-          <p>${(ev.description||'').replace(/\n/g,'<br>')}</p>
-          ${ev.linkBiglietti ? `<a href="${ev.linkBiglietti}" target="_blank" class="cta-button">Prenota</a>` : ''}
+<p>${(ev.description||'').replace(/\n/g,'<br>')}</p>
+
+${ev.trailer ? `
+  <iframe
+    width="100%"
+    height="315"
+    src="${ev.trailer.replace('watch?v=', 'embed/')}"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+` : ''}
+
+${ev.linkBiglietti ? `<a href="${ev.linkBiglietti}" target="_blank" class="cta-button">Prenota</a>` : ''}
         </div>
       </div>
     `;
