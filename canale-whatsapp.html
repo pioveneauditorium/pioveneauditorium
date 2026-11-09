@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Canale WhatsApp ufficiale | Piovene Auditorium</title>
+
+    <meta name="description" content="Segui il Canale WhatsApp ufficiale di Piovene Auditorium. Ricevi aggiornamenti su cinema, teatro, spettacoli, eventi e iniziative a Piovene Rocchette.">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pioveneauditorium.it/canale-whatsapp.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pioveneauditorium.it/canale-whatsapp.html">
+    <meta property="og:title" content="Canale WhatsApp ufficiale | Piovene Auditorium">
+    <meta property="og:description" content="Resta aggiornato su cinema, teatro, spettacoli ed eventi di Piovene Auditorium. Seguici sul nostro Canale WhatsApp ufficiale.">
+    <meta property="og:image" content="https://pioveneauditorium.it/img/attrice-piovene-rocchette.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Canale WhatsApp ufficiale | Piovene Auditorium">
+    <meta name="twitter:description" content="Seguici sul Canale WhatsApp ufficiale di Piovene Auditorium.">
+    <meta name="twitter:image" content="https://pioveneauditorium.it/img/attrice-piovene-rocchette.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_centered_32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_centered_16x16.png">
+    <link rel="shortcut icon" href="/img/favicon_centered.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_centered_180x180.png">
+
+    <!-- CSS ufficiale -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS specifico della pagina -->
+    <style>
+
+        /* CONTENITORE PRINCIPALE */
+        .whatsapp-page {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 55px 20px 65px;
+            text-align: center;
+        }
+
+        /* RIQUADRO CENTRALE */
+        .whatsapp-card {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 35px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* IMMAGINE CIRCOLARE */
+        .whatsapp-photo {
+            display: block;
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 5px solid #e7f8ed;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.14);
+        }
+
+        /* ETICHETTA */
+        .whatsapp-label {
+            color: #209b59;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* TITOLO */
+        .whatsapp-card h1 {
+            font-size: clamp(27px, 4vw, 39px);
+            line-height: 1.25;
+            color: #222;
+            margin: 0 0 22px;
+        }
+
+        /* TESTI */
+        .whatsapp-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 18px;
+        }
+
+        /* ELENCO VANTAGGI */
+        .whatsapp-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 25px auto;
+            max-width: 430px;
+            text-align: left;
+        }
+
+        .whatsapp-benefits li {
+            padding: 9px 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .whatsapp-benefits li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #25D366;
+            margin-right: 12px;
+        }
+
+        /* PULSANTE WHATSAPP */
+        .whatsapp-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 17px 30px;
+            margin-top: 10px;
+            background: #25D366;
+            color: #fff !important;
+            text-decoration: none !important;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.25);
+        }
+
+        .whatsapp-button:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button i {
+            font-size: 23px;
+        }
+
+        /* NOTA INFORMATIVA */
+        .whatsapp-note {
+            font-size: 13px !important;
+            color: #777 !important;
+            margin-top: 22px;
+            margin-bottom: 0 !important;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 600px) {
+
+            .whatsapp-page {
+                padding: 30px 15px 45px;
+            }
+
+            .whatsapp-card {
+                padding: 32px 20px;
+            }
+
+            .whatsapp-photo {
+                width: 155px;
+                height: 155px;
+            }
+
+            .whatsapp-card h1 {
+                font-size: 28px;
+            }
+
+            .whatsapp-card p {
+                font-size: 15px;
+            }
+
+            .whatsapp-button {
+                display: flex;
+                width: 100%;
+                padding: 16px 12px;
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <section class="whatsapp-page">
+
+            <div class="whatsapp-card">
+
+                <!-- TESTO PRINCIPALE -->
+                <div class="whatsapp-label">
+                    Auditorium di Piovene Rocchette
+                </div>
+
+                <h1>
+                    Seguici sul nostro Canale WhatsApp!
+                </h1>
+
+                <p>
+                    Vuoi rimanere aggiornato sulle attività dell'
+                    <strong>Auditorium di Piovene Rocchette</strong>?
+                </p>
+
+                <p>
+                    Iscriviti al nostro Canale WhatsApp ufficiale
+                    e scopri tutte le novità direttamente sul tuo
+                    smartphone.
+                </p>
+
+                <!-- VANTAGGI -->
+                <ul class="whatsapp-benefits">
+
+                    <li>
+                        Ricevi aggiornamenti sulla stagione culturale.
+                    </li>
+
+                    <li>
+                        Scopri eventi e iniziative per i più piccoli.
+                    </li>
+
+                    <li>
+                        Rimani informato su cinema, teatro e concerti.
+                    </li>
+
+                </ul>
+
+                <!-- PULSANTE ISCRIZIONE -->
+                <a
+                    class="whatsapp-button"
+                    href="https://www.whatsapp.com/channel/0029Vb6zp9FAe5VohZUMlg2F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Iscriviti al Canale WhatsApp di Piovene Auditorium"
+                >
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    ISCRIVITI AL CANALE
+                </a>
+
+                <p class="whatsapp-note">
+                    L'iscrizione è gratuita. Ti aspettiamo sul nostro canale!
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER DINAMICO ORIGINALE -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPT PRINCIPALI -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>
