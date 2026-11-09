@@ -1,68 +1,153 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Privacy e Cookie Policy – Auditorium Piovene Rocchette</title>
-  <meta name="description" content="Privacy e Cookie Policy del sito dell’Auditorium Comunale di Piovene Rocchette gestito da Dedalofurioso Soc. Coop. Scopri come trattiamo i tuoi dati e gestiamo i cookie.">
+  <meta name="description" content="Informativa sulla privacy e sugli strumenti tecnici utilizzati dal sito Auditorium Comunale di Piovene Rocchette, gestito da Dedalofurioso Soc. Coop.">
+
   <link rel="canonical" href="https://pioveneauditorium.it/privacy.html">
 
-  <!-- Favicon e OG / Twitter -->
   <link rel="icon" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png" sizes="32x32">
   <link rel="icon" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png" sizes="16x16">
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png" sizes="180x180">
+  <link rel="apple-touch-icon" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pioveneauditorium.it/privacy.html">
   <meta property="og:title" content="Privacy e Cookie Policy – Auditorium Piovene Rocchette">
-  <meta property="og:description" content="Consulta la Privacy e Cookie Policy del sito gestito da Dedalofurioso Soc. Coop.">
+  <meta property="og:description" content="Informativa sulla privacy dell'Auditorium Comunale di Piovene Rocchette.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/logo2.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy e Cookie Policy – Auditorium Piovene Rocchette">
-  <meta name="twitter:description" content="Consulta la Privacy e Cookie Policy del sito gestito da Dedalofurioso Soc. Coop.">
+  <meta name="twitter:description" content="Informativa sulla privacy dell'Auditorium Comunale di Piovene Rocchette.">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/logo2.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Privacy e Cookie Policy",
-    "url": "https://pioveneauditorium.it/privacy.html",
-    "about": {
-      "@type": "PrivacyPolicy",
-      "name": "Privacy e Cookie Policy Dedalofurioso – Auditorium Piovene Rocchette"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Dedalofurioso Soc. Coop.",
-      "url": "https://dedalofurioso.it",
-      "logo": { "@type": "ImageObject", "url": "https://pioveneauditorium.it/img/logo2.png" }
-    }
-  }
-  </script>
-
   <style>
-    .content-grid { display: grid; grid-template-columns: 1fr minmax(auto,700px) 1fr; gap: 2rem; padding: 2rem 1rem; }
-    .grid-item { grid-column: 2; }
-    main, main * { color: white !important; }
-    h1,h2,h3,h4 { font-family:'Playfair Display',serif; color: inherit; margin-top:1.5rem; }
-    h1 { font-size:2rem; margin-bottom:1rem; }
-    p { font-family:'Roboto',sans-serif; line-height:1.6; margin-bottom:1rem; }
-    a { color:#00bbff; text-decoration:none; }
-    main a:hover { text-decoration:underline; }
-    #lang-switch { margin-bottom:1.5rem; text-align:center; }
-    #lang-switch button { background:none; border:1px solid #0077cc; color:#0077cc; padding:0.4rem 1rem; margin:0 0.5rem; cursor:pointer; font-weight:700; border-radius:4px; transition:0.3s; }
-    #lang-switch button.active,#lang-switch button:hover { background-color:#0077cc; color:white; }
-    .hidden { display:none; }
-    @media(max-width:768px){.content-grid{grid-template-columns:1fr;padding:1rem;}.grid-item{grid-column:1;}}
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 700px) 1fr;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    .grid-item {
+      grid-column: 2;
+      min-width: 0;
+    }
+
+    main, main * {
+      color: white !important;
+      box-sizing: border-box;
+    }
+
+    main h1, main h2, main h3 {
+      font-family: Georgia, serif;
+      margin-top: 1.8rem;
+      line-height: 1.3;
+    }
+
+    main h1 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    main h2 {
+      font-size: 1.5rem;
+    }
+
+    main h3 {
+      font-size: 1.15rem;
+    }
+
+    main p, main li {
+      font-family: Arial, sans-serif;
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+
+    main p {
+      margin-bottom: 1rem;
+    }
+
+    main ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    main li {
+      margin-bottom: 0.6rem;
+    }
+
+    main a {
+      color: #55caff !important;
+      text-decoration: underline;
+      overflow-wrap: anywhere;
+    }
+
+    main a:hover {
+      color: #ffffff !important;
+    }
+
+    #lang-switch {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    #lang-switch button {
+      background: transparent;
+      border: 1px solid #0077cc;
+      color: #ffffff;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.3rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    #lang-switch button.active,
+    #lang-switch button:hover {
+      background: #0077cc;
+      color: #ffffff;
+    }
+
+    #lang-switch button:focus-visible {
+      outline: 2px solid #55caff;
+      outline-offset: 3px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .privacy-note {
+      border-left: 3px solid #55caff;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media(max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+
+      .grid-item {
+        grid-column: 1;
+      }
+
+      main h1 {
+        font-size: 1.7rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
 <div id="header-container"></div>
@@ -70,77 +155,1101 @@
 <main>
   <section class="content-grid">
     <div class="grid-item">
+
       <h1>Privacy e Cookie Policy</h1>
 
-      <div id="lang-switch">
-        <button id="btn-it">IT</button>
-        <button id="btn-en">EN</button>
-      </div>
-
-      <!-- PRIVACY IT -->
-      <div id="privacy-it">
-        <h2 id="privacy-policy">Privacy Policy</h2>
-        <p>La presente Privacy Policy descrive come <strong>Dedalofurioso Soc. Coop.</strong> raccoglie, utilizza e protegge i dati personali degli utenti che visitano il sito web <a href="https://pioveneauditorium.it">pioveneauditorium.it</a> e utilizzano i suoi servizi.</p>
-
-        <h3>Dati raccolti</h3>
-        <p>Raccogliamo dati personali solo se forniti volontariamente tramite form di contatto o comunicazioni dirette. Non utilizziamo cookie analitici o di tracciamento di terze parti. Sono presenti solo cookie tecnici necessari al funzionamento del sito.</p>
-
-        <h3 id="legal-basis">Base giuridica del trattamento</h3>
-        <p>I dati forniti volontariamente vengono trattati esclusivamente per rispondere alle richieste dell’utente. Alcuni dati tecnici sono necessari per il funzionamento del sito (art. 6 GDPR).</p>
-
-        <h2 id="cookie-policy">Cookie Policy</h2>
-        <p>Questo sito utilizza solo cookie tecnici, necessari al funzionamento delle pagine e delle funzionalità del sito stesso. Non vengono installati cookie di profilazione o analitici di terze parti.</p>
-
-        <h2 id="user-rights">Diritti degli utenti</h2>
-        <p>Accesso, modifica, cancellazione dei dati personali: scrivere a <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
-
-        <h2 id="data-controller">Titolare del trattamento</h2>
-        <p><strong>Dedalofurioso Soc. Coop.</strong><br>
-           via San Francesco 24, 36031 Dueville (VI)<br>
-           P.IVA / C.F.: 03072080249<br>
-           Email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a>
-        </p>
-
-        <h2 id="data-retention">Conservazione dei dati</h2>
-        <p>I dati personali forniti volontariamente vengono conservati fino a completamento della richiesta o per necessità amministrative legittime. Non vengono conservati dati di navigazione o comportamentali.</p>
-
-        <p><strong>Ultimo aggiornamento:</strong> 23 marzo 2026</p>
-      </div>
-
-      <!-- PRIVACY EN -->
-      <div id="privacy-en" class="hidden">
-        <h2 id="privacy-policy-en">Privacy Policy</h2>
-        <p>This Privacy Policy explains how <strong>Dedalofurioso Soc. Coop.</strong> collects, uses, and protects personal data of users visiting <a href="https://pioveneauditorium.it">pioveneauditorium.it</a>.</p>
-
-        <h3>Data Collected</h3>
-        <p>We only collect personal data voluntarily provided via contact forms or direct communication. No analytics or tracking cookies are used. Only essential technical cookies required for website operation are present.</p>
-
-        <h3 id="legal-basis-en">Legal Basis for Processing</h3>
-        <p>Data provided voluntarily are processed solely to fulfill user requests. Some technical data are necessary for website operation (Art. 6 GDPR).</p>
-
-        <h2 id="cookie-policy-en">Cookie Policy</h2>
-        <p>This website uses only technical cookies, necessary for the website pages and features to work correctly. No profiling or analytics cookies are installed.</p>
-
-        <button 
-          onclick="localStorage.removeItem('cookieConsent'); window.location.href='index.html';"
-          style="margin-top:1rem; padding:0.5rem 1rem; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer;">
-          Change your cookie preferences
+      <div id="lang-switch" aria-label="Seleziona la lingua">
+        <button id="btn-it" type="button" class="active"
+                aria-pressed="true" aria-controls="privacy-it">
+          IT
         </button>
+        <button id="btn-en" type="button"
+                aria-pressed="false" aria-controls="privacy-en">
+          EN
+        </button>
+      </div>
 
-        <h2 id="user-rights-en">User Rights</h2>
-        <p>Access, modification, deletion: contact <a href="mailto:info@pioveneauditorium.it">info@pioveneauditorium.it</a>.</p>
+      <!-- ========================= -->
+      <!-- VERSIONE ITALIANA -->
+      <!-- ========================= -->
 
-        <h2 id="data-controller-en">Data Controller</h2>
-        <p><strong>Dedalofurioso Soc. Coop.</strong><br>
-           via San Francesco 24, 36031 Dueville (VI)<br>
-           VAT / Tax Code: 03072080249<br>
-           Email: <a href="mailto:dedalofurioso@pec.confcooperative.it">dedalofurioso@pec.confcooperative.it</a>
+      <div id="privacy-it">
+
+        <h2>Informativa sulla Privacy</h2>
+
+        <p>
+          La presente informativa descrive le modalità con cui
+          vengono trattati i dati personali degli utenti che
+          visitano il sito web
+          <a href="https://pioveneauditorium.it">pioveneauditorium.it</a>
+          e utilizzano i servizi e i collegamenti in esso presenti.
         </p>
 
-        <h2 id="data-retention-en">Data Retention</h2>
-        <p>Voluntarily provided data are kept until completion of the request or for legitimate administrative needs. No navigation or behavioral data are stored.</p>
+        <p>
+          L'informativa è resa ai sensi degli articoli 12, 13 e 14
+          del Regolamento (UE) 2016/679, di seguito GDPR, e della
+          normativa italiana applicabile in materia di protezione
+          dei dati personali.
+        </p>
 
-        <p><strong>Last update:</strong> March 23, 2026</p>
+        <h3>1. Titolare del trattamento</h3>
+
+        <p>
+          Il titolare del trattamento è:
+        </p>
+
+        <p>
+          <strong>Dedalofurioso Soc. Coop.</strong><br>
+          Via San Francesco 24<br>
+          36031 Dueville (VI), Italia<br>
+          P. IVA / Codice Fiscale: 03072080249<br>
+          Email:
+          <a href="mailto:info@pioveneauditorium.it">
+            info@pioveneauditorium.it
+          </a><br>
+          PEC:
+          <a href="mailto:dedalofurioso@pec.confcooperative.it">
+            dedalofurioso@pec.confcooperative.it
+          </a>
+        </p>
+
+        <h3>2. Tipologie di dati personali trattati</h3>
+
+        <p>
+          In relazione alla navigazione e all'utilizzo del sito
+          possono essere trattate le seguenti categorie di dati:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Dati tecnici di navigazione:</strong>
+            indirizzo IP, informazioni sul browser e sul dispositivo,
+            data e ora delle richieste, risorse richieste, pagine
+            visitate e altri dati tecnici trasmessi automaticamente
+            durante la comunicazione tra il dispositivo dell'utente
+            e i server che forniscono i contenuti.
+          </li>
+
+          <li>
+            <strong>Dati di contatto:</strong>
+            nome, indirizzo email, numero di telefono e altre
+            informazioni che l'utente comunica volontariamente
+            attraverso email, telefonate o messaggi WhatsApp.
+          </li>
+
+          <li>
+            <strong>Dati contenuti nelle comunicazioni:</strong>
+            informazioni, richieste e contenuti inseriti dall'utente
+            nei messaggi inviati al titolare.
+          </li>
+
+          <li>
+            <strong>Dati relativi all'utilizzo di servizi esterni:</strong>
+            informazioni tecniche che possono essere trasmesse ai
+            fornitori terzi quando il browser carica risorse esterne
+            utilizzate dal sito oppure quando l'utente seleziona
+            collegamenti verso piattaforme esterne.
+          </li>
+        </ul>
+
+        <p>
+          Il sito non dispone, allo stato attuale, di moduli propri
+          di registrazione, iscrizione o raccolta diretta di dati
+          personali. Le comunicazioni con il titolare avvengono
+          attraverso i normali canali di contatto indicati sul sito.
+        </p>
+
+        <h3>3. Finalità e basi giuridiche del trattamento</h3>
+
+        <p>
+          I dati personali sono trattati per le seguenti finalità:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Funzionamento e sicurezza del sito:</strong>
+            consentire la trasmissione delle pagine e dei contenuti,
+            gestire le richieste al server, garantire la disponibilità
+            del servizio e prevenire accessi non autorizzati o
+            attività dannose.
+            La base giuridica è il legittimo interesse del titolare
+            alla gestione e alla sicurezza del sito, ai sensi
+            dell'art. 6, par. 1, lett. f) GDPR.
+          </li>
+
+          <li>
+            <strong>Caricamento e visualizzazione dei contenuti:</strong>
+            rendere disponibili le informazioni sugli eventi e
+            le risorse tecniche necessarie al funzionamento delle
+            pagine. La base giuridica è il legittimo interesse del
+            titolare a fornire i contenuti richiesti dall'utente,
+            ai sensi dell'art. 6, par. 1, lett. f) GDPR.
+          </li>
+
+          <li>
+            <strong>Gestione delle richieste di informazioni:</strong>
+            rispondere a email, telefonate e messaggi ricevuti.
+            La base giuridica è l'esecuzione di misure precontrattuali
+            richieste dall'interessato, ove applicabile
+            (art. 6, par. 1, lett. b) GDPR), oppure il legittimo
+            interesse del titolare a gestire le comunicazioni
+            ricevute (art. 6, par. 1, lett. f) GDPR).
+          </li>
+
+          <li>
+            <strong>Adempimenti normativi:</strong>
+            adempiere a obblighi previsti dalla legge.
+            La base giuridica è l'adempimento di un obbligo legale,
+            ai sensi dell'art. 6, par. 1, lett. c) GDPR.
+          </li>
+        </ul>
+
+        <h3>4. Modalità del trattamento e misure di sicurezza</h3>
+
+        <p>
+          Il trattamento avviene mediante strumenti informatici
+          e telematici, secondo principi di liceità, correttezza,
+          trasparenza, minimizzazione, limitazione delle finalità
+          e sicurezza.
+        </p>
+
+        <p>
+          Il titolare adotta misure tecniche e organizzative
+          adeguate alla natura dei dati e ai rischi del trattamento,
+          allo scopo di proteggerli da accessi non autorizzati,
+          perdita, divulgazione o utilizzo illecito.
+        </p>
+
+        <h3>5. Hosting e servizi di terze parti</h3>
+
+        <p>
+          Il sito è pubblicato tramite
+          <strong>GitHub Pages</strong>, servizio di hosting statico
+          fornito da GitHub.
+        </p>
+
+        <p>
+          Durante la visita del sito, il fornitore di hosting può
+          trattare dati tecnici di connessione, tra cui l'indirizzo
+          IP e informazioni relative alle richieste effettuate
+          dal browser, per finalità connesse alla fornitura,
+          alla manutenzione e alla sicurezza del servizio.
+        </p>
+
+        <p>
+          Per ulteriori informazioni sul trattamento effettuato
+          da GitHub è possibile consultare:
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+             target="_blank" rel="noopener noreferrer">
+            Informativa Privacy di GitHub
+          </a>.
+        </p>
+
+        <p>
+          Il sito utilizza inoltre alcuni servizi esterni per
+          rendere disponibili contenuti e funzionalità:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Google Sheets:</strong>
+            alcuni dati relativi agli eventi sono caricati
+            attraverso un documento pubblicato tramite Google
+            Sheets. Per rendere disponibile tale contenuto,
+            il browser dell'utente effettua richieste ai server
+            di Google. In occasione di tali richieste possono
+            essere trasmessi dati tecnici, come l'indirizzo IP
+            e le informazioni necessarie alla comunicazione.
+            Informazioni:
+            <a href="https://policies.google.com/privacy"
+               target="_blank" rel="noopener noreferrer">
+              Privacy Policy di Google
+            </a>.
+          </li>
+
+          <li>
+            <strong>jsDelivr:</strong>
+            il sito carica la libreria JavaScript PapaParse
+            attraverso il servizio CDN jsDelivr.
+            Il caricamento comporta una richiesta del browser
+            ai server del servizio, che possono ricevere
+            l'indirizzo IP e informazioni tecniche della
+            connessione.
+            Informazioni:
+            <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net"
+               target="_blank" rel="noopener noreferrer">
+              Informativa Privacy di jsDelivr
+            </a>.
+          </li>
+        </ul>
+
+        <p>
+          Questi servizi vengono contattati automaticamente
+          quando il browser richiede le relative risorse.
+          Il trattamento dei dati da parte dei rispettivi
+          fornitori avviene secondo le loro informative
+          e condizioni di servizio.
+        </p>
+
+        <p>
+          I dati possono inoltre essere comunicati, nei limiti
+          delle rispettive competenze e quando necessario, a:
+        </p>
+
+        <ul>
+          <li>personale autorizzato dal titolare;</li>
+          <li>fornitori di servizi informatici e assistenza tecnica;</li>
+          <li>professionisti e consulenti;</li>
+          <li>autorità pubbliche, nei casi previsti dalla legge.</li>
+        </ul>
+
+        <p>
+          I soggetti esterni che trattano dati personali per conto
+          del titolare sono designati responsabili del trattamento
+          ai sensi dell'art. 28 GDPR quando ne ricorrono i presupposti.
+          Altri fornitori possono invece operare come autonomi
+          titolari del trattamento, secondo i rispettivi ruoli
+          e le condizioni dei servizi utilizzati.
+        </p>
+
+        <h3>6. Collegamenti a servizi e piattaforme esterne</h3>
+
+        <p>
+          Il sito contiene collegamenti a servizi e piattaforme
+          esterne, tra cui WhatsApp, Facebook, Instagram e
+          LiveTicket.
+        </p>
+
+        <p>
+          La semplice presenza di un collegamento non comporta,
+          di per sé, che il sito incorpori o carichi automaticamente
+          contenuti dalla piattaforma di destinazione.
+          Quando l'utente seleziona un collegamento, viene
+          indirizzato al relativo servizio esterno.
+        </p>
+
+        <p>
+          Da quel momento, il trattamento dei dati effettuato
+          dalla piattaforma di destinazione è disciplinato
+          dalle informative e dalle condizioni del relativo
+          fornitore.
+        </p>
+
+        <p>
+          In particolare, eventuali acquisti o prenotazioni
+          effettuati tramite LiveTicket sono gestiti attraverso
+          la piattaforma esterna, secondo le condizioni e
+          l'informativa applicabili a tale servizio.
+        </p>
+
+        <h3>7. WhatsApp: chat, gruppi e canali</h3>
+
+        <p>
+          Il sito contiene collegamenti che consentono all'utente
+          di contattare l'Auditorium tramite WhatsApp oppure
+          di accedere a gruppi o canali WhatsApp.
+        </p>
+
+        <p>
+          Se l'utente clicca su tali collegamenti, viene
+          indirizzato alla piattaforma WhatsApp, gestita
+          da Meta. L'utilizzo del servizio è soggetto alle
+          informative e alle condizioni stabilite da Meta
+          e WhatsApp.
+        </p>
+
+        <p>
+          Se l'utente avvia una conversazione con l'Auditorium,
+          il titolare può ricevere il numero di telefono,
+          il nome del profilo e il contenuto dei messaggi,
+          nella misura in cui tali informazioni siano rese
+          disponibili dal servizio. I dati sono utilizzati
+          per gestire e rispondere alla comunicazione.
+        </p>
+
+        <p>
+          <strong>Attenzione ai gruppi WhatsApp:</strong>
+          partecipando a un gruppo, il numero di telefono,
+          il nome del profilo e altre informazioni rese
+          visibili dalle impostazioni dell'account possono
+          essere visualizzati dagli altri partecipanti,
+          secondo le funzionalità e le impostazioni di WhatsApp.
+          L'utente è invitato a valutare attentamente queste
+          informazioni prima di aderire.
+        </p>
+
+        <p>Informative ufficiali:</p>
+
+        <ul>
+          <li>
+            <a href="https://www.whatsapp.com/legal/privacy-policy-eea"
+               target="_blank" rel="noopener noreferrer">
+              Privacy Policy WhatsApp – Spazio Economico Europeo
+            </a>
+          </li>
+          <li>
+            <a href="https://www.whatsapp.com/legal/channels-privacy-policy-eea"
+               target="_blank" rel="noopener noreferrer">
+              Privacy Policy dei canali WhatsApp – Spazio Economico Europeo
+            </a>
+          </li>
+        </ul>
+
+        <h3>8. Trasferimento dei dati fuori dallo Spazio Economico Europeo</h3>
+
+        <p>
+          Alcuni fornitori dei servizi sopra indicati possono
+          trattare dati personali anche in Paesi situati al di
+          fuori dello Spazio Economico Europeo.
+        </p>
+
+        <p>
+          Qualora si verifichino trasferimenti di dati personali
+          verso Paesi terzi, questi dovranno avvenire nel rispetto
+          delle condizioni previste dagli articoli 44 e seguenti
+          del GDPR, ad esempio sulla base di una decisione di
+          adeguatezza della Commissione europea o di altre
+          garanzie previste dalla normativa applicabile.
+        </p>
+
+        <p>
+          Per conoscere le modalità e le garanzie adottate dai
+          singoli fornitori è possibile consultare le rispettive
+          informative sulla privacy.
+        </p>
+
+        <h3>9. Periodo di conservazione dei dati</h3>
+
+        <p>
+          I dati personali sono conservati per un periodo
+          non superiore a quello necessario al conseguimento
+          delle finalità per cui sono raccolti, tenendo conto
+          degli obblighi normativi e delle esigenze di tutela
+          dei diritti del titolare.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Dati tecnici di navigazione:</strong>
+            sono conservati secondo le politiche e i tempi
+            stabiliti dal fornitore di hosting e dagli eventuali
+            servizi tecnici coinvolti, per finalità di
+            funzionamento e sicurezza.
+          </li>
+
+          <li>
+            <strong>Comunicazioni email e WhatsApp:</strong>
+            sono conservate per il tempo necessario a gestire
+            la richiesta e gli eventuali adempimenti successivi,
+            salvo ulteriori obblighi di legge o esigenze di
+            tutela dei diritti del titolare.
+          </li>
+
+          <li>
+            <strong>Dati amministrativi, contabili o legali:</strong>
+            sono conservati per i termini previsti dalla
+            normativa applicabile.
+          </li>
+        </ul>
+
+        <h3>10. Natura del conferimento dei dati</h3>
+
+        <p>
+          La navigazione del sito non richiede all'utente
+          l'inserimento di dati personali.
+        </p>
+
+        <p>
+          L'utente decide liberamente se contattare il titolare
+          tramite email, telefono o WhatsApp.
+          Il conferimento dei dati necessari a gestire la
+          comunicazione è facoltativo, ma il mancato invio
+          delle informazioni indispensabili può rendere
+          impossibile rispondere alla richiesta.
+        </p>
+
+        <h3>11. Cookie, memoria locale e strumenti di tracciamento</h3>
+
+        <p>
+          In base all'esame dei file del sito attualmente
+          disponibili, non risultano implementati strumenti
+          di profilazione pubblicitaria o di analisi statistica
+          del traffico quali Meta Pixel, Google Analytics
+          o Google Tag Manager.
+        </p>
+
+        <p>
+          Il titolare non utilizza intenzionalmente cookie
+          propri di profilazione o pubblicitari.
+          Nei file esaminati non risulta codice che imposti
+          direttamente cookie HTTP propri per finalità
+          di profilazione o tracciamento.
+        </p>
+
+        <p>
+          Il sito utilizza la memoria locale del browser
+          (<code>localStorage</code>) per ricordare la scelta
+          effettuata dall'utente nell'avviso relativo alla
+          privacy e ai cookie.
+        </p>
+
+        <p>
+          Tale informazione viene memorizzata nel browser
+          dell'utente e non costituisce, tecnicamente,
+          un cookie HTTP. Questa funzionalità viene utilizzata
+          per ricordare la scelta dell'utente e non per
+          finalità pubblicitarie o di profilazione.
+        </p>
+
+        <p>
+          Il caricamento di risorse esterne, come Google Sheets
+          e jsDelivr, comporta richieste ai rispettivi server
+          e può determinare il trattamento di dati tecnici
+          di connessione da parte dei fornitori.
+          L'eventuale utilizzo di cookie o di altre tecnologie
+          da parte di tali soggetti è disciplinato dalle
+          rispettive informative e configurazioni.
+        </p>
+
+        <p>
+          I collegamenti a WhatsApp, Facebook, Instagram
+          e LiveTicket sono collegamenti esterni: in assenza
+          di contenuti incorporati, la semplice visualizzazione
+          del collegamento non equivale all'accesso alla
+          piattaforma esterna.
+        </p>
+
+        <p>
+          Gli eventuali cookie e strumenti strettamente
+          necessari alla trasmissione della comunicazione
+          o all'erogazione di un servizio esplicitamente
+          richiesto dall'utente possono essere utilizzati
+          nei limiti previsti dalla normativa, senza
+          necessità di consenso preventivo, fermo restando
+          l'obbligo di fornire adeguata informativa.
+        </p>
+
+        <p>
+          Qualora vengano introdotti in futuro cookie o
+          altri strumenti di tracciamento non necessari,
+          il sito sarà aggiornato e verranno adottate le
+          misure informative e di acquisizione del consenso
+          eventualmente richieste dalla normativa vigente.
+        </p>
+
+        <h3>12. Diritti dell'interessato</h3>
+
+        <p>
+          Ai sensi degli articoli 15-22 del GDPR, l'interessato
+          può esercitare, nei limiti e alle condizioni previste
+          dalla normativa, i seguenti diritti:
+        </p>
+
+        <ul>
+          <li>diritto di accesso ai propri dati personali;</li>
+          <li>diritto di rettifica dei dati inesatti o incompleti;</li>
+          <li>diritto alla cancellazione dei dati, nei casi previsti;</li>
+          <li>diritto alla limitazione del trattamento;</li>
+          <li>diritto alla portabilità dei dati, ove applicabile;</li>
+          <li>diritto di opposizione al trattamento, nei casi previsti;</li>
+          <li>
+            diritto di non essere sottoposto a una decisione
+            basata unicamente su un trattamento automatizzato,
+            compresa la profilazione, nei casi previsti dall'art. 22 GDPR.
+          </li>
+        </ul>
+
+        <p>
+          Per esercitare i propri diritti è possibile contattare
+          il titolare del trattamento:
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:info@pioveneauditorium.it">
+            info@pioveneauditorium.it
+          </a><br>
+          PEC:
+          <a href="mailto:dedalofurioso@pec.confcooperative.it">
+            dedalofurioso@pec.confcooperative.it
+          </a>
+        </p>
+
+        <p>
+          L'interessato ha inoltre diritto di proporre reclamo
+          al Garante per la protezione dei dati personali,
+          qualora ritenga che il trattamento dei propri dati
+          violi la normativa applicabile.
+        </p>
+
+        <p>
+          Sito ufficiale:
+          <a href="https://www.garanteprivacy.it/"
+             target="_blank" rel="noopener noreferrer">
+            www.garanteprivacy.it
+          </a>.
+        </p>
+
+        <h3>13. Modifiche all'informativa</h3>
+
+        <p>
+          Il titolare si riserva di aggiornare la presente
+          informativa in caso di modifiche normative, tecniche
+          o organizzative che incidano sul trattamento dei
+          dati personali o sui servizi utilizzati dal sito.
+        </p>
+
+        <p>
+          La versione aggiornata sarà pubblicata su questa
+          pagina. Si invita pertanto l'utente a consultarla
+          periodicamente.
+        </p>
+
+        <p>
+          <strong>Ultimo aggiornamento:</strong> 9 novembre 2026
+        </p>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- ENGLISH VERSION -->
+      <!-- ========================= -->
+
+      <div id="privacy-en" class="hidden">
+
+        <h2>Privacy Policy</h2>
+
+        <p>
+          This Privacy Policy explains how personal data are
+          processed when users visit
+          <a href="https://pioveneauditorium.it">pioveneauditorium.it</a>
+          and use the services and links available on the website.
+        </p>
+
+        <p>
+          This notice is provided pursuant to Articles 12, 13
+          and 14 of Regulation (EU) 2016/679 (General Data
+          Protection Regulation – GDPR) and applicable
+          Italian data protection legislation.
+        </p>
+
+        <h3>1. Data Controller</h3>
+
+        <p>
+          The Data Controller is:
+        </p>
+
+        <p>
+          <strong>Dedalofurioso Soc. Coop.</strong><br>
+          Via San Francesco 24<br>
+          36031 Dueville (VI), Italy<br>
+          VAT / Tax Code: 03072080249<br>
+          Email:
+          <a href="mailto:info@pioveneauditorium.it">
+            info@pioveneauditorium.it
+          </a><br>
+          PEC:
+          <a href="mailto:dedalofurioso@pec.confcooperative.it">
+            dedalofurioso@pec.confcooperative.it
+          </a>
+        </p>
+
+        <h3>2. Categories of Personal Data Processed</h3>
+
+        <p>
+          Depending on how users browse and use the website,
+          the following categories of personal data may be processed:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Technical browsing data:</strong>
+            IP address, browser and device information, date
+            and time of requests, requested resources, pages
+            visited and other technical data automatically
+            transmitted during communication between the
+            user's device and the servers providing website content.
+          </li>
+
+          <li>
+            <strong>Contact data:</strong>
+            name, email address, telephone number and other
+            information voluntarily provided through emails,
+            telephone calls or WhatsApp messages.
+          </li>
+
+          <li>
+            <strong>Communication content:</strong>
+            information, requests and content included in
+            messages sent to the Data Controller.
+          </li>
+
+          <li>
+            <strong>Data relating to external services:</strong>
+            technical information that may be transmitted
+            to third-party providers when the browser loads
+            external resources used by the website or when
+            users select links to external platforms.
+          </li>
+        </ul>
+
+        <p>
+          At present, the website does not provide its own
+          registration, subscription or direct personal
+          data collection forms. Communications with the
+          Data Controller take place through the contact
+          channels indicated on the website.
+        </p>
+
+        <h3>3. Purposes and Legal Bases</h3>
+
+        <p>
+          Personal data are processed for the following purposes:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Website operation and security:</strong>
+            delivering pages and content, handling server
+            requests, ensuring service availability and
+            preventing unauthorized access or malicious activity.
+            Legal basis: the legitimate interests of the Data
+            Controller in operating and securing the website
+            (Article 6(1)(f) GDPR).
+          </li>
+
+          <li>
+            <strong>Loading and displaying content:</strong>
+            making event information available and providing
+            the technical resources required for website
+            functionality. Legal basis: the legitimate
+            interests of the Data Controller in providing
+            the content requested by users (Article 6(1)(f) GDPR).
+          </li>
+
+          <li>
+            <strong>Handling information requests:</strong>
+            responding to emails, telephone calls and
+            messages received from users. Legal basis:
+            pre-contractual measures requested by the data
+            subject, where applicable (Article 6(1)(b) GDPR),
+            or the legitimate interests of the Data Controller
+            in managing communications (Article 6(1)(f) GDPR).
+          </li>
+
+          <li>
+            <strong>Legal obligations:</strong>
+            compliance with legal requirements.
+            Legal basis: compliance with a legal obligation
+            (Article 6(1)(c) GDPR).
+          </li>
+        </ul>
+
+        <h3>4. Processing Methods and Security Measures</h3>
+
+        <p>
+          Personal data are processed using electronic and
+          IT systems in accordance with the principles of
+          lawfulness, fairness, transparency, data minimization,
+          purpose limitation and security.
+        </p>
+
+        <p>
+          The Data Controller adopts appropriate technical
+          and organizational measures, taking into account
+          the nature of the data and the risks involved,
+          to protect personal data against unauthorized
+          access, loss, disclosure or unlawful use.
+        </p>
+
+        <h3>5. Hosting and Third-Party Services</h3>
+
+        <p>
+          The website is published through
+          <strong>GitHub Pages</strong>, a static hosting
+          service provided by GitHub.
+        </p>
+
+        <p>
+          When users visit the website, the hosting provider
+          may process technical connection data, including
+          IP addresses and information relating to browser
+          requests, for purposes connected with the provision,
+          maintenance and security of the service.
+        </p>
+
+        <p>
+          Further information about GitHub's data processing
+          is available in its:
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+             target="_blank" rel="noopener noreferrer">
+            Privacy Statement
+          </a>.
+        </p>
+
+        <p>
+          The website also uses certain external services
+          to provide content and functionality:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Google Sheets:</strong>
+            some event information is loaded from a document
+            published through Google Sheets. To retrieve
+            this content, the user's browser sends requests
+            to Google's servers. Technical data, such as
+            the IP address and information required for
+            communication, may be transmitted.
+            Further information:
+            <a href="https://policies.google.com/privacy"
+               target="_blank" rel="noopener noreferrer">
+              Google Privacy Policy
+            </a>.
+          </li>
+
+          <li>
+            <strong>jsDelivr:</strong>
+            the website loads the PapaParse JavaScript
+            library through the jsDelivr CDN service.
+            This requires the browser to send a request
+            to the service's servers, which may receive
+            the IP address and technical connection data.
+            Further information:
+            <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net"
+               target="_blank" rel="noopener noreferrer">
+              jsDelivr Privacy Policy
+            </a>.
+          </li>
+        </ul>
+
+        <p>
+          These services are contacted automatically when
+          the browser requests the relevant resources.
+          The processing carried out by each provider is
+          governed by its own privacy policies and terms.
+        </p>
+
+        <p>
+          Where necessary and within their respective
+          responsibilities, personal data may also be
+          disclosed to:
+        </p>
+
+        <ul>
+          <li>personnel authorized by the Data Controller;</li>
+          <li>IT service and technical support providers;</li>
+          <li>professional advisers and consultants;</li>
+          <li>public authorities where required by law.</li>
+        </ul>
+
+        <p>
+          External entities processing personal data on
+          behalf of the Data Controller are appointed as
+          data processors under Article 28 GDPR where
+          applicable. Other providers may act as independent
+          data controllers, depending on their respective
+          roles and service terms.
+        </p>
+
+        <h3>6. Links to External Services and Platforms</h3>
+
+        <p>
+          The website contains links to external services
+          and platforms, including WhatsApp, Facebook,
+          Instagram and LiveTicket.
+        </p>
+
+        <p>
+          The mere presence of a link does not, by itself,
+          mean that the website embeds or automatically
+          loads content from the destination platform.
+          When users select an external link, they are
+          redirected to the relevant service.
+        </p>
+
+        <p>
+          From that point onwards, data processing carried
+          out by the destination platform is governed by
+          its own privacy policies and terms of service.
+        </p>
+
+        <p>
+          In particular, purchases or bookings made through
+          LiveTicket are handled through that external
+          platform, subject to its applicable terms and
+          privacy policy.
+        </p>
+
+        <h3>7. WhatsApp: Chats, Groups and Channels</h3>
+
+        <p>
+          The website contains links allowing users to
+          contact the Auditorium through WhatsApp or
+          access WhatsApp groups or channels.
+        </p>
+
+        <p>
+          By selecting these links, users are redirected
+          to WhatsApp, a platform operated by Meta.
+          Use of the service is subject to the privacy
+          policies and terms established by Meta and WhatsApp.
+        </p>
+
+        <p>
+          If a user starts a conversation with the Auditorium,
+          the Data Controller may receive the user's telephone
+          number, profile name and message content, to the
+          extent that such information is made available
+          by the service. This information is used to
+          manage and respond to the communication.
+        </p>
+
+        <p>
+          <strong>Important information about WhatsApp groups:</strong>
+          when joining a group, a user's telephone number,
+          profile name and other information made visible
+          through account settings may be visible to other
+          participants, depending on WhatsApp's features
+          and settings. Users are advised to consider this
+          information carefully before joining.
+        </p>
+
+        <p>Official privacy policies:</p>
+
+        <ul>
+          <li>
+            <a href="https://www.whatsapp.com/legal/privacy-policy-eea"
+               target="_blank" rel="noopener noreferrer">
+              WhatsApp Privacy Policy – European Economic Area
+            </a>
+          </li>
+          <li>
+            <a href="https://www.whatsapp.com/legal/channels-privacy-policy-eea"
+               target="_blank" rel="noopener noreferrer">
+              WhatsApp Channels Privacy Policy – European Economic Area
+            </a>
+          </li>
+        </ul>
+
+        <h3>8. Transfers Outside the European Economic Area</h3>
+
+        <p>
+          Some providers of the services mentioned above
+          may process personal data in countries outside
+          the European Economic Area.
+        </p>
+
+        <p>
+          Where personal data are transferred to third
+          countries, such transfers must comply with
+          Articles 44 et seq. of the GDPR, for example
+          on the basis of an adequacy decision by the
+          European Commission or other safeguards
+          provided for by applicable law.
+        </p>
+
+        <p>
+          Users may consult the relevant providers'
+          privacy policies for information about the
+          arrangements and safeguards they apply.
+        </p>
+
+        <h3>9. Data Retention Period</h3>
+
+        <p>
+          Personal data are retained for no longer than
+          necessary to fulfil the purposes for which
+          they were collected, taking into account
+          legal obligations and the Data Controller's
+          need to protect its rights.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Technical browsing data:</strong>
+            retained according to the policies and
+            retention periods established by the hosting
+            provider and any relevant technical services,
+            for operational and security purposes.
+          </li>
+
+          <li>
+            <strong>Email and WhatsApp communications:</strong>
+            retained for the time necessary to handle
+            the request and any subsequent requirements,
+            subject to further legal obligations or the
+            need to protect the Data Controller's rights.
+          </li>
+
+          <li>
+            <strong>Administrative, accounting or legal data:</strong>
+            retained for the periods required by applicable law.
+          </li>
+        </ul>
+
+        <h3>10. Provision of Personal Data</h3>
+
+        <p>
+          Browsing the website does not require users
+          to enter personal data.
+        </p>
+
+        <p>
+          Users freely decide whether to contact the
+          Data Controller by email, telephone or WhatsApp.
+          Providing the information necessary to handle
+          a communication is voluntary, but failure to
+          provide essential information may make it
+          impossible to respond to the request.
+        </p>
+
+        <h3>11. Cookies, Local Storage and Tracking Technologies</h3>
+
+        <p>
+          Based on the examination of the website files
+          currently available, no advertising profiling
+          or website traffic analytics tools such as
+          Meta Pixel, Google Analytics or Google Tag
+          Manager have been identified.
+        </p>
+
+        <p>
+          The Data Controller does not intentionally
+          use its own profiling or advertising cookies.
+          No code directly setting first-party HTTP
+          cookies for profiling or tracking purposes
+          has been identified in the files examined.
+        </p>
+
+        <p>
+          The website uses the browser's local storage
+          (<code>localStorage</code>) to remember the
+          user's choice relating to the privacy and
+          cookies notice.
+        </p>
+
+        <p>
+          This information is stored in the user's
+          browser and is technically different from
+          an HTTP cookie. This functionality is used
+          to remember the user's choice and is not
+          intended for advertising or profiling purposes.
+        </p>
+
+        <p>
+          Loading external resources, such as Google
+          Sheets and jsDelivr, involves requests to
+          the relevant servers and may result in the
+          processing of technical connection data
+          by those providers. Any use of cookies or
+          other technologies by those providers is
+          governed by their respective privacy policies
+          and configurations.
+        </p>
+
+        <p>
+          Links to WhatsApp, Facebook, Instagram and
+          LiveTicket are external links. Where no
+          embedded content is present, merely displaying
+          a link does not amount to accessing the
+          external platform.
+        </p>
+
+        <p>
+          Cookies and tools that are strictly necessary
+          for the transmission of a communication or
+          the provision of a service explicitly requested
+          by the user may be used within the limits
+          established by applicable law, without prior
+          consent, while still providing appropriate
+          information.
+        </p>
+
+        <p>
+          If non-essential cookies or other tracking
+          technologies are introduced in the future,
+          the website will be updated and the information
+          and consent measures required by applicable
+          law will be implemented.
+        </p>
+
+        <h3>12. Data Subject Rights</h3>
+
+        <p>
+          Under Articles 15-22 of the GDPR, data subjects
+          may exercise the following rights, subject
+          to the conditions and limitations established
+          by applicable law:
+        </p>
+
+        <ul>
+          <li>right of access to personal data;</li>
+          <li>right to rectification of inaccurate or incomplete data;</li>
+          <li>right to erasure, where applicable;</li>
+          <li>right to restriction of processing;</li>
+          <li>right to data portability, where applicable;</li>
+          <li>right to object to processing, where applicable;</li>
+          <li>
+            right not to be subject to a decision based
+            solely on automated processing, including
+            profiling, in the cases provided for by
+            Article 22 GDPR.
+          </li>
+        </ul>
+
+        <p>
+          To exercise these rights, users may contact
+          the Data Controller:
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:info@pioveneauditorium.it">
+            info@pioveneauditorium.it
+          </a><br>
+          PEC:
+          <a href="mailto:dedalofurioso@pec.confcooperative.it">
+            dedalofurioso@pec.confcooperative.it
+          </a>
+        </p>
+
+        <p>
+          Data subjects also have the right to lodge
+          a complaint with the Italian Data Protection
+          Authority if they believe that the processing
+          of their personal data infringes applicable law.
+        </p>
+
+        <p>
+          Official website:
+          <a href="https://www.garanteprivacy.it/"
+             target="_blank" rel="noopener noreferrer">
+            www.garanteprivacy.it
+          </a>.
+        </p>
+
+        <h3>13. Changes to This Privacy Policy</h3>
+
+        <p>
+          The Data Controller reserves the right to
+          update this Privacy Policy in the event of
+          legal, technical or organizational changes
+          affecting personal data processing or the
+          services used by the website.
+        </p>
+
+        <p>
+          The updated version will be published on
+          this page. Users are therefore invited to
+          consult it periodically.
+        </p>
+
+        <p>
+          <strong>Last updated:</strong> November 9, 2026
+        </p>
+
       </div>
 
     </div>
@@ -150,21 +1259,48 @@
 <div id="footer-container"></div>
 
 <script src="script.js" defer></script>
+
 <script>
-  // Multilingua
-  document.addEventListener('DOMContentLoaded',()=>{
-    const btnIt=document.getElementById('btn-it'),
-          btnEn=document.getElementById('btn-en'),
-          privacyIt=document.getElementById('privacy-it'),
-          privacyEn=document.getElementById('privacy-en');
+  document.addEventListener('DOMContentLoaded', function () {
 
-    function showIt(){privacyIt.classList.remove('hidden');privacyEn.classList.add('hidden');btnIt.classList.add('active');btnEn.classList.remove('active');}
-    function showEn(){privacyIt.classList.add('hidden');privacyEn.classList.remove('hidden');btnEn.classList.add('active');btnIt.classList.remove('active');}
+    const btnIt = document.getElementById('btn-it');
+    const btnEn = document.getElementById('btn-en');
 
-    btnIt.addEventListener('click',showIt);
-    btnEn.addEventListener('click',showEn);
+    const privacyIt = document.getElementById('privacy-it');
+    const privacyEn = document.getElementById('privacy-en');
+
+    function showIt() {
+      privacyIt.classList.remove('hidden');
+      privacyEn.classList.add('hidden');
+
+      btnIt.classList.add('active');
+      btnEn.classList.remove('active');
+
+      btnIt.setAttribute('aria-pressed', 'true');
+      btnEn.setAttribute('aria-pressed', 'false');
+
+      document.documentElement.lang = 'it';
+    }
+
+    function showEn() {
+      privacyIt.classList.add('hidden');
+      privacyEn.classList.remove('hidden');
+
+      btnEn.classList.add('active');
+      btnIt.classList.remove('active');
+
+      btnEn.setAttribute('aria-pressed', 'true');
+      btnIt.setAttribute('aria-pressed', 'false');
+
+      document.documentElement.lang = 'en';
+    }
+
+    btnIt.addEventListener('click', showIt);
+    btnEn.addEventListener('click', showEn);
+
     showIt();
   });
 </script>
+
 </body>
 </html>
