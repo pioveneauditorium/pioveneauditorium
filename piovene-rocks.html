@@ -12,37 +12,37 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pioveneauditorium.it/piovene-rocks">
 
-  <!-- Favicon -->
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://pioveneauditorium.it/img/favicon_centered_32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://pioveneauditorium.it/img/favicon_centered_16x16.png">
   <link rel="shortcut icon" href="https://pioveneauditorium.it/img/favicon_centered.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="https://pioveneauditorium.it/img/favicon_centered_180x180.png">
 
-  <!-- Open Graph -->
+  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pioveneauditorium.it/piovene-rocks">
   <meta property="og:title" content="Piovene Rocks! – Prima edizione 2027">
   <meta property="og:description" content="Il palco aspetta nuovi talenti! Candidati gratuitamente al concorso musicale Piovene Rocks.">
   <meta property="og:image" content="https://pioveneauditorium.it/img/piovene-rocks1.jpg">
 
-  <!-- Twitter -->
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Piovene Rocks! – Concorso musicale 2027">
   <meta name="twitter:description" content="Otto partecipanti, una giuria qualificata e un premio speciale. Candidature gratuite!">
   <meta name="twitter:image" content="https://pioveneauditorium.it/img/piovene-rocks1.jpg">
 
-  <!-- Google Fonts -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS principale del sito -->
+  <!-- CSS PRINCIPALE -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Dati strutturati -->
+  <!-- DATI STRUTTURATI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,7 +95,7 @@
       padding: 15px 0 50px;
     }
 
-    .pr-eyebrow {
+    .pr-hero-eyebrow {
       display: inline-block;
       color: #000;
       background: var(--pr-yellow);
@@ -176,7 +176,7 @@
       box-shadow: 0 8px 25px rgba(253,216,53,0.35);
     }
 
-    /* AVVISO CANDIDATURE */
+    /* STATO CANDIDATURE */
 
     .pr-status {
       max-width: 850px;
@@ -200,10 +200,10 @@
       line-height: 1.7;
     }
 
-    .pr-status .pr-status-label {
+    .pr-status-label {
       display: inline-block;
       color: #fff;
-      background: #b3261e;
+      background: #287a42;
       padding: 6px 12px;
       border-radius: 5px;
       font-weight: 900;
@@ -372,7 +372,7 @@
       text-align: center;
     }
 
-    .pr-round .pr-round-number {
+    .pr-round-number {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -441,7 +441,7 @@
       transform: scale(1.02);
     }
 
-    /* ISCRIZIONE */
+    /* REGISTRAZIONE */
 
     .pr-registration {
       background: linear-gradient(145deg, rgba(35,35,35,0.97), rgba(8,8,8,0.97));
@@ -452,14 +452,14 @@
       box-shadow: 0 10px 35px rgba(0,0,0,0.5);
     }
 
-    .pr-registration h2 {
+    .pr-registration > h2 {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(1.8rem,4vw,2.5rem);
       color: var(--pr-yellow);
       margin-bottom: 15px;
     }
 
-    .pr-registration p {
+    .pr-registration > p {
       color: #eee;
       font-size: 1.05rem;
       line-height: 1.8;
@@ -467,22 +467,221 @@
       margin: 0 auto 20px;
     }
 
-    .pr-registration .pr-coming {
-      display: inline-block;
-      background: #333;
-      border: 1px solid var(--pr-yellow);
-      color: var(--pr-yellow);
-      font-weight: 900;
-      letter-spacing: 1px;
-      border-radius: 8px;
-      padding: 13px 18px;
-      margin: 10px auto;
-    }
-
     .pr-registration small {
       display: block;
       color: #aaa;
       margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    /* =====================================
+       MODULO CANDIDATURA
+       CSS ISOLATO DAL RESTO DELLA PAGINA
+    ===================================== */
+
+    .pr-form-wrap {
+      width: 100%;
+      max-width: 760px;
+      margin: 35px auto;
+      padding: 35px;
+      background: #ffffff;
+      border-radius: 12px;
+      color: #222222;
+      font-family: 'Roboto', Arial, sans-serif;
+      text-align: left;
+    }
+
+    .pr-form-wrap * {
+      box-sizing: border-box;
+    }
+
+    .pr-form-heading {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .pr-form-eyebrow {
+      display: block;
+      color: #b52b2b;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .pr-form-wrap .pr-form-heading h2 {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: clamp(25px, 4vw, 34px);
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: #171717;
+      text-shadow: none;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .pr-form-wrap .pr-form-heading p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #555555;
+      max-width: none;
+      margin: 0 0 12px;
+    }
+
+    .pr-form-wrap .pr-form-heading .pr-required {
+      font-size: 12px;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    .pr-field {
+      margin-bottom: 23px;
+    }
+
+    .pr-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 9px;
+      color: #222222;
+    }
+
+    .pr-field input,
+    .pr-field textarea {
+      display: block;
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #d6d6d6;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #222222;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .pr-field input:focus,
+    .pr-field textarea:focus {
+      outline: none;
+      border-color: #b52b2b;
+      box-shadow: 0 0 0 3px rgba(181,43,43,.10);
+    }
+
+    .pr-field input::placeholder,
+    .pr-field textarea::placeholder {
+      color: #999999;
+      opacity: 1;
+    }
+
+    .pr-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .pr-field small {
+      display: block;
+      margin-top: 8px;
+      color: #777777;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* PRIVACY */
+
+    .pr-privacy {
+      margin: 30px 0 25px;
+      padding: 18px;
+      background: #f6f6f6;
+      border-radius: 7px;
+    }
+
+    .pr-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #222;
+      cursor: pointer;
+    }
+
+    .pr-check input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: #b52b2b;
+    }
+
+    .pr-form-wrap .pr-check a {
+      color: #b52b2b;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* PULSANTE */
+
+    #pr-submit {
+      display: block;
+      width: 100%;
+      padding: 17px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #b52b2b;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background .2s, opacity .2s;
+    }
+
+    #pr-submit:hover:not(:disabled) {
+      background: #8e1e1e;
+    }
+
+    #pr-submit:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    #pr-submit:focus-visible {
+      outline: 3px solid #222222;
+      outline-offset: 3px;
+    }
+
+    /* MESSAGGI */
+
+    #pr-message {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    #pr-message.success {
+      padding: 15px;
+      background: #eaf6ed;
+      color: #205b30;
+      border-radius: 6px;
+    }
+
+    #pr-message.error {
+      padding: 15px;
+      background: #fff0f0;
+      color: #a32020;
+      border-radius: 6px;
+    }
+
+    /* HONEYPOT */
+
+    .pr-honeypot {
+      position: absolute !important;
+      left: -10000px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
     }
 
     /* FAQ */
@@ -548,7 +747,7 @@
       color: var(--pr-yellow);
     }
 
-    /* NOTA AGGIORNAMENTO */
+    /* AGGIORNAMENTO */
 
     .pr-update {
       text-align: center;
@@ -560,6 +759,7 @@
     /* MOBILE */
 
     @media(max-width:768px) {
+
       .pr-container {
         padding: 0 15px;
       }
@@ -625,6 +825,15 @@
       .pr-faq details p {
         padding: 0 16px 18px;
       }
+
+      .pr-form-wrap {
+        padding: 22px 17px;
+        margin: 20px auto;
+      }
+
+      .pr-field {
+        margin-bottom: 20px;
+      }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -640,7 +849,7 @@
 
 <body>
 
-<!-- HEADER DINAMICO DEL SITO -->
+<!-- HEADER DINAMICO -->
 <div id="header-container"></div>
 
 <main class="pr-page">
@@ -651,7 +860,7 @@
 
     <section class="pr-hero">
 
-      <div class="pr-eyebrow">
+      <div class="pr-hero-eyebrow">
         <i class="fas fa-guitar"></i>
         Prima edizione · Primavera 2027
       </div>
@@ -674,16 +883,17 @@
 
       <a href="#pr-candidature" class="pr-cta">
         <i class="fas fa-microphone-alt"></i>
-        Scopri come partecipare
+        Candidati subito
       </a>
 
       <div class="pr-status">
+
         <span class="pr-status-label">
-          <i class="fas fa-bullhorn"></i>
-          ATTENZIONE
+          <i class="fas fa-check-circle"></i>
+          CANDIDATURE APERTE
         </span>
 
-        <h2>STIAMO RACCOGLIENDO LE ADESIONI!</h2>
+        <h2>STIAMO CERCANDO NUOVI TALENTI!</h2>
 
         <p>
           Hai talento, passione e voglia di salire sul palco?
@@ -691,8 +901,9 @@
           per la sua prima edizione!
           <br>
           <strong>La candidatura è gratuita.</strong>
-          Il modulo ufficiale sarà disponibile a breve su questa pagina.
+          Compila il modulo ufficiale direttamente su questa pagina.
         </p>
+
       </div>
 
     </section>
@@ -752,6 +963,7 @@
       <div class="pr-grid">
 
         <article class="pr-card">
+
           <div class="pr-card-icon">
             <i class="fas fa-user-check"></i>
           </div>
@@ -765,9 +977,11 @@
             La selezione presterà comunque particolare attenzione
             ai talenti più giovani.
           </p>
+
         </article>
 
         <article class="pr-card">
+
           <div class="pr-card-icon">
             <i class="fas fa-users"></i>
           </div>
@@ -780,6 +994,7 @@
             Se hai qualcosa da far ascoltare, questo è il
             tuo momento!
           </p>
+
         </article>
 
       </div>
@@ -972,7 +1187,7 @@
     </section>
 
 
-    <!-- ================= SECONDA IMMAGINE ================= -->
+    <!-- ================= GALLERIA ================= -->
 
     <section class="pr-section">
 
@@ -1007,516 +1222,245 @@
 
         <p>
           Se sei maggiorenne e vuoi partecipare a Piovene Rocks,
-          preparati a presentare la tua candidatura!
-          <br><br>
-
-<!-- =====================================================
-     PIOVENE ROCKS! - MODULO DI CANDIDATURA
-     Collegamento Formspree: xrpqrjby
-===================================================== -->
-
-<div class="pr-form-wrap">
-
-  <div class="pr-form-heading">
-    <span class="pr-eyebrow">PRIMA EDIZIONE · PRIMAVERA 2027</span>
-    <h2>Presenta la tua candidatura!</h2>
-    <p>Compila il modulo e raccontaci il tuo progetto musicale. La candidatura è gratuita.</p>
-    <p class="pr-required">* Campi obbligatori</p>
-  </div>
-
-  <form id="piovene-rocks-form"
-        action="https://formspree.io/f/xrpqrjby"
-        method="POST">
-
-    <input type="hidden" name="_subject"
-           value="Nuova candidatura - Piovene Rocks!">
-
-    <!-- Honeypot antispam -->
-    <div class="pr-honeypot" aria-hidden="true">
-      <label for="pr-website">Non compilare questo campo</label>
-      <input type="text" id="pr-website" name="_gotcha"
-             tabindex="-1" autocomplete="off">
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-name">Nome e cognome *</label>
-      <input type="text" id="pr-name" name="nome_cognome"
-             placeholder="Inserisci nome e cognome"
-             autocomplete="name" required>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-birth">Data di nascita *</label>
-      <input type="text" id="pr-birth" name="data_di_nascita"
-             placeholder="GG/MM/AAAA"
-             inputmode="numeric"
-             maxlength="10"
-             pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}"
-             title="Inserisci la data nel formato GG/MM/AAAA"
-             required>
-      <small>Per partecipare è necessario aver compiuto 18 anni.</small>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-email">Indirizzo email *</label>
-      <input type="email" id="pr-email" name="email"
-             placeholder="nome@dominio.it"
-             autocomplete="email" required>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-type">Tipologia artista *</label>
-      <input type="text" id="pr-type" name="tipologia_artista"
-             placeholder="Es. cantante solista, duo acustico, band rock..."
-             required>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-stage">Nome d'arte / Nome del gruppo</label>
-      <input type="text" id="pr-stage" name="nome_arte"
-             placeholder="Inserisci il nome del tuo progetto musicale">
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-presentation">Presentazione artistica *</label>
-      <textarea id="pr-presentation" name="presentazione_artistica"
-                rows="5" maxlength="1000"
-                placeholder="Raccontaci il tuo percorso musicale, il tuo stile e il tuo progetto artistico..."
-                required></textarea>
-      <small>Massimo 1.000 caratteri.</small>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-link">Link al tuo brano originale *</label>
-      <input type="url" id="pr-link" name="link_brano_originale"
-             placeholder="https://..."
-             required>
-      <small>
-        Inserisci un link che permetta alla giuria di ascoltare o
-        guardare il tuo brano direttamente online.
-        Sono accettati YouTube, Vimeo, SoundCloud, Google Drive,
-        Dropbox e altre piattaforme.
-        Assicurati che il contenuto sia accessibile senza
-        richieste di autorizzazione o download obbligatori.
-      </small>
-    </div>
-
-    <div class="pr-field">
-      <label for="pr-tech">Esigenze tecniche</label>
-      <textarea id="pr-tech" name="esigenze_tecniche"
-                rows="4"
-                placeholder="Descrivi gli strumenti, le attrezzature e le eventuali esigenze tecniche per la tua esibizione..."></textarea>
-      <small>Campo facoltativo.</small>
-    </div>
-
-    <div class="pr-privacy">
-      <label class="pr-check">
-        <input type="checkbox" id="pr-privacy" name="presa_visione_privacy"
-               value="Sì" required>
-        <span>
-          Dichiaro di aver letto l'
-          <a href="https://pioveneauditorium.it/privacy.html"
-             target="_blank" rel="noopener">
-            informativa sulla privacy
-          </a>.
-        </span>
-      </label>
-    </div>
-
-    <button type="submit" id="pr-submit" disabled>
-      INVIA CANDIDATURA
-    </button>
-
-    <div id="pr-message" role="status" aria-live="polite"></div>
-
-  </form>
-</div>
-
-<style>
-/* CONTENITORE */
-.pr-form-wrap {
-  max-width: 760px;
-  margin: 35px auto;
-  padding: 35px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-sizing: border-box;
-  color: #222222;
-  font-family: inherit;
-}
-
-.pr-form-wrap * {
-  box-sizing: border-box;
-}
-
-.pr-form-heading {
-  margin-bottom: 30px;
-}
-
-.pr-eyebrow {
-  display: block;
-  color: #b52b2b;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
-.pr-form-heading h2 {
-  font-size: clamp(25px, 4vw, 34px);
-  font-weight: 800;
-  margin: 0 0 12px;
-  color: #171717;
-}
-
-.pr-form-heading p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555555;
-}
-
-.pr-form-heading .pr-required {
-  font-size: 12px;
-  margin-top: 20px;
-}
-
-/* CAMPI */
-.pr-field {
-  margin-bottom: 23px;
-}
-
-.pr-field label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 9px;
-  color: #222222;
-}
-
-.pr-field input,
-.pr-field textarea {
-  display: block;
-  width: 100%;
-  padding: 14px 15px;
-  border: 1px solid #d6d6d6;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #222222;
-  font-family: inherit;
-  font-size: 15px;
-  line-height: 1.5;
-  transition: border-color .2s, box-shadow .2s;
-}
-
-.pr-field input:focus,
-.pr-field textarea:focus {
-  outline: none;
-  border-color: #b52b2b;
-  box-shadow: 0 0 0 3px rgba(181,43,43,.10);
-}
-
-.pr-field input::placeholder,
-.pr-field textarea::placeholder {
-  color: #999999;
-  opacity: 1;
-}
-
-.pr-field textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.pr-field small {
-  display: block;
-  margin-top: 8px;
-  color: #777777;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* PRIVACY */
-.pr-privacy {
-  margin: 30px 0 25px;
-  padding: 18px;
-  background: #f6f6f6;
-  border-radius: 7px;
-}
-
-.pr-check {
-  display: flex;
-  align-items: flex-start;
-  gap: 11px;
-  font-size: 14px;
-  line-height: 1.6;
-  cursor: pointer;
-}
-
-.pr-check input {
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  flex-shrink: 0;
-  accent-color: #b52b2b;
-}
-
-.pr-check a {
-  color: #b52b2b;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-/* PULSANTE */
-#pr-submit {
-  display: block;
-  width: 100%;
-  padding: 17px 20px;
-  border: none;
-  border-radius: 6px;
-  background: #b52b2b;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: background .2s, opacity .2s;
-}
-
-#pr-submit:hover:not(:disabled) {
-  background: #8e1e1e;
-}
-
-#pr-submit:disabled {
-  opacity: .4;
-  cursor: not-allowed;
-}
-
-#pr-submit:focus-visible {
-  outline: 3px solid #222222;
-  outline-offset: 3px;
-}
-
-/* MESSAGGI */
-#pr-message {
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-#pr-message.success {
-  padding: 15px;
-  background: #eaf6ed;
-  color: #205b30;
-  border-radius: 6px;
-}
-
-#pr-message.error {
-  padding: 15px;
-  background: #fff0f0;
-  color: #a32020;
-  border-radius: 6px;
-}
-
-/* HONEYPOT */
-.pr-honeypot {
-  position: absolute !important;
-  left: -10000px !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
-}
-
-@media (max-width: 600px) {
-  .pr-form-wrap {
-    padding: 22px 17px;
-    margin: 20px auto;
-  }
-
-  .pr-field {
-    margin-bottom: 20px;
-  }
-}
-</style>
-
-<script>
-(function () {
-  const form = document.getElementById('piovene-rocks-form');
-  if (!form) return;
-
-  const privacy = document.getElementById('pr-privacy');
-  const submit = document.getElementById('pr-submit');
-  const message = document.getElementById('pr-message');
-  const birth = document.getElementById('pr-birth');
-
-  // Il pulsante si attiva solo dopo la presa visione privacy
-  privacy.addEventListener('change', function () {
-    submit.disabled = !privacy.checked;
-  });
-
-  // Controllo data e maggiore età
-  function validateBirthDate() {
-    const value = birth.value.trim();
-    const match = value.match(
-      /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([0-9]{4})$/
-    );
-
-    if (!match) {
-      birth.setCustomValidity(
-        'Inserisci una data valida nel formato GG/MM/AAAA.'
-      );
-      return false;
-    }
-
-    const day = Number(match[1]);
-    const month = Number(match[2]);
-    const year = Number(match[3]);
-
-    const date = new Date(year, month - 1, day);
-
-    if (
-      date.getFullYear() !== year ||
-      date.getMonth() !== month - 1 ||
-      date.getDate() !== day
-    ) {
-      birth.setCustomValidity('La data inserita non è valida.');
-      return false;
-    }
-
-    const today = new Date();
-    let age = today.getFullYear() - year;
-
-    if (
-      today.getMonth() < month - 1 ||
-      (today.getMonth() === month - 1 && today.getDate() < day)
-    ) {
-      age--;
-    }
-
-    if (date > today) {
-      birth.setCustomValidity('La data non può essere futura.');
-      return false;
-    }
-
-    if (age < 18) {
-      birth.setCustomValidity(
-        'Per partecipare a Piovene Rocks è necessario avere almeno 18 anni.'
-      );
-      return false;
-    }
-
-    birth.setCustomValidity('');
-    return true;
-  }
-
-  birth.addEventListener('input', function () {
-    birth.setCustomValidity('');
-  });
-
-  birth.addEventListener('blur', validateBirthDate);
-
-  // Invio tramite Formspree
-  form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    message.className = '';
-    message.textContent = '';
-
-    if (!form.reportValidity()) return;
-    if (!validateBirthDate()) {
-      birth.reportValidity();
-      return;
-    }
-
-    if (!privacy.checked) return;
-
-    // Se l'honeypot è compilato, non inviare
-    if (form.querySelector('[name="_gotcha"]').value !== '') {
-      return;
-    }
-
-    submit.disabled = true;
-    submit.textContent = 'INVIO IN CORSO...';
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        form.reset();
-        submit.disabled = true;
-        submit.textContent = 'INVIA CANDIDATURA';
-
-        message.className = 'success';
-        message.textContent =
-          'Grazie! La tua candidatura a Piovene Rocks è stata inviata correttamente.';
-
-        message.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-
-      } else {
-        const result = await response.json().catch(() => ({}));
-        throw new Error(
-          result.errors
-            ? result.errors.map(e => e.message).join(' ')
-            : 'Non è stato possibile inviare la candidatura.'
-        );
-      }
-
-    } catch (error) {
-      message.className = 'error';
-      message.textContent =
-        error.message || 'Errore di connessione. Riprova tra qualche minuto.';
-
-      submit.disabled = !privacy.checked;
-      submit.textContent = 'RIPROVA INVIO';
-    }
-  });
-})();
-</script>
-
+          presenta subito la tua candidatura!
         </p>
 
-        <div class="pr-coming">
-          <i class="fas fa-clock"></i>
-          MODULO DI ISCRIZIONE IN ARRIVO
-        </div>
+        <!-- MODULO FORMSPREE -->
 
-        <p>
-          Per candidarti ti chiederemo di indicare:
-        </p>
+        <div class="pr-form-wrap">
 
-        <div class="pr-grid" style="text-align:left; margin-top:20px;">
+          <div class="pr-form-heading">
 
-          <article class="pr-card">
-            <h3><i class="fas fa-user"></i> Informazioni artistiche</h3>
+            <span class="pr-form-eyebrow">
+              PRIMA EDIZIONE · PRIMAVERA 2027
+            </span>
+
+            <h2>Presenta la tua candidatura!</h2>
+
             <p>
-              Se canti, suoni uno strumento oppure fai parte
-              di un gruppo musicale.
+              Compila il modulo e raccontaci il tuo progetto musicale.
+              La candidatura è gratuita.
             </p>
-          </article>
 
-          <article class="pr-card">
-            <h3><i class="fas fa-sliders-h"></i> Esigenze tecniche</h3>
-            <p>
-              Gli strumenti e le attrezzature di cui disponi
-              e le eventuali esigenze tecniche per l'esibizione sul palco.
+            <p class="pr-required">
+              * Campi obbligatori
             </p>
-          </article>
 
-          <article class="pr-card" style="grid-column:1/-1;">
-            <h3><i class="fas fa-play-circle"></i> Un tuo brano originale</h3>
-            <p>
-              Dovrai condividere un link per ascoltare un tuo brano
-              originale. Potrai utilizzare YouTube, Google Drive
-              oppure WeTransfer.
-            </p>
-          </article>
+          </div>
+
+          <form id="piovene-rocks-form"
+                action="https://formspree.io/f/xrpqrjby"
+                method="POST">
+
+            <input type="hidden"
+                   name="_subject"
+                   value="Nuova candidatura - Piovene Rocks!">
+
+            <!-- HONEYPOT ANTISPAM -->
+
+            <div class="pr-honeypot" aria-hidden="true">
+              <label for="pr-website">
+                Non compilare questo campo
+              </label>
+
+              <input type="text"
+                     id="pr-website"
+                     name="_gotcha"
+                     tabindex="-1"
+                     autocomplete="off">
+            </div>
+
+            <!-- NOME -->
+
+            <div class="pr-field">
+
+              <label for="pr-name">
+                Nome e cognome *
+              </label>
+
+              <input type="text"
+                     id="pr-name"
+                     name="nome_cognome"
+                     placeholder="Inserisci nome e cognome"
+                     autocomplete="name"
+                     required>
+
+            </div>
+
+            <!-- DATA DI NASCITA -->
+
+            <div class="pr-field">
+
+              <label for="pr-birth">
+                Data di nascita *
+              </label>
+
+              <input type="text"
+                     id="pr-birth"
+                     name="data_di_nascita"
+                     placeholder="GG/MM/AAAA"
+                     inputmode="numeric"
+                     maxlength="10"
+                     pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}"
+                     title="Inserisci la data nel formato GG/MM/AAAA"
+                     autocomplete="bday"
+                     required>
+
+              <small>
+                Per partecipare è necessario aver compiuto 18 anni.
+              </small>
+
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="pr-field">
+
+              <label for="pr-email">
+                Indirizzo email *
+              </label>
+
+              <input type="email"
+                     id="pr-email"
+                     name="email"
+                     placeholder="nome@dominio.it"
+                     autocomplete="email"
+                     required>
+
+            </div>
+
+            <!-- TIPOLOGIA ARTISTA -->
+
+            <div class="pr-field">
+
+              <label for="pr-type">
+                Tipologia artista *
+              </label>
+
+              <input type="text"
+                     id="pr-type"
+                     name="tipologia_artista"
+                     placeholder="Es. cantante solista, duo acustico, band rock..."
+                     required>
+
+            </div>
+
+            <!-- NOME D'ARTE -->
+
+            <div class="pr-field">
+
+              <label for="pr-stage">
+                Nome d'arte / Nome del gruppo
+              </label>
+
+              <input type="text"
+                     id="pr-stage"
+                     name="nome_arte"
+                     placeholder="Inserisci il nome del tuo progetto musicale">
+
+            </div>
+
+            <!-- PRESENTAZIONE -->
+
+            <div class="pr-field">
+
+              <label for="pr-presentation">
+                Presentazione artistica *
+              </label>
+
+              <textarea id="pr-presentation"
+                        name="presentazione_artistica"
+                        rows="5"
+                        maxlength="1000"
+                        placeholder="Raccontaci il tuo percorso musicale, il tuo stile e il tuo progetto artistico..."
+                        required></textarea>
+
+              <small>
+                Massimo 1.000 caratteri.
+              </small>
+
+            </div>
+
+            <!-- LINK BRANO -->
+
+            <div class="pr-field">
+
+              <label for="pr-link">
+                Link al tuo brano originale *
+              </label>
+
+              <input type="url"
+                     id="pr-link"
+                     name="link_brano_originale"
+                     placeholder="https://..."
+                     required>
+
+              <small>
+                Inserisci un link che permetta alla giuria di ascoltare
+                o guardare il tuo brano direttamente online.
+                Sono accettati YouTube, Vimeo, SoundCloud, Google Drive,
+                Dropbox e altre piattaforme.
+                Assicurati che il contenuto sia accessibile senza
+                richieste di autorizzazione o download obbligatori.
+              </small>
+
+            </div>
+
+            <!-- ESIGENZE TECNICHE -->
+
+            <div class="pr-field">
+
+              <label for="pr-tech">
+                Esigenze tecniche
+              </label>
+
+              <textarea id="pr-tech"
+                        name="esigenze_tecniche"
+                        rows="4"
+                        placeholder="Descrivi gli strumenti, le attrezzature e le eventuali esigenze tecniche per la tua esibizione..."></textarea>
+
+              <small>
+                Campo facoltativo.
+              </small>
+
+            </div>
+
+            <!-- PRIVACY -->
+
+            <div class="pr-privacy">
+
+              <label class="pr-check">
+
+                <input type="checkbox"
+                       id="pr-privacy"
+                       name="presa_visione_privacy"
+                       value="Sì"
+                       required>
+
+                <span>
+                  Dichiaro di aver letto l'
+                  <a href="https://pioveneauditorium.it/privacy.html"
+                     target="_blank"
+                     rel="noopener">
+                    informativa sulla privacy
+                  </a>.
+                </span>
+
+              </label>
+
+            </div>
+
+            <!-- INVIO -->
+
+            <button type="submit" id="pr-submit">
+              INVIA CANDIDATURA
+            </button>
+
+            <div id="pr-message"
+                 role="status"
+                 aria-live="polite"></div>
+
+          </form>
 
         </div>
 
@@ -1602,14 +1546,16 @@
         <details>
           <summary>Chi sceglie il vincitore?</summary>
           <p>
-            Le sfide saranno valutate da una <strong>giuria qualificata</strong>.
+            Le sfide saranno valutate da una
+            <strong>giuria qualificata</strong>.
           </p>
         </details>
 
         <details>
           <summary>Qual è il premio finale?</summary>
           <p>
-            La realizzazione di un <strong>video musicale professionale</strong>
+            La realizzazione di un
+            <strong>video musicale professionale</strong>
             di un proprio brano.
           </p>
         </details>
@@ -1617,7 +1563,8 @@
         <details>
           <summary>Quando si svolgerà Piovene Rocks?</summary>
           <p>
-            La prima edizione si terrà nella <strong>primavera 2027</strong>
+            La prima edizione si terrà nella
+            <strong>primavera 2027</strong>
             presso l'Auditorium di Piovene Rocchette.
             Le date precise saranno comunicate successivamente.
           </p>
@@ -1626,9 +1573,9 @@
         <details>
           <summary>Come posso candidarmi?</summary>
           <p>
-            Il modulo ufficiale sarà pubblicato prossimamente
+            Puoi candidarti compilando il modulo ufficiale
             direttamente su questa pagina.
-            <strong>Torna a visitarci per non perdere l'apertura delle candidature!</strong>
+            <strong>La candidatura è gratuita!</strong>
           </p>
         </details>
 
@@ -1653,12 +1600,13 @@
 
         <a href="#pr-candidature" class="pr-cta">
           <i class="fas fa-bolt"></i>
-          Candidature in arrivo
+          Presenta la tua candidatura
         </a>
 
       </div>
 
     </section>
+
 
     <p class="pr-update">
       Ultimo aggiornamento: novembre 2026
@@ -1668,11 +1616,207 @@
 
 </main>
 
-<!-- FOOTER DINAMICO DEL SITO -->
+<!-- FOOTER DINAMICO -->
 <div id="footer-container"></div>
 
 <!-- SCRIPT PRINCIPALI DEL SITO -->
 <script src="script.js" defer></script>
+
+<!-- =====================================
+     VALIDAZIONE E INVIO MODULO FORMSPREE
+===================================== -->
+
+<script>
+(function () {
+
+  const form = document.getElementById('piovene-rocks-form');
+
+  if (!form) return;
+
+  const privacy = document.getElementById('pr-privacy');
+  const submit = document.getElementById('pr-submit');
+  const message = document.getElementById('pr-message');
+  const birth = document.getElementById('pr-birth');
+
+  if (!privacy || !submit || !message || !birth) return;
+
+  let sending = false;
+
+  /* =====================================
+     CONTROLLO DATA E MAGGIORE ETA'
+  ===================================== */
+
+  function validateBirthDate() {
+
+    const value = birth.value.trim();
+
+    const match = value.match(
+      /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([0-9]{4})$/
+    );
+
+    if (!match) {
+      birth.setCustomValidity(
+        'Inserisci una data valida nel formato GG/MM/AAAA.'
+      );
+      return false;
+    }
+
+    const day = Number(match[1]);
+    const month = Number(match[2]);
+    const year = Number(match[3]);
+
+    if (year < 1900) {
+      birth.setCustomValidity('Inserisci una data di nascita valida.');
+      return false;
+    }
+
+    const date = new Date(year, month - 1, day);
+
+    if (
+      date.getFullYear() !== year ||
+      date.getMonth() !== month - 1 ||
+      date.getDate() !== day
+    ) {
+      birth.setCustomValidity('La data inserita non è valida.');
+      return false;
+    }
+
+    const today = new Date();
+
+    let age = today.getFullYear() - year;
+
+    if (
+      today.getMonth() < month - 1 ||
+      (
+        today.getMonth() === month - 1 &&
+        today.getDate() < day
+      )
+    ) {
+      age--;
+    }
+
+    if (date > today) {
+      birth.setCustomValidity(
+        'La data non può essere futura.'
+      );
+      return false;
+    }
+
+    if (age < 18) {
+      birth.setCustomValidity(
+        'Per partecipare a Piovene Rocks è necessario avere almeno 18 anni.'
+      );
+      return false;
+    }
+
+    birth.setCustomValidity('');
+
+    return true;
+  }
+
+  birth.addEventListener('input', function () {
+    birth.setCustomValidity('');
+  });
+
+  birth.addEventListener('blur', validateBirthDate);
+
+
+  /* =====================================
+     INVIO TRAMITE FORMSPREE
+  ===================================== */
+
+  form.addEventListener('submit', async function (event) {
+
+    event.preventDefault();
+
+    if (sending) return;
+
+    message.className = '';
+    message.textContent = '';
+
+    if (!form.reportValidity()) return;
+
+    if (!validateBirthDate()) {
+      birth.reportValidity();
+      return;
+    }
+
+    if (!privacy.checked) {
+      privacy.reportValidity();
+      return;
+    }
+
+    /* CONTROLLO HONEYPOT */
+
+    const honeypot = form.querySelector('[name="_gotcha"]');
+
+    if (honeypot && honeypot.value !== '') {
+      return;
+    }
+
+    sending = true;
+
+    submit.disabled = true;
+    submit.textContent = 'INVIO IN CORSO...';
+
+    try {
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+
+        const result = await response.json().catch(() => ({}));
+
+        const errorText = result.errors
+          ? result.errors.map(error => error.message).join(' ')
+          : 'Non è stato possibile inviare la candidatura.';
+
+        throw new Error(errorText);
+      }
+
+      /* INVIO RIUSCITO */
+
+      form.reset();
+
+      message.className = 'success';
+
+      message.textContent =
+        'Grazie! La tua candidatura a Piovene Rocks è stata inviata correttamente. Ti contatteremo all’indirizzo email indicato.';
+
+      message.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+
+    } catch (error) {
+
+      /* ERRORE DI INVIO */
+
+      message.className = 'error';
+
+      message.textContent =
+        error.message ||
+        'Errore di connessione. Riprova tra qualche minuto.';
+
+    } finally {
+
+      sending = false;
+
+      submit.disabled = false;
+      submit.textContent = 'INVIA CANDIDATURA';
+
+    }
+
+  });
+
+})();
+</script>
 
 </body>
 </html>
