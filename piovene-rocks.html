@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -485,6 +484,120 @@
       margin-top: 18px;
     }
 
+    /* FORM CANDIDATURA */
+
+    .pr-form {
+      max-width: 850px;
+      margin: 30px auto 0;
+      text-align: left;
+    }
+
+    .pr-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pr-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .pr-form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .pr-form-field label {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .pr-form-field input,
+    .pr-form-field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 14px;
+      border: 1px solid rgba(253,216,53,0.5);
+      border-radius: 7px;
+      background: #111;
+      color: #fff;
+      font: inherit;
+    }
+
+    .pr-form-field input::placeholder,
+    .pr-form-field textarea::placeholder {
+      color: #aaa;
+      opacity: 1;
+    }
+
+    .pr-form-field input:focus,
+    .pr-form-field textarea:focus {
+      outline: 2px solid var(--pr-yellow);
+      outline-offset: 2px;
+    }
+
+    .pr-form-field small {
+      margin-top: 0;
+      color: #bbb;
+      line-height: 1.5;
+    }
+
+    .pr-form-privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 22px 0;
+      color: #eee;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .pr-form-privacy input {
+      flex: 0 0 auto;
+      margin-top: 5px;
+      accent-color: var(--pr-yellow);
+    }
+
+    .pr-form-privacy a {
+      text-decoration: underline;
+    }
+
+    .pr-form-submit {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 30px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--pr-yellow);
+      color: #000;
+      font: inherit;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .pr-form-submit:hover {
+      background: #ffeb3b;
+    }
+
+    .pr-form-required {
+      text-align: center;
+      color: #bbb;
+      font-size: .9rem;
+      margin-top: 16px;
+    }
+
+    /* Campo anti-bot: non visibile agli utenti */
+    .pr-honeypot {
+      position: absolute !important;
+      left: -10000px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
     /* FAQ */
 
     .pr-faq {
@@ -625,6 +738,14 @@
       .pr-faq details p {
         padding: 0 16px 18px;
       }
+
+      .pr-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-form-field-full {
+        grid-column: auto;
+      }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -691,7 +812,6 @@
           per la sua prima edizione!
           <br>
           <strong>La candidatura è gratuita.</strong>
-          Il modulo ufficiale sarà disponibile a breve su questa pagina.
         </p>
       </div>
 
@@ -1007,20 +1127,164 @@
 
         <p>
           Se sei maggiorenne e vuoi partecipare a Piovene Rocks,
-          preparati a presentare la tua candidatura!
-          <br><br>
-          Il modulo di iscrizione sarà disponibile prossimamente
-          direttamente su questa pagina.
+          presenta la tua candidatura gratuita compilando il modulo qui sotto.
         </p>
 
-        <div class="pr-coming">
-          <i class="fas fa-clock"></i>
-          MODULO DI ISCRIZIONE IN ARRIVO
-        </div>
+        <form
+          class="pr-form"
+          id="pr-application"
+          action="https://formspree.io/f/xrpqrjby"
+          method="POST">
 
-        <p>
-          Per candidarti ti chiederemo di indicare:
-        </p>
+          <div class="pr-form-grid">
+
+            <div class="pr-form-field">
+              <label for="pr-nome">Nome e cognome *</label>
+              <input
+                type="text"
+                id="pr-nome"
+                name="nome_cognome"
+                autocomplete="name"
+                required>
+            </div>
+
+            <div class="pr-form-field">
+              <label for="pr-email">Email *</label>
+              <input
+                type="email"
+                id="pr-email"
+                name="email"
+                autocomplete="email"
+                placeholder="nome@esempio.it"
+                required>
+            </div>
+
+            <div class="pr-form-field">
+              <label for="pr-data-nascita">Data di nascita *</label>
+              <input
+                type="text"
+                id="pr-data-nascita"
+                name="data_nascita"
+                inputmode="numeric"
+                placeholder="gg/mm/aaaa"
+                pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}"
+                title="Inserisci la data nel formato gg/mm/aaaa"
+                required>
+            </div>
+
+            <div class="pr-form-field">
+              <label for="pr-comune">Comune di residenza *</label>
+              <input
+                type="text"
+                id="pr-comune"
+                name="comune"
+                autocomplete="address-level2"
+                required>
+            </div>
+
+            <div class="pr-form-field">
+              <label for="pr-tipologia">Tipologia artista *</label>
+              <input
+                type="text"
+                id="pr-tipologia"
+                name="tipologia_artista"
+                placeholder="Es. solista, duo, band…"
+                required>
+            </div>
+
+            <div class="pr-form-field">
+              <label for="pr-nome-arte">Nome d’arte / nome del progetto *</label>
+              <input
+                type="text"
+                id="pr-nome-arte"
+                name="nome_arte"
+                required>
+            </div>
+
+            <div class="pr-form-field pr-form-field-full">
+              <label for="pr-genere">Genere musicale *</label>
+              <input
+                type="text"
+                id="pr-genere"
+                name="genere_musicale"
+                placeholder="Es. rock, pop, indie, metal…"
+                required>
+            </div>
+
+            <div class="pr-form-field pr-form-field-full">
+              <label for="pr-descrizione">Descrizione dell’artista *</label>
+              <textarea
+                id="pr-descrizione"
+                name="descrizione_artista"
+                rows="5"
+                required></textarea>
+            </div>
+
+            <div class="pr-form-field pr-form-field-full">
+              <label for="pr-esigenze">Esigenze tecniche *</label>
+              <textarea
+                id="pr-esigenze"
+                name="esigenze_tecniche"
+                rows="3"
+                placeholder="Se non hai esigenze tecniche, scrivi “Nessuna”."
+                required></textarea>
+            </div>
+
+            <div class="pr-form-field pr-form-field-full">
+              <label for="pr-link">Link a un video o brano audio *</label>
+              <input
+                type="url"
+                id="pr-link"
+                name="link_audio_video"
+                placeholder="https://…"
+                required>
+              <small>
+                Inserisci un link accessibile online e riproducibile senza scaricare
+                il file, ad esempio YouTube, SoundCloud o Vimeo.
+              </small>
+            </div>
+
+          </div>
+
+          <label class="pr-form-privacy" for="pr-privacy">
+            <input
+              type="checkbox"
+              id="pr-privacy"
+              name="privacy"
+              value="accettata"
+              required>
+            <span>
+              Dichiaro di aver letto
+              <a
+                href="INSERISCI-QUI-LINK-INFORMATIVA-PRIVACY"
+                target="_blank"
+                rel="noopener">
+                l’informativa sul trattamento dei dati personali
+              </a>
+              e acconsento al trattamento dei dati per la gestione della candidatura. *
+            </span>
+          </label>
+
+          <!-- Campo anti-spam: deve rimanere vuoto. -->
+          <div class="pr-honeypot" aria-hidden="true">
+            <label for="pr-website">Lascia vuoto</label>
+            <input
+              type="text"
+              id="pr-website"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off">
+          </div>
+
+          <button class="pr-form-submit" type="submit">
+            Invia la candidatura
+          </button>
+
+          <p class="pr-form-required">
+            * Tutti i campi sono obbligatori.
+          </p>
+
+        </form>
 
         <div class="pr-grid" style="text-align:left; margin-top:20px;">
 
@@ -1157,9 +1421,8 @@
         <details>
           <summary>Come posso candidarmi?</summary>
           <p>
-            Il modulo ufficiale sarà pubblicato prossimamente
-            direttamente su questa pagina.
-            <strong>Torna a visitarci per non perdere l'apertura delle candidature!</strong>
+            Puoi candidarti compilando il modulo di iscrizione
+            presente in questa pagina.
           </p>
         </details>
 
@@ -1184,7 +1447,7 @@
 
         <a href="#pr-candidature" class="pr-cta">
           <i class="fas fa-bolt"></i>
-          Candidature in arrivo
+          Candidati ora
         </a>
 
       </div>
